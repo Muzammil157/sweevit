@@ -1,0 +1,186 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-header.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<script src="{{ 'sweevit-header.js' | asset_url }}" defer="defer"></script>
+
+<header
+  class="sweevit-header{% if section.settings.enable_sticky %} sweevit-header--sticky{% endif %}"
+  id="sweevit-header-{{ section.id }}"
+>
+  <div class="sweevit-header__inner">
+    {%- comment -%} Logo {%- endcomment -%}
+    {%- if request.page_type == 'index' -%}
+      <h1 class="sweevit-header__logo">
+    {%- else -%}
+      <div class="sweevit-header__logo">
+    {%- endif -%}
+      <a href="{{ routes.root_url }}" class="sweevit-header__logo-link" aria-label="{{ shop.name }}">
+        {%- if section.settings.logo != blank -%}
+          {{
+            section.settings.logo
+            | image_url: width: 300
+            | image_tag:
+              class: 'sweevit-header__logo-image',
+              widths: '150, 200, 300',
+              alt: section.settings.logo.alt | default: shop.name
+          }}
+        {%- else -%}
+          <span class="sweevit-header__logo-text">{{ section.settings.logo_text | default: 'sweevit' }}</span>
+        {%- endif -%}
+      </a>
+    {%- if request.page_type == 'index' -%}
+      </h1>
+    {%- else -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Desktop Navigation {%- endcomment -%}
+    {%- if section.settings.menu != blank -%}
+      <nav class="sweevit-header__nav" aria-label="{{ 'sections.header.navigation' | t }}">
+        <ul class="sweevit-header__menu" role="list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="sweevit-header__menu-link{% if link.active %} sweevit-header__menu-link--active{% endif %}"
+                {% if link.current %}aria-current="page"{% endif %}
+              >
+                {{ link.title | upcase }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    {%- comment -%} Actions: Search + CTA {%- endcomment -%}
+    <div class="sweevit-header__actions">
+      {%- if section.settings.show_search -%}
+        {% render 'sweevit-header-search', input_id: 'Sweevit-Search-' | append: section.id %}
+      {%- endif -%}
+
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="sweevit-header__cta">
+          {{ section.settings.cta_label | upcase }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.menu != blank -%}
+        <button
+          type="button"
+          class="sweevit-header__menu-toggle"
+          data-sweevit-menu-toggle
+          aria-label="{{ 'sections.header.menu' | t }}"
+          aria-expanded="false"
+          aria-controls="SweevitDrawer-{{ section.id }}"
+        >
+          <span class="svg-wrapper">{{ 'icon-hamburger.svg' | inline_asset_content }}</span>
+        </button>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- comment -%} Mobile Drawer {%- endcomment -%}
+  {%- if section.settings.menu != blank -%}
+    <div
+      class="sweevit-header__drawer"
+      id="SweevitDrawer-{{ section.id }}"
+      data-sweevit-drawer
+      aria-hidden="true"
+    >
+      <div class="sweevit-header__drawer-overlay" data-sweevit-drawer-overlay></div>
+      <div class="sweevit-header__drawer-panel">
+        <button
+          type="button"
+          class="sweevit-header__drawer-close"
+          data-sweevit-drawer-close
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          <span class="svg-wrapper">{{ 'icon-close.svg' | inline_asset_content }}</span>
+        </button>
+
+        <ul class="sweevit-header__drawer-menu" role="list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="sweevit-header__drawer-link"
+                {% if link.current %}aria-current="page"{% endif %}
+              >
+                {{ link.title | upcase }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="sweevit-header__drawer-cta">
+            {{ section.settings.cta_label | upcase }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</header>
+
+{% schema %}
+{
+  "name": "Sweevit Header",
+  "class": "section-sweevit-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "sweevit",
+      "info": "Used when no logo image is uploaded"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "LOREM IPSUM"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky header",
+      "default": true
+    }
+  ],
+  "enabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}
