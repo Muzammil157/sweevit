@@ -169,32 +169,60 @@
         "padding_bottom": 0
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "sweevit_product_showcase": {
+      "type": "sweevit-product-showcase",
+      "blocks": {
+        "highlight_focus": {
+          "type": "highlight",
+          "settings": {
+            "icon": "focus",
+            "title": "Focus",
+            "description": "Mental clarity & concentration"
+          }
+        },
+        "highlight_energy": {
+          "type": "highlight",
+          "settings": {
+            "icon": "energy",
+            "title": "Energy",
+            "description": "Natural energy without the crash"
+          }
+        },
+        "highlight_wellness": {
+          "type": "highlight",
+          "settings": {
+            "icon": "wellness",
+            "title": "Wellness",
+            "description": "Support your body & mind daily"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_focus",
+        "highlight_energy",
+        "highlight_wellness"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "heading": "Sweevit Functional Gummies",
+        "subheading": "Focus, Energy & Wellness",
+        "show_rating": true,
+        "rating_value": "4.9",
+        "review_count": "217",
+        "review_label": "reviews",
+        "show_subscribe": true,
+        "default_purchase_option": "subscribe",
+        "one_time_label": "One-time purchase",
+        "subscribe_label": "Subscribe & Save 20%",
+        "one_time_price_fallback": "$39.00",
+        "subscribe_price_fallback": "$31.20",
+        "perk_1": "Free shipping",
+        "perk_2": "Cancel anytime",
+        "perk_3": "Priority access",
+        "button_label": "Add to cart",
+        "secure_checkout_text": "Secure checkout",
+        "background_color": "#F7F7F5",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
@@ -202,6 +230,6 @@
     "sweevit_hero",
     "sweevit_benefits",
     "sweevit_difference",
-    "featured_collection"
+    "sweevit_product_showcase"
   ]
 }
