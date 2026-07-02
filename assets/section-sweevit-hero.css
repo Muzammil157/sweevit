@@ -297,12 +297,17 @@
   }
 
   .sweevit-hero__actions {
-    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .sweevit-hero__btn--primary,
-  .sweevit-hero__btn--secondary {
-    width: 100%;
+  .sweevit-hero__actions::-webkit-scrollbar {
+    display: none;
   }
 
   .sweevit-hero__press-list {
