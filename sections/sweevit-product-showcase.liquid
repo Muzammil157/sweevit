@@ -5,9 +5,7 @@
   assign product = section.settings.product
   assign heading = section.settings.heading
   assign subtitle = section.settings.subheading
-
   if product != blank
-    assign current_variant = product.selected_or_first_available_variant
     assign onetime_price = current_variant.price | money
     assign first_selling_plan = nil
     assign subscribe_price = section.settings.subscribe_price_fallback
