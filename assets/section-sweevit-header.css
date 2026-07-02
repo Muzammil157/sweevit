@@ -352,8 +352,8 @@ body.sweevit-drawer-open {
   opacity: 0;
   transform: translate3d(-1.6rem, 0, 0);
   transition:
-    opacity 0.38s var(--sweevit-ease-premium),
-    transform 0.38s var(--sweevit-ease-premium);
+    opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sweevit-header__drawer.is-open .sweevit-header__drawer-menu li {
@@ -361,18 +361,18 @@ body.sweevit-drawer-open {
   transform: translate3d(0, 0, 0);
 }
 
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(1) { transition-delay: 0.1s; }
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(2) { transition-delay: 0.16s; }
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(3) { transition-delay: 0.22s; }
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(4) { transition-delay: 0.28s; }
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(5) { transition-delay: 0.34s; }
-.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(6) { transition-delay: 0.4s; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(1) { transition-delay: 100ms; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(2) { transition-delay: 160ms; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(3) { transition-delay: 220ms; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(4) { transition-delay: 280ms; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(5) { transition-delay: 340ms; }
+.sweevit-header__drawer.is-open .sweevit-header__drawer-menu li:nth-child(6) { transition-delay: 400ms; }
 
 .sweevit-header__drawer.is-closing .sweevit-header__drawer-menu li {
   opacity: 0;
   transform: translate3d(-0.8rem, 0, 0);
-  transition-delay: 0s;
-  transition-duration: 0.18s;
+  transition-delay: 0ms;
+  transition-duration: 180ms;
 }
 
 .sweevit-header__drawer-link {
@@ -413,21 +413,21 @@ body.sweevit-drawer-open {
   opacity: 0;
   transform: translate3d(0, 1.2rem, 0);
   transition:
-    opacity 0.4s var(--sweevit-ease-premium),
-    transform 0.4s var(--sweevit-ease-premium);
+    opacity 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sweevit-header__drawer.is-open .sweevit-header__drawer-cta {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  transition-delay: 0.38s;
+  transition-delay: 380ms;
 }
 
 .sweevit-header__drawer.is-closing .sweevit-header__drawer-cta {
   opacity: 0;
   transform: translate3d(0, 0.8rem, 0);
-  transition-delay: 0s;
-  transition-duration: 0.2s;
+  transition-delay: 0ms;
+  transition-duration: 200ms;
 }
 
 .sweevit-header__drawer-cta:hover,
@@ -443,7 +443,7 @@ body.sweevit-drawer-open {
   .sweevit-header__drawer-close,
   .sweevit-header__drawer-menu li,
   .sweevit-header__drawer-cta {
-    transition-duration: 0.01ms !important;
-    transition-delay: 0s !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
   }
 }
