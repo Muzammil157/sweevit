@@ -78,6 +78,48 @@
         "padding_bottom": 0
       }
     },
+    "sweevit_benefits": {
+      "type": "sweevit-benefits",
+      "blocks": {
+        "benefit_focus": {
+          "type": "benefit",
+          "settings": {
+            "icon": "focus",
+            "title": "Focus",
+            "description": "Mental clarity & concentration to power through your day without distraction."
+          }
+        },
+        "benefit_energy": {
+          "type": "benefit",
+          "settings": {
+            "icon": "energy",
+            "title": "Energy",
+            "description": "Natural energy without the crash — sustained vitality from morning to evening."
+          }
+        },
+        "benefit_wellness": {
+          "type": "benefit",
+          "settings": {
+            "icon": "wellness",
+            "title": "Wellness",
+            "description": "Support your body and mind daily with premium functional ingredients."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_focus",
+        "benefit_energy",
+        "benefit_wellness"
+      ],
+      "settings": {
+        "eyebrow": "Why Sweevit",
+        "heading": "Feel Better. Every Day.",
+        "subheading": "Three powerful benefits. One simple gummy.",
+        "background_color": "#FFFFFF",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -109,6 +151,7 @@
   },
   "order": [
     "sweevit_hero",
+    "sweevit_benefits",
     "featured_collection"
   ]
 }

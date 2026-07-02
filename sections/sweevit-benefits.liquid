@@ -1,0 +1,217 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-benefits.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitBenefits-{{ section.id }} {
+    --sweevit-benefits-bg: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitBenefits-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitBenefits-{{ section.id }}"
+  class="sweevit-benefits"
+>
+  <div class="sweevit-benefits__inner">
+    <div class="sweevit-benefits__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-benefits__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-benefits__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="sweevit-benefits__subheading">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-benefits__grid">
+        {%- for block in section.blocks -%}
+          <article class="sweevit-benefits__card" {{ block.shopify_attributes }}>
+            <div class="sweevit-benefits__icon-wrap">
+              {%- if block.settings.icon_image != blank -%}
+                {%- assign icon_alt = block.settings.title | default: 'Benefit icon' | escape -%}
+                {{
+                  block.settings.icon_image
+                  | image_url: width: 44
+                  | image_tag: alt: icon_alt, loading: 'lazy'
+                }}
+              {%- else -%}
+                {%- case block.settings.icon -%}
+                  {%- when 'energy' -%}
+                    {{- 'icon-sweevit-energy.svg' | inline_asset_content -}}
+                  {%- when 'wellness' -%}
+                    {{- 'icon-sweevit-wellness.svg' | inline_asset_content -}}
+                  {%- else -%}
+                    {{- 'icon-sweevit-focus.svg' | inline_asset_content -}}
+                {%- endcase -%}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="sweevit-benefits__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="sweevit-benefits__card-text">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit Benefits",
+  "tag": "section",
+  "class": "section-sweevit-benefits",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why Sweevit"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Feel Better. Every Day."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Three powerful benefits. One simple gummy."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "focus",
+              "label": "Focus"
+            },
+            {
+              "value": "energy",
+              "label": "Energy"
+            },
+            {
+              "value": "wellness",
+              "label": "Wellness"
+            }
+          ],
+          "default": "focus"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon image",
+          "info": "Optional. Overrides the selected icon. Recommended: 22 x 22px"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Focus"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Mental clarity & concentration to power through your day without distraction."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "focus",
+            "title": "Focus",
+            "description": "Mental clarity & concentration to power through your day without distraction."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "energy",
+            "title": "Energy",
+            "description": "Natural energy without the crash — sustained vitality from morning to evening."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "wellness",
+            "title": "Wellness",
+            "description": "Support your body and mind daily with premium functional ingredients."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
