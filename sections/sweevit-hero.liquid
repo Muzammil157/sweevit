@@ -1,0 +1,314 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitHero-{{ section.id }} {
+    --sweevit-hero-bg: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitHero-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitHero-{{ section.id }}"
+  class="sweevit-hero"
+>
+  <div class="sweevit-hero__inner">
+    <div class="sweevit-hero__grid">
+      <div class="sweevit-hero__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sweevit-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading_line_1 != blank or section.settings.heading_gradient != blank -%}
+          <h2 class="sweevit-hero__heading">
+            {%- if section.settings.heading_line_1 != blank -%}
+              <span class="sweevit-hero__heading-line">{{ section.settings.heading_line_1 | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.heading_gradient != blank -%}
+              <span class="sweevit-hero__heading-gradient">{{ section.settings.heading_gradient | escape }}</span>
+            {%- endif -%}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p class="sweevit-hero__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+
+        <div class="sweevit-hero__actions">
+          {%- if section.settings.button_primary_label != blank -%}
+            <a
+              href="{{ section.settings.button_primary_link | default: routes.all_products_collection_url }}"
+              class="sweevit-hero__btn sweevit-hero__btn--primary"
+            >
+              {{ section.settings.button_primary_label | escape }}
+            </a>
+          {%- endif -%}
+
+          {%- if section.settings.button_secondary_label != blank -%}
+            {%- if section.settings.button_secondary_link != blank -%}
+              <a
+                href="{{ section.settings.button_secondary_link }}"
+                class="sweevit-hero__btn sweevit-hero__btn--secondary"
+              >
+                {{ section.settings.button_secondary_label | escape }}
+                <span class="sweevit-hero__btn-arrow" aria-hidden="true">→</span>
+              </a>
+            {%- else -%}
+              <span class="sweevit-hero__btn sweevit-hero__btn--secondary" role="text">
+                {{ section.settings.button_secondary_label | escape }}
+                <span class="sweevit-hero__btn-arrow" aria-hidden="true">→</span>
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="sweevit-hero__media">
+        <div class="sweevit-hero__media-frame">
+          {%- if section.settings.image != blank -%}
+            {%- liquid
+              assign hero_image_alt = section.settings.image.alt | default: shop.name | escape
+              assign hero_fetch_priority = 'auto'
+              if section.index == 1
+                assign hero_fetch_priority = 'high'
+              endif
+            -%}
+            {{
+              section.settings.image
+              | image_url: width: 1642
+              | image_tag:
+                class: 'sweevit-hero__image',
+                widths: '400, 600, 821, 1200, 1642',
+                sizes: '(min-width: 990px) 57vw, 100vw',
+                alt: hero_image_alt,
+                width: 821,
+                height: 685,
+                fetchpriority: hero_fetch_priority,
+                loading: 'eager'
+            }}
+          {%- else -%}
+            <div class="sweevit-hero__placeholder">
+              {{ 'product-apparel-2' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-hero__press">
+        <ul class="sweevit-hero__press-list" role="list">
+          {%- for block in section.blocks -%}
+            <li class="sweevit-hero__press-item" {{ block.shopify_attributes }}>
+              {%- if block.settings.logo_image != blank -%}
+                {%- assign press_alt = block.settings.logo_text | default: 'Press logo' | escape -%}
+                {{
+                  block.settings.logo_image
+                  | image_url: width: 280
+                  | image_tag:
+                    class: 'sweevit-hero__press-image',
+                    widths: '140, 200, 280',
+                    alt: press_alt,
+                    loading: 'lazy'
+                }}
+              {%- elsif block.settings.logo_text != blank -%}
+                <span class="sweevit-hero__press-text">{{ block.settings.logo_text | escape }}</span>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit Hero",
+  "tag": "section",
+  "class": "section-sweevit-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Focus. Energy. Wellness."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "ONE DAILY"
+    },
+    {
+      "type": "text",
+      "id": "heading_gradient",
+      "label": "Heading gradient word",
+      "default": "RITUAL.",
+      "info": "Displayed with gold gradient styling"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Functional gummies designed to support focus, natural energy and daily wellbeing."
+    },
+    {
+      "type": "header",
+      "content": "Primary button"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_label",
+      "label": "Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary button"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_label",
+      "label": "Label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image",
+      "info": "Recommended size: 821 x 685px"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F7F7F5"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "press_logo",
+      "name": "Press logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "logo_text",
+          "label": "Logo text",
+          "default": "Forbes",
+          "info": "Used when no image is uploaded"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo image",
+          "info": "Optional. Overrides text when set"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit Hero",
+      "blocks": [
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Forbes"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Forbes"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Women's Health"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "GQ"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "VOGUE"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Esquire"
+          }
+        },
+        {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Women's Health"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
