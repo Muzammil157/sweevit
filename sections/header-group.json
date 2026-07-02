@@ -21,9 +21,80 @@
         "show_search": true,
         "enable_sticky": true
       }
+    },
+    "sweevit_hero_jwU6xH": {
+      "type": "sweevit-hero",
+      "blocks": {
+        "press_logo_3eCXJR": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Forbes"
+          }
+        },
+        "press_logo_7BPygC": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Forbes"
+          }
+        },
+        "press_logo_PkBDpk": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Women's Health"
+          }
+        },
+        "press_logo_R3yy4b": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "GQ"
+          }
+        },
+        "press_logo_7aYqHW": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "VOGUE"
+          }
+        },
+        "press_logo_699ewU": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Esquire"
+          }
+        },
+        "press_logo_ztGGtR": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Women's Health"
+          }
+        }
+      },
+      "block_order": [
+        "press_logo_3eCXJR",
+        "press_logo_7BPygC",
+        "press_logo_PkBDpk",
+        "press_logo_R3yy4b",
+        "press_logo_7aYqHW",
+        "press_logo_699ewU",
+        "press_logo_ztGGtR"
+      ],
+      "name": "Sweevit Hero",
+      "settings": {
+        "eyebrow": "Focus. Energy. Wellness.",
+        "heading_line_1": "ONE DAILY",
+        "heading_gradient": "RITUAL.",
+        "description": "Functional gummies designed to support focus, natural energy and daily wellbeing.",
+        "button_primary_label": "Shop Now",
+        "button_primary_link": "",
+        "button_secondary_label": "Learn More",
+        "button_secondary_link": "",
+        "background_color": "#F7F7F5",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
-    "sweevit-header"
+    "sweevit-header",
+    "sweevit_hero_jwU6xH"
   ]
 }
