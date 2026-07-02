@@ -57,7 +57,8 @@
     {%- comment -%} Actions: Search + CTA {%- endcomment -%}
     <div class="sweevit-header__actions">
       {%- if section.settings.show_search -%}
-        {% render 'sweevit-header-search', input_id: 'Sweevit-Search-' | append: section.id %}
+        {%- capture sweevit_search_id -%}Sweevit-Search-{{ section.id }}{%- endcapture -%}
+        {% render 'sweevit-header-search', input_id: sweevit_search_id %}
       {%- endif -%}
 
       {%- if section.settings.cta_label != blank -%}
