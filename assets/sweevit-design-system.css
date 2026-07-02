@@ -16,6 +16,8 @@
   --sweevit-hero-bg: #F7F7F5;
   --sweevit-icon-gold: #D9A93A;
   --sweevit-difference-gradient: linear-gradient(90deg, #1A1A1A 0%, #231F1A 59.13%, #2D2414 98.08%);
+  --sweevit-atc-gradient: linear-gradient(90deg, #EFCB6B 0%, #C79426 100%);
+  --sweevit-product-bg: #F7F7F5;
   --sweevit-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --sweevit-page-width: 144rem;
   --sweevit-page-gutter: 4rem;
