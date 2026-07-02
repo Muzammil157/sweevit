@@ -16,7 +16,7 @@
   --sweevit-page-width: 144rem;
   --sweevit-page-gutter: 4rem;
 }
-
+  
 @media screen and (max-width: 749px) {
   :root {
     --sweevit-page-gutter: 2rem;
