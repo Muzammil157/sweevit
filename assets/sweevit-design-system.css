@@ -1,0 +1,24 @@
+/* Sweevit Brand Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --sweevit-holographic-silver: #F2F2F2;
+  --sweevit-pure-white: #FFFFFF;
+  --sweevit-light-silver: #EBEBEB;
+  --sweevit-dark-charcoal: #1A1A1A;
+  --sweevit-honey-gold: #D9A93A;
+  --sweevit-honey-gold-dark: #C8942E;
+  --sweevit-honey-gold-light: #E8C04A;
+  --sweevit-search-bg: #F5EDD9;
+  --sweevit-footer-gradient: linear-gradient(90deg, #1A1A1F 0%, #26211A 60%, #2E2414 100%);
+  --sweevit-cta-gradient: linear-gradient(90deg, #E8C04A 0%, #D9A93A 50%, #C8942E 100%);
+  --sweevit-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --sweevit-page-width: 144rem;
+  --sweevit-page-gutter: 4rem;
+}
+
+@media screen and (max-width: 749px) {
+  :root {
+    --sweevit-page-gutter: 2rem;
+  }
+}
