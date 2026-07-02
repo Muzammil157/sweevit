@@ -6,6 +6,7 @@
   assign heading = section.settings.heading
   assign subtitle = section.settings.subheading
   if product != blank
+    assign current_variant = product.selected_or_first_available_variant
     assign onetime_price = current_variant.price | money
     assign first_selling_plan = nil
     assign subscribe_price = section.settings.subscribe_price_fallback
@@ -33,10 +34,6 @@
     if subtitle == blank
       assign subtitle = 'Focus, Energy & Wellness'
     endif
-  endif
-
-  if subtitle == blank and section.settings.subheading != blank
-    assign subtitle = section.settings.subheading
   endif
 
   assign product_form_id = 'sweevit-product-form-' | append: section.id
@@ -147,7 +144,7 @@
           </div>
         {%- endif -%}
 
-        <div class="sweevit-product__options" role="radiogroup" aria-label="{{ 'products.product.quantity.label' | t }}">
+        <div class="sweevit-product__options" role="radiogroup" aria-label="Purchase option">
           <label
             class="sweevit-product__option{% if default_option == 'onetime' %} is-active{% endif %}"
             data-purchase-option
@@ -219,7 +216,9 @@
 
         {%- if product != blank -%}
           <product-form class="product-form" data-section-id="{{ section.id }}">
-            <div class="sweevit-product__form-error" role="alert" hidden data-product-error></div>
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <span class="product-form__error-message"></span>
+            </div>
 
             {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
               <input
