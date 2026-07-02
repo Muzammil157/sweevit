@@ -19,14 +19,19 @@
   margin: 0 auto;
   padding: 2rem var(--sweevit-page-gutter);
   min-height: 7.2rem;
+  box-sizing: border-box;
 }
 
 /* Logo */
+.sweevit-header__logo {
+  margin: 0;
+  flex-shrink: 0;
+}
+
 .sweevit-header__logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  flex-shrink: 0;
 }
 
 .sweevit-header__logo-text {
@@ -99,10 +104,13 @@
 /* Search */
 .sweevit-header__search {
   position: relative;
+  display: inline-flex;
+  line-height: 0;
 }
 
-.sweevit-header__logo {
-  margin: 0;
+.sweevit-header__search details {
+  position: relative;
+  display: inline-flex;
 }
 
 .sweevit-header__search-toggle {
@@ -117,7 +125,12 @@
   cursor: pointer;
   padding: 0;
   color: var(--sweevit-honey-gold);
+  list-style: none;
   transition: background-color 0.2s ease;
+}
+
+.sweevit-header__search-toggle::-webkit-details-marker {
+  display: none;
 }
 
 .sweevit-header__search-toggle:hover {
@@ -135,19 +148,43 @@
   height: 2rem;
 }
 
-.sweevit-header__search-toggle {
-  display: flex;
-
-.sweevit-header__search-toggle .sweevit-header__search-close {
+.sweevit-header__search details:not([open]) .sweevit-header__search-close {
   display: none;
 }
 
-.sweevit-header__search[open] .sweevit-header__search-toggle .sweevit-header__search-open {
+.sweevit-header__search details[open] .sweevit-header__search-open {
   display: none;
 }
 
-.sweevit-header__search[open] .sweevit-header__search-toggle .sweevit-header__search-close {
+.sweevit-header__search details[open] .sweevit-header__search-close {
   display: flex;
+}
+
+.sweevit-header__search details:not([open]) > .search-modal {
+  display: none;
+}
+
+.sweevit-header__search details[open] > .search-modal {
+  display: block;
+  opacity: 1;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  z-index: 1000;
+  border: none;
+}
+
+.sweevit-header__search .search-modal__content {
+  background: var(--sweevit-pure-white);
+  font-family: var(--sweevit-font);
+}
+
+.sweevit-header__search .modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.5);
 }
 
 /* CTA Button */
@@ -167,8 +204,6 @@
   text-decoration: none;
   white-space: nowrap;
   transition: opacity 0.2s ease, transform 0.2s ease;
-  border: none;
-  cursor: pointer;
 }
 
 @media screen and (min-width: 750px) {
@@ -181,6 +216,8 @@
 .sweevit-header__cta:focus-visible {
   opacity: 0.92;
   transform: translateY(-1px);
+  color: var(--sweevit-dark-charcoal);
+  text-decoration: none;
 }
 
 /* Mobile menu toggle */
@@ -203,6 +240,7 @@
 }
 
 .sweevit-header__menu-toggle .svg-wrapper {
+  display: flex;
   width: 2.4rem;
   height: 2.4rem;
 }
@@ -211,18 +249,16 @@
   fill: var(--sweevit-dark-charcoal);
 }
 
-/* Mobile drawer */
+/* Mobile drawer — hidden by default */
 .sweevit-header__drawer {
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 999;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .sweevit-header__drawer.is-open {
-  visibility: visible;
-  pointer-events: auto;
+  display: block;
 }
 
 .sweevit-header__drawer-overlay {
@@ -250,6 +286,7 @@
   flex-direction: column;
   padding: 2.4rem var(--sweevit-page-gutter);
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .sweevit-header__drawer.is-open .sweevit-header__drawer-panel {
@@ -267,6 +304,7 @@
   border: none;
   cursor: pointer;
   margin-bottom: 2rem;
+  padding: 0;
 }
 
 .sweevit-header__drawer-close svg {
@@ -283,6 +321,7 @@
 
 .sweevit-header__drawer-menu li {
   border-bottom: 1px solid var(--sweevit-light-silver);
+  list-style: none;
 }
 
 .sweevit-header__drawer-link {
@@ -296,8 +335,10 @@
   text-decoration: none;
 }
 
-.sweevit-header__drawer-link:hover {
+.sweevit-header__drawer-link:hover,
+.sweevit-header__drawer-link:focus-visible {
   color: var(--sweevit-honey-gold);
+  text-decoration: none;
 }
 
 .sweevit-header__drawer-cta {
@@ -317,13 +358,12 @@
   text-decoration: none;
   width: 100%;
   text-align: center;
+  box-sizing: border-box;
 }
 
-/* Search modal overrides for Sweevit */
-.sweevit-header .search-modal {
-  font-family: var(--sweevit-font);
-}
-
-.sweevit-header .search-modal__content {
-  background: var(--sweevit-pure-white);
+.sweevit-header__drawer-cta:hover,
+.sweevit-header__drawer-cta:focus-visible {
+  opacity: 0.92;
+  color: var(--sweevit-dark-charcoal);
+  text-decoration: none;
 }
