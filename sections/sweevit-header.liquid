@@ -96,7 +96,13 @@
       data-sweevit-drawer
       aria-hidden="true"
     >
-      <div class="sweevit-header__drawer-overlay" data-sweevit-drawer-overlay></div>
+      <div
+        class="sweevit-header__drawer-overlay"
+        data-sweevit-drawer-overlay
+        role="presentation"
+      >
+        <span class="visually-hidden">{{ 'accessibility.close' | t }}</span>
+      </div>
       <div class="sweevit-header__drawer-panel">
         <button
           type="button"

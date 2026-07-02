@@ -231,6 +231,8 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  color: var(--sweevit-dark-charcoal);
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media screen and (min-width: 990px) {
@@ -243,10 +245,13 @@
   display: flex;
   width: 2.4rem;
   height: 2.4rem;
+  color: inherit;
 }
 
-.sweevit-header__menu-toggle svg {
-  fill: var(--sweevit-dark-charcoal);
+.sweevit-header__menu-toggle svg,
+.sweevit-header__menu-toggle svg path {
+  fill: currentColor;
+  color: inherit;
 }
 
 /* Mobile drawer */
@@ -266,24 +271,34 @@ body.sweevit-drawer-open {
 }
 
 .sweevit-header__drawer-overlay {
-  position: absolute;
+  display: block;
+  position: fixed;
   inset: 0;
-  background: rgba(26, 26, 26, 0);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(26, 26, 26, 0);
   transition: background-color 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sweevit-header__drawer.is-open .sweevit-header__drawer-overlay {
-  background: rgba(26, 26, 26, 0.5);
+  background-color: rgba(26, 26, 26, 0.5);
 }
 
 .sweevit-header__drawer.is-closing .sweevit-header__drawer-overlay {
-  background: rgba(26, 26, 26, 0);
+  background-color: rgba(26, 26, 26, 0);
 }
 
 .sweevit-header__drawer-panel {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
   width: min(32rem, 85vw);
   height: 100%;
   background: var(--sweevit-pure-white);
@@ -318,6 +333,8 @@ body.sweevit-drawer-open {
   cursor: pointer;
   margin-bottom: 2rem;
   padding: 0;
+  color: var(--sweevit-dark-charcoal);
+  -webkit-tap-highlight-color: transparent;
   opacity: 0;
   transform: translateY(-0.8rem);
   transition:
@@ -338,10 +355,12 @@ body.sweevit-drawer-open {
   transition-duration: 200ms;
 }
 
-.sweevit-header__drawer-close svg {
+.sweevit-header__drawer-close svg,
+.sweevit-header__drawer-close svg path {
   width: 1.8rem;
   height: 1.8rem;
-  fill: var(--sweevit-dark-charcoal);
+  fill: currentColor;
+  color: inherit;
 }
 
 .sweevit-header__drawer-menu {

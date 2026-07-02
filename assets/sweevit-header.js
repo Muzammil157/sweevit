@@ -16,6 +16,12 @@ class SweevitMobileMenu {
     this.closeBtn?.addEventListener('click', () => this.close());
     this.overlay?.addEventListener('click', () => this.close());
 
+    this.drawer.addEventListener('click', (event) => {
+      if (!this.drawer.classList.contains('is-open')) return;
+      if (this.panel.contains(event.target)) return;
+      this.close();
+    });
+
     this.drawer.querySelectorAll('.sweevit-header__drawer-link').forEach((link) => {
       link.addEventListener('click', () => this.close());
     });
@@ -30,7 +36,8 @@ class SweevitMobileMenu {
   }
 
   open() {
-    if (this.isAnimating || this.drawer.classList.contains('is-open')) return;
+    if (this.drawer.classList.contains('is-open')) return;
+    if (this.isAnimating) return;
 
     this.isAnimating = true;
     this.drawer.classList.remove('is-closing');
@@ -52,7 +59,7 @@ class SweevitMobileMenu {
   }
 
   close() {
-    if (this.isAnimating || !this.drawer.classList.contains('is-open')) return;
+    if (!this.drawer.classList.contains('is-open')) return;
 
     this.isAnimating = true;
     this.drawer.classList.add('is-closing');
