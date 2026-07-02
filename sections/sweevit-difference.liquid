@@ -3,7 +3,6 @@
 
 {%- style -%}
   #SweevitDifference-{{ section.id }} {
-    --sweevit-difference-bg: {{ section.settings.background_color }};
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
@@ -78,16 +77,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "Why Gummies?"
-    },
-    {
-      "type": "header",
-      "content": "Style"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#1A1A1F"
     },
     {
       "type": "header",
