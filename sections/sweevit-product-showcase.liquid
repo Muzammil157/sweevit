@@ -9,7 +9,7 @@
     assign current_variant = product.selected_or_first_available_variant
     assign onetime_price = current_variant.price | money
     assign first_selling_plan = nil
-    assign subscribe_price = section.settings.subscribe_price_fallback
+    assign subscribe_price = blank
 
     for allocation in current_variant.selling_plan_allocations
       assign first_selling_plan = allocation.selling_plan
@@ -18,8 +18,12 @@
     endfor
 
     if subscribe_price == blank
-      assign subscribe_cents = current_variant.price | times: 0.8 | round
-      assign subscribe_price = subscribe_cents | money
+      if section.settings.subscribe_price_fallback != blank
+        assign subscribe_price = section.settings.subscribe_price_fallback
+      else
+        assign subscribe_cents = current_variant.price | times: 0.8 | round
+        assign subscribe_price = subscribe_cents | money
+      endif
     endif
 
     if heading == blank
