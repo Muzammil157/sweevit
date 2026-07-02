@@ -59,12 +59,16 @@
                 class="sweevit-hero__btn sweevit-hero__btn--secondary"
               >
                 {{ section.settings.button_secondary_label | escape }}
-                <span class="sweevit-hero__btn-arrow" aria-hidden="true">→</span>
+                <span class="sweevit-hero__btn-arrow" aria-hidden="true">
+                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                </span>
               </a>
             {%- else -%}
               <span class="sweevit-hero__btn sweevit-hero__btn--secondary" role="text">
                 {{ section.settings.button_secondary_label | escape }}
-                <span class="sweevit-hero__btn-arrow" aria-hidden="true">→</span>
+                <span class="sweevit-hero__btn-arrow" aria-hidden="true">
+                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                </span>
               </span>
             {%- endif -%}
           {%- endif -%}
@@ -73,14 +77,14 @@
 
       <div class="sweevit-hero__media">
         <div class="sweevit-hero__media-frame">
+          {%- liquid
+            assign hero_fetch_priority = 'auto'
+            if section.index == 1
+              assign hero_fetch_priority = 'high'
+            endif
+          -%}
           {%- if section.settings.image != blank -%}
-            {%- liquid
-              assign hero_image_alt = section.settings.image.alt | default: shop.name | escape
-              assign hero_fetch_priority = 'auto'
-              if section.index == 1
-                assign hero_fetch_priority = 'high'
-              endif
-            -%}
+            {%- assign hero_image_alt = section.settings.image.alt | default: shop.name | escape -%}
             {{
               section.settings.image
               | image_url: width: 1642
@@ -95,9 +99,15 @@
                 loading: 'eager'
             }}
           {%- else -%}
-            <div class="sweevit-hero__placeholder">
-              {{ 'product-apparel-2' | placeholder_svg_tag }}
-            </div>
+            <img
+              src="{{ 'sweetvit-hero.png' | asset_url }}"
+              alt="{{ shop.name | escape }}"
+              class="sweevit-hero__image"
+              width="821"
+              height="685"
+              loading="eager"
+              {% if hero_fetch_priority == 'high' %}fetchpriority="high"{% endif %}
+            >
           {%- endif -%}
         </div>
       </div>

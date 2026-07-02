@@ -96,17 +96,19 @@
 }
 
 .sweevit-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 1.2rem;
   margin-top: 3.2rem;
+  max-width: 100%;
 }
 
 .sweevit-hero__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   box-sizing: border-box;
   height: 5.2rem;
   min-height: 5.2rem;
@@ -124,15 +126,17 @@
 }
 
 .sweevit-hero__btn--primary {
-  width: min(18rem, 100%);
+  width: 18rem;
+  min-width: 18rem;
   padding: 0 2.4rem;
   background-color: var(--sweevit-dark-charcoal);
   color: var(--sweevit-pure-white);
 }
 
 .sweevit-hero__btn--secondary {
-  width: min(16rem, 100%);
-  padding: 0 2rem;
+  width: 16rem;
+  min-width: 16rem;
+  padding: 0 1.6rem;
   background-color: var(--sweevit-pure-white);
   color: var(--sweevit-dark-charcoal);
   border: 0.1rem solid var(--sweevit-dark-charcoal);
@@ -157,9 +161,25 @@
 }
 
 .sweevit-hero__btn-arrow {
-  margin-left: 0.6rem;
-  font-size: 1.4rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.8rem;
+  color: inherit;
+  opacity: 0.55;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sweevit-hero__btn-arrow svg {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.sweevit-hero__btn--secondary:hover .sweevit-hero__btn-arrow,
+.sweevit-hero__btn--secondary:focus-visible .sweevit-hero__btn-arrow {
+  opacity: 0.85;
+  transform: translateX(0.2rem);
 }
 
 /* Media */
