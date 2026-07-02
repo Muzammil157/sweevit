@@ -220,6 +220,7 @@
         "perk_3": "Priority access",
         "button_label": "Add to cart",
         "secure_checkout_text": "Secure checkout",
+        "enable_custom_image": false,
         "background_color": "#F7F7F5",
         "padding_top": 80,
         "padding_bottom": 80

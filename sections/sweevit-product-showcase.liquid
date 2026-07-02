@@ -68,7 +68,7 @@
     <div class="sweevit-product__grid">
       <div class="sweevit-product__media">
         <div class="sweevit-product__media-frame">
-          {%- if section.settings.image != blank -%}
+          {%- if section.settings.enable_custom_image and section.settings.image != blank -%}
             {{
               section.settings.image
               | image_url: width: 1200
@@ -122,11 +122,11 @@
                 <div class="sweevit-product__highlight-icon" aria-hidden="true">
                   {%- case block.settings.icon -%}
                     {%- when 'energy' -%}
-                      {{- 'energy.svg' | inline_asset_content -}}
+                      {{- 'ix_electrical-energy-filled.svg' | inline_asset_content -}}
                     {%- when 'wellness' -%}
-                      {{- 'wellness.svg' | inline_asset_content -}}
+                      {{- 'bxs_diamond.svg' | inline_asset_content -}}
                     {%- else -%}
-                      {{- 'focus.svg' | inline_asset_content -}}
+                      {{- 'ri_focus-3-fill.svg' | inline_asset_content -}}
                   {%- endcase -%}
                 </div>
                 <div class="sweevit-product__highlight-body">
@@ -317,10 +317,17 @@
       "label": "Product"
     },
     {
+      "type": "checkbox",
+      "id": "enable_custom_image",
+      "label": "Use custom product image",
+      "default": false,
+      "info": "When off, the theme uses MiniPouch-product.png from assets."
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Image override",
-      "info": "Optional. Uses the selected product image when empty."
+      "label": "Custom product image",
+      "info": "Only used when “Use custom product image” is enabled."
     },
     {
       "type": "header",
