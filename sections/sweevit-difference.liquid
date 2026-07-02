@@ -1,0 +1,184 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-difference.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitDifference-{{ section.id }} {
+    --sweevit-difference-bg: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitDifference-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitDifference-{{ section.id }}"
+  class="sweevit-difference"
+>
+  <div class="sweevit-difference__inner">
+    <div class="sweevit-difference__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-difference__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-difference__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-difference__grid">
+        {%- for block in section.blocks -%}
+          <article class="sweevit-difference__point" {{ block.shopify_attributes }}>
+            {%- if block.settings.number != blank -%}
+              <p class="sweevit-difference__number">{{ block.settings.number | escape }}</p>
+            {%- else -%}
+              <p class="sweevit-difference__number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
+            {%- endif -%}
+
+            <span class="sweevit-difference__line" aria-hidden="true"></span>
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="sweevit-difference__point-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="sweevit-difference__point-text">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit Difference",
+  "tag": "section",
+  "class": "section-sweevit-difference",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Sweevit Difference"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Gummies?"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#1A1A1F"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01",
+          "info": "Leave blank to auto-number"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "More Enjoyable"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "More enjoyable than capsules or powders. You'll actually look forward to it."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit Difference",
+      "blocks": [
+        {
+          "type": "point",
+          "settings": {
+            "number": "01",
+            "title": "More Enjoyable",
+            "description": "More enjoyable than capsules or powders. You'll actually look forward to it."
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "number": "02",
+            "title": "Easy to Take",
+            "description": "No water, no prep. Just take it and go — anytime, anywhere."
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "number": "03",
+            "title": "Easy to Remember",
+            "description": "Build a habit that sticks. Gummies make daily consistency effortless."
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "number": "04",
+            "title": "Premium Ingredients",
+            "description": "Made with high-quality functional ingredients you can actually trust."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
