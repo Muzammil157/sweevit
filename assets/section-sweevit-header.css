@@ -276,6 +276,10 @@ body.sweevit-drawer-open {
   background: rgba(26, 26, 26, 0.5);
 }
 
+.sweevit-header__drawer.is-closing .sweevit-header__drawer-overlay {
+  background: rgba(26, 26, 26, 0);
+}
+
 .sweevit-header__drawer-panel {
   position: absolute;
   top: 0;

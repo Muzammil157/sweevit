@@ -7,8 +7,6 @@ class SweevitMobileMenu {
     this.closeBtn = this.drawer.querySelector('[data-sweevit-drawer-close]');
     this.overlay = this.drawer.querySelector('[data-sweevit-drawer-overlay]');
     this.panel = this.drawer.querySelector('.sweevit-header__drawer-panel');
-    this.menuItems = this.drawer.querySelectorAll('.sweevit-header__drawer-menu li');
-    this.cta = this.drawer.querySelector('.sweevit-header__drawer-cta');
     this.isAnimating = false;
     this.duration = 480;
 
