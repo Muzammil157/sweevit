@@ -1,0 +1,157 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="sweevit-footer" id="sweevit-footer-{{ section.id }}">
+  {%- if section.settings.show_cta -%}
+    <div class="sweevit-footer__cta">
+      <div class="sweevit-footer__cta-inner">
+        {%- if section.settings.cta_heading != blank -%}
+          <h2 class="sweevit-footer__cta-heading">{{ section.settings.cta_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.cta_subheading != blank -%}
+          <p class="sweevit-footer__cta-subheading">{{ section.settings.cta_subheading }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_button_label != blank -%}
+          <div class="sweevit-footer__cta-action">
+            {%- if section.settings.cta_button_link != blank -%}
+              <a href="{{ section.settings.cta_button_link }}" class="sweevit-footer__cta-button">
+                {{ section.settings.cta_button_label | upcase }}
+              </a>
+            {%- else -%}
+              <span class="sweevit-footer__cta-button" role="text">
+                {{ section.settings.cta_button_label | upcase }}
+              </span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="sweevit-footer__main">
+    <div class="sweevit-footer__top">
+      <div class="sweevit-footer__brand">
+        <a href="{{ routes.root_url }}" class="sweevit-footer__logo-link" aria-label="{{ shop.name }}">
+          {%- if section.settings.logo != blank -%}
+            {{
+              section.settings.logo
+              | image_url: width: 300
+              | image_tag:
+                class: 'sweevit-footer__logo-image',
+                widths: '150, 200, 300',
+                alt: section.settings.logo.alt | default: shop.name
+            }}
+          {%- else -%}
+            <span class="sweevit-footer__logo-text">{{ section.settings.logo_text | default: 'sweevit' }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.tagline != blank -%}
+          <p class="sweevit-footer__tagline">{{ section.settings.tagline }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.menu != blank -%}
+        <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
+          <ul class="sweevit-footer__nav" role="list">
+            {%- for link in section.settings.menu.links -%}
+              <li>
+                <a
+                  href="{{ link.url }}"
+                  class="sweevit-footer__nav-link"
+                  {% if link.current %}aria-current="page"{% endif %}
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </div>
+
+    <div class="sweevit-footer__bottom">
+      <p class="sweevit-footer__copyright">
+        {{ section.settings.copyright | default: '© 2025 Sweevit. All rights reserved.' }}
+      </p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Sweevit Footer",
+  "class": "section-sweevit-footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "CTA Banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA banner",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA heading",
+      "default": "Start Your Daily Ritual Today."
+    },
+    {
+      "type": "text",
+      "id": "cta_subheading",
+      "label": "CTA subheading",
+      "default": "One gummy. Every day. Feel the difference."
+    },
+    {
+      "type": "text",
+      "id": "cta_button_label",
+      "label": "CTA button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "CTA button link"
+    },
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "sweevit",
+      "info": "Used when no logo image is uploaded"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Focus. Energy. Wellness."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright text",
+      "default": "© 2025 Sweevit. All rights reserved."
+    }
+  ],
+  "enabled_on": {
+    "groups": ["footer"]
+  }
+}
+{% endschema %}
