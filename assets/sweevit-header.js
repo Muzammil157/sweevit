@@ -1,8 +1,6 @@
 class SweevitMobileMenu {
-  constructor() {
-    this.drawer = document.querySelector('[data-sweevit-drawer]');
-    if (!this.drawer) return;
-
+  constructor(drawer) {
+    this.drawer = drawer;
     this.toggle = document.querySelector('[data-sweevit-menu-toggle]');
     this.closeBtn = this.drawer.querySelector('[data-sweevit-drawer-close]');
     this.overlay = this.drawer.querySelector('[data-sweevit-drawer-overlay]');
@@ -10,7 +8,9 @@ class SweevitMobileMenu {
     this.isAnimating = false;
     this.duration = 480;
 
-    document.body.appendChild(this.drawer);
+    if (this.drawer.parentElement !== document.body) {
+      document.body.appendChild(this.drawer);
+    }
 
     this.toggle?.addEventListener('click', () => this.open());
     this.closeBtn?.addEventListener('click', () => this.close());
@@ -20,11 +20,13 @@ class SweevitMobileMenu {
       link.addEventListener('click', () => this.close());
     });
 
-    document.addEventListener('keydown', (event) => {
+    this.onKeydown = (event) => {
       if (event.key === 'Escape' && this.drawer.classList.contains('is-open')) {
         this.close();
       }
-    });
+    };
+
+    document.addEventListener('keydown', this.onKeydown);
   }
 
   open() {
@@ -37,7 +39,6 @@ class SweevitMobileMenu {
     document.body.classList.add('sweevit-drawer-open');
     this.toggle?.setAttribute('aria-expanded', 'true');
 
-    /* Force closed-state paint before animating open */
     void this.panel.offsetWidth;
 
     requestAnimationFrame(() => {
@@ -69,8 +70,18 @@ class SweevitMobileMenu {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new SweevitMobileMenu());
-} else {
-  new SweevitMobileMenu();
+function initSweevitMobileMenu() {
+  const drawer = document.querySelector('[data-sweevit-drawer]:not([data-sweevit-initialized])');
+  if (!drawer) return;
+
+  drawer.dataset.sweevitInitialized = 'true';
+  new SweevitMobileMenu(drawer);
 }
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSweevitMobileMenu);
+} else {
+  initSweevitMobileMenu();
+}
+
+document.addEventListener('shopify:section:load', initSweevitMobileMenu);
