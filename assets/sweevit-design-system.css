@@ -57,12 +57,13 @@
   --sweevit-testimonials-card-pad-top: 2.4rem;
   --sweevit-testimonials-card-pad-left: 3.6rem;
   --sweevit-testimonials-card-pad-right: 5.6rem;
-  --sweevit-gallery-gap: 5rem;
+  --sweevit-gallery-gap: 1rem;
   --sweevit-gallery-radius: 0.8rem;
   --sweevit-gallery-card-width: 33.6rem;
   --sweevit-gallery-card-height: 53rem;
-  --sweevit-gallery-section-padding-x: 7.8rem;
   --sweevit-gallery-section-padding-y: 6.4rem;
+  --sweevit-gallery-inset-left: 7.8rem;
+  --sweevit-gallery-control-right: 2.4rem;
 }
 
 @media screen and (max-width: 989px) {
@@ -74,7 +75,8 @@
     --sweevit-testimonials-card-pad-right: 4.4rem;
     --sweevit-gallery-card-width: 28rem;
     --sweevit-gallery-card-height: 44.17rem;
-    --sweevit-gallery-gap: 3.2rem;
+    --sweevit-gallery-inset-left: var(--sweevit-page-gutter);
+    --sweevit-gallery-control-right: var(--sweevit-page-gutter);
     --sweevit-testimonials-heading-rating-gap: 3.2rem;
     --sweevit-testimonials-header-grid-gap: 3.2rem;
   }
@@ -86,9 +88,10 @@
     --sweevit-pack-card-pad-right: 3.4rem;
     --sweevit-testimonials-card-pad-left: 2.2rem;
     --sweevit-testimonials-card-pad-right: 3.4rem;
-    --sweevit-gallery-card-width: 24rem;
-    --sweevit-gallery-card-height: 37.86rem;
-    --sweevit-gallery-gap: 2rem;
+    --sweevit-gallery-card-width: min(78vw, 24rem);
+    --sweevit-gallery-card-height: calc(var(--sweevit-gallery-card-width) * 1.5774);
+    --sweevit-gallery-inset-left: var(--sweevit-page-gutter);
+    --sweevit-gallery-control-right: var(--sweevit-page-gutter);
     --sweevit-page-gutter: 2rem;
   }
 }

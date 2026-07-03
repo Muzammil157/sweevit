@@ -13,14 +13,25 @@
 {%- style -%}
   #SweevitGallery-{{ section.id }} {
     --sweevit-gallery-gap: {{ section.settings.image_gap }}px;
+    --sweevit-gallery-inset-left: {{ section.settings.content_inset }}px;
+    --sweevit-gallery-section-padding-y: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  }
+
+  #SweevitGallery-{{ section.id }} .sweevit-gallery__shell {
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
   @media screen and (min-width: 990px) {
-    #SweevitGallery-{{ section.id }} .sweevit-gallery__inner {
-      padding-top: {{ section.settings.padding_top }}px;
+    #SweevitGallery-{{ section.id }} {
+      --sweevit-gallery-section-padding-y: {{ section.settings.padding_top }}px;
+      --sweevit-gallery-inset-left: max(
+        {{ section.settings.content_inset }}px,
+        calc((100vw - min(100vw, {{ settings.page_width | default: 1200 }}px)) / 2 + {{ section.settings.content_inset }}px)
+      );
+    }
+
+    #SweevitGallery-{{ section.id }} .sweevit-gallery__shell {
       padding-bottom: {{ section.settings.padding_bottom }}px;
-      padding-left: {{ section.settings.padding_horizontal }}px;
-      padding-right: {{ section.settings.padding_horizontal }}px;
     }
   }
 {%- endstyle -%}
@@ -29,8 +40,9 @@
   id="SweevitGallery-{{ section.id }}"
   class="sweevit-gallery"
 >
-  <div class="sweevit-gallery__inner">
-    <sweevit-gallery class="sweevit-gallery__viewport">
+  <div class="sweevit-gallery__shell">
+    <div class="sweevit-gallery__bleed">
+      <sweevit-gallery class="sweevit-gallery__viewport">
       <ul
         class="sweevit-gallery__track"
         data-gallery-track
@@ -117,7 +129,8 @@
           </span>
         </button>
       </div>
-    </sweevit-gallery>
+      </sweevit-gallery>
+    </div>
   </div>
 </section>
 
@@ -149,30 +162,12 @@
     {
       "type": "range",
       "id": "image_gap",
-      "min": 4,
-      "max": 24,
+      "min": 8,
+      "max": 64,
       "step": 2,
       "unit": "px",
       "label": "Image gap",
       "default": 10
-    },
-    {
-      "type": "range",
-      "id": "slides_desktop",
-      "min": 2,
-      "max": 6,
-      "step": 1,
-      "label": "Visible slides on desktop",
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "slides_tablet",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "label": "Visible slides on tablet",
-      "default": 3
     },
     {
       "type": "range",
