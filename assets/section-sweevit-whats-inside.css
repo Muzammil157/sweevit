@@ -1,0 +1,211 @@
+.sweevit-whats-inside {
+  font-family: var(--sweevit-font);
+  background-color: var(--sweevit-whats-inside-bg, var(--sweevit-pure-white));
+}
+
+.sweevit-whats-inside__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding: 6rem var(--sweevit-page-gutter) 8rem;
+  box-sizing: border-box;
+}
+
+/* Header */
+.sweevit-whats-inside__header {
+  max-width: 72rem;
+  margin: 0 auto 4.8rem;
+  text-align: center;
+}
+
+.sweevit-whats-inside__eyebrow {
+  font-family: var(--sweevit-font);
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.45);
+  margin: 0 0 1.6rem;
+}
+
+.sweevit-whats-inside__heading {
+  font-family: var(--sweevit-font);
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: -0.2rem;
+  text-align: center;
+  color: var(--sweevit-dark-charcoal);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-whats-inside__heading {
+    font-size: 5.2rem;
+  }
+}
+
+.sweevit-whats-inside__subheading {
+  font-family: var(--sweevit-font);
+  font-size: clamp(1.5rem, 2.2vw, 1.7rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: rgba(26, 26, 26, 0.55);
+  margin: 1.6rem auto 0;
+  max-width: 56rem;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-whats-inside__subheading {
+    font-size: 1.7rem;
+  }
+}
+
+/* Cards */
+.sweevit-whats-inside__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+@media screen and (min-width: 640px) {
+  .sweevit-whats-inside__grid {
+    grid-template-columns: repeat(2, minmax(0, var(--sweevit-ingredient-card-width)));
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-whats-inside__grid {
+    grid-template-columns: repeat(4, var(--sweevit-ingredient-card-width));
+    gap: 2rem;
+  }
+}
+
+.sweevit-whats-inside__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sweevit-ingredient-card-gap);
+  width: 100%;
+  max-width: var(--sweevit-ingredient-card-width);
+  min-height: var(--sweevit-ingredient-card-height);
+  margin: 0 auto;
+  padding: 2.4rem 2.8rem;
+  border-radius: var(--sweevit-ingredient-card-radius);
+  background-color: var(--sweevit-holographic-silver);
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 640px) {
+  .sweevit-whats-inside__card {
+    width: var(--sweevit-ingredient-card-width);
+    height: var(--sweevit-ingredient-card-height);
+    margin: 0;
+  }
+}
+
+.sweevit-whats-inside__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+}
+
+.sweevit-whats-inside__icon svg {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+
+.sweevit-whats-inside__icon img {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+}
+
+.sweevit-whats-inside__card-title {
+  font-family: var(--sweevit-font);
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: var(--sweevit-dark-charcoal);
+  margin: 0;
+}
+
+.sweevit-whats-inside__card-text {
+  font-family: var(--sweevit-font);
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2.2rem;
+  letter-spacing: 0;
+  color: rgba(26, 26, 26, 0.55);
+  margin: 0;
+  flex: 1;
+}
+
+.sweevit-whats-inside__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  font-family: var(--sweevit-font);
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: var(--sweevit-icon-gold, #D9A93A);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.sweevit-whats-inside__link:hover,
+.sweevit-whats-inside__link:focus-visible {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.sweevit-whats-inside__link svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .sweevit-whats-inside__inner {
+    padding-top: 4.8rem;
+    padding-bottom: 5.6rem;
+  }
+
+  .sweevit-whats-inside__header {
+    margin-bottom: 3.2rem;
+  }
+
+  .sweevit-whats-inside__eyebrow {
+    letter-spacing: 0.2rem;
+  }
+
+  .sweevit-whats-inside__heading {
+    letter-spacing: -0.1rem;
+  }
+
+  .sweevit-whats-inside__card {
+    height: auto;
+    min-height: var(--sweevit-ingredient-card-height);
+  }
+}
