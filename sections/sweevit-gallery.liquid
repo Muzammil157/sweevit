@@ -1,0 +1,272 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-gallery.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-gallery.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign gallery_count = section.settings.image_count | default: 12
+  assign has_blocks = false
+  if section.blocks.size > 0
+    assign has_blocks = true
+  endif
+-%}
+
+{%- style -%}
+  #SweevitGallery-{{ section.id }} {
+    --sweevit-gallery-gap: {{ section.settings.image_gap }}px;
+    --sweevit-gallery-visible-slides: {{ section.settings.slides_desktop }};
+  }
+
+  @media screen and (min-width: 990px) {
+    #SweevitGallery-{{ section.id }} .sweevit-gallery__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_horizontal }}px;
+      padding-right: {{ section.settings.padding_horizontal }}px;
+    }
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #SweevitGallery-{{ section.id }} {
+      --sweevit-gallery-visible-slides: {{ section.settings.slides_tablet }};
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #SweevitGallery-{{ section.id }} {
+      --sweevit-gallery-visible-slides: {{ section.settings.slides_mobile }};
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitGallery-{{ section.id }}"
+  class="sweevit-gallery"
+>
+  <div class="sweevit-gallery__inner">
+    <sweevit-gallery class="sweevit-gallery__viewport">
+      <ul
+        class="sweevit-gallery__track"
+        data-gallery-track
+        role="list"
+        aria-label="{{ section.settings.accessibility_label | default: 'Product gallery' | escape }}"
+      >
+        {%- if has_blocks -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign asset_index = forloop.index
+              capture default_asset
+                echo 'gallery-' | append: asset_index | append: '.png'
+              endcapture
+              assign slide_alt = block.settings.alt
+              if slide_alt == blank
+                assign slide_alt = 'Sweevit lifestyle image ' | append: asset_index
+              endif
+            -%}
+
+            <li
+              class="sweevit-gallery__slide"
+              {{ block.shopify_attributes }}
+            >
+              <div class="sweevit-gallery__media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 900
+                    | image_tag:
+                      class: 'sweevit-gallery__image',
+                      loading: 'lazy',
+                      widths: '300, 450, 600, 750, 900',
+                      sizes: '(min-width: 990px) 250px, (min-width: 750px) 33vw, 78vw',
+                      alt: slide_alt
+                  }}
+                {%- else -%}
+                  <img
+                    src="{{ default_asset | asset_url }}"
+                    class="sweevit-gallery__image"
+                    loading="lazy"
+                    width="450"
+                    height="563"
+                    alt="{{ slide_alt | escape }}"
+                  >
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..gallery_count) -%}
+            {%- capture gallery_asset -%}gallery-{{ i }}.png{%- endcapture -%}
+            <li class="sweevit-gallery__slide">
+              <div class="sweevit-gallery__media">
+                <img
+                  src="{{ gallery_asset | asset_url }}"
+                  class="sweevit-gallery__image"
+                  loading="lazy"
+                  width="450"
+                  height="563"
+                  alt="Sweevit lifestyle image {{ i }}"
+                >
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+      <div class="sweevit-gallery__controls">
+        <button
+          type="button"
+          class="sweevit-gallery__button sweevit-gallery__button--prev"
+          data-gallery-prev
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+        >
+          <span class="sweevit-gallery__button-icon sweevit-gallery__button-icon--prev" aria-hidden="true">
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <button
+          type="button"
+          class="sweevit-gallery__button sweevit-gallery__button--next"
+          data-gallery-next
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+        >
+          <span class="sweevit-gallery__button-icon sweevit-gallery__button-icon--next" aria-hidden="true">
+            {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </div>
+    </sweevit-gallery>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit Gallery",
+  "tag": "section",
+  "class": "section-sweevit-gallery",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "image_count",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "label": "Default image count",
+      "default": 12,
+      "info": "Used when no image blocks are added"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Sweevit lifestyle gallery"
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Image gap",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "slides_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Visible slides on desktop",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "slides_tablet",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Visible slides on tablet",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "slides_mobile",
+      "min": 1,
+      "max": 2,
+      "step": 0.1,
+      "label": "Visible slides on mobile",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 78
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Gallery image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image override",
+          "info": "Uses gallery-1.png, gallery-2.png, etc. when empty"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image alt text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit Gallery",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
