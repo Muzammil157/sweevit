@@ -1,0 +1,269 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitTestimonials-{{ section.id }} {
+    {%- if section.settings.use_custom_gradient -%}
+      --sweevit-testimonials-gradient: {{ section.settings.background_gradient }};
+    {%- endif -%}
+  }
+
+  @media screen and (min-width: 990px) {
+    #SweevitTestimonials-{{ section.id }} .sweevit-testimonials__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_horizontal }}px;
+      padding-right: {{ section.settings.padding_horizontal }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitTestimonials-{{ section.id }}"
+  class="sweevit-testimonials"
+>
+  <div class="sweevit-testimonials__inner">
+    <div class="sweevit-testimonials__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-testimonials__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-testimonials__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.show_rating -%}
+        <div class="sweevit-testimonials__rating">
+          <span class="sweevit-testimonials__stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              {{- 'icon-star.svg' | inline_asset_content -}}
+            {%- endfor -%}
+          </span>
+          <span class="sweevit-testimonials__rating-text">
+            {%- if section.settings.rating_value != blank -%}
+              {{ section.settings.rating_value | escape }}
+            {%- endif -%}
+            {%- if section.settings.review_count != blank -%}
+              {%- if section.settings.rating_value != blank -%} • {%- endif -%}
+              {{ section.settings.review_count | escape }}
+              {%- if section.settings.review_label != blank -%}
+                {{ section.settings.review_label | escape }}
+              {%- endif -%}
+            {%- endif -%}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-testimonials__grid">
+        {%- for block in section.blocks -%}
+          <article class="sweevit-testimonials__card" {{ block.shopify_attributes }}>
+            <div class="sweevit-testimonials__card-stars" aria-hidden="true">
+              {%- assign star_count = block.settings.star_count | default: 5 -%}
+              {%- for i in (1..star_count) -%}
+                {{- 'icon-star.svg' | inline_asset_content -}}
+              {%- endfor -%}
+            </div>
+
+            <div class="sweevit-testimonials__card-body">
+              {%- if block.settings.quote != blank -%}
+                <p class="sweevit-testimonials__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+              {%- endif -%}
+
+              <div class="sweevit-testimonials__card-spacer" aria-hidden="true"></div>
+
+              <div class="sweevit-testimonials__card-footer">
+                <div class="sweevit-testimonials__author">
+                  {%- if block.settings.author_name != blank -%}
+                    <p class="sweevit-testimonials__author-name">{{ block.settings.author_name | escape }}</p>
+                  {%- endif -%}
+
+                  {%- if block.settings.author_meta != blank -%}
+                    <p class="sweevit-testimonials__author-meta">{{ block.settings.author_meta | escape }}</p>
+                  {%- endif -%}
+                </div>
+
+                {%- if block.settings.show_verified_dot -%}
+                  <span class="sweevit-testimonials__verified-dot" aria-hidden="true"></span>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit Testimonials",
+  "tag": "section",
+  "class": "section-sweevit-testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What People Are Saying"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real People. Real Results."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show summary rating",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.9 / 5.0"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "217"
+    },
+    {
+      "type": "text",
+      "id": "review_label",
+      "label": "Review label",
+      "default": "Reviews"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_custom_gradient",
+      "label": "Use custom background gradient",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "background_gradient",
+      "label": "Background gradient",
+      "default": "linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%)",
+      "info": "Only used when custom gradient is enabled"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 78
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "star_count",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star count",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "I take Sweevit every morning before work. The focus is real — I feel sharper without the afternoon crash."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Sarah M."
+        },
+        {
+          "type": "text",
+          "id": "author_meta",
+          "label": "Author meta",
+          "default": "Verified Purchase"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_verified_dot",
+          "label": "Show verified dot",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I take Sweevit every morning before work. The focus is real — I feel sharper without the afternoon crash.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Purchase"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Finally a supplement I actually enjoy taking. The gym feels easier and I recover faster.",
+            "author_name": "James K.",
+            "author_meta": "Verified Purchase"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Part of my daily wellness routine now. Simple, tasty, and I genuinely feel the difference.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Purchase"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

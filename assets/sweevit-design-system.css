@@ -41,12 +41,29 @@
   --sweevit-pack-grid-gap: 5rem;
   --sweevit-pack-card-pad-left: 3.6rem;
   --sweevit-pack-card-pad-right: 5.6rem;
+  --sweevit-testimonials-gradient: linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%);
+  --sweevit-testimonials-card-width: 40.6rem;
+  --sweevit-testimonials-card-height: 31rem;
+  --sweevit-testimonials-card-radius: 1.2rem;
+  --sweevit-testimonials-card-shadow: 0 0.4rem 2.4rem 0 rgba(0, 0, 0, 0.06);
+  --sweevit-testimonials-section-padding-x: 7.8rem;
+  --sweevit-testimonials-section-padding-y: 8rem;
+  --sweevit-testimonials-grid-gap: 5rem;
+  --sweevit-testimonials-eyebrow-heading-gap: 1.3rem;
+  --sweevit-testimonials-heading-rating-gap: 5rem;
+  --sweevit-testimonials-header-grid-gap: 5rem;
+  --sweevit-testimonials-quote-author-gap: 15.6rem;
+  --sweevit-testimonials-author-bottom-gap: 3.7rem;
 }
 
 @media screen and (max-width: 989px) {
   :root {
     --sweevit-pack-card-pad-left: 2.8rem;
     --sweevit-pack-card-pad-right: 4.4rem;
+    --sweevit-testimonials-card-width: min(40.6rem, 100%);
+    --sweevit-testimonials-quote-author-gap: 4rem;
+    --sweevit-testimonials-heading-rating-gap: 3.2rem;
+    --sweevit-testimonials-header-grid-gap: 3.2rem;
   }
 }
 
