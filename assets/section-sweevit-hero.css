@@ -13,9 +13,10 @@
 
 .sweevit-hero__grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
+  min-width: 0;
 }
 
 @media screen and (min-width: 990px) {
@@ -31,7 +32,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  min-width: 0;
   max-width: 56rem;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 990px) {
@@ -92,7 +96,7 @@
   line-height: 1.55;
   color: rgba(26, 26, 26, 0.65);
   margin: 2.4rem 0 0;
-  max-width: 44rem;
+  max-width: min(44rem, 100%);
 }
 
 .sweevit-hero__actions {
@@ -290,24 +294,36 @@
 @media screen and (max-width: 749px) {
   .sweevit-hero__inner {
     padding-top: 3.2rem;
+    padding-left: max(var(--sweevit-page-gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--sweevit-page-gutter), env(safe-area-inset-right, 0px));
   }
 
   .sweevit-hero__heading {
     letter-spacing: -0.15rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .sweevit-hero__eyebrow,
+  .sweevit-hero__description {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .sweevit-hero__actions {
-    display: inline-flex;
-    flex-wrap: nowrap;
-    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    overflow-x: visible;
   }
 
-  .sweevit-hero__actions::-webkit-scrollbar {
-    display: none;
+  .sweevit-hero__btn--primary,
+  .sweevit-hero__btn--secondary {
+    flex: 1 1 calc(50% - 0.6rem);
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .sweevit-hero__press-list {
@@ -316,5 +332,8 @@
     overflow-x: auto;
     padding-bottom: 0.4rem;
     -webkit-overflow-scrolling: touch;
+    margin-right: calc(-1 * var(--sweevit-page-gutter));
+    padding-right: var(--sweevit-page-gutter);
+    scroll-padding-right: var(--sweevit-page-gutter);
   }
 }
