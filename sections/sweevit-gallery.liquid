@@ -30,12 +30,6 @@
       --sweevit-gallery-visible-slides: {{ section.settings.slides_tablet }};
     }
   }
-
-  @media screen and (max-width: 749px) {
-    #SweevitGallery-{{ section.id }} {
-      --sweevit-gallery-visible-slides: {{ section.settings.slides_mobile }};
-    }
-  }
 {%- endstyle -%}
 
 <section
@@ -186,15 +180,6 @@
       "step": 1,
       "label": "Visible slides on tablet",
       "default": 3
-    },
-    {
-      "type": "range",
-      "id": "slides_mobile",
-      "min": 1,
-      "max": 2,
-      "step": 0.1,
-      "label": "Visible slides on mobile",
-      "default": 1.2
     },
     {
       "type": "range",
