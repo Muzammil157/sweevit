@@ -39,10 +39,21 @@
   --sweevit-pack-section-padding-x: 7.8rem;
   --sweevit-pack-section-padding-y: 6.4rem;
   --sweevit-pack-grid-gap: 5rem;
+  --sweevit-pack-card-pad-left: 3.6rem;
+  --sweevit-pack-card-pad-right: 5.6rem;
+}
+
+@media screen and (max-width: 989px) {
+  :root {
+    --sweevit-pack-card-pad-left: 2.8rem;
+    --sweevit-pack-card-pad-right: 4.4rem;
+  }
 }
 
 @media screen and (max-width: 749px) {
   :root {
+    --sweevit-pack-card-pad-left: 2.2rem;
+    --sweevit-pack-card-pad-right: 3.4rem;
     --sweevit-page-gutter: 2rem;
   }
 }
