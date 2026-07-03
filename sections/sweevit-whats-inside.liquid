@@ -1,0 +1,220 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-whats-inside.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitWhatsInside-{{ section.id }} {
+    --sweevit-whats-inside-bg: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitWhatsInside-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitWhatsInside-{{ section.id }}"
+  class="sweevit-whats-inside"
+>
+  <div class="sweevit-whats-inside__inner">
+    <div class="sweevit-whats-inside__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-whats-inside__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-whats-inside__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="sweevit-whats-inside__subheading">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-whats-inside__grid">
+        {%- for block in section.blocks -%}
+          <article class="sweevit-whats-inside__card" {{ block.shopify_attributes }}>
+            <div class="sweevit-whats-inside__icon{% if block.settings.icon_image != blank %} sweevit-whats-inside__icon--image{% endif %}">
+              {%- if block.settings.icon_image != blank -%}
+                {%- assign icon_alt = block.settings.title | default: 'Ingredient icon' | escape -%}
+                {{
+                  block.settings.icon_image
+                  | image_url: width: 48
+                  | image_tag: alt: icon_alt, loading: 'lazy'
+                }}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="sweevit-whats-inside__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="sweevit-whats-inside__card-text">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.link_label != blank -%}
+              {%- if block.settings.link != blank -%}
+                <a class="sweevit-whats-inside__link" href="{{ block.settings.link }}">
+                  <span>{{ block.settings.link_label | escape }}</span>
+                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                </a>
+              {%- else -%}
+                <span class="sweevit-whats-inside__link">
+                  <span>{{ block.settings.link_label | escape }}</span>
+                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit What's Inside",
+  "tag": "section",
+  "class": "section-sweevit-whats-inside",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What's Inside"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clean. Functional. Effective."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "No fillers. No fluff. Just the ingredients your body and mind actually need."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon",
+          "info": "Optional. Default is a gold dot icon."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Vitamin B12"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Supports natural energy production and reduces fatigue."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit What's Inside",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B12",
+            "description": "Supports natural energy production and reduces fatigue."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lion's Mane",
+            "description": "Mushroom extract for cognitive clarity and focus support."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ashwagandha",
+            "description": "Adaptogen that helps manage stress and supports wellbeing."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin D3",
+            "description": "Essential for immune function and mood regulation daily."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

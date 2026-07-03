@@ -225,12 +225,64 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "sweevit_whats_inside": {
+      "type": "sweevit-whats-inside",
+      "blocks": {
+        "ingredient_b12": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B12",
+            "description": "Supports natural energy production and reduces fatigue.",
+            "link_label": "Learn more"
+          }
+        },
+        "ingredient_lions_mane": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lion's Mane",
+            "description": "Mushroom extract for cognitive clarity and focus support.",
+            "link_label": "Learn more"
+          }
+        },
+        "ingredient_ashwagandha": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ashwagandha",
+            "description": "Adaptogen that helps manage stress and supports wellbeing.",
+            "link_label": "Learn more"
+          }
+        },
+        "ingredient_d3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin D3",
+            "description": "Essential for immune function and mood regulation daily.",
+            "link_label": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_b12",
+        "ingredient_lions_mane",
+        "ingredient_ashwagandha",
+        "ingredient_d3"
+      ],
+      "settings": {
+        "eyebrow": "What's Inside",
+        "heading": "Clean. Functional. Effective.",
+        "subheading": "No fillers. No fluff. Just the ingredients your body and mind actually need.",
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "sweevit_hero",
     "sweevit_benefits",
     "sweevit_difference",
-    "sweevit_product_showcase"
+    "sweevit_product_showcase",
+    "sweevit_whats_inside"
   ]
 }
