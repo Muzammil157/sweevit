@@ -384,6 +384,47 @@
         "padding_bottom": 80,
         "padding_horizontal": 78
       }
+    },
+    "sweevit_gallery": {
+      "type": "sweevit-gallery",
+      "blocks": {
+        "gallery_1": { "type": "image", "settings": {} },
+        "gallery_2": { "type": "image", "settings": {} },
+        "gallery_3": { "type": "image", "settings": {} },
+        "gallery_4": { "type": "image", "settings": {} },
+        "gallery_5": { "type": "image", "settings": {} },
+        "gallery_6": { "type": "image", "settings": {} },
+        "gallery_7": { "type": "image", "settings": {} },
+        "gallery_8": { "type": "image", "settings": {} },
+        "gallery_9": { "type": "image", "settings": {} },
+        "gallery_10": { "type": "image", "settings": {} },
+        "gallery_11": { "type": "image", "settings": {} },
+        "gallery_12": { "type": "image", "settings": {} }
+      },
+      "block_order": [
+        "gallery_1",
+        "gallery_2",
+        "gallery_3",
+        "gallery_4",
+        "gallery_5",
+        "gallery_6",
+        "gallery_7",
+        "gallery_8",
+        "gallery_9",
+        "gallery_10",
+        "gallery_11",
+        "gallery_12"
+      ],
+      "settings": {
+        "image_count": 12,
+        "accessibility_label": "Sweevit lifestyle gallery",
+        "image_gap": 10,
+        "slides_desktop": 5,
+        "slides_tablet": 3,
+        "padding_top": 64,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
@@ -393,6 +434,7 @@
     "sweevit_product_showcase",
     "sweevit_whats_inside",
     "sweevit_choose_pack",
-    "sweevit_testimonials"
+    "sweevit_testimonials",
+    "sweevit_gallery"
   ]
 }
