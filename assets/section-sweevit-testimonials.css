@@ -165,7 +165,6 @@
   gap: 1.2rem;
   flex-shrink: 0;
   margin-top: auto;
-  padding-top: var(--sweevit-testimonials-quote-author-gap);
 }
 
 .sweevit-testimonials__author {
@@ -212,10 +211,6 @@
     height: auto;
     min-height: auto;
   }
-
-  .sweevit-testimonials__card-footer {
-    padding-top: 3.2rem;
-  }
 }
 
 @media screen and (max-width: 749px) {
@@ -236,9 +231,5 @@
   .sweevit-testimonials__quote {
     font-size: 1.4rem;
     line-height: 2.2rem;
-  }
-
-  .sweevit-testimonials__card-footer {
-    padding-top: 2.4rem;
   }
 }

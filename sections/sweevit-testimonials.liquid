@@ -36,7 +36,7 @@
         <div class="sweevit-testimonials__rating">
           <span class="sweevit-testimonials__stars" aria-hidden="true">
             {%- for i in (1..5) -%}
-              {{- 'icon-star.svg' | inline_asset_content -}}
+              {{- 'icon-star-filled.svg' | inline_asset_content -}}
             {%- endfor -%}
           </span>
           <span class="sweevit-testimonials__rating-text">
@@ -62,7 +62,7 @@
             <div class="sweevit-testimonials__card-stars" aria-hidden="true">
               {%- assign star_count = block.settings.star_count | default: 5 -%}
               {%- for i in (1..star_count) -%}
-                {{- 'icon-star.svg' | inline_asset_content -}}
+                {{- 'icon-star-filled.svg' | inline_asset_content -}}
               {%- endfor -%}
             </div>
 
@@ -70,8 +70,6 @@
               {%- if block.settings.quote != blank -%}
                 <p class="sweevit-testimonials__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
               {%- endif -%}
-
-              <div class="sweevit-testimonials__card-spacer" aria-hidden="true"></div>
 
               <div class="sweevit-testimonials__card-footer">
                 <div class="sweevit-testimonials__author">
@@ -211,7 +209,7 @@
           "type": "textarea",
           "id": "quote",
           "label": "Quote",
-          "default": "I take Sweevit every morning before work. The focus is real — I feel sharper without the afternoon crash."
+          "default": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day."
         },
         {
           "type": "text",
@@ -241,7 +239,7 @@
         {
           "type": "testimonial",
           "settings": {
-            "quote": "I take Sweevit every morning before work. The focus is real — I feel sharper without the afternoon crash.",
+            "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
             "author_name": "Sarah M.",
             "author_meta": "Verified Purchase"
           }
@@ -249,7 +247,7 @@
         {
           "type": "testimonial",
           "settings": {
-            "quote": "Finally a supplement I actually enjoy taking. The gym feels easier and I recover faster.",
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
             "author_name": "James K.",
             "author_meta": "Verified Purchase"
           }
@@ -257,7 +255,7 @@
         {
           "type": "testimonial",
           "settings": {
-            "quote": "Part of my daily wellness routine now. Simple, tasty, and I genuinely feel the difference.",
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
             "author_name": "Lena R.",
             "author_meta": "Verified Purchase"
           }
