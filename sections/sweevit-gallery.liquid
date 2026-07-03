@@ -26,7 +26,7 @@
       --sweevit-gallery-section-padding-y: {{ section.settings.padding_top }}px;
       --sweevit-gallery-inset-left: max(
         {{ section.settings.content_inset }}px,
-        calc((100vw - min(100vw, {{ settings.page_width | default: 1200 }}px)) / 2 + {{ section.settings.content_inset }}px)
+        calc((100vw - min(100vw, 144rem)) / 2 + {{ section.settings.content_inset }}px)
       );
     }
 
@@ -171,6 +171,17 @@
     },
     {
       "type": "range",
+      "id": "content_inset",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Left inset (align with sections)",
+      "default": 78,
+      "info": "First image aligns with other section content; gallery bleeds to the right"
+    },
+    {
+      "type": "range",
       "id": "padding_top",
       "min": 0,
       "max": 120,
@@ -188,16 +199,6 @@
       "unit": "px",
       "label": "Padding bottom",
       "default": 80
-    },
-    {
-      "type": "range",
-      "id": "padding_horizontal",
-      "min": 0,
-      "max": 120,
-      "step": 2,
-      "unit": "px",
-      "label": "Padding horizontal",
-      "default": 78
     }
   ],
   "blocks": [

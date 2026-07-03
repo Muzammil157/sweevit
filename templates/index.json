@@ -418,10 +418,10 @@
       "settings": {
         "image_count": 12,
         "accessibility_label": "Sweevit lifestyle gallery",
-        "image_gap": 50,
+        "image_gap": 10,
+        "content_inset": 78,
         "padding_top": 64,
-        "padding_bottom": 80,
-        "padding_horizontal": 78
+        "padding_bottom": 80
       }
     }
   },
