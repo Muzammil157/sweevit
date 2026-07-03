@@ -120,7 +120,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 990px) {
   .sweevit-whats-inside__card-head {
     display: contents;
   }
@@ -215,7 +215,8 @@
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 749px) {
+/* Mobile layout — matches Figma (max-width: 989px) */
+@media screen and (max-width: 989px) {
   .sweevit-whats-inside__inner {
     padding: 2.2rem 2.2rem 4.8rem;
   }
@@ -257,7 +258,10 @@
   .sweevit-whats-inside__grid {
     gap: 2.2rem;
   }
+}
 
+/* Single-column cards — icon + title side by side */
+@media screen and (max-width: 639px) {
   .sweevit-whats-inside__card {
     max-width: none;
     width: 100%;
