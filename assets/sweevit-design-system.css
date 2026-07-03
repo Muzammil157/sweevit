@@ -27,6 +27,10 @@
   --sweevit-page-gutter: 4rem;
   --sweevit-ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
   --sweevit-drawer-duration: 0.48s;
+  --sweevit-ingredient-card-width: 29.6rem;
+  --sweevit-ingredient-card-height: 26rem;
+  --sweevit-ingredient-card-radius: 1.2rem;
+  --sweevit-ingredient-card-gap: 1rem;
 }
 
 @media screen and (max-width: 749px) {
