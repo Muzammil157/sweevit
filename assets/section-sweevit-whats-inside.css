@@ -96,7 +96,6 @@
   align-items: flex-start;
   width: 100%;
   max-width: var(--sweevit-ingredient-card-width);
-  min-height: var(--sweevit-ingredient-card-height);
   margin: 0 auto;
   padding: 2.4rem 2.8rem;
   border-radius: var(--sweevit-ingredient-card-radius);
@@ -107,7 +106,7 @@
 @media screen and (min-width: 640px) {
   .sweevit-whats-inside__card {
     width: var(--sweevit-ingredient-card-width);
-    height: var(--sweevit-ingredient-card-height);
+    height: auto;
     margin: 0;
   }
 }
@@ -180,6 +179,10 @@
   transition: opacity 0.2s ease;
 }
 
+a.sweevit-whats-inside__link {
+  cursor: pointer;
+}
+
 .sweevit-whats-inside__link:hover,
 .sweevit-whats-inside__link:focus-visible {
   opacity: 0.8;
@@ -208,10 +211,5 @@
 
   .sweevit-whats-inside__heading {
     letter-spacing: -0.1rem;
-  }
-
-  .sweevit-whats-inside__card {
-    height: auto;
-    min-height: var(--sweevit-ingredient-card-height);
   }
 }
