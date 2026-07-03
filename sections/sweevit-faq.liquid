@@ -1,0 +1,185 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-faq.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-faq.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  @media screen and (min-width: 990px) {
+    #SweevitFaq-{{ section.id }} .sweevit-faq__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-left: {{ section.settings.padding_horizontal }}px;
+      padding-right: {{ section.settings.padding_horizontal }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitFaq-{{ section.id }}"
+  class="sweevit-faq"
+>
+  <div class="sweevit-faq__inner">
+    <div class="sweevit-faq__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-faq__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-faq__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-faq__list" data-sweevit-faq>
+        {%- for block in section.blocks -%}
+          <div
+            class="sweevit-faq__item{% if forloop.first and section.settings.open_first_item %} is-open{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.question != blank -%}
+              <button
+                type="button"
+                class="sweevit-faq__trigger"
+                aria-expanded="{% if forloop.first and section.settings.open_first_item %}true{% else %}false{% endif %}"
+              >
+                <span class="sweevit-faq__question">{{ block.settings.question | escape }}</span>
+                <span class="sweevit-faq__icon" aria-hidden="true">
+                  {{- 'icon-plus.svg' | inline_asset_content -}}
+                </span>
+              </button>
+            {%- endif -%}
+
+            {%- if block.settings.answer != blank -%}
+              <div class="sweevit-faq__panel">
+                <p class="sweevit-faq__answer">{{ block.settings.answer | escape }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sweevit FAQ",
+  "tag": "section",
+  "class": "section-sweevit-faq",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Common Questions."
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_item",
+      "label": "Open first item by default",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding horizontal",
+      "default": 78
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What are Sweevit gummies made of?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take per day?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

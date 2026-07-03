@@ -423,6 +423,53 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
+    },
+    "sweevit_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take per day?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
@@ -433,6 +480,7 @@
     "sweevit_whats_inside",
     "sweevit_choose_pack",
     "sweevit_testimonials",
-    "sweevit_gallery"
+    "sweevit_gallery",
+    "sweevit_faq"
   ]
 }

@@ -64,6 +64,14 @@
   --sweevit-gallery-section-padding-y: 6.4rem;
   --sweevit-gallery-inset-left: 7.8rem;
   --sweevit-gallery-control-right: 2.4rem;
+  --sweevit-faq-section-padding-x: 7.8rem;
+  --sweevit-faq-section-padding-y: 8rem;
+  --sweevit-faq-eyebrow-heading-gap: 1.3rem;
+  --sweevit-faq-heading-list-gap: 4.8rem;
+  --sweevit-faq-item-padding-y: 2.4rem;
+  --sweevit-faq-answer-gap: 1.6rem;
+  --sweevit-faq-divider-color: rgba(26, 26, 26, 0.1);
+  --sweevit-faq-transition-duration: 0.36s;
 }
 
 @media screen and (max-width: 989px) {
