@@ -72,7 +72,9 @@
     --sweevit-testimonials-card-width: min(40.6rem, 100%);
     --sweevit-testimonials-card-pad-left: 2.8rem;
     --sweevit-testimonials-card-pad-right: 4.4rem;
-    --sweevit-gallery-visible-slides: 3;
+    --sweevit-gallery-card-width: 28rem;
+    --sweevit-gallery-card-height: 44.17rem;
+    --sweevit-gallery-gap: 3.2rem;
     --sweevit-testimonials-heading-rating-gap: 3.2rem;
     --sweevit-testimonials-header-grid-gap: 3.2rem;
   }
@@ -84,7 +86,9 @@
     --sweevit-pack-card-pad-right: 3.4rem;
     --sweevit-testimonials-card-pad-left: 2.2rem;
     --sweevit-testimonials-card-pad-right: 3.4rem;
-    --sweevit-gallery-visible-slides: 1.2;
+    --sweevit-gallery-card-width: 24rem;
+    --sweevit-gallery-card-height: 37.86rem;
+    --sweevit-gallery-gap: 2rem;
     --sweevit-page-gutter: 2rem;
   }
 }
