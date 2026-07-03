@@ -53,13 +53,10 @@
         {%- if has_blocks -%}
           {%- for block in section.blocks -%}
             {%- liquid
-              assign asset_index = forloop.index
-              capture default_asset
-                echo 'gallery-' | append: asset_index | append: '.png'
-              endcapture
+              assign default_asset = 'gallery-' | append: forloop.index | append: '.png'
               assign slide_alt = block.settings.alt
               if slide_alt == blank
-                assign slide_alt = 'Sweevit lifestyle image ' | append: asset_index
+                assign slide_alt = 'Sweevit lifestyle image ' | append: forloop.index
               endif
             -%}
 
