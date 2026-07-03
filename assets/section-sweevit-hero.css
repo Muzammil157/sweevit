@@ -332,8 +332,5 @@
     overflow-x: auto;
     padding-bottom: 0.4rem;
     -webkit-overflow-scrolling: touch;
-    margin-right: calc(-1 * var(--sweevit-page-gutter));
-    padding-right: var(--sweevit-page-gutter);
-    scroll-padding-right: var(--sweevit-page-gutter);
   }
 }
