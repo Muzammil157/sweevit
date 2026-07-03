@@ -332,6 +332,58 @@
         "padding_bottom": 64,
         "padding_horizontal": 78
       }
+    },
+    "sweevit_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I take Sweevit every morning before work. The focus is real — I feel sharper without the afternoon crash.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_james": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "Finally a supplement I actually enjoy taking. The gym feels easier and I recover faster.",
+            "author_name": "James K.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "Part of my daily wellness routine now. Simple, tasty, and I genuinely feel the difference.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_sarah",
+        "testimonial_james",
+        "testimonial_lena"
+      ],
+      "settings": {
+        "eyebrow": "What People Are Saying",
+        "heading": "Real People. Real Results.",
+        "show_rating": true,
+        "rating_value": "4.9 / 5.0",
+        "review_count": "217",
+        "review_label": "Reviews",
+        "use_custom_gradient": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
@@ -340,6 +392,7 @@
     "sweevit_difference",
     "sweevit_product_showcase",
     "sweevit_whats_inside",
-    "sweevit_choose_pack"
+    "sweevit_choose_pack",
+    "sweevit_testimonials"
   ]
 }
