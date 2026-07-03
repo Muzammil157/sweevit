@@ -27,7 +27,12 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="sweevit-whats-inside__heading">{{ section.settings.heading | escape }}</h2>
+        <h2 class="sweevit-whats-inside__heading">
+          {%- assign heading_words = section.settings.heading | split: ' ' -%}
+          {%- for word in heading_words -%}
+            <span class="sweevit-whats-inside__heading-line">{{ word | escape }}</span>
+          {%- endfor -%}
+        </h2>
       {%- endif -%}
 
       {%- if section.settings.subheading != blank -%}

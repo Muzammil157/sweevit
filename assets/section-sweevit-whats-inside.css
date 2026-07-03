@@ -43,6 +43,14 @@
   overflow-wrap: break-word;
 }
 
+.sweevit-whats-inside__heading-line {
+  display: inline;
+}
+
+.sweevit-whats-inside__heading-line:not(:last-child)::after {
+  content: ' ';
+}
+
 @media screen and (min-width: 990px) {
   .sweevit-whats-inside__heading {
     font-size: 5.2rem;
@@ -223,12 +231,20 @@
     letter-spacing: 0.3rem;
     text-align: left;
     color: var(--sweevit-icon-gold, #D9A93A);
-    margin-bottom: 1.2rem;
+    margin-bottom: 2rem;
   }
 
   .sweevit-whats-inside__heading {
     text-align: left;
-    max-width: 20rem;
+    max-width: none;
+  }
+
+  .sweevit-whats-inside__heading-line {
+    display: block;
+  }
+
+  .sweevit-whats-inside__heading-line:not(:last-child)::after {
+    content: none;
   }
 
   .sweevit-whats-inside__subheading {
