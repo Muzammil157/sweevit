@@ -31,6 +31,14 @@
   --sweevit-ingredient-card-height: 26rem;
   --sweevit-ingredient-card-radius: 1.2rem;
   --sweevit-ingredient-card-gap: 1rem;
+  --sweevit-pack-bg: #F5F5F5;
+  --sweevit-pack-card-width: 40rem;
+  --sweevit-pack-card-height: 60.9rem;
+  --sweevit-pack-card-radius: 1.2rem;
+  --sweevit-pack-popular-gradient: linear-gradient(0deg, #D9A93A 0%, #F5D170 100%);
+  --sweevit-pack-section-padding-x: 7.8rem;
+  --sweevit-pack-section-padding-y: 6.4rem;
+  --sweevit-pack-grid-gap: 1rem;
 }
 
 @media screen and (max-width: 749px) {
