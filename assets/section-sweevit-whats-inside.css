@@ -105,6 +105,19 @@
   box-sizing: border-box;
 }
 
+.sweevit-whats-inside__card-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .sweevit-whats-inside__card-head {
+    display: contents;
+  }
+}
+
 @media screen and (min-width: 640px) {
   .sweevit-whats-inside__card {
     width: var(--sweevit-ingredient-card-width);
@@ -196,15 +209,69 @@
 
 @media screen and (max-width: 749px) {
   .sweevit-whats-inside__inner {
-    padding-top: 4.8rem;
-    padding-bottom: 5.6rem;
+    padding-top: 4rem;
+    padding-bottom: 4.8rem;
   }
 
   .sweevit-whats-inside__header {
-    margin-bottom: 3.2rem;
+    max-width: none;
+    margin: 0 0 3.2rem;
+    text-align: left;
   }
 
   .sweevit-whats-inside__eyebrow {
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.3rem;
+    text-align: left;
+    color: var(--sweevit-icon-gold, #D9A93A);
+    margin-bottom: 1.2rem;
+  }
+
+  .sweevit-whats-inside__heading {
+    text-align: left;
+    max-width: 20rem;
+  }
+
+  .sweevit-whats-inside__subheading {
+    text-align: left;
+    margin: 5rem 0 0;
+    max-width: none;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .sweevit-whats-inside__grid {
+    gap: 1.2rem;
+  }
+
+  .sweevit-whats-inside__card {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 1.6rem;
+  }
+
+  .sweevit-whats-inside__card-head {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  .sweevit-whats-inside__icon {
+    margin-bottom: 0;
+  }
+
+  .sweevit-whats-inside__card-title {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sweevit-whats-inside__card-text {
+    margin-top: 1.6rem;
+    width: 100%;
+  }
+
+  .sweevit-whats-inside__link {
+    margin-top: 1.6rem;
   }
 }
