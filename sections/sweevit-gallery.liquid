@@ -13,7 +13,6 @@
 {%- style -%}
   #SweevitGallery-{{ section.id }} {
     --sweevit-gallery-gap: {{ section.settings.image_gap }}px;
-    --sweevit-gallery-visible-slides: {{ section.settings.slides_desktop }};
   }
 
   @media screen and (min-width: 990px) {
@@ -22,12 +21,6 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
       padding-left: {{ section.settings.padding_horizontal }}px;
       padding-right: {{ section.settings.padding_horizontal }}px;
-    }
-  }
-
-  @media screen and (min-width: 750px) and (max-width: 989px) {
-    #SweevitGallery-{{ section.id }} {
-      --sweevit-gallery-visible-slides: {{ section.settings.slides_tablet }};
     }
   }
 {%- endstyle -%}
@@ -62,12 +55,12 @@
                 {%- if block.settings.image != blank -%}
                   {{
                     block.settings.image
-                    | image_url: width: 900
+                    | image_url: width: 672
                     | image_tag:
                       class: 'sweevit-gallery__image',
                       loading: 'lazy',
-                      widths: '300, 450, 600, 750, 900',
-                      sizes: '(min-width: 990px) 250px, (min-width: 750px) 33vw, 78vw',
+                      widths: '336, 672',
+                      sizes: '336px',
                       alt: slide_alt
                   }}
                 {%- else -%}
@@ -75,8 +68,8 @@
                     src="{{ default_asset | asset_url }}"
                     class="sweevit-gallery__image"
                     loading="lazy"
-                    width="450"
-                    height="563"
+                    width="336"
+                    height="530"
                     alt="{{ slide_alt | escape }}"
                   >
                 {%- endif -%}
@@ -92,8 +85,8 @@
                   src="{{ gallery_asset | asset_url }}"
                   class="sweevit-gallery__image"
                   loading="lazy"
-                  width="450"
-                  height="563"
+                  width="336"
+                  height="530"
                   alt="Sweevit lifestyle image {{ i }}"
                 >
               </div>
