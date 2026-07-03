@@ -32,11 +32,11 @@
 
 .sweevit-whats-inside__heading {
   font-family: var(--sweevit-font);
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: 2.4rem;
   font-weight: 700;
   font-style: normal;
-  line-height: 100%;
-  letter-spacing: -0.2rem;
+  line-height: 3rem;
+  letter-spacing: -0.005em;
   text-align: center;
   color: var(--sweevit-dark-charcoal);
   margin: 0;
@@ -46,6 +46,8 @@
 @media screen and (min-width: 990px) {
   .sweevit-whats-inside__heading {
     font-size: 5.2rem;
+    line-height: 100%;
+    letter-spacing: -0.2rem;
   }
 }
 
@@ -204,9 +206,5 @@
 
   .sweevit-whats-inside__eyebrow {
     letter-spacing: 0.2rem;
-  }
-
-  .sweevit-whats-inside__heading {
-    letter-spacing: -0.1rem;
   }
 }
