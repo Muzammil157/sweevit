@@ -118,20 +118,27 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 4rem;
-  height: 4rem;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 2rem;
+  border-radius: 2.8rem;
+  background-color: var(--sweevit-search-bg);
+  box-sizing: border-box;
 }
 
-.sweevit-whats-inside__icon svg {
+.sweevit-whats-inside__icon-dot {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--sweevit-icon-gold, #D9A93A);
+  flex-shrink: 0;
 }
 
 .sweevit-whats-inside__icon img {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  width: 1.6rem;
+  height: 1.6rem;
   object-fit: contain;
 }
 
