@@ -52,8 +52,12 @@
   --sweevit-testimonials-eyebrow-heading-gap: 1.3rem;
   --sweevit-testimonials-heading-rating-gap: 5rem;
   --sweevit-testimonials-header-grid-gap: 5rem;
-  --sweevit-testimonials-quote-author-gap: 15.6rem;
+  --sweevit-testimonials-stars-quote-gap: 1.6rem;
+  --sweevit-testimonials-quote-author-gap: 2.4rem;
   --sweevit-testimonials-author-bottom-gap: 3.7rem;
+  --sweevit-testimonials-card-pad-top: 2.4rem;
+  --sweevit-testimonials-card-pad-left: 3.6rem;
+  --sweevit-testimonials-card-pad-right: 5.6rem;
 }
 
 @media screen and (max-width: 989px) {
@@ -61,7 +65,9 @@
     --sweevit-pack-card-pad-left: 2.8rem;
     --sweevit-pack-card-pad-right: 4.4rem;
     --sweevit-testimonials-card-width: min(40.6rem, 100%);
-    --sweevit-testimonials-quote-author-gap: 4rem;
+    --sweevit-testimonials-quote-author-gap: 2rem;
+    --sweevit-testimonials-card-pad-left: 2.8rem;
+    --sweevit-testimonials-card-pad-right: 4.4rem;
     --sweevit-testimonials-heading-rating-gap: 3.2rem;
     --sweevit-testimonials-header-grid-gap: 3.2rem;
   }
@@ -71,6 +77,8 @@
   :root {
     --sweevit-pack-card-pad-left: 2.2rem;
     --sweevit-pack-card-pad-right: 3.4rem;
+    --sweevit-testimonials-card-pad-left: 2.2rem;
+    --sweevit-testimonials-card-pad-right: 3.4rem;
     --sweevit-page-gutter: 2rem;
   }
 }
