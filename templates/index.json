@@ -276,6 +276,62 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "sweevit_choose_pack": {
+      "type": "sweevit-choose-pack",
+      "blocks": {
+        "pack_one": {
+          "type": "pack",
+          "settings": {
+            "card_style": "default",
+            "label": "1 Pack",
+            "price": "$39",
+            "price_note": "One-time purchase",
+            "perk_1": "Free shipping on 3+ packs",
+            "perk_2": "Secure checkout",
+            "button_label": "Add to cart"
+          }
+        },
+        "pack_three": {
+          "type": "pack",
+          "settings": {
+            "card_style": "popular",
+            "badge_text": "Most Popular",
+            "label": "3 Packs",
+            "price": "$99",
+            "price_note": "Save 15%",
+            "perk_1": "Free shipping",
+            "perk_2": "Cancel anytime",
+            "perk_3": "Priority access",
+            "button_label": "Add to cart"
+          }
+        },
+        "pack_subscribe": {
+          "type": "pack",
+          "settings": {
+            "card_style": "subscribe",
+            "label": "Subscribe",
+            "price": "$31",
+            "price_note": "per pack · Save 20%",
+            "perk_1": "Free shipping on 3+ packs",
+            "perk_2": "Secure checkout",
+            "button_label": "Add to cart"
+          }
+        }
+      },
+      "block_order": [
+        "pack_one",
+        "pack_three",
+        "pack_subscribe"
+      ],
+      "settings": {
+        "eyebrow": "Choose Your Pack",
+        "heading": "Start Your Daily Ritual.",
+        "background_color": "#F5F5F5",
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
@@ -283,6 +339,7 @@
     "sweevit_benefits",
     "sweevit_difference",
     "sweevit_product_showcase",
-    "sweevit_whats_inside"
+    "sweevit_whats_inside",
+    "sweevit_choose_pack"
   ]
 }
