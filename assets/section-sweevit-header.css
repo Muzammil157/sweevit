@@ -434,6 +434,7 @@ body.sweevit-drawer-open {
   width: 100%;
   text-align: center;
   box-sizing: border-box;
+  cursor: pointer;
   opacity: 0;
   transform: translate3d(0, 1.2rem, 0);
   transition:
