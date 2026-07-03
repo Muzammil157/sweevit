@@ -176,11 +176,8 @@
   letter-spacing: 0;
   color: var(--sweevit-icon-gold, #D9A93A);
   text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-a.sweevit-whats-inside__link {
   cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
 .sweevit-whats-inside__link:hover,
