@@ -94,7 +94,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--sweevit-ingredient-card-gap);
   width: 100%;
   max-width: var(--sweevit-ingredient-card-width);
   min-height: var(--sweevit-ingredient-card-height);
@@ -120,6 +119,7 @@
   flex-shrink: 0;
   width: 5.6rem;
   height: 5.6rem;
+  margin-bottom: 2rem;
   padding: 2rem;
   border-radius: 2.8rem;
   background-color: var(--sweevit-search-bg);
@@ -150,7 +150,7 @@
   line-height: 100%;
   letter-spacing: 0;
   color: var(--sweevit-dark-charcoal);
-  margin: 0;
+  margin: 0 0 1rem;
 }
 
 .sweevit-whats-inside__card-text {
@@ -162,14 +162,13 @@
   letter-spacing: 0;
   color: rgba(26, 26, 26, 0.55);
   margin: 0;
-  flex: 1;
 }
 
 .sweevit-whats-inside__link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-top: auto;
+  margin-top: 2.4rem;
   font-family: var(--sweevit-font);
   font-size: 1.3rem;
   font-weight: 500;
