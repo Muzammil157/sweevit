@@ -38,7 +38,7 @@
   --sweevit-pack-popular-gradient: linear-gradient(0deg, #D9A93A 0%, #F5D170 100%);
   --sweevit-pack-section-padding-x: 7.8rem;
   --sweevit-pack-section-padding-y: 6.4rem;
-  --sweevit-pack-grid-gap: 1rem;
+  --sweevit-pack-grid-gap: 5rem;
 }
 
 @media screen and (max-width: 749px) {
