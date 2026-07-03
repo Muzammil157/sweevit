@@ -14,6 +14,12 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  @media screen and (max-width: 749px) {
+    #SweevitWhatsInside-{{ section.id }} {
+      padding-top: 0;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+  }
 {%- endstyle -%}
 
 <section

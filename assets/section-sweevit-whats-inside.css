@@ -83,20 +83,20 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   justify-content: center;
-  gap: 1.6rem;
+  gap: 2.2rem;
 }
 
 @media screen and (min-width: 640px) {
   .sweevit-whats-inside__grid {
     grid-template-columns: repeat(2, minmax(0, var(--sweevit-ingredient-card-width)));
-    gap: 2rem;
+    gap: 2.2rem;
   }
 }
 
 @media screen and (min-width: 990px) {
   .sweevit-whats-inside__grid {
     grid-template-columns: repeat(4, var(--sweevit-ingredient-card-width));
-    gap: 2rem;
+    gap: 2.2rem;
   }
 }
 
@@ -217,8 +217,7 @@
 
 @media screen and (max-width: 749px) {
   .sweevit-whats-inside__inner {
-    padding-top: 4rem;
-    padding-bottom: 4.8rem;
+    padding: 2.2rem 2.2rem 4.8rem;
   }
 
   .sweevit-whats-inside__header {
@@ -231,12 +230,12 @@
     letter-spacing: 0.3rem;
     text-align: left;
     color: var(--sweevit-icon-gold, #D9A93A);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .sweevit-whats-inside__heading {
     text-align: left;
-    max-width: none;
+    max-width: 30rem;
   }
 
   .sweevit-whats-inside__heading-line {
@@ -250,13 +249,13 @@
   .sweevit-whats-inside__subheading {
     text-align: left;
     margin: 5rem 0 0;
-    max-width: none;
+    max-width: 30rem;
     font-size: 1.5rem;
-    line-height: 1.5;
+    line-height: 2.2rem;
   }
 
   .sweevit-whats-inside__grid {
-    gap: 1.2rem;
+    gap: 2.2rem;
   }
 
   .sweevit-whats-inside__card {
