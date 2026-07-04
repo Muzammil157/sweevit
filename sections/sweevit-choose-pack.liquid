@@ -46,6 +46,9 @@
         {%- for block in section.blocks -%}
           {%- liquid
             assign card_product = block.settings.product
+            if card_product == blank
+              assign card_product = all_products['sweevit-functional-gummies']
+            endif
             assign card_variant = nil
             assign card_price = block.settings.price
             assign first_selling_plan = nil
