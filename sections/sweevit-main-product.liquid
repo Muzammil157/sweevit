@@ -150,7 +150,7 @@
             </span>
             <span class="sweevit-pdp__rating-text">
               {{ section.settings.rating_value | escape }} · {{ section.settings.review_count | escape }} {{ section.settings.review_label | escape -}}
-              {%- if section.settings.repurchase_text != blank %} · {{ section.settings.repurchase_text | escape }}{% endif -%}
+              {%- if section.settings.repurchase_text != blank %} · <strong class="sweevit-pdp__repurchase">{{ section.settings.repurchase_text | escape }}</strong>{% endif -%}
             </span>
           </div>
         {%- endif -%}

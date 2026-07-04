@@ -9,6 +9,10 @@
   --sweevit-pdp-column-gap: 7.6rem;
   --sweevit-pdp-thumb-gap: 2rem;
   --sweevit-pdp-cert-gap: 7rem;
+  --sweevit-pdp-gap-sm: 1.6rem;
+  --sweevit-pdp-gap-md: 2.4rem;
+  --sweevit-pdp-gap-lg: 3.2rem;
+  --sweevit-pdp-gap-xl: 4rem;
 }
 
 .sweevit-pdp__inner {
@@ -146,6 +150,8 @@
 /* Content */
 .sweevit-pdp__content {
   max-width: var(--sweevit-pdp-content-width);
+  display: flex;
+  flex-direction: column;
 }
 
 .sweevit-pdp__eyebrow {
@@ -156,22 +162,24 @@
   letter-spacing: 0.3rem;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.45);
-  margin: 0 0 1.2rem;
+  margin: 0 0 var(--sweevit-pdp-gap-sm);
 }
 
 .sweevit-pdp .sweevit-product__title {
   font-size: clamp(3.2rem, 7vw, 5.2rem);
   letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
 }
 
 .sweevit-pdp__tagline {
   font-family: var(--sweevit-font);
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 140%;
   letter-spacing: 0;
   color: rgba(26, 26, 26, 0.55);
-  margin: 1.2rem 0 0;
+  margin: var(--sweevit-pdp-gap-md) 0 0;
 }
 
 /* Rating row — filled stars, inline repurchase */
@@ -180,7 +188,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.8rem;
-  margin-top: 1.6rem;
+  margin-top: var(--sweevit-pdp-gap-md);
 }
 
 .sweevit-pdp__stars {
@@ -200,8 +208,13 @@
   font-family: var(--sweevit-font);
   font-size: 1.3rem;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 140%;
   color: rgba(26, 26, 26, 0.55);
+}
+
+.sweevit-pdp__repurchase {
+  font-weight: 600;
+  color: var(--sweevit-dark-charcoal);
 }
 
 /* Price */
@@ -210,7 +223,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 1.2rem;
-  margin-top: 2rem;
+  margin-top: var(--sweevit-pdp-gap-md);
 }
 
 .sweevit-pdp__sale-price {
