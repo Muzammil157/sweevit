@@ -3,6 +3,9 @@
 
 {%- liquid
   assign product = section.settings.product
+  if product == blank
+    assign product = all_products['sweevit-functional-gummies']
+  endif
   assign heading = section.settings.heading
   assign subtitle = section.settings.subheading
   if product != blank
