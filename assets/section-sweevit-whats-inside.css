@@ -304,3 +304,171 @@
     margin-top: 1.6rem;
   }
 }
+
+/* PDP ingredient cards — Figma spec */
+.sweevit-whats-inside--pdp .sweevit-whats-inside__inner {
+  padding-top: 6.4rem;
+  padding-bottom: 6.4rem;
+}
+
+.sweevit-whats-inside--pdp .sweevit-whats-inside__header {
+  margin-bottom: 4.8rem;
+}
+
+.sweevit-whats-inside--pdp .sweevit-whats-inside__eyebrow {
+  margin-bottom: 1.6rem;
+}
+
+.sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 27rem);
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
+    grid-template-columns: repeat(4, 27rem);
+    gap: 2rem;
+  }
+}
+
+.sweevit-whats-inside__card--pdp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 27rem;
+  max-width: 27rem;
+  height: 28rem;
+  margin: 0;
+  padding: 2rem 2rem 6.3rem;
+  border: 0.1rem solid #E6E6E6;
+  border-top: none;
+  border-radius: 0.8rem;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sweevit-whats-inside__card--pdp::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.2rem;
+  background: linear-gradient(90deg, #D9A93A 0%, rgba(217, 230, 242, 0.8) 50%, #D9A93A 100%);
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  margin: 0;
+  padding: 1.6rem 2rem 1.6rem 1.8rem;
+  border-radius: 2.8rem;
+  background-color: #F2F2F2;
+  box-sizing: border-box;
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__icon img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.sweevit-whats-inside__card-number {
+  font-family: var(--sweevit-font);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #D9A93A;
+  flex-shrink: 0;
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 0 0.8rem;
+}
+
+.sweevit-whats-inside__dosage-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  background-color: #F5EDD9;
+  font-family: var(--sweevit-font);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #D9A93A;
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__card-text {
+  margin: 0;
+  flex: 1;
+}
+
+@media screen and (max-width: 989px) {
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__inner {
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+  }
+
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__header {
+    text-align: center;
+    margin-bottom: 3.2rem;
+  }
+
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__eyebrow {
+    text-align: center;
+    color: rgba(26, 26, 26, 0.45);
+    margin-bottom: 1.6rem;
+  }
+
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__heading {
+    text-align: center;
+    max-width: none;
+  }
+
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .sweevit-whats-inside__card--pdp {
+    width: 100%;
+    max-width: 27rem;
+    height: auto;
+    min-height: 28rem;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 989px) {
+  .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
+    grid-template-columns: repeat(2, minmax(0, 27rem));
+  }
+}

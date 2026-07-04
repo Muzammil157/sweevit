@@ -120,7 +120,7 @@
         "card_style": "ritual",
         "background_color": "#F9F9F9",
         "padding_top": 0,
-        "padding_bottom": 64
+        "padding_bottom": 0
       }
     },
     "pdp_how_to": {
@@ -167,53 +167,58 @@
     "pdp_ingredients": {
       "type": "sweevit-whats-inside",
       "blocks": {
-        "ingredient_lions_mane": {
+        "ingredient_honey": {
           "type": "ingredient",
           "settings": {
-            "title": "Lion's Mane",
-            "benefit_tag": "Focus",
-            "description": "Mushroom extract for cognitive clarity and focus support."
+            "card_number": "01",
+            "title": "Raw Honey",
+            "dosage": "500mg",
+            "description": "Natural energy source & prebiotic support for gut health."
           }
         },
         "ingredient_ashwagandha": {
           "type": "ingredient",
           "settings": {
+            "card_number": "02",
             "title": "Ashwagandha",
-            "benefit_tag": "Stress",
-            "description": "Adaptogen that helps manage stress and supports wellbeing."
+            "dosage": "300mg",
+            "description": "Adaptogenic herb supporting stress reduction & mental clarity."
           }
         },
-        "ingredient_b12": {
+        "ingredient_b_complex": {
           "type": "ingredient",
           "settings": {
-            "title": "Vitamin B12",
-            "benefit_tag": "Energy",
-            "description": "Supports natural energy production and reduces fatigue."
+            "card_number": "03",
+            "title": "Vitamin B Complex",
+            "dosage": "100% DV",
+            "description": "Essential cofactors for sustained cellular energy metabolism."
           }
         },
-        "ingredient_cordyceps": {
+        "ingredient_lions_mane": {
           "type": "ingredient",
           "settings": {
-            "title": "Cordyceps",
-            "benefit_tag": "Endurance",
-            "description": "Functional mushroom for stamina and daily performance support."
+            "card_number": "04",
+            "title": "Lion's Mane",
+            "dosage": "250mg",
+            "description": "Mushroom extract supporting cognitive function & focus."
           }
         }
       },
       "block_order": [
-        "ingredient_lions_mane",
+        "ingredient_honey",
         "ingredient_ashwagandha",
-        "ingredient_b12",
-        "ingredient_cordyceps"
+        "ingredient_b_complex",
+        "ingredient_lions_mane"
       ],
       "settings": {
-        "eyebrow": "",
+        "eyebrow": "WHAT'S INSIDE",
         "heading": "Premium Ingredients, Simple Results.",
         "subheading": "",
         "hide_card_links": true,
+        "card_style": "pdp",
         "background_color": "#FFFFFF",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "pdp_comparison": {
