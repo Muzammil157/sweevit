@@ -1,1 +1,83 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor":{"type":"text","settings":{"text":"{{ product.vendor }}","text_style":"uppercase"}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":true,"show_gift_card_recipient":true}},"description":{"type":"description","settings":{}},"share":{"type":"share","settings":{"share_label":"Share"}}},"block_order":["vendor","title","price","variant_picker","quantity_selector","buy_buttons","description","share"],"settings":{"enable_sticky_info":true,"color_scheme":"scheme-1","media_size":"large","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"stacked","mobile_thumbnails":"hide","media_position":"left","image_zoom":"lightbox","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":12}},"disclosures":{"type":"disclosures","settings":{"padding_top":36,"padding_bottom":0}},"related-products":{"type":"related-products","settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"padding_top":36,"padding_bottom":28}}},"order":["main","disclosures","related-products"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "sweevit-main-product",
+      "blocks": {
+        "highlight_focus": {
+          "type": "highlight",
+          "settings": {
+            "icon": "focus",
+            "title": "Focus",
+            "description": "Mental clarity & concentration"
+          }
+        },
+        "highlight_energy": {
+          "type": "highlight",
+          "settings": {
+            "icon": "energy",
+            "title": "Energy",
+            "description": "Natural energy, zero crash"
+          }
+        },
+        "highlight_wellness": {
+          "type": "highlight",
+          "settings": {
+            "icon": "wellness",
+            "title": "Wellness",
+            "description": "Daily body & mind support"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_focus",
+        "highlight_energy",
+        "highlight_wellness"
+      ],
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumb_home": "Home",
+        "breadcrumb_shop": "Shop",
+        "eyebrow": "Functional Wellness Gummies",
+        "tagline": "Focus, Energy & Wellness — One Daily Ritual.",
+        "show_rating": true,
+        "rating_value": "4.9",
+        "review_count": "217",
+        "review_label": "reviews",
+        "repurchase_text": "98% would repurchase",
+        "save_badge_label": "SAVE [percent]%",
+        "purchase_options_label": "Purchase options",
+        "show_subscribe": true,
+        "default_purchase_option": "subscribe",
+        "one_time_label": "One-time purchase",
+        "subscribe_label": "Subscribe & Save 20%",
+        "subscribe_price_fallback": "$31.20",
+        "perk_1": "Free shipping",
+        "perk_2": "Cancel anytime",
+        "perk_3": "Priority access",
+        "button_label": "Add to cart",
+        "secure_checkout_text": "Secure checkout",
+        "guarantee_text": "30-day money-back guarantee",
+        "shipping_text": "Free shipping over $35",
+        "cert_1": "Non-GMO",
+        "cert_2": "Gluten-Free",
+        "cert_3": "Vegan",
+        "cert_4": "Lab Tested",
+        "background_color": "#FAFAFA",
+        "padding_top": 40,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
