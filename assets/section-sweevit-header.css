@@ -119,6 +119,23 @@
   transition: color 0.2s ease;
 }
 
+.sweevit-header__cart .cart-count-bubble {
+  top: 0.2rem;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  min-width: 1.8rem;
+  height: 1.8rem;
+  padding: 0 0.4rem;
+  background: var(--sweevit-icon-gold, #D9A93A);
+  color: var(--sweevit-dark-charcoal);
+  font-family: var(--sweevit-font);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 10rem;
+}
+
 .sweevit-header__cart.visually-hidden {
   position: absolute;
   width: 1px;
@@ -137,8 +154,8 @@
 
 .sweevit-header__cart .svg-wrapper {
   display: flex;
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
 }
 
 .sweevit-header__cart .svg-wrapper svg {

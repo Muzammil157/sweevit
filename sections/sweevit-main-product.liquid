@@ -1,6 +1,7 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-product-showcase.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-main-product.css' | asset_url | stylesheet_tag }}
+{{ 'sweevit-loading-spinner.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
@@ -328,7 +329,7 @@
                     {{- section.settings.button_label | escape -}}
                     — <span data-atc-price>{% if default_option == 'subscribe' %}{{ subscribe_price }}{% else %}{{ onetime_price }}{% endif %}</span>
                   </span>
-                  {%- render 'loading-spinner' -%}
+                  {%- render 'sweevit-loading-spinner' -%}
                 </button>
               </div>
             {%- endform -%}

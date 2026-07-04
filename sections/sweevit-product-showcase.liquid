@@ -1,5 +1,6 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-product-showcase.css' | asset_url | stylesheet_tag }}
+{{ 'sweevit-loading-spinner.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign product = section.settings.product
@@ -271,7 +272,7 @@
                   {% if current_variant.available == false %}disabled{% endif %}
                 >
                   <span>{{ section.settings.button_label | escape }}</span>
-                  {%- render 'loading-spinner' -%}
+                  {%- render 'sweevit-loading-spinner' -%}
                 </button>
               </div>
             {%- endform -%}
