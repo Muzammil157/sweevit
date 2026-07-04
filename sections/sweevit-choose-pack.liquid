@@ -2,9 +2,11 @@
 {{ 'section-sweevit-choose-pack.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
+  assign fallback_product = all_products['sweevit-functional-gummies']
   assign has_product_form = false
   for block in section.blocks
-    if block.settings.product != blank
+    assign check_product = block.settings.product | default: fallback_product
+    if check_product != blank
       assign has_product_form = true
       break
     endif
@@ -28,7 +30,7 @@
 
 <section
   id="SweevitPack-{{ section.id }}"
-  class="sweevit-pack"
+  class="sweevit-pack{% if section.settings.center_header %} sweevit-pack--centered{% endif %}"
 >
   <div class="sweevit-pack__inner">
     <div class="sweevit-pack__header">
@@ -214,6 +216,12 @@
       "id": "heading",
       "label": "Heading",
       "default": "Start Your Daily Ritual."
+    },
+    {
+      "type": "checkbox",
+      "id": "center_header",
+      "label": "Center header",
+      "default": false
     },
     {
       "type": "header",

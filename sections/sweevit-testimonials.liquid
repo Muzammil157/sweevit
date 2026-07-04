@@ -20,7 +20,7 @@
 
 <section
   id="SweevitTestimonials-{{ section.id }}"
-  class="sweevit-testimonials"
+  class="sweevit-testimonials{% if section.settings.center_header %} sweevit-testimonials--centered{% endif %}"
 >
   <div class="sweevit-testimonials__inner">
     <div class="sweevit-testimonials__header">
@@ -118,6 +118,12 @@
       "id": "heading",
       "label": "Heading",
       "default": "Real People. Real Results."
+    },
+    {
+      "type": "checkbox",
+      "id": "center_header",
+      "label": "Center header",
+      "default": false
     },
     {
       "type": "checkbox",
