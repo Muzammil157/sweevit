@@ -120,7 +120,7 @@
         "card_style": "ritual",
         "background_color": "#F9F9F9",
         "padding_top": 0,
-        "padding_bottom": 80
+        "padding_bottom": 0
       }
     },
     "pdp_how_to": {
@@ -130,24 +130,24 @@
           "type": "step",
           "settings": {
             "number": "01",
-            "title": "Take in the morning.",
-            "description": "Take one gummy with or without food as part of your morning ritual."
+            "title": "Take two gummies",
+            "description": "Each morning, take two Sweevit gummies as part of your daily routine."
           }
         },
         "step_2": {
           "type": "step",
           "settings": {
             "number": "02",
-            "title": "Don't skip a morning.",
-            "description": "Consistency is key. Make Sweevit part of your daily routine for best results."
+            "title": "Pair with your morning",
+            "description": "Enjoy with breakfast, coffee, or water — no special timing required."
           }
         },
         "step_3": {
           "type": "step",
           "settings": {
             "number": "03",
-            "title": "Stay consistent.",
-            "description": "Most customers notice a difference within 2–3 weeks of daily use."
+            "title": "Stay consistent",
+            "description": "Most people notice improved clarity and energy within 7–14 days."
           }
         }
       },
@@ -157,8 +157,9 @@
         "step_3"
       ],
       "settings": {
+        "eyebrow": "THE RITUAL",
         "heading": "How To Take Sweevit.",
-        "background_color": "#FAFAFA",
+        "background_color": "#FFFFFF",
         "padding_top": 80,
         "padding_bottom": 80
       }
