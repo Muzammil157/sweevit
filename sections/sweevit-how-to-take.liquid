@@ -4,15 +4,8 @@
 {%- style -%}
   #SweevitHowToTake-{{ section.id }} {
     --sweevit-how-to-bg: {{ section.settings.background_color }};
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    #SweevitHowToTake-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 {%- endstyle -%}
 
@@ -93,7 +86,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding top",
-      "default": 80
+      "default": 64
     },
     {
       "type": "range",
@@ -103,7 +96,7 @@
       "step": 4,
       "unit": "px",
       "label": "Padding bottom",
-      "default": 80
+      "default": 64
     }
   ],
   "blocks": [
