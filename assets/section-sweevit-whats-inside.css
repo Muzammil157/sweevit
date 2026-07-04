@@ -307,8 +307,8 @@
 
 /* PDP ingredient cards — Figma spec */
 .sweevit-whats-inside--pdp .sweevit-whats-inside__inner {
-  padding-top: 6.4rem;
-  padding-bottom: 6.4rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .sweevit-whats-inside--pdp .sweevit-whats-inside__header {
@@ -433,8 +433,8 @@
 
 @media screen and (max-width: 989px) {
   .sweevit-whats-inside--pdp .sweevit-whats-inside__inner {
-    padding-top: 4.8rem;
-    padding-bottom: 4.8rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .sweevit-whats-inside--pdp .sweevit-whats-inside__header {
