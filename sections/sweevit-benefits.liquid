@@ -18,7 +18,7 @@
 
 <section
   id="SweevitBenefits-{{ section.id }}"
-  class="sweevit-benefits"
+  class="sweevit-benefits{% if section.settings.center_header %} sweevit-benefits--centered{% endif %}{% if section.settings.card_style == 'elevated' %} sweevit-benefits--elevated{% endif %}"
 >
   <div class="sweevit-benefits__inner">
     <div class="sweevit-benefits__header">
@@ -59,12 +59,26 @@
               {%- endif -%}
             </div>
 
-            {%- if block.settings.title != blank -%}
+            {%- if block.settings.category != blank -%}
+              <p class="sweevit-benefits__card-category">{{ block.settings.category | escape }}</p>
+            {%- elsif block.settings.title != blank -%}
               <h3 class="sweevit-benefits__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.category != blank and block.settings.title != blank -%}
+              <h3 class="sweevit-benefits__card-title sweevit-benefits__card-title--secondary">{{ block.settings.title | escape }}</h3>
             {%- endif -%}
 
             {%- if block.settings.description != blank -%}
               <p class="sweevit-benefits__card-text">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.link_label != blank -%}
+              {%- if block.settings.link != blank -%}
+                <a class="sweevit-benefits__card-link" href="{{ block.settings.link }}">{{ block.settings.link_label | escape }}</a>
+              {%- else -%}
+                <span class="sweevit-benefits__card-link">{{ block.settings.link_label | escape }}</span>
+              {%- endif -%}
             {%- endif -%}
           </article>
         {%- endfor -%}
@@ -104,6 +118,28 @@
     {
       "type": "header",
       "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "center_header",
+      "label": "Center header",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Card style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "elevated",
+          "label": "Elevated (white cards)"
+        }
+      ],
+      "default": "default"
     },
     {
       "type": "color",
@@ -169,6 +205,12 @@
         },
         {
           "type": "text",
+          "id": "category",
+          "label": "Category label",
+          "info": "Optional uppercase label shown above the title"
+        },
+        {
+          "type": "text",
           "id": "title",
           "label": "Title",
           "default": "Focus"
@@ -178,6 +220,16 @@
           "id": "description",
           "label": "Description",
           "default": "Mental clarity & concentration to power through your day without distraction."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     }
