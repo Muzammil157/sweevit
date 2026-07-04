@@ -77,16 +77,24 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
-    this.querySelector('.drawer__inner').classList.contains('is-empty') &&
-      this.querySelector('.drawer__inner').classList.remove('is-empty');
+    const drawerInner = this.querySelector('.drawer__inner');
+    if (drawerInner?.classList.contains('is-empty')) {
+      drawerInner.classList.remove('is-empty');
+    }
+
     this.productId = parsedState.id;
     this.getSectionsToRender().forEach((section) => {
+      const sectionHtml = parsedState.sections?.[section.id];
+      if (!sectionHtml) return;
+
       const sectionElement = section.selector
         ? document.querySelector(section.selector)
         : document.getElementById(section.id);
 
       if (!sectionElement) return;
-      sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
+
+      const sectionContent = this.getSectionInnerHTML(sectionHtml, section.selector);
+      if (sectionContent !== null) sectionElement.innerHTML = sectionContent;
     });
 
     const cartIcon = document.getElementById('cart-icon-bubble');
@@ -97,13 +105,16 @@ class CartDrawer extends HTMLElement {
     }
 
     setTimeout(() => {
-      this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+      this.querySelector('#CartDrawer-Overlay')?.addEventListener('click', this.close.bind(this));
       this.open();
     });
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
-    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
+    if (!html) return null;
+
+    const parsedNode = new DOMParser().parseFromString(html, 'text/html').querySelector(selector);
+    return parsedNode ? parsedNode.innerHTML : null;
   }
 
   getSectionsToRender() {
@@ -129,21 +140,23 @@ class CartDrawer extends HTMLElement {
 
 customElements.define('cart-drawer', CartDrawer);
 
-class CartDrawerItems extends CartItems {
-  getSectionsToRender() {
-    return [
-      {
-        id: 'CartDrawer',
-        section: 'cart-drawer',
-        selector: '.drawer__inner',
-      },
-      {
-        id: 'cart-icon-bubble',
-        section: 'cart-icon-bubble',
-        selector: '.shopify-section',
-      },
-    ];
+if (typeof CartItems !== 'undefined') {
+  class CartDrawerItems extends CartItems {
+    getSectionsToRender() {
+      return [
+        {
+          id: 'CartDrawer',
+          section: 'cart-drawer',
+          selector: '.drawer__inner',
+        },
+        {
+          id: 'cart-icon-bubble',
+          section: 'cart-icon-bubble',
+          selector: '.shopify-section',
+        },
+      ];
+    }
   }
-}
 
-customElements.define('cart-drawer-items', CartDrawerItems);
+  customElements.define('cart-drawer-items', CartDrawerItems);
+}

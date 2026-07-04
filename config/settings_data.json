@@ -9,6 +9,7 @@
  */
 {
   "current": "Dawn",
+  "cart_type": "drawer",
   "presets": {
     "Dawn": {
       "logo_width": 90,
