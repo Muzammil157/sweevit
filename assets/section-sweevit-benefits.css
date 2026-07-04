@@ -217,11 +217,13 @@
 .sweevit-benefits--ritual .sweevit-benefits__bubble {
   flex-shrink: 0;
   align-self: flex-start;
-  width: auto;
+  width: 8.9rem;
+  min-width: 8.9rem;
   max-width: 8.9rem;
   height: 2.6rem;
   margin: 0 0 2.9rem;
-  padding: 0 0.8rem;
+  padding: 0 1rem;
+  border: 0.1rem solid #E6E6E6;
   border-radius: 1.2rem;
   background: #F2F2F2;
   font-family: var(--sweevit-font);
@@ -324,6 +326,21 @@
   .sweevit-benefits__inner {
     padding-top: 4.8rem;
     padding-bottom: 5.6rem;
+  }
+
+  .sweevit-benefits--ritual .sweevit-benefits__inner {
+    padding-top: 3.2rem;
+    padding-bottom: 5.6rem;
+  }
+
+  .sweevit-benefits--ritual .sweevit-benefits__grid {
+    gap: 2.4rem;
+  }
+
+  .sweevit-benefits--ritual .sweevit-benefits__card {
+    max-width: none;
+    min-height: 0;
+    padding: 3.2rem 2.4rem 3.6rem;
   }
 
   .sweevit-benefits__header {
