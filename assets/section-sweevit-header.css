@@ -114,6 +114,17 @@
   transition: color 0.2s ease;
 }
 
+.sweevit-header__cart.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .sweevit-header__cart:hover,
 .sweevit-header__cart:focus-visible {
   color: var(--sweevit-honey-gold);

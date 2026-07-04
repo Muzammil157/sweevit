@@ -2,7 +2,7 @@
 {{ 'section-sweevit-header.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- if settings.cart_type == 'notification' -%}
-  <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'sweevit-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
   <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
@@ -65,27 +65,34 @@
         {% render 'sweevit-header-search', input_id: sweevit_search_id %}
       {%- endif -%}
 
-      <a
-        href="{{ routes.cart_url }}"
-        class="sweevit-header__cart"
-        id="cart-icon-bubble"
-        aria-label="{{ 'templates.cart.cart' | t }}"
-      >
-        {%- if cart == empty -%}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {%- else -%}
+      {%- if cart != empty -%}
+        <a
+          href="{{ routes.cart_url }}"
+          class="sweevit-header__cart"
+          id="cart-icon-bubble"
+          aria-label="{{ 'templates.cart.cart' | t }}"
+        >
           <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {%- endif -%}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-        {%- if cart != empty -%}
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
           <div class="cart-count-bubble">
             {%- if cart.item_count < 100 -%}
               <span aria-hidden="true">{{ cart.item_count }}</span>
             {%- endif -%}
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
-        {%- endif -%}
-      </a>
+        </a>
+      {%- else -%}
+        <a
+          href="{{ routes.cart_url }}"
+          class="sweevit-header__cart visually-hidden"
+          id="cart-icon-bubble"
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+          <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        </a>
+      {%- endif -%}
 
       {%- if section.settings.cta_label != blank -%}
         {%- if section.settings.cta_link != blank -%}
@@ -167,11 +174,11 @@
       </div>
     </div>
   {%- endif -%}
-</header>
 
-{%- if settings.cart_type == 'notification' -%}
-  {%- render 'cart-notification' -%}
-{%- endif -%}
+  {%- if settings.cart_type == 'notification' -%}
+    {%- render 'sweevit-cart-notification' -%}
+  {%- endif -%}
+</header>
 
 {% schema %}
 {
