@@ -43,6 +43,8 @@
               <p class="sweevit-how-to-take__number" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
             {%- endif -%}
 
+            <span class="sweevit-how-to-take__bar" aria-hidden="true"></span>
+
             <div class="sweevit-how-to-take__content">
               {%- if block.settings.title != blank -%}
                 <h3 class="sweevit-how-to-take__title">{{ block.settings.title | escape }}</h3>
