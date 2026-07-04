@@ -138,14 +138,29 @@
   color: var(--sweevit-icon-gold, #D9A93A);
 }
 
+.sweevit-comparison__icon--competitor-yes {
+  color: var(--sweevit-dark-charcoal);
+}
+
 .sweevit-comparison__icon--no {
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
   color: rgba(26, 26, 26, 0.25);
 }
 
 @media screen and (max-width: 749px) {
-  .sweevit-comparison__heading {
+  .sweevit-comparison__header {
     text-align: left;
     margin-bottom: 3.2rem;
+  }
+
+  .sweevit-comparison__eyebrow {
+    text-align: left;
+  }
+
+  .sweevit-comparison__heading {
+    text-align: left;
     letter-spacing: -0.1rem;
   }
 }
