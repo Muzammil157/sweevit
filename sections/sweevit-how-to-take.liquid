@@ -21,8 +21,16 @@
   class="sweevit-how-to-take"
 >
   <div class="sweevit-how-to-take__inner">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="sweevit-how-to-take__heading">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="sweevit-how-to-take__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sweevit-how-to-take__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="sweevit-how-to-take__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </div>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
@@ -59,6 +67,12 @@
   "settings": [
     {
       "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE RITUAL"
+    },
+    {
+      "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "How To Take Sweevit."
@@ -67,7 +81,7 @@
       "type": "color",
       "id": "background_color",
       "label": "Background color",
-      "default": "#FAFAFA"
+      "default": "#FFFFFF"
     },
     {
       "type": "range",
@@ -105,13 +119,13 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Take in the morning."
+          "default": "Take two gummies"
         },
         {
           "type": "textarea",
           "id": "description",
           "label": "Description",
-          "default": "Take one gummy with or without food as part of your morning ritual."
+          "default": "Each morning, take two Sweevit gummies as part of your daily routine."
         }
       ]
     }
@@ -124,24 +138,24 @@
           "type": "step",
           "settings": {
             "number": "01",
-            "title": "Take in the morning.",
-            "description": "Take one gummy with or without food as part of your morning ritual."
+            "title": "Take two gummies",
+            "description": "Each morning, take two Sweevit gummies as part of your daily routine."
           }
         },
         {
           "type": "step",
           "settings": {
             "number": "02",
-            "title": "Don't skip a morning.",
-            "description": "Consistency is key. Make Sweevit part of your daily routine for best results."
+            "title": "Pair with your morning",
+            "description": "Enjoy with breakfast, coffee, or water — no special timing required."
           }
         },
         {
           "type": "step",
           "settings": {
             "number": "03",
-            "title": "Stay consistent.",
-            "description": "Most customers notice a difference within 2–3 weeks of daily use."
+            "title": "Stay consistent",
+            "description": "Most people notice improved clarity and energy within 7–14 days."
           }
         }
       ]
