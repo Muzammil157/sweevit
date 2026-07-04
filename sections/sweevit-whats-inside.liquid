@@ -25,7 +25,7 @@
 
 <section
   id="SweevitWhatsInside-{{ section.id }}"
-  class="sweevit-whats-inside"
+  class="sweevit-whats-inside{% if section.settings.card_style == 'pdp' %} sweevit-whats-inside--pdp{% endif %}"
 >
   <div class="sweevit-whats-inside__inner">
     <div class="sweevit-whats-inside__header">
@@ -34,12 +34,16 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="sweevit-whats-inside__heading">
-          {%- assign heading_words = section.settings.heading | split: ' ' -%}
-          {%- for word in heading_words -%}
-            <span class="sweevit-whats-inside__heading-line">{{ word | escape }}</span>
-          {%- endfor -%}
-        </h2>
+        {%- if section.settings.card_style == 'pdp' -%}
+          <h2 class="sweevit-whats-inside__heading">{{ section.settings.heading | escape }}</h2>
+        {%- else -%}
+          <h2 class="sweevit-whats-inside__heading">
+            {%- assign heading_words = section.settings.heading | split: ' ' -%}
+            {%- for word in heading_words -%}
+              <span class="sweevit-whats-inside__heading-line">{{ word | escape }}</span>
+            {%- endfor -%}
+          </h2>
+        {%- endif -%}
       {%- endif -%}
 
       {%- if section.settings.subheading != blank -%}
@@ -50,7 +54,50 @@
     {%- if section.blocks.size > 0 -%}
       <div class="sweevit-whats-inside__grid">
         {%- for block in section.blocks -%}
-          <article class="sweevit-whats-inside__card" {{ block.shopify_attributes }}>
+          <article
+            class="sweevit-whats-inside__card{% if section.settings.card_style == 'pdp' %} sweevit-whats-inside__card--pdp{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if section.settings.card_style == 'pdp' -%}
+              <div class="sweevit-whats-inside__card-top">
+                <div class="sweevit-whats-inside__icon" aria-hidden="true">
+                  {%- if block.settings.icon_image != blank -%}
+                    {%- assign icon_alt = block.settings.title | default: 'Ingredient icon' | escape -%}
+                    {{
+                      block.settings.icon_image
+                      | image_url: width: 80
+                      | image_tag: alt: icon_alt, loading: 'lazy'
+                    }}
+                  {%- else -%}
+                    <img
+                      src="{{ 'star.png' | asset_url }}"
+                      alt=""
+                      width="20"
+                      height="20"
+                      loading="lazy"
+                    >
+                  {%- endif -%}
+                </div>
+
+                {%- if block.settings.card_number != blank -%}
+                  <span class="sweevit-whats-inside__card-number" aria-hidden="true">{{ block.settings.card_number | escape }}</span>
+                {%- else -%}
+                  <span class="sweevit-whats-inside__card-number" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.title != blank -%}
+                <h3 class="sweevit-whats-inside__card-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.dosage != blank -%}
+                <span class="sweevit-whats-inside__dosage-tag">{{ block.settings.dosage | escape }}</span>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="sweevit-whats-inside__card-text">{{ block.settings.description | escape }}</p>
+              {%- endif -%}
+            {%- else -%}
             <div class="sweevit-whats-inside__card-head">
               <div class="sweevit-whats-inside__icon" aria-hidden="true">
                 {%- if block.settings.icon_image != blank -%}
@@ -93,6 +140,7 @@
                 {%- endif -%}
               {%- endif -%}
             {%- endunless -%}
+            {%- endif -%}
           </article>
         {%- endfor -%}
       </div>
@@ -148,6 +196,22 @@
       "default": false
     },
     {
+      "type": "select",
+      "id": "card_style",
+      "label": "Card style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "pdp",
+          "label": "PDP ingredient cards"
+        }
+      ],
+      "default": "default"
+    },
+    {
       "type": "header",
       "content": "Section spacing"
     },
@@ -182,6 +246,18 @@
           "id": "icon_image",
           "label": "Custom icon",
           "info": "Optional. Default is a gold dot icon."
+        },
+        {
+          "type": "text",
+          "id": "card_number",
+          "label": "Card number",
+          "info": "Used with PDP card style e.g. 01"
+        },
+        {
+          "type": "text",
+          "id": "dosage",
+          "label": "Dosage tag",
+          "info": "Used with PDP card style e.g. 500mg"
         },
         {
           "type": "text",
