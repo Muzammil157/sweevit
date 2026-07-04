@@ -261,14 +261,16 @@
 .sweevit-pdp__highlights {
   border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
   border-bottom: 0.1rem solid rgba(26, 26, 26, 0.1);
-  padding-top: 2.4rem;
-  padding-bottom: 2.4rem;
-  margin-top: 2.4rem;
+  padding-top: var(--sweevit-pdp-gap-lg);
+  padding-bottom: var(--sweevit-pdp-gap-lg);
+  margin-top: var(--sweevit-pdp-gap-lg);
 }
 
 @media screen and (min-width: 750px) {
   .sweevit-pdp__highlights {
-    margin-top: 3.2rem;
+    margin-top: var(--sweevit-pdp-gap-xl);
+    padding-top: var(--sweevit-pdp-gap-xl);
+    padding-bottom: var(--sweevit-pdp-gap-xl);
   }
 }
 
@@ -276,7 +278,7 @@
 .sweevit-pdp__purchase-section {
   width: 100%;
   max-width: var(--sweevit-pdp-content-width);
-  margin-top: 3.2rem;
+  margin-top: var(--sweevit-pdp-gap-xl);
 }
 
 .sweevit-pdp__purchase-label {
@@ -286,7 +288,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(26, 26, 26, 0.45);
-  margin: 0 0 1.2rem;
+  margin: 0 0 var(--sweevit-pdp-gap-sm);
 }
 
 /* Purchase options — separate bordered boxes like reference */
@@ -340,7 +342,7 @@
 
 /* Purchase box — qty, ATC, trust, certs (no outer border) */
 .sweevit-pdp__purchase-box {
-  margin-top: 2rem;
+  margin-top: var(--sweevit-pdp-gap-md);
 }
 
 .sweevit-pdp__purchase {
@@ -427,9 +429,21 @@
   flex-shrink: 0;
 }
 
+@media screen and (min-width: 750px) {
+  .sweevit-pdp {
+    --sweevit-pdp-gap-md: 3.2rem;
+    --sweevit-pdp-gap-lg: 4rem;
+    --sweevit-pdp-gap-xl: 4.8rem;
+  }
+
+  .sweevit-pdp__tagline {
+    margin-top: var(--sweevit-pdp-gap-md);
+  }
+}
+
 @media screen and (max-width: 749px) {
   .sweevit-pdp__purchase-section {
-    margin-top: 2.4rem;
+    margin-top: var(--sweevit-pdp-gap-lg);
   }
 
   .sweevit-pdp__purchase {
