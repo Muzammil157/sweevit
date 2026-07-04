@@ -151,6 +151,11 @@
   letter-spacing: -0.01em;
 }
 
+.sweevit-benefits--ritual .sweevit-benefits__inner {
+  padding-top: 4.8rem;
+  padding-bottom: 8rem;
+}
+
 .sweevit-benefits--ritual .sweevit-benefits__header {
   margin-bottom: 4.8rem;
 }
@@ -241,8 +246,8 @@
 @media screen and (min-width: 990px) {
   .sweevit-benefits--ritual .sweevit-benefits__card {
     width: 36rem;
-    height: 32rem;
     min-height: 32rem;
+    height: auto;
   }
 }
 
