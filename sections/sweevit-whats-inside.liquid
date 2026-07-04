@@ -79,16 +79,18 @@
             {%- endif -%}
 
             {%- unless section.settings.hide_card_links -%}
-              {%- if block.settings.link != blank -%}
-                <a class="sweevit-whats-inside__link" href="{{ block.settings.link }}">
-                  <span>{{ block.settings.link_label | escape }}</span>
-                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
-                </a>
-              {%- else -%}
-                <span class="sweevit-whats-inside__link">
-                  <span>{{ block.settings.link_label | escape }}</span>
-                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
-                </span>
+              {%- if block.settings.link_label != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a class="sweevit-whats-inside__link" href="{{ block.settings.link }}">
+                    <span>{{ block.settings.link_label | escape }}</span>
+                    {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                  </a>
+                {%- else -%}
+                  <span class="sweevit-whats-inside__link">
+                    <span>{{ block.settings.link_label | escape }}</span>
+                    {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
+                  </span>
+                {%- endif -%}
               {%- endif -%}
             {%- endunless -%}
           </article>
@@ -140,6 +142,12 @@
       "default": "#FFFFFF"
     },
     {
+      "type": "checkbox",
+      "id": "hide_card_links",
+      "label": "Hide card links",
+      "default": false
+    },
+    {
       "type": "header",
       "content": "Section spacing"
     },
@@ -180,6 +188,12 @@
           "id": "title",
           "label": "Title",
           "default": "Vitamin B12"
+        },
+        {
+          "type": "text",
+          "id": "benefit_tag",
+          "label": "Benefit tag",
+          "info": "Short gold label e.g. Focus, Energy"
         },
         {
           "type": "textarea",

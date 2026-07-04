@@ -172,6 +172,16 @@
   line-height: 100%;
   letter-spacing: 0;
   color: var(--sweevit-dark-charcoal);
+  margin: 0 0 0.6rem;
+}
+
+.sweevit-whats-inside__benefit-tag {
+  font-family: var(--sweevit-font);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sweevit-icon-gold, #D9A93A);
   margin: 0 0 1rem;
 }
 
