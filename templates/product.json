@@ -227,7 +227,7 @@
         "row_1": {
           "type": "row",
           "settings": {
-            "feature": "Clinically Studied",
+            "feature": "Natural energy, no crash",
             "sweevit_has": true,
             "competitor_1_has": false,
             "competitor_2_has": false
@@ -236,25 +236,25 @@
         "row_2": {
           "type": "row",
           "settings": {
-            "feature": "No artificial sweeteners",
-            "sweevit_has": true,
-            "competitor_1_has": false,
-            "competitor_2_has": false
-          }
-        },
-        "row_3": {
-          "type": "row",
-          "settings": {
-            "feature": "Third-party tested",
+            "feature": "Enjoyable daily experience",
             "sweevit_has": true,
             "competitor_1_has": false,
             "competitor_2_has": true
           }
         },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "Premium clean ingredients",
+            "sweevit_has": true,
+            "competitor_1_has": true,
+            "competitor_2_has": false
+          }
+        },
         "row_4": {
           "type": "row",
           "settings": {
-            "feature": "Better absorption",
+            "feature": "Subscription & rewards",
             "sweevit_has": true,
             "competitor_1_has": false,
             "competitor_2_has": false
@@ -263,7 +263,7 @@
         "row_5": {
           "type": "row",
           "settings": {
-            "feature": "Eco-friendly packaging",
+            "feature": "Holographic premium packaging",
             "sweevit_has": true,
             "competitor_1_has": false,
             "competitor_2_has": false
@@ -272,7 +272,7 @@
         "row_6": {
           "type": "row",
           "settings": {
-            "feature": "100% vegan",
+            "feature": "Third-party lab tested",
             "sweevit_has": true,
             "competitor_1_has": true,
             "competitor_2_has": false
@@ -288,11 +288,12 @@
         "row_6"
       ],
       "settings": {
+        "eyebrow": "The Difference",
         "heading": "Why Sweevit Wins",
         "brand_column_label": "Sweevit",
-        "competitor_1_label": "Generic Brand",
-        "competitor_2_label": "Other Brands",
-        "background_color": "#FAFAFA",
+        "competitor_1_label": "Capsules",
+        "competitor_2_label": "Other Gummies",
+        "background_color": "#FFFFFF",
         "padding_top": 80,
         "padding_bottom": 80
       }
