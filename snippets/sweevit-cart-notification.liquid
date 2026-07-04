@@ -1,0 +1,50 @@
+{% comment %}
+  Sweevit-styled cart notification. Keeps Dawn IDs for cart-notification.js compatibility.
+{% endcomment %}
+
+<cart-notification class="sweevit-cart-notification">
+  <div class="sweevit-cart-notification__wrapper">
+    <div
+      id="cart-notification"
+      class="sweevit-cart-notification__panel cart-notification focus-inset"
+      aria-modal="true"
+      aria-label="{{ 'general.cart.item_added' | t }}"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div class="sweevit-cart-notification__header">
+        <h2 class="sweevit-cart-notification__heading">
+          {{- 'icon-checkmark.svg' | inline_asset_content -}}
+          <span>{{ 'general.cart.item_added' | t }}</span>
+        </h2>
+        <button
+          type="button"
+          class="sweevit-cart-notification__close"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </button>
+      </div>
+
+      <div id="cart-notification-product" class="sweevit-cart-notification__product cart-notification-product"></div>
+
+      <div class="sweevit-cart-notification__links cart-notification__links">
+        <a
+          href="{{ routes.cart_url }}"
+          id="cart-notification-button"
+          class="sweevit-cart-notification__btn sweevit-cart-notification__btn--secondary"
+        >
+          {{ 'general.cart.view' | t: count: cart.item_count }}
+        </a>
+        <form action="{{ routes.cart_url }}" method="post" id="cart-notification-form">
+          <button class="sweevit-cart-notification__btn sweevit-cart-notification__btn--primary" name="checkout" type="submit">
+            {{ 'sections.cart.checkout' | t }}
+          </button>
+        </form>
+        <button type="button" class="sweevit-cart-notification__continue link button-label">
+          {{ 'general.continue_shopping' | t }}
+        </button>
+      </div>
+    </div>
+  </div>
+</cart-notification>
