@@ -312,11 +312,25 @@
 }
 
 .sweevit-whats-inside--pdp .sweevit-whats-inside__header {
+  max-width: none;
   margin-bottom: 4.8rem;
 }
 
 .sweevit-whats-inside--pdp .sweevit-whats-inside__eyebrow {
   margin-bottom: 1.6rem;
+}
+
+.sweevit-whats-inside--pdp .sweevit-whats-inside__heading {
+  font-family: var(--sweevit-font);
+  font-size: 52px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 46px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  max-width: none;
 }
 
 .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
@@ -456,7 +470,11 @@
   }
 
   .sweevit-whats-inside--pdp .sweevit-whats-inside__heading {
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
     text-align: center;
+    white-space: normal;
     max-width: none;
   }
 
