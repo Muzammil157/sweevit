@@ -143,19 +143,15 @@
 
         {%- if section.settings.show_rating -%}
           <div class="sweevit-pdp__rating-row">
-            <div class="sweevit-product__rating sweevit-pdp__rating">
-              <span class="sweevit-product__stars" aria-hidden="true">
-                {%- for i in (1..5) -%}
-                  {{- 'icon-star.svg' | inline_asset_content -}}
-                {%- endfor -%}
-              </span>
-              <span class="sweevit-pdp__rating-text">
-                {{ section.settings.rating_value | escape }} · {{ section.settings.review_count | escape }} {{ section.settings.review_label | escape }}
-              </span>
-            </div>
-            {%- if section.settings.repurchase_text != blank -%}
-              <span class="sweevit-pdp__repurchase">{{ section.settings.repurchase_text | escape }}</span>
-            {%- endif -%}
+            <span class="sweevit-product__stars sweevit-pdp__stars" aria-hidden="true">
+              {%- for i in (1..5) -%}
+                {{- 'icon-star-filled.svg' | inline_asset_content -}}
+              {%- endfor -%}
+            </span>
+            <span class="sweevit-pdp__rating-text">
+              {{ section.settings.rating_value | escape }} · {{ section.settings.review_count | escape }} {{ section.settings.review_label | escape -}}
+              {%- if section.settings.repurchase_text != blank %} · {{ section.settings.repurchase_text | escape }}{% endif -%}
+            </span>
           </div>
         {%- endif -%}
 
@@ -200,7 +196,7 @@
           </div>
         {%- endif -%}
 
-        <div class="sweevit-pdp__purchase-box">
+        <div class="sweevit-pdp__purchase-section">
           <p class="sweevit-pdp__purchase-label">{{ section.settings.purchase_options_label | escape }}</p>
 
           <div class="sweevit-product__options sweevit-pdp__options" role="radiogroup" aria-label="Purchase option">
@@ -273,6 +269,7 @@
             {%- endif -%}
           </div>
 
+          <div class="sweevit-pdp__purchase-box">
           <product-form class="product-form" data-section-id="{{ section.id }}">
             <div class="product-form__error-message-wrapper" role="alert" hidden>
               <span class="product-form__error-message"></span>
@@ -372,6 +369,7 @@
               {%- endfor -%}
             </div>
           {%- endif -%}
+          </div>
         </div>
       </div>
     </div>
