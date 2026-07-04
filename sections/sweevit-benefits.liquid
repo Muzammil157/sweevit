@@ -18,7 +18,7 @@
 
 <section
   id="SweevitBenefits-{{ section.id }}"
-  class="sweevit-benefits{% if section.settings.center_header %} sweevit-benefits--centered{% endif %}{% if section.settings.card_style == 'elevated' %} sweevit-benefits--elevated{% endif %}"
+  class="sweevit-benefits{% if section.settings.center_header %} sweevit-benefits--centered{% endif %}{% if section.settings.card_style == 'elevated' %} sweevit-benefits--elevated{% endif %}{% if section.settings.card_style == 'ritual' %} sweevit-benefits--ritual{% endif %}"
 >
   <div class="sweevit-benefits__inner">
     <div class="sweevit-benefits__header">
@@ -59,25 +59,39 @@
               {%- endif -%}
             </div>
 
-            {%- if block.settings.category != blank -%}
-              <p class="sweevit-benefits__card-category">{{ block.settings.category | escape }}</p>
-            {%- elsif block.settings.title != blank -%}
-              <h3 class="sweevit-benefits__card-title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
+            {%- if section.settings.card_style == 'ritual' -%}
+              {%- if block.settings.bubble_label != blank -%}
+                <span class="sweevit-benefits__bubble">{{ block.settings.bubble_label | escape }}</span>
+              {%- endif -%}
 
-            {%- if block.settings.category != blank and block.settings.title != blank -%}
-              <h3 class="sweevit-benefits__card-title sweevit-benefits__card-title--secondary">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="sweevit-benefits__card-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
 
-            {%- if block.settings.description != blank -%}
-              <p class="sweevit-benefits__card-text">{{ block.settings.description | escape }}</p>
-            {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="sweevit-benefits__card-text">{{ block.settings.description | escape }}</p>
+              {%- endif -%}
+            {%- else -%}
+              {%- if block.settings.category != blank -%}
+                <p class="sweevit-benefits__card-category">{{ block.settings.category | escape }}</p>
+              {%- elsif block.settings.title != blank -%}
+                <h3 class="sweevit-benefits__card-title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
 
-            {%- if block.settings.link_label != blank -%}
-              {%- if block.settings.link != blank -%}
-                <a class="sweevit-benefits__card-link" href="{{ block.settings.link }}">{{ block.settings.link_label | escape }}</a>
-              {%- else -%}
-                <span class="sweevit-benefits__card-link">{{ block.settings.link_label | escape }}</span>
+              {%- if block.settings.category != blank and block.settings.title != blank -%}
+                <h3 class="sweevit-benefits__card-title sweevit-benefits__card-title--secondary">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="sweevit-benefits__card-text">{{ block.settings.description | escape }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.link_label != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a class="sweevit-benefits__card-link" href="{{ block.settings.link }}">{{ block.settings.link_label | escape }}</a>
+                {%- else -%}
+                  <span class="sweevit-benefits__card-link">{{ block.settings.link_label | escape }}</span>
+                {%- endif -%}
               {%- endif -%}
             {%- endif -%}
           </article>
@@ -137,6 +151,10 @@
         {
           "value": "elevated",
           "label": "Elevated (white cards)"
+        },
+        {
+          "value": "ritual",
+          "label": "Daily ritual (PDP)"
         }
       ],
       "default": "default"
@@ -202,6 +220,12 @@
           "id": "icon_image",
           "label": "Custom icon image",
           "info": "Optional. Overrides the selected icon. Recommended: 22 x 22px"
+        },
+        {
+          "type": "text",
+          "id": "bubble_label",
+          "label": "Bubble label",
+          "info": "Used with Daily ritual card style"
         },
         {
           "type": "text",
