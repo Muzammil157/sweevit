@@ -414,7 +414,7 @@
 .sweevit-pdp__cert {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   font-family: var(--sweevit-font);
   font-size: 1.2rem;
   font-weight: 500;
@@ -425,7 +425,7 @@
 .sweevit-pdp__cert svg {
   width: 1.2rem;
   height: 1.2rem;
-  fill: var(--sweevit-icon-gold, #D9A93A);
+  color: #D9A93A;
   flex-shrink: 0;
 }
 
