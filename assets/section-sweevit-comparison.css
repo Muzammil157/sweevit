@@ -89,7 +89,7 @@
 }
 
 .sweevit-comparison__row:nth-child(even) .sweevit-comparison__feature,
-.sweevit-comparison__row:nth-child(even) .sweevit-comparison__cell:not(.sweevit-comparison__cell--highlight) {
+.sweevit-comparison__row:nth-child(even) .sweevit-comparison__cell {
   background: #F9F9F9;
 }
 
@@ -111,14 +111,6 @@
   padding: 1.8rem 1.2rem;
   border-bottom: 0.1rem solid rgba(26, 26, 26, 0.06);
   background: var(--sweevit-pure-white);
-}
-
-.sweevit-comparison__cell--highlight {
-  background: rgba(217, 169, 58, 0.08);
-}
-
-.sweevit-comparison__row:nth-child(even) .sweevit-comparison__cell--highlight {
-  background: rgba(217, 169, 58, 0.14);
 }
 
 .sweevit-comparison__icon {
