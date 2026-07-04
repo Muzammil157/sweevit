@@ -134,10 +134,7 @@
   height: 1.4rem;
 }
 
-.sweevit-comparison__icon--yes {
-  color: var(--sweevit-icon-gold, #D9A93A);
-}
-
+.sweevit-comparison__icon--yes,
 .sweevit-comparison__icon--competitor-yes {
   color: var(--sweevit-dark-charcoal);
 }
