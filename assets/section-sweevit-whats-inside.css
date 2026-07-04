@@ -433,22 +433,6 @@
   text-overflow: ellipsis;
 }
 
-.sweevit-whats-inside__dosage-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 0.4rem;
-  background-color: #F5EDD9;
-  font-family: var(--sweevit-font);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.01em;
-  color: #D9A93A;
-}
-
 .sweevit-whats-inside__card--pdp .sweevit-whats-inside__card-text {
   margin: 0;
   flex: 1;
