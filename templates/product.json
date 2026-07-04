@@ -75,9 +75,397 @@
         "padding_top": 0,
         "padding_bottom": 80
       }
+    },
+    "pdp_benefits": {
+      "type": "sweevit-benefits",
+      "blocks": {
+        "benefit_immunity": {
+          "type": "benefit",
+          "settings": {
+            "icon": "wellness",
+            "category": "Immunity",
+            "title": "Daily Defense",
+            "description": "Support your immune system with functional ingredients designed for everyday wellness.",
+            "link_label": "Learn more"
+          }
+        },
+        "benefit_focus": {
+          "type": "benefit",
+          "settings": {
+            "icon": "focus",
+            "category": "Focus",
+            "title": "Mental Clarity",
+            "description": "Stay sharp and focused throughout the day with nootropics that support cognitive performance.",
+            "link_label": "Learn more"
+          }
+        },
+        "benefit_energy": {
+          "type": "benefit",
+          "settings": {
+            "icon": "energy",
+            "category": "Energy",
+            "title": "Natural Vitality",
+            "description": "Clean, sustained energy without the crash — powered by premium functional ingredients.",
+            "link_label": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_immunity",
+        "benefit_focus",
+        "benefit_energy"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Built For Your Daily Ritual.",
+        "subheading": "",
+        "center_header": true,
+        "card_style": "elevated",
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "pdp_how_to": {
+      "type": "sweevit-how-to-take",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Take in the morning.",
+            "description": "Take one gummy with or without food as part of your morning ritual."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Don't skip a morning.",
+            "description": "Consistency is key. Make Sweevit part of your daily routine for best results."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Stay consistent.",
+            "description": "Most customers notice a difference within 2–3 weeks of daily use."
+          }
+        }
+      },
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
+      "settings": {
+        "heading": "How To Take Sweevit.",
+        "background_color": "#FAFAFA",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "pdp_ingredients": {
+      "type": "sweevit-whats-inside",
+      "blocks": {
+        "ingredient_lions_mane": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Lion's Mane",
+            "benefit_tag": "Focus",
+            "description": "Mushroom extract for cognitive clarity and focus support."
+          }
+        },
+        "ingredient_ashwagandha": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Ashwagandha",
+            "benefit_tag": "Stress",
+            "description": "Adaptogen that helps manage stress and supports wellbeing."
+          }
+        },
+        "ingredient_b12": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Vitamin B12",
+            "benefit_tag": "Energy",
+            "description": "Supports natural energy production and reduces fatigue."
+          }
+        },
+        "ingredient_cordyceps": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Cordyceps",
+            "benefit_tag": "Endurance",
+            "description": "Functional mushroom for stamina and daily performance support."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_lions_mane",
+        "ingredient_ashwagandha",
+        "ingredient_b12",
+        "ingredient_cordyceps"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Premium Ingredients, Simple Results.",
+        "subheading": "",
+        "hide_card_links": true,
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "pdp_comparison": {
+      "type": "sweevit-comparison",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "feature": "Clinically Studied",
+            "sweevit_has": true,
+            "competitor_1_has": false,
+            "competitor_2_has": false
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "feature": "No artificial sweeteners",
+            "sweevit_has": true,
+            "competitor_1_has": false,
+            "competitor_2_has": false
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "feature": "Third-party tested",
+            "sweevit_has": true,
+            "competitor_1_has": false,
+            "competitor_2_has": true
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "feature": "Better absorption",
+            "sweevit_has": true,
+            "competitor_1_has": false,
+            "competitor_2_has": false
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "feature": "Eco-friendly packaging",
+            "sweevit_has": true,
+            "competitor_1_has": false,
+            "competitor_2_has": false
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "feature": "100% vegan",
+            "sweevit_has": true,
+            "competitor_1_has": true,
+            "competitor_2_has": false
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {
+        "heading": "Why Sweevit Wins",
+        "brand_column_label": "Sweevit",
+        "competitor_1_label": "Generic Brand",
+        "competitor_2_label": "Other Brands",
+        "background_color": "#FAFAFA",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "pdp_choose_pack": {
+      "type": "sweevit-choose-pack",
+      "blocks": {
+        "pack_one": {
+          "type": "pack",
+          "settings": {
+            "card_style": "default",
+            "label": "1 Pack",
+            "price": "$39",
+            "price_note": "One-time purchase",
+            "perk_1": "Free shipping on 3+ packs",
+            "perk_2": "Secure checkout",
+            "button_label": "Add to cart"
+          }
+        },
+        "pack_three": {
+          "type": "pack",
+          "settings": {
+            "card_style": "popular",
+            "badge_text": "Best Value",
+            "label": "3 Packs",
+            "price": "$99",
+            "price_note": "Save 15%",
+            "perk_1": "Free shipping",
+            "perk_2": "Cancel anytime",
+            "perk_3": "Priority access",
+            "button_label": "Add to cart"
+          }
+        },
+        "pack_subscribe": {
+          "type": "pack",
+          "settings": {
+            "card_style": "subscribe",
+            "label": "Subscribe",
+            "price": "$31",
+            "price_note": "per pack · Save 20%",
+            "perk_1": "Free shipping",
+            "perk_2": "Cancel anytime",
+            "button_label": "Add to cart"
+          }
+        }
+      },
+      "block_order": [
+        "pack_one",
+        "pack_three",
+        "pack_subscribe"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Start Your Daily Ritual.",
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "pdp_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Buyer",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_james": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
+            "author_name": "James K.",
+            "author_meta": "Verified Buyer",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Buyer",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_sarah",
+        "testimonial_james",
+        "testimonial_lena"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Real People. Real Results.",
+        "show_rating": true,
+        "rating_value": "4.9 / 5.0",
+        "review_count": "217",
+        "review_label": "Reviews",
+        "use_custom_gradient": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "pdp_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit functional gummies?",
+            "answer": "Sweevit functional gummies are a daily wellness supplement designed to support focus, natural energy, and overall wellbeing — in one simple, enjoyable gummy."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take them?",
+            "answer": "Take one gummy every morning with or without food. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "Are they vegan?",
+            "answer": "Yes. Sweevit gummies are 100% vegan, non-GMO, and gluten-free."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "Can I subscribe and save?",
+            "answer": "Yes. Subscribe & Save gives you 20% off every order, free shipping, and the flexibility to cancel anytime."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "Common Questions.",
+        "open_first_item": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "pdp_benefits",
+    "pdp_how_to",
+    "pdp_ingredients",
+    "pdp_comparison",
+    "pdp_choose_pack",
+    "pdp_testimonials",
+    "pdp_faq"
   ]
 }
