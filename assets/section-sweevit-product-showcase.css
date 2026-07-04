@@ -478,22 +478,6 @@ sweevit-product-showcase {
   cursor: not-allowed;
 }
 
-.sweevit-product__atc .loading__spinner {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.sweevit-product__atc .loading__spinner:not(.hidden) {
-  display: inline-flex;
-}
-
-.sweevit-product__atc.loading > span:first-child {
-  visibility: hidden;
-}
-
 .sweevit-product .product-form__error-message-wrapper {
   margin-top: 1.2rem;
   font-family: var(--sweevit-font);
