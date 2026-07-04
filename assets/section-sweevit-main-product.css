@@ -374,13 +374,21 @@
   opacity: 0.92;
 }
 
+/* Purchase footer — trust badges + certifications */
+.sweevit-pdp__purchase-footer {
+  width: 100%;
+  margin-top: 1.6rem;
+}
+
 /* Trust badges */
 .sweevit-pdp__trust {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1.2rem 2.4rem;
-  margin-top: 1.6rem;
+  margin-top: 0;
+  padding-bottom: 1.6rem;
 }
 
 .sweevit-pdp__trust-item {
@@ -402,13 +410,16 @@
   flex-shrink: 0;
 }
 
-/* Certifications — 70px gap */
+/* Certifications — divider + 70px gap */
 .sweevit-pdp__certs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: var(--sweevit-pdp-cert-gap);
-  margin-top: 1.6rem;
+  margin-top: 0;
+  padding-top: 1.6rem;
+  border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
 }
 
 .sweevit-pdp__cert {
@@ -417,14 +428,14 @@
   gap: 0.8rem;
   font-family: var(--sweevit-font);
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--sweevit-dark-charcoal);
   white-space: nowrap;
 }
 
 .sweevit-pdp__cert svg {
   width: 1.2rem;
-  height: 1.2rem;
+  height: 1.6rem;
   color: #D9A93A;
   flex-shrink: 0;
 }
@@ -468,6 +479,11 @@
   .sweevit-pdp__certs {
     justify-content: center;
     gap: 1.6rem;
+    padding-top: 1.2rem;
+  }
+
+  .sweevit-pdp__trust {
+    padding-bottom: 1.2rem;
   }
 
   .sweevit-pdp__media-frame {
