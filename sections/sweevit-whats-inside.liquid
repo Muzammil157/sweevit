@@ -68,13 +68,17 @@
               {%- if block.settings.title != blank -%}
                 <h3 class="sweevit-whats-inside__card-title">{{ block.settings.title | escape }}</h3>
               {%- endif -%}
+
+              {%- if block.settings.benefit_tag != blank -%}
+                <p class="sweevit-whats-inside__benefit-tag">{{ block.settings.benefit_tag | escape }}</p>
+              {%- endif -%}
             </div>
 
             {%- if block.settings.description != blank -%}
               <p class="sweevit-whats-inside__card-text">{{ block.settings.description | escape }}</p>
             {%- endif -%}
 
-            {%- if block.settings.link_label != blank -%}
+            {%- unless section.settings.hide_card_links -%}
               {%- if block.settings.link != blank -%}
                 <a class="sweevit-whats-inside__link" href="{{ block.settings.link }}">
                   <span>{{ block.settings.link_label | escape }}</span>
@@ -86,7 +90,7 @@
                   {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
                 </span>
               {%- endif -%}
-            {%- endif -%}
+            {%- endunless -%}
           </article>
         {%- endfor -%}
       </div>
