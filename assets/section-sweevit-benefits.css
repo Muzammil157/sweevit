@@ -167,17 +167,19 @@
   max-width: 36rem;
   min-height: 32rem;
   gap: 2.9rem;
-  padding: 3rem;
+  padding: 4.2rem 3rem 4.6rem;
   background-color: var(--sweevit-pure-white);
   border: 0.1rem solid rgba(26, 26, 26, 0.08);
+  border-top: none;
   border-radius: 0.8rem;
   box-shadow: none;
+  overflow: hidden;
 }
 
 .sweevit-benefits--ritual .sweevit-benefits__card::before {
   display: block;
-  height: 0.2rem;
-  background-color: rgba(217, 169, 58, 0.45);
+  height: 0.3rem;
+  background: linear-gradient(90deg, #EFCB6B 0%, #D9A93A 100%);
 }
 
 .sweevit-benefits--ritual .sweevit-benefits__icon-wrap {
@@ -187,7 +189,10 @@
   min-height: 6.4rem;
   border-radius: 3.2rem;
   margin-bottom: 0;
-  padding: 1.7rem 1.7rem 1.6rem 1.8rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -237,6 +242,7 @@
   .sweevit-benefits--ritual .sweevit-benefits__card {
     width: 36rem;
     height: 32rem;
+    min-height: 32rem;
   }
 }
 
