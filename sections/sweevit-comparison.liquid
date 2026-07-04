@@ -21,9 +21,15 @@
   class="sweevit-comparison"
 >
   <div class="sweevit-comparison__inner">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="sweevit-comparison__heading">{{ section.settings.heading | escape }}</h2>
-    {%- endif -%}
+    <div class="sweevit-comparison__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-comparison__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-comparison__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
 
     <div class="sweevit-comparison__table-wrap" role="region" aria-label="{{ section.settings.heading | escape }}">
       <table class="sweevit-comparison__table">
@@ -55,31 +61,25 @@
                     {{- 'icon-checkmark.svg' | inline_asset_content -}}
                   </span>
                 {%- else -%}
-                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">
-                    {{- 'icon-close-small.svg' | inline_asset_content -}}
-                  </span>
+                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">—</span>
                 {%- endif -%}
               </td>
               <td class="sweevit-comparison__cell">
                 {%- if block.settings.competitor_1_has -%}
-                  <span class="sweevit-comparison__icon sweevit-comparison__icon--yes" aria-label="Yes">
+                  <span class="sweevit-comparison__icon sweevit-comparison__icon--competitor-yes" aria-label="Yes">
                     {{- 'icon-checkmark.svg' | inline_asset_content -}}
                   </span>
                 {%- else -%}
-                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">
-                    {{- 'icon-close-small.svg' | inline_asset_content -}}
-                  </span>
+                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">—</span>
                 {%- endif -%}
               </td>
               <td class="sweevit-comparison__cell">
                 {%- if block.settings.competitor_2_has -%}
-                  <span class="sweevit-comparison__icon sweevit-comparison__icon--yes" aria-label="Yes">
+                  <span class="sweevit-comparison__icon sweevit-comparison__icon--competitor-yes" aria-label="Yes">
                     {{- 'icon-checkmark.svg' | inline_asset_content -}}
                   </span>
                 {%- else -%}
-                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">
-                    {{- 'icon-close-small.svg' | inline_asset_content -}}
-                  </span>
+                  <span class="sweevit-comparison__icon sweevit-comparison__icon--no" aria-label="No">—</span>
                 {%- endif -%}
               </td>
             </tr>
@@ -96,6 +96,12 @@
   "tag": "section",
   "class": "section-sweevit-comparison",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Difference"
+    },
     {
       "type": "text",
       "id": "heading",
