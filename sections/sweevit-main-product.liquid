@@ -1,0 +1,670 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-product-showcase.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-main-product.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign onetime_price = current_variant.price | money
+  assign first_selling_plan = nil
+  assign subscribe_price = blank
+
+  for allocation in current_variant.selling_plan_allocations
+    assign first_selling_plan = allocation.selling_plan
+    assign subscribe_price = allocation.price | money
+    break
+  endfor
+
+  if subscribe_price == blank
+    if section.settings.subscribe_price_fallback != blank
+      assign subscribe_price = section.settings.subscribe_price_fallback
+    else
+      assign subscribe_cents = current_variant.price | times: 0.8 | round
+      assign subscribe_price = subscribe_cents | money
+    endif
+  endif
+
+  assign eyebrow = section.settings.eyebrow
+  assign tagline = section.settings.tagline
+  if tagline == blank and product.description != blank
+    assign tagline = product.description | strip_html | truncate: 120
+  endif
+
+  assign sale_price = current_variant.price
+  assign regular_price = current_variant.compare_at_price
+  assign savings_percent = 0
+  if regular_price != blank and regular_price > sale_price
+    assign savings_percent = regular_price | minus: sale_price | times: 100.0 | divided_by: regular_price | round
+  endif
+
+  assign product_form_id = 'sweevit-pdp-form-' | append: section.id
+  assign default_option = section.settings.default_purchase_option
+  assign show_subscribe = section.settings.show_subscribe
+  assign shop_url = routes.all_products_collection_url | default: '/collections/all'
+-%}
+
+{%- style -%}
+  #SweevitPdp-{{ section.id }} {
+    --sweevit-product-bg: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitPdp-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="SweevitPdp-{{ section.id }}" class="sweevit-product sweevit-pdp">
+  <sweevit-product-showcase class="sweevit-product__inner sweevit-pdp__inner">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="sweevit-pdp__breadcrumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">{{ section.settings.breadcrumb_home | escape }}</a>
+        <span class="sweevit-pdp__breadcrumb-sep" aria-hidden="true">/</span>
+        <a href="{{ shop_url }}">{{ section.settings.breadcrumb_shop | escape }}</a>
+        <span class="sweevit-pdp__breadcrumb-sep" aria-hidden="true">/</span>
+        <span class="sweevit-pdp__breadcrumb-current" aria-current="page">{{ product.title | escape }}</span>
+      </nav>
+    {%- endif -%}
+
+    <div class="sweevit-product__grid sweevit-pdp__grid">
+      <div class="sweevit-product__media sweevit-pdp__media">
+        <div class="sweevit-product__media-frame sweevit-pdp__media-frame">
+          {%- if product.media.size > 0 -%}
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+            {{
+              featured_media
+              | image_url: width: 1200
+              | image_tag:
+                class: 'sweevit-product__image sweevit-pdp__main-image',
+                loading: 'eager',
+                fetchpriority: 'high',
+                widths: '400, 600, 800, 1000, 1200',
+                sizes: '(min-width: 990px) 564px, 100vw',
+                alt: product.title,
+                data-pdp-main-image: ''
+            }}
+          {%- else -%}
+            <img
+              src="{{ 'MiniPouch-product.png' | asset_url }}"
+              class="sweevit-product__image sweevit-pdp__main-image"
+              loading="eager"
+              width="564"
+              height="734"
+              alt="{{ product.title | escape }}"
+              data-pdp-main-image
+            >
+          {%- endif -%}
+        </div>
+
+        {%- if product.media.size > 1 -%}
+          <ul class="sweevit-pdp__thumbnails" role="list">
+            {%- for media in product.media limit: 5 -%}
+              {%- if media.media_type == 'image' -%}
+                <li>
+                  <button
+                    type="button"
+                    class="sweevit-pdp__thumbnail{% if forloop.first %} is-active{% endif %}"
+                    data-pdp-thumbnail
+                    data-src="{{ media | image_url: width: 1200 }}"
+                    data-srcset="{{ media | image_url: width: 400 }} 400w, {{ media | image_url: width: 800 }} 800w, {{ media | image_url: width: 1200 }} 1200w"
+                    aria-label="{{ 'products.product.media.load_image' | t: index: forloop.index }}"
+                    aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                  >
+                    {{
+                      media
+                      | image_url: width: 160
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '80, 160',
+                        sizes: '80px',
+                        alt: media.alt | default: product.title
+                    }}
+                  </button>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="sweevit-product__content sweevit-pdp__content">
+        {%- if eyebrow != blank -%}
+          <p class="sweevit-pdp__eyebrow">{{ eyebrow | escape }}</p>
+        {%- endif -%}
+
+        <h1 class="sweevit-product__title">{{ product.title | escape }}</h1>
+
+        {%- if tagline != blank -%}
+          <p class="sweevit-pdp__tagline">{{ tagline | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.show_rating -%}
+          <div class="sweevit-pdp__rating-row">
+            <div class="sweevit-product__rating sweevit-pdp__rating">
+              <span class="sweevit-product__stars" aria-hidden="true">
+                {%- for i in (1..5) -%}
+                  {{- 'icon-star.svg' | inline_asset_content -}}
+                {%- endfor -%}
+              </span>
+              <span class="sweevit-pdp__rating-text">
+                {{ section.settings.rating_value | escape }} · {{ section.settings.review_count | escape }} {{ section.settings.review_label | escape }}
+              </span>
+            </div>
+            {%- if section.settings.repurchase_text != blank -%}
+              <span class="sweevit-pdp__repurchase">{{ section.settings.repurchase_text | escape }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        <div class="sweevit-pdp__price-row">
+          <span class="sweevit-pdp__sale-price">{{ sale_price | money }}</span>
+          {%- if regular_price != blank and regular_price > sale_price -%}
+            <span class="sweevit-pdp__regular-price">
+              <s>{{ regular_price | money }}</s>
+            </span>
+            {%- if savings_percent > 0 -%}
+              <span class="sweevit-pdp__save-badge">{{ section.settings.save_badge_label | replace: '[percent]', savings_percent }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="sweevit-product__highlights sweevit-pdp__highlights">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'highlight' -%}
+                <article class="sweevit-product__highlight" {{ block.shopify_attributes }}>
+                  <div class="sweevit-product__highlight-icon" aria-hidden="true">
+                    {%- case block.settings.icon -%}
+                      {%- when 'energy' -%}
+                        {{- 'ix_electrical-energy-filled.svg' | inline_asset_content -}}
+                      {%- when 'wellness' -%}
+                        {{- 'wellness.svg' | inline_asset_content -}}
+                      {%- else -%}
+                        {{- 'focus.svg' | inline_asset_content -}}
+                    {%- endcase -%}
+                  </div>
+                  <div class="sweevit-product__highlight-body">
+                    {%- if block.settings.title != blank -%}
+                      <h2 class="sweevit-product__highlight-title">{{ block.settings.title | escape }}</h2>
+                    {%- endif -%}
+                    {%- if block.settings.description != blank -%}
+                      <p class="sweevit-product__highlight-text">{{ block.settings.description | escape }}</p>
+                    {%- endif -%}
+                  </div>
+                </article>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="sweevit-pdp__purchase-box">
+          <p class="sweevit-pdp__purchase-label">{{ section.settings.purchase_options_label | escape }}</p>
+
+          <div class="sweevit-product__options sweevit-pdp__options" role="radiogroup" aria-label="Purchase option">
+            <label
+              class="sweevit-product__option sweevit-pdp__option{% if default_option == 'onetime' %} is-active{% endif %}"
+              data-purchase-option
+              tabindex="0"
+            >
+              <input
+                type="radio"
+                name="purchase-option-{{ section.id }}"
+                value="onetime"
+                {% if default_option == 'onetime' %}checked{% endif %}
+              >
+              <span class="sweevit-product__option-row">
+                <span class="sweevit-product__option-left">
+                  <span class="sweevit-product__option-radio" aria-hidden="true"></span>
+                  <span class="sweevit-product__option-label">{{ section.settings.one_time_label | escape }}</span>
+                </span>
+                <span class="sweevit-product__option-price" data-onetime-price>{{ onetime_price }}</span>
+              </span>
+            </label>
+
+            {%- if show_subscribe -%}
+              <label
+                class="sweevit-product__option sweevit-pdp__option{% if default_option == 'subscribe' %} is-active{% endif %}"
+                data-purchase-option
+                {% if first_selling_plan != nil %}
+                  data-selling-plan-id="{{ first_selling_plan.id }}"
+                {% endif %}
+                tabindex="0"
+              >
+                <input
+                  type="radio"
+                  name="purchase-option-{{ section.id }}"
+                  value="subscribe"
+                  {% if default_option == 'subscribe' %}checked{% endif %}
+                >
+                <span class="sweevit-product__option-row">
+                  <span class="sweevit-product__option-left">
+                    <span class="sweevit-product__option-radio" aria-hidden="true"></span>
+                    <span class="sweevit-product__option-label">{{ section.settings.subscribe_label | escape }}</span>
+                  </span>
+                  <span class="sweevit-product__option-price" data-subscribe-price>{{ subscribe_price }}</span>
+                </span>
+
+                {%- if section.settings.perk_1 != blank or section.settings.perk_2 != blank or section.settings.perk_3 != blank -%}
+                  <ul class="sweevit-product__option-perks">
+                    {%- if section.settings.perk_1 != blank -%}
+                      <li class="sweevit-product__option-perk">
+                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                        <span>{{ section.settings.perk_1 | escape }}</span>
+                      </li>
+                    {%- endif -%}
+                    {%- if section.settings.perk_2 != blank -%}
+                      <li class="sweevit-product__option-perk">
+                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                        <span>{{ section.settings.perk_2 | escape }}</span>
+                      </li>
+                    {%- endif -%}
+                    {%- if section.settings.perk_3 != blank -%}
+                      <li class="sweevit-product__option-perk">
+                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                        <span>{{ section.settings.perk_3 | escape }}</span>
+                      </li>
+                    {%- endif -%}
+                  </ul>
+                {%- endif -%}
+              </label>
+            {%- endif -%}
+          </div>
+
+          <product-form class="product-form" data-section-id="{{ section.id }}">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <span class="product-form__error-message"></span>
+            </div>
+
+            {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ current_variant.id }}"
+                class="product-variant-id"
+                {% if current_variant.available == false %}disabled{% endif %}
+              >
+              <input type="hidden" value="" data-selling-plan-input>
+
+              <div class="sweevit-product__purchase sweevit-pdp__purchase">
+                <div class="sweevit-product__quantity sweevit-pdp__quantity">
+                  <button
+                    type="button"
+                    class="sweevit-product__qty-btn"
+                    data-quantity-minus
+                    aria-label="{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}"
+                  >
+                    &minus;
+                  </button>
+                  <input
+                    class="sweevit-product__qty-input"
+                    type="number"
+                    name="quantity"
+                    value="1"
+                    min="1"
+                    {% if current_variant.quantity_rule.max != null %}
+                      max="{{ current_variant.quantity_rule.max }}"
+                    {% endif %}
+                    step="1"
+                    data-quantity-input
+                    aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
+                  >
+                  <button
+                    type="button"
+                    class="sweevit-product__qty-btn"
+                    data-quantity-plus
+                    aria-label="{{ 'products.product.quantity.increase' | t: product: product.title | escape }}"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <button
+                  type="submit"
+                  name="add"
+                  class="sweevit-product__atc sweevit-pdp__atc"
+                  {% if current_variant.available == false %}disabled{% endif %}
+                >
+                  <span>
+                    {{- section.settings.button_label | escape -}}
+                    — <span data-atc-price>{% if default_option == 'subscribe' %}{{ subscribe_price }}{% else %}{{ onetime_price }}{% endif %}</span>
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </div>
+            {%- endform -%}
+          </product-form>
+
+          <div class="sweevit-pdp__trust">
+            {%- if section.settings.secure_checkout_text != blank -%}
+              <span class="sweevit-pdp__trust-item">
+                {{- 'icon-lock.svg' | inline_asset_content -}}
+                {{ section.settings.secure_checkout_text | escape }}
+              </span>
+            {%- endif -%}
+            {%- if section.settings.guarantee_text != blank -%}
+              <span class="sweevit-pdp__trust-item">
+                {{- 'icon-return.svg' | inline_asset_content -}}
+                {{ section.settings.guarantee_text | escape }}
+              </span>
+            {%- endif -%}
+            {%- if section.settings.shipping_text != blank -%}
+              <span class="sweevit-pdp__trust-item">
+                {{- 'icon-truck.svg' | inline_asset_content -}}
+                {{ section.settings.shipping_text | escape }}
+              </span>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.cert_1 != blank or section.settings.cert_2 != blank or section.settings.cert_3 != blank or section.settings.cert_4 != blank -%}
+            <div class="sweevit-pdp__certs">
+              {%- for i in (1..4) -%}
+                {%- capture cert_key -%}cert_{{ i }}{%- endcapture -%}
+                {%- assign cert_value = section.settings[cert_key] -%}
+                {%- if cert_value != blank -%}
+                  <span class="sweevit-pdp__cert">
+                    {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                    {{ cert_value | escape }}
+                  </span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </sweevit-product-showcase>
+</section>
+
+<script src="{{ 'sweevit-product-showcase.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Sweevit product page",
+  "tag": "section",
+  "class": "section-sweevit-main-product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_home",
+      "label": "Home label",
+      "default": "Home"
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_shop",
+      "label": "Shop label",
+      "default": "Shop"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Functional Wellness Gummies"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Focus, Energy & Wellness — One Daily Ritual.",
+      "info": "Leave blank to use product description excerpt."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "217"
+    },
+    {
+      "type": "text",
+      "id": "review_label",
+      "label": "Review label",
+      "default": "reviews"
+    },
+    {
+      "type": "text",
+      "id": "repurchase_text",
+      "label": "Repurchase stat",
+      "default": "98% would repurchase"
+    },
+    {
+      "type": "text",
+      "id": "save_badge_label",
+      "label": "Save badge",
+      "default": "SAVE [percent]%",
+      "info": "Use [percent] for calculated savings."
+    },
+    {
+      "type": "header",
+      "content": "Purchase options"
+    },
+    {
+      "type": "text",
+      "id": "purchase_options_label",
+      "label": "Purchase options label",
+      "default": "Purchase options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subscribe",
+      "label": "Show subscribe option",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "default_purchase_option",
+      "label": "Default option",
+      "options": [
+        { "value": "subscribe", "label": "Subscribe & save" },
+        { "value": "onetime", "label": "One-time purchase" }
+      ],
+      "default": "subscribe"
+    },
+    {
+      "type": "text",
+      "id": "one_time_label",
+      "label": "One-time label",
+      "default": "One-time purchase"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_label",
+      "label": "Subscribe label",
+      "default": "Subscribe & Save 20%"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_price_fallback",
+      "label": "Subscribe price fallback",
+      "default": "$31.20"
+    },
+    {
+      "type": "text",
+      "id": "perk_1",
+      "label": "Subscribe perk 1",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "perk_2",
+      "label": "Subscribe perk 2",
+      "default": "Cancel anytime"
+    },
+    {
+      "type": "text",
+      "id": "perk_3",
+      "label": "Subscribe perk 3",
+      "default": "Priority access"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Add to cart label",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "secure_checkout_text",
+      "label": "Secure checkout",
+      "default": "Secure checkout"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money-back guarantee"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping text",
+      "default": "Free shipping over $35"
+    },
+    {
+      "type": "text",
+      "id": "cert_1",
+      "label": "Certification 1",
+      "default": "Non-GMO"
+    },
+    {
+      "type": "text",
+      "id": "cert_2",
+      "label": "Certification 2",
+      "default": "Gluten-Free"
+    },
+    {
+      "type": "text",
+      "id": "cert_3",
+      "label": "Certification 3",
+      "default": "Vegan"
+    },
+    {
+      "type": "text",
+      "id": "cert_4",
+      "label": "Certification 4",
+      "default": "Lab Tested"
+    },
+    {
+      "type": "header",
+      "content": "Section style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FAFAFA"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "Benefit highlight",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "focus", "label": "Focus" },
+            { "value": "energy", "label": "Energy" },
+            { "value": "wellness", "label": "Wellness" }
+          ],
+          "default": "focus"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Focus"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Subheading",
+          "default": "Mental clarity & concentration"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sweevit product page",
+      "blocks": [
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "focus",
+            "title": "Focus",
+            "description": "Mental clarity & concentration"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "energy",
+            "title": "Energy",
+            "description": "Natural energy, zero crash"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "icon": "wellness",
+            "title": "Wellness",
+            "description": "Daily body & mind support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
