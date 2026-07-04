@@ -72,7 +72,7 @@
         "cert_3": "Vegan",
         "cert_4": "Lab Tested",
         "background_color": "#FAFAFA",
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 80
       }
     }

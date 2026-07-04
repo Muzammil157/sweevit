@@ -1,6 +1,7 @@
 /* Sweevit PDP — extends section-sweevit-product-showcase.css */
 
 .sweevit-pdp {
+  --sweevit-pdp-header-gap: 3.1rem;
   --sweevit-pdp-stage-width: 56.4rem;
   --sweevit-pdp-stage-height: 73.4rem;
   --sweevit-pdp-stage-gradient: radial-gradient(100% 100% at 0% 0%, #F0F0F5 0%, #F5F2EB 70%, #FAFAFA 100%);
@@ -11,13 +12,13 @@
 }
 
 .sweevit-pdp__inner {
-  padding-top: 2.4rem;
+  padding-top: var(--sweevit-pdp-header-gap);
   padding-bottom: 4rem;
 }
 
 @media screen and (min-width: 750px) {
   .sweevit-pdp__inner {
-    padding-top: 3.2rem;
+    padding-top: var(--sweevit-pdp-header-gap);
     padding-bottom: 8rem;
   }
 }

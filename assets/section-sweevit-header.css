@@ -1,6 +1,7 @@
 .sweevit-header {
   font-family: var(--sweevit-font);
   background-color: var(--sweevit-pure-white);
+  border-bottom: 0.1rem solid rgba(26, 26, 26, 0.12);
   position: relative;
   z-index: 100;
 }
