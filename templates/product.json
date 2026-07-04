@@ -79,49 +79,46 @@
     "pdp_benefits": {
       "type": "sweevit-benefits",
       "blocks": {
-        "benefit_immunity": {
+        "benefit_wellness": {
           "type": "benefit",
           "settings": {
             "icon": "wellness",
-            "category": "Immunity",
-            "title": "Daily Defense",
-            "description": "Support your immune system with functional ingredients designed for everyday wellness.",
-            "link_label": "Learn more"
+            "bubble_label": "Daily Balance",
+            "title": "Wellness",
+            "description": "A functional blend that supports your body and mind together, designed to fit seamlessly into your morning routine."
           }
         },
         "benefit_focus": {
           "type": "benefit",
           "settings": {
             "icon": "focus",
-            "category": "Focus",
-            "title": "Mental Clarity",
-            "description": "Stay sharp and focused throughout the day with nootropics that support cognitive performance.",
-            "link_label": "Learn more"
+            "bubble_label": "Cognitive Support",
+            "title": "Focus",
+            "description": "Supports sustained mental clarity and concentration throughout your day — without the jitters of caffeine-based stimulants."
           }
         },
         "benefit_energy": {
           "type": "benefit",
           "settings": {
             "icon": "energy",
-            "category": "Energy",
-            "title": "Natural Vitality",
-            "description": "Clean, sustained energy without the crash — powered by premium functional ingredients.",
-            "link_label": "Learn more"
+            "bubble_label": "Natural Vitality",
+            "title": "Energy",
+            "description": "Delivers steady, natural energy that builds gradually and tapers gently — no spikes, no crashes, no afternoon slump."
           }
         }
       },
       "block_order": [
-        "benefit_immunity",
+        "benefit_wellness",
         "benefit_focus",
         "benefit_energy"
       ],
       "settings": {
-        "eyebrow": "",
+        "eyebrow": "Why It Works",
         "heading": "Built For Your Daily Ritual.",
         "subheading": "",
         "center_header": true,
-        "card_style": "elevated",
-        "background_color": "#FFFFFF",
+        "card_style": "ritual",
+        "background_color": "#F9F9F9",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -393,6 +390,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "Real People. Real Results.",
+        "center_header": true,
         "show_rating": true,
         "rating_value": "4.9 / 5.0",
         "review_count": "217",
