@@ -89,6 +89,13 @@ class CartDrawer extends HTMLElement {
       sectionElement.innerHTML = this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
     });
 
+    const cartIcon = document.getElementById('cart-icon-bubble');
+    if (cartIcon) {
+      cartIcon.classList.remove('visually-hidden');
+      cartIcon.removeAttribute('aria-hidden');
+      cartIcon.removeAttribute('tabindex');
+    }
+
     setTimeout(() => {
       this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
       this.open();
