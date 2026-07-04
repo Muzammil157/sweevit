@@ -323,13 +323,13 @@
   display: grid;
   grid-template-columns: repeat(2, 27rem);
   justify-content: center;
-  gap: 2rem;
+  gap: 2.4rem;
 }
 
 @media screen and (min-width: 990px) {
   .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
     grid-template-columns: repeat(4, 27rem);
-    gap: 2rem;
+    gap: 2.4rem;
   }
 }
 
@@ -407,7 +407,30 @@
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 1;
-  margin: 0 0 0.8rem;
+  margin: 0;
+}
+
+.sweevit-whats-inside__card--pdp .sweevit-whats-inside__dosage-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 2.2rem;
+  min-height: 2.2rem;
+  margin: 1.4rem 0;
+  padding: 0;
+  border-radius: 1.1rem;
+  background-color: #F5EDD9;
+  box-sizing: border-box;
+  font-family: var(--sweevit-font);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #D9A93A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sweevit-whats-inside__dosage-tag {
@@ -455,7 +478,7 @@
 
   .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
+    gap: 2.4rem;
   }
 
   .sweevit-whats-inside__card--pdp {
