@@ -50,6 +50,17 @@
 }
 
 /* Grid — left-aligned with header, 50px horizontal gap */
+.sweevit-pack__carousel {
+  width: 100%;
+}
+
+.sweevit-pack__track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sweevit-pack-grid-gap);
+  justify-content: start;
+}
+
 .sweevit-pack__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

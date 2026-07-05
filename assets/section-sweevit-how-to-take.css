@@ -12,8 +12,8 @@
 }
 
 .sweevit-how-to-take__header {
-  text-align: center;
-  margin-bottom: 5.6rem;
+  text-align: left;
+  margin-bottom: 3.2rem;
 }
 
 .sweevit-how-to-take__eyebrow {
@@ -24,8 +24,8 @@
   line-height: 1;
   letter-spacing: 3px;
   text-transform: uppercase;
-  text-align: center;
-  color: rgba(26, 26, 26, 0.45);
+  text-align: left;
+  color: #d9a93a;
   margin: 0 0 1.6rem;
 }
 
@@ -35,7 +35,7 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.2rem;
-  text-align: center;
+  text-align: left;
   color: var(--sweevit-dark-charcoal);
   margin: 0;
 }
@@ -46,17 +46,10 @@
   }
 }
 
-.sweevit-how-to-take__grid {
+.sweevit-how-to-take__track {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4.8rem;
-}
-
-@media screen and (min-width: 750px) {
-  .sweevit-how-to-take__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3.2rem;
-  }
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
 }
 
 .sweevit-how-to-take__step {
@@ -72,7 +65,7 @@
   font-style: normal;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: rgba(26, 26, 26, 0.06);
+  color: #1a1a1a;
   margin: 0 0 0.8rem;
   pointer-events: none;
   user-select: none;
@@ -82,7 +75,7 @@
   display: block;
   width: 40px;
   height: 2px;
-  background-color: #D9A93A;
+  background-color: #d9a93a;
   margin: 0 0 1.8rem;
   flex-shrink: 0;
 }
@@ -112,10 +105,41 @@
 
 @media screen and (max-width: 749px) {
   .sweevit-how-to-take__header {
-    margin-bottom: 4rem;
+    margin-bottom: 2.4rem;
   }
 
   .sweevit-how-to-take__heading {
     letter-spacing: -0.1rem;
+  }
+
+  .sweevit-how-to-take__track {
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-left: calc(-1 * var(--sweevit-page-gutter));
+    margin-right: calc(-1 * var(--sweevit-page-gutter));
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
+  }
+
+  .sweevit-how-to-take__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sweevit-how-to-take__step {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+    padding: 2.4rem;
+    border-radius: 0.8rem;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+  }
+
+  .sweevit-how-to-take__text {
+    max-width: none;
   }
 }

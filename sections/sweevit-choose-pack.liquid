@@ -1,6 +1,8 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-choose-pack.css' | asset_url | stylesheet_tag }}
+{{ 'sweevit-carousel.css' | asset_url | stylesheet_tag }}
 {{ 'sweevit-loading-spinner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-carousel.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign fallback_product = all_products['sweevit-functional-gummies']
@@ -45,7 +47,8 @@
     </div>
 
     {%- if section.blocks.size > 0 -%}
-      <div class="sweevit-pack__grid">
+      <div class="sweevit-pack__carousel" data-sweevit-carousel>
+        <div class="sweevit-pack__track" data-carousel-track>
         {%- for block in section.blocks -%}
           {%- liquid
             assign card_product = block.settings.product
@@ -79,6 +82,7 @@
 
           <article
             class="sweevit-pack__card{% if block.settings.card_style == 'popular' %} sweevit-pack__card--popular{% endif %}"
+            data-carousel-slide
             {{ block.shopify_attributes }}
           >
             {%- if block.settings.card_style == 'popular' and block.settings.badge_text != blank -%}
@@ -184,6 +188,22 @@
             </div>
           </article>
         {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="sweevit-carousel__dots" data-carousel-dots role="tablist" aria-label="Pack options">
+            {%- for block in section.blocks -%}
+              <button
+                type="button"
+                class="sweevit-carousel__dot{% if forloop.first %} is-active{% endif %}"
+                data-carousel-dot
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-label="Pack {{ forloop.index }}"
+              ></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
