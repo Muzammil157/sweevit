@@ -59,6 +59,8 @@ function initSweevitCarousels() {
 }
 
 function initComparisonScrollbars() {
+  const mobileQuery = window.matchMedia('(max-width: 749px)');
+
   document.querySelectorAll('[data-comparison-scroll]:not([data-comparison-scroll-init])').forEach((wrap) => {
     const track = wrap.parentElement?.querySelector('.sweevit-comparison__scroll-track');
     const thumb = track?.querySelector('[data-comparison-thumb]');
@@ -67,6 +69,11 @@ function initComparisonScrollbars() {
     wrap.dataset.comparisonScrollInit = 'true';
 
     const updateThumb = () => {
+      if (!mobileQuery.matches) {
+        track.classList.remove('is-visible');
+        return;
+      }
+
       const trackWidth = track.clientWidth;
       const maxScroll = wrap.scrollWidth - wrap.clientWidth;
 
@@ -90,6 +97,7 @@ function initComparisonScrollbars() {
 
     wrap.addEventListener('scroll', updateThumb, { passive: true });
     window.addEventListener('resize', updateThumb);
+    mobileQuery.addEventListener('change', updateThumb);
     updateThumb();
   });
 }
