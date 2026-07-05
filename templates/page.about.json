@@ -67,8 +67,8 @@
         "heading": "Our Values",
         "subheading": "Three core values behind each delicious gummy.",
         "background_color": "#FFFFFF",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "about_founder": {
