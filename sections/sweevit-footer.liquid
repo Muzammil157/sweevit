@@ -50,10 +50,26 @@
         {%- endif -%}
       </div>
 
-      {%- if section.settings.menu != blank -%}
+      {%- liquid
+        assign footer_menu = section.settings.menu
+        if footer_menu != blank and footer_menu.links.size == 1
+          assign footer_sole_link = footer_menu.links.first
+          if footer_sole_link.title == 'Search' or footer_sole_link.url contains '/search'
+            assign footer_menu = blank
+          endif
+        endif
+        if footer_menu == blank or footer_menu.links.size == 0
+          assign footer_menu = linklists.footer
+        endif
+        if footer_menu == blank or footer_menu.links.size == 0
+          assign footer_menu = linklists['main-menu']
+        endif
+      -%}
+
+      {%- if footer_menu != blank and footer_menu.links.size > 0 -%}
         <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
           <ul class="sweevit-footer__nav" role="list">
-            {%- for link in section.settings.menu.links -%}
+            {%- for link in footer_menu.links -%}
               <li>
                 <a
                   href="{{ link.url }}"
@@ -64,6 +80,15 @@
                 </a>
               </li>
             {%- endfor -%}
+          </ul>
+        </nav>
+      {%- else -%}
+        <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
+          <ul class="sweevit-footer__nav" role="list">
+            <li><a href="{{ routes.root_url }}" class="sweevit-footer__nav-link">Home</a></li>
+            <li><a href="/pages/about-us" class="sweevit-footer__nav-link">About Us</a></li>
+            <li><a href="/pages/contact" class="sweevit-footer__nav-link">Contact</a></li>
+            <li><a href="/pages/faq" class="sweevit-footer__nav-link">FAQ</a></li>
           </ul>
         </nav>
       {%- endif -%}
