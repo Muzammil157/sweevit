@@ -216,7 +216,8 @@
 
 @media screen and (max-width: 989px) {
   .sweevit-testimonials__inner {
-    padding: 4.8rem var(--sweevit-page-gutter);
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
   }
 
   .sweevit-testimonials__header {

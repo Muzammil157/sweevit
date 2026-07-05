@@ -70,7 +70,7 @@ function initComparisonScrollbars() {
 
     const updateThumb = () => {
       if (!mobileQuery.matches) {
-        track.classList.remove('is-visible');
+        track.classList.add('is-hidden');
         return;
       }
 
@@ -78,13 +78,13 @@ function initComparisonScrollbars() {
       const maxScroll = wrap.scrollWidth - wrap.clientWidth;
 
       if (maxScroll <= 0 || trackWidth <= 0) {
-        track.classList.remove('is-visible');
+        track.classList.add('is-hidden');
         thumb.style.width = '100%';
         thumb.style.transform = 'translateX(0)';
         return;
       }
 
-      track.classList.add('is-visible');
+      track.classList.remove('is-hidden');
 
       const ratio = wrap.clientWidth / wrap.scrollWidth;
       const thumbWidth = Math.max(ratio * trackWidth, 24);

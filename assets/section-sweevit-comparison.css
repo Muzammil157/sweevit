@@ -61,10 +61,11 @@
 .sweevit-comparison__scroll-track {
   display: none;
   width: 100%;
-  height: 0.5rem;
-  margin: 2rem 0 0;
-  border-radius: 0.8rem;
-  background: var(--sweevit-light-silver, #EBEBEB);
+  max-width: 34.5rem;
+  height: 7px;
+  margin: 1.6rem auto 0;
+  border-radius: 8px;
+  background: var(--sweevit-light-silver, #ebebeb);
   position: relative;
   overflow: hidden;
 }
@@ -73,9 +74,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  border-radius: 0.8rem;
-  background: var(--sweevit-icon-gold, #D9A93A);
+  height: 7px;
+  border-radius: 8px;
+  background: #d9a93a;
   width: 30%;
   min-width: 2.4rem;
   transform: translateX(0);
@@ -101,11 +102,11 @@
     display: block;
   }
 
-  .sweevit-comparison__scroll-track:not(.is-visible) {
+  .sweevit-comparison__scroll-track.is-hidden {
+    visibility: hidden;
     height: 0;
     margin: 0;
     overflow: hidden;
-    visibility: hidden;
   }
 }
 
