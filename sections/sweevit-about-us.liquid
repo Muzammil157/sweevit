@@ -37,34 +37,33 @@
 
       <div class="sweevit-about-us__media">
         <div class="sweevit-about-us__media-stage">
-          <div class="sweevit-about-us__media-glow">
-            <div class="sweevit-about-us__media-frame">
-              {%- if section.settings.image != blank -%}
-                {%- assign about_image_alt = section.settings.image.alt | default: section.settings.heading | escape -%}
-                {{
-                  section.settings.image
-                  | image_url: width: 800
-                  | image_tag:
-                    class: 'sweevit-about-us__image',
-                    widths: '260, 400, 520, 800',
-                    sizes: '(min-width: 990px) 260px, 100vw',
-                    alt: about_image_alt,
-                    width: 260,
-                    height: 360,
-                    loading: 'lazy'
-                }}
-              {%- else -%}
-                <img
-                  src="{{ 'about-us-placeholder.png' | asset_url }}"
-                  alt=""
-                  class="sweevit-about-us__image"
-                  width="260"
-                  height="360"
-                  loading="lazy"
-                  aria-hidden="true"
-                >
-              {%- endif -%}
-            </div>
+          <div class="sweevit-about-us__media-glow" aria-hidden="true"></div>
+          <div class="sweevit-about-us__media-frame">
+            {%- if section.settings.image != blank -%}
+              {%- assign about_image_alt = section.settings.image.alt | default: section.settings.heading | escape -%}
+              {{
+                section.settings.image
+                | image_url: width: 800
+                | image_tag:
+                  class: 'sweevit-about-us__image',
+                  widths: '260, 400, 520, 800',
+                  sizes: '(min-width: 990px) 260px, 80vw',
+                  alt: about_image_alt,
+                  width: 260,
+                  height: 360,
+                  loading: 'lazy'
+              }}
+            {%- else -%}
+              <img
+                src="{{ 'about-us-placeholder.png' | asset_url }}"
+                alt=""
+                class="sweevit-about-us__image"
+                width="260"
+                height="360"
+                loading="lazy"
+                aria-hidden="true"
+              >
+            {%- endif -%}
           </div>
         </div>
       </div>
