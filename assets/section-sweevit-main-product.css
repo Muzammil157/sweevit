@@ -293,14 +293,17 @@
   margin-top: var(--sweevit-pdp-gap-sm);
 }
 
+.sweevit-pdp__options .sweevit-product__option-perk {
+  color: #a8a196;
+}
+
+.sweevit-pdp__options .sweevit-product__option-perk svg {
+  color: #a8a196;
+  fill: currentColor;
+}
+
 .sweevit-pdp__purchase-label {
-  font-family: var(--sweevit-font);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.45);
-  margin: 0 0 var(--sweevit-pdp-gap-sm);
+  color: #a8a196;
 }
 
 /* Purchase options — separate bordered boxes like reference */
@@ -475,6 +478,22 @@
 @media screen and (max-width: 749px) {
   .sweevit-pdp__purchase-section {
     margin-top: var(--sweevit-pdp-gap-lg);
+  }
+
+  .sweevit-pdp .sweevit-product__purchase.sweevit-pdp__purchase {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .sweevit-pdp .sweevit-product__quantity.sweevit-pdp__quantity {
+    width: 11rem;
+    min-width: 11rem;
+    flex-shrink: 0;
+  }
+
+  .sweevit-pdp .sweevit-product__atc.sweevit-pdp__atc {
+    flex: 1;
+    width: auto;
   }
 
   .sweevit-pdp__purchase {
