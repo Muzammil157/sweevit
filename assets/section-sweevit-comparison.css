@@ -47,6 +47,34 @@
 .sweevit-comparison__table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.sweevit-comparison__table-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.sweevit-comparison__scroll-track {
+  display: none;
+  width: 139px;
+  height: 5px;
+  margin: 2.4rem auto 0;
+  border-radius: 8px;
+  background: #d9a93a33;
+  position: relative;
+  overflow: hidden;
+}
+
+.sweevit-comparison__scroll-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  border-radius: 8px;
+  background: #d9a93a;
+  width: 139px;
+  transform: translateX(0);
+  will-change: transform, width;
 }
 
 .sweevit-comparison__table {
@@ -151,5 +179,9 @@
   .sweevit-comparison__heading {
     text-align: left;
     letter-spacing: -0.1rem;
+  }
+
+  .sweevit-comparison__scroll-track {
+    display: block;
   }
 }
