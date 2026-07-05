@@ -6,8 +6,9 @@
 /* CTA Banner */
 .sweevit-footer__cta {
   padding: 6rem var(--sweevit-page-gutter) 5rem;
-  max-width: var(--sweevit-page-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   box-sizing: border-box;
   background: var(--sweevit-footer-gradient);
 }
@@ -124,11 +125,20 @@
 
 /* Footer Main */
 .sweevit-footer__main {
-  max-width: var(--sweevit-page-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 4rem var(--sweevit-page-gutter) 3.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background-color: #1A1A1A;
+  box-sizing: border-box;
+}
+
+.sweevit-footer__top,
+.sweevit-footer__bottom {
+  max-width: var(--sweevit-page-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sweevit-footer__top {
