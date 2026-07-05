@@ -1,6 +1,7 @@
 .sweevit-about-us {
   font-family: var(--sweevit-font);
   background-color: #F9F9F9;
+  overflow: hidden;
 }
 
 .sweevit-about-us__inner {
@@ -8,13 +9,13 @@
   margin: 0 auto;
   padding: 0 var(--sweevit-page-gutter);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .sweevit-about-us__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 3.2rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 /* Content */
@@ -23,7 +24,6 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
-  min-width: 0;
   width: 100%;
 }
 
@@ -35,71 +35,93 @@
   line-height: 100%;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(26, 26, 26, 0.45);
+  color: var(--sweevit-honey-gold);
   margin: 0;
 }
 
 .sweevit-about-us__heading {
   font-family: var(--sweevit-font);
-  font-size: clamp(2.8rem, 7.5vw, 3.6rem);
+  font-size: 2.8rem;
   font-weight: 700;
   font-style: normal;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.015em;
   text-transform: capitalize;
   color: var(--sweevit-dark-charcoal);
   margin: 0;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .sweevit-about-us__text {
   font-family: var(--sweevit-font);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   font-style: normal;
-  line-height: 26px;
+  line-height: 1.7;
   letter-spacing: 0;
   color: rgba(26, 26, 26, 0.65);
   margin: 0;
-  width: 100%;
 }
 
-/* Media — mobile: stacked, centered image, no decorative circle */
+/* Media — Mobile first */
 .sweevit-about-us__media {
   width: 100%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .sweevit-about-us__media-stage {
   width: 100%;
+  max-width: 32rem;
   display: flex;
   justify-content: center;
 }
 
+/* Hide glow on mobile - it's only decorative for desktop */
 .sweevit-about-us__media-glow {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  display: contents;
 }
 
 .sweevit-about-us__media-frame {
   width: 100%;
-  max-width: 36rem;
-  border-radius: 24px;
+  max-width: 28rem;
+  aspect-ratio: 260 / 360;
+  border-radius: 2rem;
   overflow: hidden;
 }
 
 .sweevit-about-us__image {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
+}
+
+/* Tablet */
+@media screen and (min-width: 750px) {
+  .sweevit-about-us__heading {
+    font-size: 3.6rem;
+  }
+
+  .sweevit-about-us__text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .sweevit-about-us__media-stage {
+    max-width: 36rem;
+  }
+
+  .sweevit-about-us__media-frame {
+    max-width: 32rem;
+  }
 }
 
 /* Desktop */
 @media screen and (min-width: 990px) {
   .sweevit-about-us__grid {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) 52rem;
     gap: 6.4rem;
     align-items: center;
@@ -109,6 +131,10 @@
   .sweevit-about-us__content {
     max-width: 56rem;
     transform: translateY(-1.2rem);
+  }
+
+  .sweevit-about-us__eyebrow {
+    color: rgba(26, 26, 26, 0.45);
   }
 
   .sweevit-about-us__heading {
@@ -123,22 +149,23 @@
   .sweevit-about-us__media {
     max-width: 52rem;
     margin: 0 0 0 auto;
+    justify-content: flex-end;
   }
 
   .sweevit-about-us__media-stage {
     position: relative;
-    display: block;
     width: 520px;
+    max-width: 520px;
     height: 480px;
   }
 
   .sweevit-about-us__media-glow {
+    display: block;
     position: absolute;
     top: 20px;
     left: 50px;
     width: 420px;
     height: 420px;
-    display: block;
     border-radius: 50%;
     opacity: 1;
     background: radial-gradient(100% 100% at 0% 0%, rgba(242, 230, 191, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
@@ -151,14 +178,9 @@
     left: 80px;
     z-index: 1;
     width: 260px;
-    max-width: none;
+    max-width: 260px;
     height: 360px;
-    opacity: 1;
-  }
-
-  .sweevit-about-us__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    aspect-ratio: auto;
+    border-radius: 24px;
   }
 }
