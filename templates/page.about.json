@@ -18,9 +18,20 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
+    },
+    "about_quote": {
+      "type": "sweevit-about-quote",
+      "settings": {
+        "heading_line_1": "We are not selling ingredients.",
+        "heading_line_2": "We are selling a better daily state.",
+        "description": "The product is the vehicle. The transformation is the product.",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "about_us"
+    "about_us",
+    "about_quote"
   ]
 }

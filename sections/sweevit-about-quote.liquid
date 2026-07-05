@@ -1,0 +1,98 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-about-quote.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  @media screen and (min-width: 750px) {
+    #SweevitAboutQuote-{{ section.id }} .sweevit-about-quote__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitAboutQuote-{{ section.id }}"
+  class="sweevit-about-quote"
+>
+  <div class="sweevit-about-quote__inner">
+    <div class="sweevit-about-quote__marks" aria-hidden="true">
+      <span class="sweevit-about-quote__mark">“</span><span class="sweevit-about-quote__mark">”</span>
+    </div>
+
+    {%- if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
+      <h2 class="sweevit-about-quote__heading">
+        {%- if section.settings.heading_line_1 != blank -%}
+          <span class="sweevit-about-quote__heading-line">{{ section.settings.heading_line_1 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading_line_2 != blank -%}
+          <span class="sweevit-about-quote__heading-line">{{ section.settings.heading_line_2 | escape }}</span>
+        {%- endif -%}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <p class="sweevit-about-quote__text">{{ section.settings.description | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Quote",
+  "tag": "section",
+  "class": "section-sweevit-about-quote",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "We are not selling ingredients."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "We are selling a better daily state."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Paragraph",
+      "default": "The product is the vehicle. The transformation is the product."
+    },
+    {
+      "type": "header",
+      "content": "Section spacing (desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Quote"
+    }
+  ]
+}
+{% endschema %}
