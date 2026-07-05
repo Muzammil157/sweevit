@@ -115,6 +115,11 @@
 }
 
 @media screen and (max-width: 749px) {
+  .sweevit-how-to-take__inner {
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
+  }
+
   .sweevit-how-to-take__header {
     text-align: left;
     margin-bottom: 2.4rem;
@@ -126,12 +131,19 @@
   }
 
   .sweevit-how-to-take__heading {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    letter-spacing: -0.005em;
     text-align: left;
-    letter-spacing: -0.1rem;
   }
 
   .sweevit-how-to-take__number {
     color: #1a1a1a;
+  }
+
+  .sweevit-how-to-take__carousel {
+    width: 100%;
+    overflow: visible;
   }
 
   .sweevit-how-to-take__track {
@@ -139,12 +151,18 @@
     gap: 1.6rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-left: 46px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     margin-left: calc(-1 * var(--sweevit-page-gutter));
     margin-right: calc(-1 * var(--sweevit-page-gutter));
     padding-left: 46px;
-    padding-right: 46px;
+    padding-right: var(--sweevit-page-gutter);
+  }
+
+  .sweevit-how-to-take__track::after {
+    content: '';
+    flex: 0 0 1px;
   }
 
   .sweevit-how-to-take__track::-webkit-scrollbar {
@@ -152,12 +170,12 @@
   }
 
   .sweevit-how-to-take__step {
-    flex: 0 0 100%;
-    min-width: 100%;
-    scroll-snap-align: center;
-    padding: 0;
-    border-radius: 0;
-    background-color: transparent;
+    flex: 0 0 calc(100vw - 46px - 5.6rem);
+    min-width: calc(100vw - 46px - 5.6rem);
+    scroll-snap-align: start;
+    padding: 2.4rem;
+    border-radius: 0.8rem;
+    background-color: #f9f9f9;
     box-sizing: border-box;
   }
 
