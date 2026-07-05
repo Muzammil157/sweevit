@@ -51,47 +51,47 @@
       </div>
 
       {%- liquid
-        assign footer_menu = section.settings.menu
-        if footer_menu != blank and footer_menu.links.size == 1
-          assign footer_sole_link = footer_menu.links.first
-          if footer_sole_link.title == 'Search' or footer_sole_link.url contains '/search'
-            assign footer_menu = blank
-          endif
+        assign footer_nav_menu = linklists['main-menu']
+        if footer_nav_menu == blank or footer_nav_menu.links.size == 0
+          assign footer_nav_menu = section.settings.menu
         endif
-        if footer_menu == blank or footer_menu.links.size == 0
-          assign footer_menu = linklists.footer
-        endif
-        if footer_menu == blank or footer_menu.links.size == 0
-          assign footer_menu = linklists['main-menu']
+
+        assign footer_nav_count = 0
+        if footer_nav_menu != blank
+          for link in footer_nav_menu.links
+            assign link_title_down = link.title | downcase
+            unless link_title_down == 'search' or link.url contains '/search'
+              assign footer_nav_count = footer_nav_count | plus: 1
+            endunless
+          endfor
         endif
       -%}
 
-      {%- if footer_menu != blank and footer_menu.links.size > 0 -%}
-        <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
-          <ul class="sweevit-footer__nav" role="list">
-            {%- for link in footer_menu.links -%}
-              <li>
-                <a
-                  href="{{ link.url }}"
-                  class="sweevit-footer__nav-link"
-                  {% if link.current %}aria-current="page"{% endif %}
-                >
-                  {{ link.title }}
-                </a>
-              </li>
+      <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
+        <ul class="sweevit-footer__nav" role="list">
+          {%- if footer_nav_count > 0 -%}
+            {%- for link in footer_nav_menu.links -%}
+              {%- assign link_title_down = link.title | downcase -%}
+              {%- unless link_title_down == 'search' or link.url contains '/search' -%}
+                <li>
+                  <a
+                    href="{{ link.url }}"
+                    class="sweevit-footer__nav-link"
+                    {% if link.current %}aria-current="page"{% endif %}
+                  >
+                    {{ link.title }}
+                  </a>
+                </li>
+              {%- endunless -%}
             {%- endfor -%}
-          </ul>
-        </nav>
-      {%- else -%}
-        <nav class="sweevit-footer__nav-wrapper" aria-label="Footer navigation">
-          <ul class="sweevit-footer__nav" role="list">
+          {%- else -%}
             <li><a href="{{ routes.root_url }}" class="sweevit-footer__nav-link">Home</a></li>
             <li><a href="/pages/about-us" class="sweevit-footer__nav-link">About Us</a></li>
             <li><a href="/pages/contact" class="sweevit-footer__nav-link">Contact</a></li>
             <li><a href="/pages/faq" class="sweevit-footer__nav-link">FAQ</a></li>
-          </ul>
-        </nav>
-      {%- endif -%}
+          {%- endif -%}
+        </ul>
+      </nav>
     </div>
 
     <div class="sweevit-footer__bottom">
@@ -166,7 +166,8 @@
       "type": "link_list",
       "id": "menu",
       "label": "Footer menu",
-      "default": "footer"
+      "default": "main-menu",
+      "info": "Defaults to the same menu as the header. Search links are hidden automatically."
     },
     {
       "type": "text",
