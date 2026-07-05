@@ -42,7 +42,9 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="sweevit-pack__heading">{{ section.settings.heading | escape }}</h2>
+        <h2 class="sweevit-pack__heading">
+          <span class="sweevit-pack__heading-line">{{ section.settings.heading | escape }}</span>
+        </h2>
       {%- endif -%}
     </div>
 
