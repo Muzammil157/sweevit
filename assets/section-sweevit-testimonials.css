@@ -173,8 +173,6 @@
   gap: 1.2rem;
   flex-shrink: 0;
   margin-top: auto;
-  border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
-  padding-top: 1.5rem;
 }
 
 .sweevit-testimonials__author {
@@ -232,6 +230,11 @@
 
   .sweevit-testimonials__grid {
     gap: 1.5rem;
+  }
+
+  .sweevit-testimonials__card-footer {
+    border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
+    padding-top: 1.5rem;
   }
 
   .sweevit-testimonials__rating {

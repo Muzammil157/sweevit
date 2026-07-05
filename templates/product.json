@@ -116,11 +116,11 @@
         "eyebrow": "Why It Works",
         "heading": "Built For Your Daily Ritual.",
         "subheading": "",
-        "center_header": false,
+        "center_header": true,
         "card_style": "ritual",
         "background_color": "#F9F9F9",
         "padding_top": 0,
-        "padding_bottom": 48
+        "padding_bottom": 100
       }
     },
     "pdp_how_to": {
@@ -160,8 +160,8 @@
         "eyebrow": "THE RITUAL",
         "heading": "How To Take Sweevit.",
         "background_color": "#FFFFFF",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "pdp_ingredients": {
@@ -217,8 +217,8 @@
         "hide_card_links": true,
         "card_style": "pdp",
         "background_color": "#FFFFFF",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "pdp_comparison": {
