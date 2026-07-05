@@ -374,6 +374,7 @@
 }
 
 .sweevit-pdp__atc {
+  position: relative;
   flex: 1;
   min-height: 5.2rem;
   max-width: 52.2rem;
@@ -382,16 +383,6 @@
   font-size: 1.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.sweevit-product__atc.loading > span:first-child,
-.sweevit-pdp__atc.loading > span:first-child {
-  visibility: hidden;
-}
-
-.sweevit-product__atc .sweevit-loader:not(.hidden),
-.sweevit-pdp__atc .sweevit-loader:not(.hidden) {
-  display: block;
 }
 
 .sweevit-pdp__atc:hover:not(:disabled),

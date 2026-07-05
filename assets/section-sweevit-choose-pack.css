@@ -276,22 +276,6 @@
   position: relative;
 }
 
-.sweevit-pack__atc .loading__spinner {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.sweevit-pack__atc .loading__spinner:not(.hidden) {
-  display: inline-flex;
-}
-
-.sweevit-pack__atc.loading > span:first-child {
-  visibility: hidden;
-}
-
 .sweevit-pack .product-form__error-message-wrapper {
   margin-bottom: 1rem;
   font-size: 1.2rem;

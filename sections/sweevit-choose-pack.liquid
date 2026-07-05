@@ -1,5 +1,6 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-choose-pack.css' | asset_url | stylesheet_tag }}
+{{ 'sweevit-loading-spinner.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign fallback_product = all_products['sweevit-functional-gummies']
@@ -170,7 +171,7 @@
                         {% if card_variant.available == false %}disabled{% endif %}
                       >
                         <span>{{ block.settings.button_label | escape }}</span>
-                        {%- render 'loading-spinner' -%}
+                        {%- render 'sweevit-loading-spinner' -%}
                       </button>
                     {%- endform -%}
                   </product-form>
