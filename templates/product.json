@@ -346,9 +346,9 @@
         "pack_subscribe"
       ],
       "settings": {
-        "eyebrow": "",
+        "eyebrow": "Choose Your Pack",
         "heading": "Start Your Daily Ritual.",
-        "center_header": true,
+        "center_header": false,
         "background_color": "#F5F5F5",
         "padding_top": 80,
         "padding_bottom": 80,
