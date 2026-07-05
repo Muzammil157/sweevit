@@ -83,6 +83,20 @@
 }
 
 @media screen and (max-width: 749px) {
+  .sweevit-comparison__header {
+    text-align: left;
+    margin-bottom: 3.2rem;
+  }
+
+  .sweevit-comparison__eyebrow {
+    text-align: left;
+  }
+
+  .sweevit-comparison__heading {
+    text-align: left;
+    letter-spacing: -0.1rem;
+  }
+
   .sweevit-comparison__scroll-track {
     display: block;
   }
@@ -184,18 +198,3 @@
   color: rgba(26, 26, 26, 0.25);
 }
 
-@media screen and (max-width: 749px) {
-  .sweevit-comparison__header {
-    text-align: left;
-    margin-bottom: 3.2rem;
-  }
-
-  .sweevit-comparison__eyebrow {
-    text-align: left;
-  }
-
-  .sweevit-comparison__heading {
-    text-align: left;
-    letter-spacing: -0.1rem;
-  }
-}
