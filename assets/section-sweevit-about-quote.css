@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@1,800&display=swap');
-
 .sweevit-about-quote {
   font-family: var(--sweevit-font);
   background: linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%);
@@ -29,7 +27,7 @@
   font-family: var(--sweevit-font);
   font-size: 8rem;
   font-weight: 800;
-  font-style: italic;
+  font-style: normal;
   line-height: 119%;
   letter-spacing: 0;
   text-align: center;
