@@ -4,7 +4,12 @@
   --sweevit-pdp-header-gap: 3.1rem;
   --sweevit-pdp-stage-width: 56.4rem;
   --sweevit-pdp-stage-height: 73.4rem;
-  --sweevit-pdp-stage-gradient: radial-gradient(100% 100% at 0% 0%, #F0F0F5 0%, #F5F2EB 70%, #FAFAFA 100%);
+  --sweevit-pdp-stage-gradient: radial-gradient(
+    100% 100% at 0% 0%,
+    #f0f0f5 0%,
+    #f5f2eb 70%,
+    #fafafa 100%
+  );
   --sweevit-pdp-content-width: 64rem;
   --sweevit-pdp-column-gap: 7.6rem;
   --sweevit-pdp-thumb-gap: 2rem;
@@ -60,7 +65,7 @@
 }
 
 .sweevit-pdp__breadcrumb-current {
-  color: var(--sweevit-honey-gold, #D9A23A);
+  color: var(--sweevit-honey-gold, #d9a23a);
 }
 
 /* Grid — 76px gap between image and details */
@@ -70,7 +75,10 @@
 
 @media screen and (min-width: 990px) {
   .sweevit-pdp .sweevit-product__grid.sweevit-pdp__grid {
-    grid-template-columns: minmax(0, var(--sweevit-pdp-stage-width)) minmax(0, 1fr);
+    grid-template-columns: minmax(0, var(--sweevit-pdp-stage-width)) minmax(
+        0,
+        1fr
+      );
     gap: var(--sweevit-pdp-column-gap);
   }
 }
@@ -141,7 +149,7 @@
 }
 
 .sweevit-pdp__thumbnail.is-active {
-  border-color: var(--sweevit-icon-gold, #D9A93A);
+  border-color: var(--sweevit-icon-gold, #d9a93a);
 }
 
 .sweevit-pdp__thumbnail img {
@@ -199,7 +207,7 @@
   display: flex;
   align-items: center;
   gap: 0.2rem;
-  color: var(--sweevit-icon-gold, #D9A93A);
+  color: var(--sweevit-icon-gold, #d9a93a);
 }
 
 .sweevit-pdp__stars svg {
@@ -258,7 +266,7 @@
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--sweevit-honey-gold-dark, #C8942E);
+  color: var(--sweevit-honey-gold-dark, #c8942e);
 }
 
 /* Highlights */
@@ -273,8 +281,8 @@
 @media screen and (min-width: 750px) {
   .sweevit-pdp__highlights {
     margin-top: var(--sweevit-pdp-gap-md);
-    padding-top: var(--sweevit-pdp-gap-xl);
-    padding-bottom: var(--sweevit-pdp-gap-xl);
+    padding-top: var(--sweevit-pdp-gap-md);
+    padding-bottom: var(--sweevit-pdp-gap-md);
   }
 }
 
@@ -318,7 +326,7 @@
 }
 
 .sweevit-pdp__options .sweevit-pdp__option.is-active {
-  border-color: var(--sweevit-icon-gold, #D9A93A);
+  border-color: var(--sweevit-icon-gold, #d9a93a);
   background: rgba(217, 169, 58, 0.08);
 }
 
@@ -326,12 +334,16 @@
   font-weight: 400;
 }
 
-.sweevit-pdp__options .sweevit-pdp__option.is-active .sweevit-product__option-label {
+.sweevit-pdp__options
+  .sweevit-pdp__option.is-active
+  .sweevit-product__option-label {
   font-weight: 600;
 }
 
-.sweevit-pdp__options .sweevit-pdp__option.is-active .sweevit-product__option-price {
-  color: var(--sweevit-icon-gold, #D9A93A);
+.sweevit-pdp__options
+  .sweevit-pdp__option.is-active
+  .sweevit-product__option-price {
+  color: var(--sweevit-icon-gold, #d9a93a);
   font-weight: 600;
 }
 
@@ -366,7 +378,7 @@
   min-height: 5.2rem;
   max-width: 52.2rem;
   border-radius: 0;
-  background: linear-gradient(90deg, #EFCB6B 0%, #C79426 100%);
+  background: linear-gradient(90deg, #efcb6b 0%, #c79426 100%);
   font-size: 1.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -384,7 +396,7 @@
 
 .sweevit-pdp__atc:hover:not(:disabled),
 .sweevit-pdp__atc:focus-visible:not(:disabled) {
-  background: linear-gradient(90deg, #EFCB6B 0%, #C79426 100%);
+  background: linear-gradient(90deg, #efcb6b 0%, #c79426 100%);
   opacity: 0.92;
 }
 
@@ -450,7 +462,7 @@
 .sweevit-pdp__cert svg {
   width: 1.2rem;
   height: 1.6rem;
-  color: #D9A93A;
+  color: #d9a93a;
   flex-shrink: 0;
 }
 
