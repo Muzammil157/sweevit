@@ -54,44 +54,57 @@
 
 /* Spinner container - hidden by default */
 .sweevit-loader {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  z-index: 10;
+  display: none !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 24px !important;
+  height: 24px !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
 }
 
-/* Show spinner when button has loading class */
+/* Show spinner when button has loading class - HIGH SPECIFICITY */
+button.sweevit-product__atc.loading .sweevit-loader,
+button.sweevit-pdp__atc.loading .sweevit-loader,
+button.sweevit-pack__atc.loading .sweevit-loader,
 .sweevit-product__atc.loading .sweevit-loader,
 .sweevit-pdp__atc.loading .sweevit-loader,
-.sweevit-pack__atc.loading .sweevit-loader {
+.sweevit-pack__atc.loading .sweevit-loader,
+.sweevit-product__atc.loading > .sweevit-loader,
+.sweevit-pdp__atc.loading > .sweevit-loader,
+.sweevit-pack__atc.loading > .sweevit-loader {
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* Override any .hidden class when loading */
+button.loading .sweevit-loader.hidden,
 .sweevit-product__atc.loading .sweevit-loader.hidden,
 .sweevit-pdp__atc.loading .sweevit-loader.hidden,
 .sweevit-pack__atc.loading .sweevit-loader.hidden {
   display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* SVG element */
 .sweevit-spinner {
-  width: 100%;
-  height: 100%;
-  animation: sweevit-spinner-rotate 1.4s linear infinite;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  animation: sweevit-spinner-rotate 1.4s linear infinite !important;
 }
 
 /* SVG circle path */
 .sweevit-spinner-path {
-  stroke: #1A1A1A;
-  stroke-dasharray: 90, 200;
-  stroke-dashoffset: 0;
-  animation: sweevit-spinner-dash 1.4s ease-in-out infinite;
-  transform-origin: center;
+  stroke: #1A1A1A !important;
+  stroke-dasharray: 90, 200 !important;
+  stroke-dashoffset: 0 !important;
+  animation: sweevit-spinner-dash 1.4s ease-in-out infinite !important;
+  transform-origin: center !important;
 }
 
 /* Dark spinner for gold/gradient buttons (product showcase & PDP) */
