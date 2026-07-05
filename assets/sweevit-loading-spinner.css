@@ -1,55 +1,70 @@
 @keyframes sweevit-loader-spin {
-  to {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-/* Add-to-cart button loading states */
+/* Add-to-cart button base setup */
 .sweevit-product__atc,
 .sweevit-pdp__atc,
 .sweevit-pack__atc {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
+/* Loading state - disable clicks */
 .sweevit-product__atc.loading,
 .sweevit-pdp__atc.loading,
 .sweevit-pack__atc.loading {
   pointer-events: none;
+  cursor: wait;
 }
 
-.sweevit-product__atc.loading > :first-child,
-.sweevit-pdp__atc.loading > :first-child,
-.sweevit-pack__atc.loading > :first-child {
-  visibility: hidden;
+/* Hide button text when loading */
+.sweevit-product__atc.loading > span,
+.sweevit-pdp__atc.loading > span,
+.sweevit-pack__atc.loading > span {
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
+/* Spinner - hidden by default */
 .sweevit-product__atc .sweevit-loader,
 .sweevit-pdp__atc .sweevit-loader,
 .sweevit-pack__atc .sweevit-loader {
-  display: none !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: 2.2rem !important;
-  height: 2.2rem !important;
-  margin: 0 !important;
-  inset: auto !important;
-  transform: translate(-50%, -50%) !important;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 0.24rem solid currentColor;
-  border-right-color: transparent;
-  animation: sweevit-loader-spin 650ms linear infinite;
-  opacity: 0.95;
-  z-index: 2;
+  border: 3px solid currentColor;
+  border-top-color: transparent;
+  animation: sweevit-loader-spin 0.7s linear infinite;
+  box-sizing: border-box;
+  z-index: 10;
   pointer-events: none;
 }
 
-.sweevit-product__atc .sweevit-loader:not(.hidden),
-.sweevit-pdp__atc .sweevit-loader:not(.hidden),
-.sweevit-pack__atc .sweevit-loader:not(.hidden),
+/* Show spinner when button has loading class */
 .sweevit-product__atc.loading .sweevit-loader,
 .sweevit-pdp__atc.loading .sweevit-loader,
 .sweevit-pack__atc.loading .sweevit-loader {
   display: block !important;
+}
+
+/* White spinner for dark buttons */
+.sweevit-pack__atc .sweevit-loader {
+  color: #FFFFFF;
+}
+
+/* Dark spinner for the popular card's white button */
+.sweevit-pack__card--popular .sweevit-pack__atc .sweevit-loader {
+  color: #1A1A1A;
 }
