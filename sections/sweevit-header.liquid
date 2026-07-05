@@ -111,7 +111,13 @@
           aria-expanded="false"
           aria-controls="SweevitDrawer-{{ section.id }}"
         >
-          <span class="svg-wrapper">{{ 'icon-hamburger.svg' | inline_asset_content }}</span>
+          <svg class="sweevit-hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect class="sweevit-hamburger-icon__top-left" x="1" y="6" width="7" height="2" rx="1" fill="#14213d"/>
+            <rect class="sweevit-hamburger-icon__top-right" x="10" y="6" width="13" height="2" rx="1" fill="#14213d"/>
+            <rect class="sweevit-hamburger-icon__middle" x="1" y="11" width="22" height="2" rx="1" fill="#14213d"/>
+            <rect class="sweevit-hamburger-icon__bottom-left" x="1" y="16" width="13" height="2" rx="1" fill="#14213d"/>
+            <rect class="sweevit-hamburger-icon__bottom-right" x="16" y="16" width="7" height="2" rx="1" fill="#14213d"/>
+          </svg>
         </button>
       {%- endif -%}
     </div>

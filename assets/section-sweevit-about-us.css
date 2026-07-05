@@ -77,9 +77,9 @@
   justify-content: center;
 }
 
-/* Hide glow on mobile */
+/* Hide glow on mobile - it's only decorative for desktop */
 .sweevit-about-us__media-glow {
-  display: none;
+  display: contents;
 }
 
 .sweevit-about-us__media-frame {
@@ -157,7 +157,6 @@
     width: 520px;
     max-width: 520px;
     height: 480px;
-    display: block;
   }
 
   .sweevit-about-us__media-glow {
