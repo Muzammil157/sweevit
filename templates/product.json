@@ -71,7 +71,7 @@
         "cert_2": "Gluten-Free",
         "cert_3": "Vegan",
         "cert_4": "Lab Tested",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -84,8 +84,11 @@
           "settings": {
             "icon": "wellness",
             "bubble_label": "Daily Balance",
+            "category": "",
             "title": "Wellness",
-            "description": "A functional blend that supports your body and mind together, designed to fit seamlessly into your morning routine."
+            "description": "A functional blend that supports your body and mind together, designed to fit seamlessly into your morning routine.",
+            "link_label": "",
+            "link": ""
           }
         },
         "benefit_focus": {
@@ -93,8 +96,11 @@
           "settings": {
             "icon": "focus",
             "bubble_label": "Cognitive Support",
+            "category": "",
             "title": "Focus",
-            "description": "Supports sustained mental clarity and concentration throughout your day — without the jitters of caffeine-based stimulants."
+            "description": "Supports sustained mental clarity and concentration throughout your day — without the jitters of caffeine-based stimulants.",
+            "link_label": "",
+            "link": ""
           }
         },
         "benefit_energy": {
@@ -102,8 +108,11 @@
           "settings": {
             "icon": "energy",
             "bubble_label": "Natural Vitality",
+            "category": "",
             "title": "Energy",
-            "description": "Delivers steady, natural energy that builds gradually and tapers gently — no spikes, no crashes, no afternoon slump."
+            "description": "Delivers steady, natural energy that builds gradually and tapers gently — no spikes, no crashes, no afternoon slump.",
+            "link_label": "",
+            "link": ""
           }
         }
       },
@@ -118,7 +127,7 @@
         "subheading": "",
         "center_header": true,
         "card_style": "ritual",
-        "background_color": "#F9F9F9",
+        "background_color": "#f9f9f9",
         "padding_top": 0,
         "padding_bottom": 100
       }
@@ -159,7 +168,7 @@
       "settings": {
         "eyebrow": "THE RITUAL",
         "heading": "How To Take Sweevit.",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -171,36 +180,48 @@
           "type": "ingredient",
           "settings": {
             "card_number": "01",
-            "title": "Raw Honey",
             "dosage": "500mg",
-            "description": "Natural energy source & prebiotic support for gut health."
+            "title": "Raw Honey",
+            "benefit_tag": "",
+            "description": "Natural energy source & prebiotic support for gut health.",
+            "link_label": "Learn more",
+            "link": ""
           }
         },
         "ingredient_ashwagandha": {
           "type": "ingredient",
           "settings": {
             "card_number": "02",
-            "title": "Ashwagandha",
             "dosage": "300mg",
-            "description": "Adaptogenic herb supporting stress reduction & mental clarity."
+            "title": "Ashwagandha",
+            "benefit_tag": "",
+            "description": "Adaptogenic herb supporting stress reduction & mental clarity.",
+            "link_label": "Learn more",
+            "link": ""
           }
         },
         "ingredient_b_complex": {
           "type": "ingredient",
           "settings": {
             "card_number": "03",
-            "title": "Vitamin B Complex",
             "dosage": "100% DV",
-            "description": "Essential cofactors for sustained cellular energy metabolism."
+            "title": "Vitamin B Complex",
+            "benefit_tag": "",
+            "description": "Essential cofactors for sustained cellular energy metabolism.",
+            "link_label": "Learn more",
+            "link": ""
           }
         },
         "ingredient_lions_mane": {
           "type": "ingredient",
           "settings": {
             "card_number": "04",
-            "title": "Lion's Mane",
             "dosage": "250mg",
-            "description": "Mushroom extract supporting cognitive function & focus."
+            "title": "Lion's Mane",
+            "benefit_tag": "",
+            "description": "Mushroom extract supporting cognitive function & focus.",
+            "link_label": "Learn more",
+            "link": ""
           }
         }
       },
@@ -214,9 +235,9 @@
         "eyebrow": "WHAT'S INSIDE",
         "heading": "Premium Ingredients, Simple Results.",
         "subheading": "",
+        "background_color": "#ffffff",
         "hide_card_links": true,
         "card_style": "pdp",
-        "background_color": "#FFFFFF",
         "padding_top": 100,
         "padding_bottom": 100
       }
@@ -293,7 +314,7 @@
         "brand_column_label": "Sweevit",
         "competitor_1_label": "Capsules",
         "competitor_2_label": "Other Gummies",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -305,11 +326,14 @@
           "type": "pack",
           "settings": {
             "card_style": "default",
+            "badge_text": "Most Popular",
             "label": "1 Pack",
+            "product": "",
             "price": "$39",
             "price_note": "One-time purchase",
             "perk_1": "Free shipping on 3+ packs",
             "perk_2": "Secure checkout",
+            "perk_3": "",
             "button_label": "Add to cart"
           }
         },
@@ -317,8 +341,9 @@
           "type": "pack",
           "settings": {
             "card_style": "popular",
-            "badge_text": "Best Value",
+            "badge_text": "Most Popular",
             "label": "3 Packs",
+            "product": "",
             "price": "$99",
             "price_note": "Save 15%",
             "perk_1": "Free shipping",
@@ -331,11 +356,14 @@
           "type": "pack",
           "settings": {
             "card_style": "subscribe",
+            "badge_text": "Most Popular",
             "label": "Subscribe",
+            "product": "",
             "price": "$31",
             "price_note": "per pack · Save 20%",
             "perk_1": "Free shipping",
             "perk_2": "Cancel anytime",
+            "perk_3": "",
             "button_label": "Add to cart"
           }
         }
@@ -349,7 +377,7 @@
         "eyebrow": "Choose Your Pack",
         "heading": "Start Your Daily Ritual.",
         "center_header": false,
-        "background_color": "#F5F5F5",
+        "background_color": "#f5f5f5",
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_horizontal": 78
@@ -403,6 +431,7 @@
         "review_count": "217",
         "review_label": "Reviews",
         "use_custom_gradient": false,
+        "background_gradient": "linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%)",
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_horizontal": 78
