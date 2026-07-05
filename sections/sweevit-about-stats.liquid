@@ -1,0 +1,87 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-about-stats.css' | asset_url | stylesheet_tag }}
+
+<section
+  id="SweevitAboutStats-{{ section.id }}"
+  class="sweevit-about-stats"
+>
+  <div class="sweevit-about-stats__inner">
+    {%- if section.blocks.size > 0 -%}
+      <ul class="sweevit-about-stats__list" role="list">
+        {%- for block in section.blocks -%}
+          <li class="sweevit-about-stats__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.value != blank -%}
+              <p class="sweevit-about-stats__value">{{ block.settings.value | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.label != blank -%}
+              <p class="sweevit-about-stats__label">{{ block.settings.label | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Stats",
+  "tag": "section",
+  "class": "section-sweevit-about-stats",
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "217+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "5-Star Reviews"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Stats",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "value": "217+",
+            "label": "5-Star Reviews"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "4.9",
+            "label": "Average Rating"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "30",
+            "label": "Gummies Per Pouch"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "98%",
+            "label": "Would Repurchase"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
