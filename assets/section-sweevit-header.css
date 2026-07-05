@@ -293,14 +293,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.4rem;
-  height: 4.4rem;
-  background: none;
+  width: 6.4rem;
+  height: 6.4rem;
+  background: linear-gradient(90deg, #EFCB6B 0%, #C79426 100%);
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   padding: 0;
-  color: var(--sweevit-dark-charcoal);
+  box-shadow: 0 4px 12px rgba(199, 138, 31, 0.35), inset 0 1px 2px rgba(255,255,255,0.4);
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sweevit-header__menu-toggle:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(199, 138, 31, 0.45), inset 0 1px 2px rgba(255,255,255,0.4);
+}
+
+.sweevit-header__menu-toggle:active {
+  transform: scale(0.97);
 }
 
 @media screen and (min-width: 990px) {
@@ -309,17 +320,53 @@
   }
 }
 
-.sweevit-header__menu-toggle .svg-wrapper {
-  display: flex;
+/* Hamburger Icon */
+.sweevit-hamburger-icon {
   width: 2.4rem;
   height: 2.4rem;
-  color: inherit;
+  overflow: visible;
 }
 
-.sweevit-header__menu-toggle svg,
-.sweevit-header__menu-toggle svg path {
-  fill: currentColor;
-  color: inherit;
+.sweevit-hamburger-icon rect {
+  transform-origin: 12px 12px;
+  transition:
+    x 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    y 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    width 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.35s cubic-bezier(0.68, -0.4, 0.27, 1.4);
+}
+
+/* Open state - merge segments */
+.sweevit-header__menu-toggle.is-open .sweevit-hamburger-icon__top-left {
+  x: 1;
+  width: 22;
+  y: 11;
+  transform: rotate(45deg);
+}
+
+.sweevit-header__menu-toggle.is-open .sweevit-hamburger-icon__top-right {
+  x: 1;
+  width: 0;
+  opacity: 0;
+}
+
+.sweevit-header__menu-toggle.is-open .sweevit-hamburger-icon__middle {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.sweevit-header__menu-toggle.is-open .sweevit-hamburger-icon__bottom-left {
+  x: 1;
+  width: 22;
+  y: 11;
+  transform: rotate(-45deg);
+}
+
+.sweevit-header__menu-toggle.is-open .sweevit-hamburger-icon__bottom-right {
+  x: 23;
+  width: 0;
+  opacity: 0;
 }
 
 /* Mobile drawer */
