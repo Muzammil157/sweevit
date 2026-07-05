@@ -169,16 +169,6 @@
         "padding_bottom": 0
       }
     },
-    "sweevit_about_us": {
-      "type": "sweevit-about-us",
-      "settings": {
-        "eyebrow": "OUR STORY",
-        "heading": "We Believe Wellness Should Feel Effortless.",
-        "description": "Sweevit was born from a simple idea: daily wellness shouldn't require a cabinet full of capsules. Just one ritual, every day focus, energy, and wellness, made enjoyable.",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "sweevit_product_showcase": {
       "type": "sweevit-product-showcase",
       "blocks": {
@@ -486,7 +476,6 @@
     "sweevit_hero",
     "sweevit_benefits",
     "sweevit_difference",
-    "sweevit_about_us",
     "sweevit_product_showcase",
     "sweevit_whats_inside",
     "sweevit_choose_pack",
