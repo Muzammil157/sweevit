@@ -62,25 +62,23 @@
   display: none;
   width: 100%;
   max-width: 34.5rem;
-  height: 7px;
-  margin: 1.6rem auto 0;
-  border-radius: 8px;
-  background: var(--sweevit-light-silver, #ebebeb);
+  height: 5px;
+  margin: 1.6rem 0 0;
   position: relative;
-  overflow: hidden;
+  background: transparent;
 }
 
 .sweevit-comparison__scroll-thumb {
   position: absolute;
   top: 0;
   left: 0;
-  height: 7px;
+  width: 139px;
+  height: 5px;
   border-radius: 8px;
   background: #d9a93a;
-  width: 30%;
-  min-width: 2.4rem;
+  opacity: 1;
   transform: translateX(0);
-  will-change: transform, width;
+  will-change: transform;
 }
 
 @media screen and (max-width: 749px) {

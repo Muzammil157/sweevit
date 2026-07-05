@@ -86,12 +86,12 @@ function initComparisonScrollbars() {
 
       track.classList.remove('is-hidden');
 
-      const ratio = wrap.clientWidth / wrap.scrollWidth;
-      const thumbWidth = Math.max(ratio * trackWidth, 24);
-      const maxThumbTravel = trackWidth - thumbWidth;
+      const thumbWidth = 139;
+      const trackWidth = track.clientWidth;
+      const maxThumbTravel = Math.max(trackWidth - thumbWidth, 0);
       const scrollRatio = wrap.scrollLeft / maxScroll;
 
-      thumb.style.width = `${thumbWidth}px`;
+      thumb.style.width = '139px';
       thumb.style.transform = `translateX(${scrollRatio * maxThumbTravel}px)`;
     };
 
