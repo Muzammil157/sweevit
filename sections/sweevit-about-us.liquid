@@ -54,7 +54,15 @@
                 loading: 'lazy'
             }}
           {%- else -%}
-            <div class="sweevit-about-us__placeholder" aria-hidden="true"></div>
+            <img
+              src="{{ 'about-us-placeholder.svg' | asset_url }}"
+              alt=""
+              class="sweevit-about-us__image sweevit-about-us__image--placeholder"
+              width="520"
+              height="480"
+              loading="lazy"
+              aria-hidden="true"
+            >
           {%- endif -%}
         </div>
       </div>
@@ -76,7 +84,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Subheading",
-      "default": "Our Story"
+      "default": "OUR STORY"
     },
     {
       "type": "text",
