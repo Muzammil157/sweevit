@@ -21,6 +21,8 @@
   .sweevit-about-us__grid {
     grid-template-columns: minmax(0, 1fr) 52rem;
     gap: 6.4rem;
+    align-items: center;
+    min-height: 480px;
   }
 }
 
@@ -32,7 +34,12 @@
   gap: 18px;
   min-width: 0;
   max-width: 56rem;
-  padding-top: 20px;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-us__content {
+    transform: translateY(-1.2rem);
+  }
 }
 
 .sweevit-about-us__eyebrow {
