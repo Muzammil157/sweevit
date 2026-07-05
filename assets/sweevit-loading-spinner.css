@@ -110,15 +110,15 @@ button.loading .sweevit-loader.hidden,
 /* Dark spinner for gold/gradient buttons (product showcase & PDP) */
 .sweevit-product__atc .sweevit-spinner-path,
 .sweevit-pdp__atc .sweevit-spinner-path {
-  stroke: #1A1A1A;
+  stroke: #1A1A1A !important;
 }
 
 /* White spinner for dark pack buttons */
 .sweevit-pack__atc .sweevit-spinner-path {
-  stroke: #FFFFFF;
+  stroke: #FFFFFF !important;
 }
 
 /* Dark spinner for the popular card's white button */
 .sweevit-pack__card--popular .sweevit-pack__atc .sweevit-spinner-path {
-  stroke: #1A1A1A;
+  stroke: #1A1A1A !important;
 }
