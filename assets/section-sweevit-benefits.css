@@ -321,13 +321,19 @@
 
 @media screen and (max-width: 749px) {
   .sweevit-benefits__inner {
-    padding-top: 4.8rem;
-    padding-bottom: 5.6rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
   }
 
   .sweevit-benefits--ritual .sweevit-benefits__inner {
-    padding-top: 3.2rem;
+    padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .sweevit-benefits--ritual .sweevit-benefits__header {
+    margin-bottom: 3.2rem;
   }
 
   .sweevit-benefits--ritual.sweevit-benefits--centered .sweevit-benefits__header {
