@@ -54,10 +54,15 @@
   pointer-events: none !important;
 }
 
-/* Show spinner when loading */
+/* Show spinner when loading - high specificity to override .hidden */
 .sweevit-product__atc.loading .sweevit-loader,
+.sweevit-product__atc.loading .sweevit-loader.hidden,
 .sweevit-pdp__atc.loading .sweevit-loader,
-.sweevit-pack__atc.loading .sweevit-loader {
+.sweevit-pdp__atc.loading .sweevit-loader.hidden,
+.sweevit-pack__atc.loading .sweevit-loader,
+.sweevit-pack__atc.loading .sweevit-loader.hidden,
+button.loading .sweevit-loader,
+button.loading .sweevit-loader.hidden {
   display: block !important;
 }
 
