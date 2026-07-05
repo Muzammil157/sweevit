@@ -28,10 +28,207 @@
         "padding_top": 64,
         "padding_bottom": 80
       }
+    },
+    "about_values": {
+      "type": "sweevit-about-values",
+      "blocks": {
+        "value_simplicity": {
+          "type": "value",
+          "settings": {
+            "icon": "simplicity",
+            "title": "Simplicity First",
+            "description": "One daily ritual, not a regimen. We strip away complexity so wellness becomes a habit, not a chore."
+          }
+        },
+        "value_transparency": {
+          "type": "value",
+          "settings": {
+            "icon": "transparency",
+            "title": "Radical Transparency",
+            "description": "Every ingredient sourced and listed clearly. No proprietary blends hiding what's actually inside."
+          }
+        },
+        "value_durability": {
+          "type": "value",
+          "settings": {
+            "icon": "durability",
+            "title": "Designed to Last",
+            "description": "We build for daily consistency — products people actually want to keep taking, year after year."
+          }
+        }
+      },
+      "block_order": [
+        "value_simplicity",
+        "value_transparency",
+        "value_durability"
+      ],
+      "settings": {
+        "eyebrow": "WHAT WE STAND FOR",
+        "heading": "Our Values",
+        "subheading": "Three core values behind each delicious gummy.",
+        "background_color": "#FFFFFF",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_founder": {
+      "type": "sweevit-about-founder",
+      "settings": {
+        "eyebrow": "FOUNDER'S NOTE",
+        "heading": "Why we built Sweevit.",
+        "description": "<p>Like many of you, we tried every supplement, stack, and shortcut. Nothing stuck. Sweevit was born from wanting a single daily ritual we could actually look forward to — one gummy, every morning, done.</p>",
+        "signoff": "— The Sweevit Team",
+        "placeholder_label": "Founder Portrait"
+      }
+    },
+    "about_stats": {
+      "type": "sweevit-about-stats",
+      "blocks": {
+        "stat_reviews": {
+          "type": "stat",
+          "settings": {
+            "value": "217+",
+            "label": "5-Star Reviews"
+          }
+        },
+        "stat_rating": {
+          "type": "stat",
+          "settings": {
+            "value": "4.9",
+            "label": "Average Rating"
+          }
+        },
+        "stat_gummies": {
+          "type": "stat",
+          "settings": {
+            "value": "30",
+            "label": "Gummies Per Pouch"
+          }
+        },
+        "stat_repurchase": {
+          "type": "stat",
+          "settings": {
+            "value": "98%",
+            "label": "Would Repurchase"
+          }
+        }
+      },
+      "block_order": [
+        "stat_reviews",
+        "stat_rating",
+        "stat_gummies",
+        "stat_repurchase"
+      ],
+      "settings": {}
+    },
+    "about_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_james": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
+            "author_name": "James K.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_sarah",
+        "testimonial_james",
+        "testimonial_lena"
+      ],
+      "settings": {
+        "eyebrow": "WHAT OUR CUSTOMERS SAY",
+        "heading": "Real People. Real Results.",
+        "center_header": true,
+        "show_rating": true,
+        "rating_value": "4.9 / 5.0",
+        "review_count": "217",
+        "review_label": "Reviews",
+        "use_custom_gradient": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "about_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take per day?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
     "about_us",
-    "about_quote"
+    "about_quote",
+    "about_values",
+    "about_founder",
+    "about_stats",
+    "about_testimonials",
+    "about_faq"
   ]
 }
