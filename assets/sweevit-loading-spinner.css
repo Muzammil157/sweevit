@@ -22,7 +22,7 @@
   height: 0.8rem;
   margin-top: -0.4rem;
   margin-left: -0.4rem;
-  background: var(--sweevit-dark-charcoal);
+  background: var(--sweevit-dark-charcoal, #1A1A1A);
   border-radius: 0.1rem;
 }
 
@@ -120,9 +120,9 @@
 }
 
 .sweevit-pack__atc .sweevit-loader__square {
-  background: var(--sweevit-pure-white);
+  background: var(--sweevit-pure-white, #FFFFFF);
 }
 
 .sweevit-pack__card--popular .sweevit-pack__atc .sweevit-loader__square {
-  background: var(--sweevit-icon-gold, #D9A93A);
+  background: var(--sweevit-dark-charcoal, #1A1A1A);
 }
