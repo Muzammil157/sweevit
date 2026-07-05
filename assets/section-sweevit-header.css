@@ -353,7 +353,7 @@
 .sweevit-hamburger-icon__line--middle {
   top: 50%;
   transform: translateY(-50%);
-  background: #14213d;
+  background: #000;
   border-radius: 0.1rem;
 }
 
