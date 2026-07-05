@@ -54,14 +54,7 @@
                 loading: 'lazy'
             }}
           {%- else -%}
-            <img
-              src="{{ 'about-us-placeholder.png' | asset_url }}"
-              alt=""
-              class="sweevit-about-us__image"
-              width="520"
-              height="480"
-              loading="lazy"
-            >
+            <div class="sweevit-about-us__placeholder" aria-hidden="true"></div>
           {%- endif -%}
         </div>
       </div>
@@ -105,7 +98,7 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image",
-      "info": "Recommended size: 520 x 480px. Uses about-us-placeholder.png from assets when empty."
+      "info": "Recommended size: 520 x 480px. Shows a gradient placeholder when empty."
     },
     {
       "type": "header",

@@ -132,6 +132,15 @@
   object-position: center;
 }
 
+.sweevit-about-us__media-frame:has(.sweevit-about-us__image) {
+  background: transparent;
+}
+
+.sweevit-about-us__placeholder {
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (max-width: 749px) {
   .sweevit-about-us__inner {
     padding-top: 5.6rem;
