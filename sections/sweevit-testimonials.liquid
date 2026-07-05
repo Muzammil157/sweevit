@@ -8,6 +8,15 @@
     {%- endif -%}
   }
 
+  @media screen and (max-width: 749px) {
+    #SweevitTestimonials-{{ section.id }} .sweevit-testimonials__inner {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: var(--sweevit-page-gutter);
+      padding-right: var(--sweevit-page-gutter);
+    }
+  }
+
   @media screen and (min-width: 990px) {
     #SweevitTestimonials-{{ section.id }} .sweevit-testimonials__inner {
       padding-top: {{ section.settings.padding_top }}px;
