@@ -1,86 +1,111 @@
 /* Sweevit Add-to-Cart Loading Spinner */
 
-@keyframes sweevit-loader-spin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+/* SVG Spinner rotation animation */
+@keyframes sweevit-spinner-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Base button setup */
+/* SVG path dash animation */
+@keyframes sweevit-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+/* Base button setup - ensure relative positioning */
 .sweevit-product__atc,
 .sweevit-pdp__atc,
 .sweevit-pack__atc {
   position: relative !important;
-  overflow: hidden !important;
 }
 
-/* Loading state */
+/* Loading state - disable interaction */
 .sweevit-product__atc.loading,
 .sweevit-pdp__atc.loading,
 .sweevit-pack__atc.loading {
   pointer-events: none !important;
-  cursor: wait !important;
 }
 
-/* Hide ALL text content when loading */
+/* Hide button text when loading */
 .sweevit-product__atc.loading > span,
 .sweevit-pdp__atc.loading > span,
-.sweevit-pack__atc.loading > span,
+.sweevit-pack__atc.loading > span {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Nested spans (like price spans) */
 .sweevit-product__atc.loading > span > span,
 .sweevit-pdp__atc.loading > span > span,
 .sweevit-pack__atc.loading > span > span {
-  opacity: 0 !important;
   visibility: hidden !important;
-  transition: none !important;
+  opacity: 0 !important;
 }
 
-/* Spinner base - HIDDEN by default */
+/* Spinner container - hidden by default */
 .sweevit-loader {
-  display: none !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  width: 22px !important;
-  height: 22px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: translate(-50%, -50%) !important;
-  border-radius: 50% !important;
-  border: 3px solid #1A1A1A !important;
-  border-top-color: transparent !important;
-  background: transparent !important;
-  animation: sweevit-loader-spin 0.65s linear infinite !important;
-  box-sizing: border-box !important;
-  z-index: 100 !important;
-  pointer-events: none !important;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  z-index: 10;
 }
 
-/* Show spinner when loading - high specificity to override .hidden */
+/* Show spinner when button has loading class */
 .sweevit-product__atc.loading .sweevit-loader,
-.sweevit-product__atc.loading .sweevit-loader.hidden,
 .sweevit-pdp__atc.loading .sweevit-loader,
-.sweevit-pdp__atc.loading .sweevit-loader.hidden,
-.sweevit-pack__atc.loading .sweevit-loader,
-.sweevit-pack__atc.loading .sweevit-loader.hidden,
-button.loading .sweevit-loader,
-button.loading .sweevit-loader.hidden {
+.sweevit-pack__atc.loading .sweevit-loader {
   display: block !important;
 }
 
+/* Override any .hidden class when loading */
+.sweevit-product__atc.loading .sweevit-loader.hidden,
+.sweevit-pdp__atc.loading .sweevit-loader.hidden,
+.sweevit-pack__atc.loading .sweevit-loader.hidden {
+  display: block !important;
+}
+
+/* SVG element */
+.sweevit-spinner {
+  width: 100%;
+  height: 100%;
+  animation: sweevit-spinner-rotate 1.4s linear infinite;
+}
+
+/* SVG circle path */
+.sweevit-spinner-path {
+  stroke: #1A1A1A;
+  stroke-dasharray: 90, 200;
+  stroke-dashoffset: 0;
+  animation: sweevit-spinner-dash 1.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
 /* Dark spinner for gold/gradient buttons (product showcase & PDP) */
-.sweevit-product__atc .sweevit-loader,
-.sweevit-pdp__atc .sweevit-loader {
-  border-color: #1A1A1A !important;
-  border-top-color: transparent !important;
+.sweevit-product__atc .sweevit-spinner-path,
+.sweevit-pdp__atc .sweevit-spinner-path {
+  stroke: #1A1A1A;
 }
 
 /* White spinner for dark pack buttons */
-.sweevit-pack__atc .sweevit-loader {
-  border-color: #FFFFFF !important;
-  border-top-color: transparent !important;
+.sweevit-pack__atc .sweevit-spinner-path {
+  stroke: #FFFFFF;
 }
 
 /* Dark spinner for the popular card's white button */
-.sweevit-pack__card--popular .sweevit-pack__atc .sweevit-loader {
-  border-color: #1A1A1A !important;
-  border-top-color: transparent !important;
+.sweevit-pack__card--popular .sweevit-pack__atc .sweevit-spinner-path {
+  stroke: #1A1A1A;
 }
