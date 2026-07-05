@@ -43,11 +43,11 @@
                 {%- assign about_image_alt = section.settings.image.alt | default: section.settings.heading | escape -%}
                 {{
                   section.settings.image
-                  | image_url: width: 520
+                  | image_url: width: 800
                   | image_tag:
                     class: 'sweevit-about-us__image',
-                    widths: '260, 520',
-                    sizes: '(min-width: 990px) 260px, 52vw',
+                    widths: '260, 400, 520, 800',
+                    sizes: '(min-width: 990px) 260px, 100vw',
                     alt: about_image_alt,
                     width: 260,
                     height: 360,
