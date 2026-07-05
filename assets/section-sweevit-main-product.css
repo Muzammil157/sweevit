@@ -303,7 +303,13 @@
 }
 
 .sweevit-pdp__purchase-label {
+  font-family: var(--sweevit-font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #a8a196;
+  margin: 0 0 var(--sweevit-pdp-gap-sm);
 }
 
 /* Purchase options — separate bordered boxes like reference */
@@ -319,7 +325,7 @@
   min-height: 5.6rem;
   padding: 1.6rem 2rem;
   border: 0.1rem solid rgba(26, 26, 26, 0.15);
-  border-radius: 0.6rem;
+  border-radius: 0.8rem;
   background: var(--sweevit-pure-white);
   box-sizing: border-box;
 }
