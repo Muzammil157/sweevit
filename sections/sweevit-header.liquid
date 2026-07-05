@@ -111,13 +111,17 @@
           aria-expanded="false"
           aria-controls="SweevitDrawer-{{ section.id }}"
         >
-          <svg class="sweevit-hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect class="sweevit-hamburger-icon__top-left" x="1" y="6" width="7" height="2" rx="1" fill="#14213d"/>
-            <rect class="sweevit-hamburger-icon__top-right" x="10" y="6" width="13" height="2" rx="1" fill="#14213d"/>
-            <rect class="sweevit-hamburger-icon__middle" x="1" y="11" width="22" height="2" rx="1" fill="#14213d"/>
-            <rect class="sweevit-hamburger-icon__bottom-left" x="1" y="16" width="13" height="2" rx="1" fill="#14213d"/>
-            <rect class="sweevit-hamburger-icon__bottom-right" x="16" y="16" width="7" height="2" rx="1" fill="#14213d"/>
-          </svg>
+          <span class="sweevit-hamburger-icon" aria-hidden="true">
+            <span class="sweevit-hamburger-icon__line sweevit-hamburger-icon__line--top">
+              <span class="sweevit-hamburger-icon__seg sweevit-hamburger-icon__seg--short"></span>
+              <span class="sweevit-hamburger-icon__seg sweevit-hamburger-icon__seg--long"></span>
+            </span>
+            <span class="sweevit-hamburger-icon__line sweevit-hamburger-icon__line--middle"></span>
+            <span class="sweevit-hamburger-icon__line sweevit-hamburger-icon__line--bottom">
+              <span class="sweevit-hamburger-icon__seg sweevit-hamburger-icon__seg--long"></span>
+              <span class="sweevit-hamburger-icon__seg sweevit-hamburger-icon__seg--short"></span>
+            </span>
+          </span>
         </button>
       {%- endif -%}
     </div>
