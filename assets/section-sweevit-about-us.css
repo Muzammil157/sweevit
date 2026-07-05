@@ -85,7 +85,6 @@
 
 /* Media */
 .sweevit-about-us__media {
-  position: relative;
   width: 100%;
   max-width: 52rem;
   margin: 0 auto;
@@ -97,12 +96,31 @@
   }
 }
 
+.sweevit-about-us__media-stage {
+  position: relative;
+  width: 100%;
+  max-width: 52rem;
+  height: 44rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-us__media-stage {
+    width: 520px;
+    height: 480px;
+  }
+}
+
 .sweevit-about-us__media-glow {
   position: absolute;
   top: 20px;
   left: 50px;
   width: 420px;
   height: 420px;
+  max-width: calc(100% - 5rem);
+  max-height: calc(100% - 2rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
   opacity: 1;
   background: radial-gradient(100% 100% at 0% 0%, rgba(242, 230, 191, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
@@ -110,24 +128,31 @@
 }
 
 .sweevit-about-us__media-frame {
-  position: relative;
+  position: absolute;
+  top: 60px;
+  left: 130px;
   z-index: 1;
-  width: 100%;
-  max-width: 520px;
-  height: 48rem;
-  max-height: min(48rem, 92vw);
-  margin: 0 auto;
-  border-radius: 1.2rem;
+  width: 260px;
+  height: 360px;
+  max-width: calc(100% - 13rem);
+  max-height: calc(100% - 6rem);
+  border-radius: 24px;
+  border: 1px solid rgba(209, 209, 209, 0.698);
   overflow: hidden;
   opacity: 1;
+  box-sizing: border-box;
 }
 
-@media screen and (min-width: 990px) {
-  .sweevit-about-us__media-frame {
-    width: 520px;
-    height: 480px;
-    max-height: 480px;
-  }
+.sweevit-about-us__media-frame--placeholder {
+  background: linear-gradient(
+    44.59deg,
+    #F2F5FA 14.89%,
+    #E0EBFA 29.08%,
+    #F5F0E0 43.26%,
+    #EBF5FA 53.9%,
+    #E0E6F7 68.09%,
+    #F2F5FA 85.82%
+  );
 }
 
 .sweevit-about-us__image {
@@ -138,20 +163,28 @@
   object-position: center;
 }
 
-.sweevit-about-us__image--placeholder {
-  object-fit: fill;
-}
-
 @media screen and (max-width: 749px) {
   .sweevit-about-us__inner {
     padding-top: 5.6rem;
     padding-bottom: 5.6rem;
   }
 
+  .sweevit-about-us__media-stage {
+    height: 36rem;
+  }
+
   .sweevit-about-us__media-glow {
-    left: 2rem;
     top: 1.2rem;
-    width: min(420px, 80%);
-    height: min(420px, 80%);
+    left: 2rem;
+    width: min(420px, 72%);
+    height: min(420px, 72%);
+  }
+
+  .sweevit-about-us__media-frame {
+    top: 4.8rem;
+    left: 50%;
+    transform: translateX(-35%);
+    width: min(260px, 56vw);
+    height: min(360px, 78vw);
   }
 }
