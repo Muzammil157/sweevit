@@ -403,6 +403,12 @@
   opacity: 0.92;
 }
 
+@media screen and (max-width: 749px) {
+  .sweevit-pdp__atc-price {
+    display: none;
+  }
+}
+
 /* Purchase footer — trust badges + certifications */
 .sweevit-pdp__purchase-footer {
   width: 100%;

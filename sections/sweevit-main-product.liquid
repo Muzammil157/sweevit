@@ -327,7 +327,7 @@
                 >
                   <span>
                     {{- section.settings.button_label | escape -}}
-                    — <span data-atc-price>{% if default_option == 'subscribe' %}{{ subscribe_price }}{% else %}{{ onetime_price }}{% endif %}</span>
+                    <span class="sweevit-pdp__atc-price"> — <span data-atc-price>{% if default_option == 'subscribe' %}{{ subscribe_price }}{% else %}{{ onetime_price }}{% endif %}</span></span>
                   </span>
                   {%- render 'sweevit-loading-spinner' -%}
                 </button>
