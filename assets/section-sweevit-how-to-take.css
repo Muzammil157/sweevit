@@ -116,8 +116,8 @@
 
 @media screen and (max-width: 749px) {
   .sweevit-how-to-take__inner {
-    padding-left: 46px;
-    padding-right: 46px;
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
   }
 
   .sweevit-how-to-take__header {
@@ -126,6 +126,8 @@
   }
 
   .sweevit-how-to-take__eyebrow {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
     text-align: left;
     color: #d9a93a;
   }
