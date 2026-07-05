@@ -29,7 +29,15 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="sweevit-testimonials__heading">{{ section.settings.heading | escape }}</h2>
+        {%- assign testimonial_heading_parts = section.settings.heading | split: '. ' -%}
+        <h2 class="sweevit-testimonials__heading">
+          {%- if testimonial_heading_parts.size > 1 -%}
+            <span class="sweevit-testimonials__heading-line">{{ testimonial_heading_parts[0] | escape }}.</span>
+            <span class="sweevit-testimonials__heading-line">{{ testimonial_heading_parts[1] | escape }}</span>
+          {%- else -%}
+            <span class="sweevit-testimonials__heading-line">{{ section.settings.heading | escape }}</span>
+          {%- endif -%}
+        </h2>
       {%- endif -%}
 
       {%- if section.settings.show_rating -%}
@@ -44,7 +52,7 @@
               {{ section.settings.rating_value | escape }}
             {%- endif -%}
             {%- if section.settings.review_count != blank -%}
-              {%- if section.settings.rating_value != blank -%} • {%- endif -%}
+              {%- if section.settings.rating_value != blank -%} · {%- endif -%}
               {{ section.settings.review_count | escape }}
               {%- if section.settings.review_label != blank -%}
                 {{ section.settings.review_label | escape }}
