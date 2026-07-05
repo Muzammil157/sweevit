@@ -44,6 +44,10 @@
   }
 }
 
+.sweevit-comparison__scroll-wrap {
+  width: 100%;
+}
+
 .sweevit-comparison__table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -56,25 +60,33 @@
 
 .sweevit-comparison__scroll-track {
   display: none;
-  width: 139px;
-  height: 5px;
-  margin: 2.4rem auto 0;
-  border-radius: 8px;
-  background: #d9a93a33;
+  width: 100%;
+  height: 0.5rem;
+  margin: 2.4rem 0 0;
+  border-radius: 0.8rem;
+  background: rgba(217, 169, 58, 0.2);
   position: relative;
   overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.sweevit-comparison__scroll-track.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .sweevit-comparison__scroll-thumb {
   position: absolute;
   top: 0;
   left: 0;
-  height: 5px;
-  border-radius: 8px;
-  background: #d9a93a;
-  width: 139px;
+  height: 100%;
+  border-radius: 0.8rem;
+  background: var(--sweevit-icon-gold, #D9A93A);
+  width: 30%;
+  min-width: 2.4rem;
   transform: translateX(0);
   will-change: transform, width;
+  transition: background-color 0.2s ease;
 }
 
 .sweevit-comparison__table {
@@ -166,6 +178,12 @@
   color: rgba(26, 26, 26, 0.25);
 }
 
+@media screen and (max-width: 989px) {
+  .sweevit-comparison__scroll-track {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .sweevit-comparison__header {
     text-align: left;
@@ -179,9 +197,5 @@
   .sweevit-comparison__heading {
     text-align: left;
     letter-spacing: -0.1rem;
-  }
-
-  .sweevit-comparison__scroll-track {
-    display: block;
   }
 }

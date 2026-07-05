@@ -335,14 +335,13 @@
 
 .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
   display: grid;
-  grid-template-columns: repeat(2, 27rem);
-  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.4rem;
 }
 
 @media screen and (min-width: 990px) {
   .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
-    grid-template-columns: repeat(4, 27rem);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2.4rem;
   }
 }
@@ -352,9 +351,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 27rem;
-  max-width: 27rem;
-  height: 28rem;
+  width: 100%;
+  max-width: none;
+  min-height: 28rem;
   margin: 0;
   padding: 2rem 2rem 6.3rem;
   border: 0.1rem solid #E6E6E6;
@@ -452,7 +451,7 @@
   flex: 1;
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 749px) {
   .sweevit-whats-inside--pdp .sweevit-whats-inside__inner {
     padding-top: 0;
     padding-bottom: 0;
@@ -490,8 +489,7 @@
 
   .sweevit-whats-inside__card--pdp {
     width: 100%;
-    max-width: 34.5rem;
-    height: 22.8rem;
+    max-width: none;
     min-height: 22.8rem;
     margin: 0;
     padding: 2rem 2rem 2rem;
@@ -507,6 +505,6 @@
 
 @media screen and (min-width: 640px) and (max-width: 989px) {
   .sweevit-whats-inside--pdp .sweevit-whats-inside__grid {
-    grid-template-columns: repeat(2, minmax(0, 27rem));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
