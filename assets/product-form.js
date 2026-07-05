@@ -62,10 +62,10 @@ if (!customElements.get('product-form')) {
 
         this.handleErrorMessage();
 
+        const loadingStartedAt = Date.now();
+        const minimumLoadingMs = 450;
         this.setLoadingState(true);
         await this.waitForPaint();
-
-        const spinner = this.getSubmitSpinner();
 
         const config = fetchConfig('javascript');
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
@@ -152,11 +152,21 @@ if (!customElements.get('product-form')) {
             linesUpdateDeferred?.reject(e);
           })
           .finally(() => {
-            this.setLoadingState(false);
-            const activeCart = this.getCartElement();
-            if (activeCart && activeCart.classList.contains('is-empty')) activeCart.classList.remove('is-empty');
+            const cleanupLoadingState = () => {
+              this.setLoadingState(false);
+              const activeCart = this.getCartElement();
+              if (activeCart && activeCart.classList.contains('is-empty')) activeCart.classList.remove('is-empty');
 
-            CartPerformance.measureFromEvent("add:user-action", evt);
+              CartPerformance.measureFromEvent("add:user-action", evt);
+            };
+
+            const elapsedMs = Date.now() - loadingStartedAt;
+            if (elapsedMs >= minimumLoadingMs) {
+              cleanupLoadingState();
+              return;
+            }
+
+            setTimeout(cleanupLoadingState, minimumLoadingMs - elapsedMs);
           });
       }
 
