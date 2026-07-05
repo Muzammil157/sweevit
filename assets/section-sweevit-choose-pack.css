@@ -50,6 +50,17 @@
 }
 
 /* Grid — left-aligned with header, 50px horizontal gap */
+.sweevit-pack__carousel {
+  width: 100%;
+}
+
+.sweevit-pack__track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sweevit-pack-grid-gap);
+  justify-content: start;
+}
+
 .sweevit-pack__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -57,7 +68,30 @@
   justify-content: start;
 }
 
+@media screen and (min-width: 750px) {
+  .sweevit-pack__track {
+    display: grid;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+
+  .sweevit-pack__card {
+    flex: none;
+    min-width: 0;
+    max-width: var(--sweevit-pack-card-width);
+    scroll-snap-align: none;
+  }
+}
+
 @media screen and (min-width: 990px) {
+  .sweevit-pack__track {
+    grid-template-columns: repeat(3, var(--sweevit-pack-card-width));
+    column-gap: var(--sweevit-pack-grid-gap);
+    row-gap: var(--sweevit-pack-grid-gap);
+  }
+
   .sweevit-pack__grid {
     grid-template-columns: repeat(3, var(--sweevit-pack-card-width));
     column-gap: var(--sweevit-pack-grid-gap);
@@ -66,6 +100,11 @@
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
+  .sweevit-pack__track {
+    grid-template-columns: repeat(2, minmax(0, var(--sweevit-pack-card-width)));
+    justify-content: start;
+  }
+
   .sweevit-pack__grid {
     grid-template-columns: repeat(2, minmax(0, var(--sweevit-pack-card-width)));
     justify-content: start;
@@ -313,5 +352,29 @@
     font-size: 2.4rem;
     line-height: 3rem;
     letter-spacing: -0.005em;
+  }
+
+  .sweevit-pack__track {
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-left: calc(-1 * var(--sweevit-page-gutter));
+    margin-right: calc(-1 * var(--sweevit-page-gutter));
+    padding-left: var(--sweevit-page-gutter);
+    padding-right: var(--sweevit-page-gutter);
+  }
+
+  .sweevit-pack__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sweevit-pack__card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: none;
+    scroll-snap-align: start;
   }
 }
