@@ -26,17 +26,46 @@ if (!customElements.get('product-form')) {
         return document.querySelector('cart-notification') || document.querySelector('cart-drawer');
       }
 
-      onSubmitHandler(evt) {
+      getSubmitSpinner() {
+        return this.submitButton?.querySelector('.sweevit-loader, .loading__spinner');
+      }
+
+      setLoadingState(isLoading) {
+        if (!this.submitButton) return;
+
+        const spinner = this.getSubmitSpinner();
+
+        if (isLoading) {
+          this.submitButton.setAttribute('aria-disabled', 'true');
+          this.submitButton.setAttribute('aria-busy', 'true');
+          this.submitButton.classList.add('loading');
+          if (spinner) spinner.classList.remove('hidden');
+          return;
+        }
+
+        this.submitButton.classList.remove('loading');
+        this.submitButton.removeAttribute('aria-busy');
+        if (!this.error) this.submitButton.removeAttribute('aria-disabled');
+        if (spinner) spinner.classList.add('hidden');
+      }
+
+      waitForPaint() {
+        return new Promise((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(resolve));
+        });
+      }
+
+      async onSubmitHandler(evt) {
         evt.preventDefault();
         if (!this.form || !this.submitButton) return;
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();
 
-        this.submitButton.setAttribute('aria-disabled', true);
-        this.submitButton.classList.add('loading');
-        const spinner = this.querySelector('.loading__spinner');
-        if (spinner) spinner.classList.remove('hidden');
+        this.setLoadingState(true);
+        await this.waitForPaint();
+
+        const spinner = this.getSubmitSpinner();
 
         const config = fetchConfig('javascript');
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
@@ -123,11 +152,9 @@ if (!customElements.get('product-form')) {
             linesUpdateDeferred?.reject(e);
           })
           .finally(() => {
-            this.submitButton.classList.remove('loading');
+            this.setLoadingState(false);
             const activeCart = this.getCartElement();
             if (activeCart && activeCart.classList.contains('is-empty')) activeCart.classList.remove('is-empty');
-            if (!this.error) this.submitButton.removeAttribute('aria-disabled');
-            if (spinner) spinner.classList.add('hidden');
 
             CartPerformance.measureFromEvent("add:user-action", evt);
           });

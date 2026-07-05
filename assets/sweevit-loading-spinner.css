@@ -74,25 +74,49 @@
   animation: sweevit-loader-pulse 675ms ease-in-out 600ms infinite alternate;
 }
 
+/* Add-to-cart button loading states */
+.sweevit-product__atc,
+.sweevit-pdp__atc,
+.sweevit-pack__atc {
+  position: relative;
+  overflow: visible;
+}
+
+.sweevit-product__atc.loading,
+.sweevit-pdp__atc.loading,
+.sweevit-pack__atc.loading {
+  pointer-events: none;
+}
+
+.sweevit-product__atc.loading > :first-child,
+.sweevit-pdp__atc.loading > :first-child,
+.sweevit-pack__atc.loading > :first-child {
+  visibility: hidden;
+}
+
 .sweevit-product__atc .sweevit-loader,
 .sweevit-pdp__atc .sweevit-loader,
 .sweevit-pack__atc .sweevit-loader {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  transform: scale(0.6);
+  display: none !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 4rem !important;
+  height: 4rem !important;
+  margin: 0 !important;
+  inset: auto !important;
+  transform: translate(-50%, -50%) scale(0.7) !important;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .sweevit-product__atc .sweevit-loader:not(.hidden),
 .sweevit-pdp__atc .sweevit-loader:not(.hidden),
-.sweevit-pack__atc .sweevit-loader:not(.hidden) {
-  display: block;
-}
-
-.sweevit-product__atc.loading > span:first-child,
-.sweevit-pdp__atc.loading > span:first-child,
-.sweevit-pack__atc.loading > span:first-child {
-  visibility: hidden;
+.sweevit-pack__atc .sweevit-loader:not(.hidden),
+.sweevit-product__atc.loading .sweevit-loader,
+.sweevit-pdp__atc.loading .sweevit-loader,
+.sweevit-pack__atc.loading .sweevit-loader {
+  display: block !important;
 }
 
 .sweevit-pack__atc .sweevit-loader__square {
