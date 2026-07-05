@@ -1,0 +1,138 @@
+.sweevit-about-founder {
+  font-family: var(--sweevit-font);
+  background-color: var(--sweevit-pure-white);
+}
+
+.sweevit-about-founder__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding: 4rem var(--sweevit-page-gutter);
+  box-sizing: border-box;
+}
+
+.sweevit-about-founder__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.sweevit-about-founder__media {
+  width: 100%;
+}
+
+.sweevit-about-founder__placeholder,
+.sweevit-about-founder__image {
+  display: block;
+  width: 100%;
+  max-width: 48rem;
+  height: auto;
+  min-height: 28rem;
+  aspect-ratio: 480 / 400;
+  border-radius: 0.8rem;
+  object-fit: cover;
+}
+
+.sweevit-about-founder__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2F2F2;
+}
+
+.sweevit-about-founder__placeholder-text {
+  font-family: var(--sweevit-font);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+  color: #999999;
+}
+
+.sweevit-about-founder__content {
+  max-width: 56rem;
+}
+
+.sweevit-about-founder__eyebrow {
+  font-family: var(--sweevit-font);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.45);
+  margin: 0 0 1.6rem;
+}
+
+.sweevit-about-founder__heading {
+  font-family: var(--sweevit-font);
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.15rem;
+  color: var(--sweevit-dark-charcoal);
+  margin: 0;
+}
+
+.sweevit-about-founder__text {
+  font-family: var(--sweevit-font);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.65);
+  margin: 2rem 0 0;
+}
+
+.sweevit-about-founder__text p {
+  margin: 0;
+}
+
+.sweevit-about-founder__signoff {
+  font-family: var(--sweevit-font);
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #1A1A1A;
+  margin: 2.4rem 0 0;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-founder__inner {
+    padding: 5.5rem 14rem 5.5rem 8rem;
+  }
+
+  .sweevit-about-founder__grid {
+    grid-template-columns: 48rem minmax(0, 1fr);
+    gap: 6rem;
+  }
+
+  .sweevit-about-founder__placeholder,
+  .sweevit-about-founder__image {
+    width: 48rem;
+    max-width: 48rem;
+    height: 40rem;
+    min-height: 40rem;
+    aspect-ratio: auto;
+  }
+
+  .sweevit-about-founder__eyebrow {
+    margin-bottom: 1.3rem;
+  }
+
+  .sweevit-about-founder__heading {
+    font-size: 4.4rem;
+  }
+
+  .sweevit-about-founder__text {
+    margin-top: 3.2rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .sweevit-about-founder__signoff {
+    margin-top: 5.8rem;
+  }
+}
