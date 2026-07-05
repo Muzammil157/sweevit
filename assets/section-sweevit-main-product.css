@@ -272,7 +272,7 @@
 
 @media screen and (min-width: 750px) {
   .sweevit-pdp__highlights {
-    margin-top: var(--sweevit-pdp-gap-xl);
+    margin-top: var(--sweevit-pdp-gap-md);
     padding-top: var(--sweevit-pdp-gap-xl);
     padding-bottom: var(--sweevit-pdp-gap-xl);
   }
