@@ -1,5 +1,6 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-about-stats.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-about-stats.js' | asset_url }}" defer="defer"></script>
 
 <section
   id="SweevitAboutStats-{{ section.id }}"
@@ -11,7 +12,9 @@
         {%- for block in section.blocks -%}
           <li class="sweevit-about-stats__item" {{ block.shopify_attributes }}>
             {%- if block.settings.value != blank -%}
-              <p class="sweevit-about-stats__value">{{ block.settings.value | escape }}</p>
+              <p class="sweevit-about-stats__value" data-sweevit-stat-value="{{ block.settings.value | escape }}">
+                {{ block.settings.value | escape }}
+              </p>
             {%- endif -%}
             {%- if block.settings.label != blank -%}
               <p class="sweevit-about-stats__label">{{ block.settings.label | escape }}</p>
