@@ -356,6 +356,10 @@
 }
 
 @media screen and (max-width: 749px) {
+  .sweevit-pack__inner {
+    overflow: visible;
+  }
+
   .sweevit-pack__header {
     text-align: left;
     margin-bottom: 2.4rem;
