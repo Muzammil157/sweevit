@@ -149,7 +149,7 @@
 }
 
 .sweevit-pdp__thumbnail.is-active {
-  border-color: var(--sweevit-icon-gold, #d9a93a);
+  border: 1.73px solid #D9A93A;
 }
 
 .sweevit-pdp__thumbnail img {
