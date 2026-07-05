@@ -282,7 +282,7 @@
 .sweevit-pdp__purchase-section {
   width: 100%;
   max-width: var(--sweevit-pdp-content-width);
-  margin-top: var(--sweevit-pdp-gap-xl);
+  margin-top: var(--sweevit-pdp-gap-sm);
 }
 
 .sweevit-pdp__purchase-label {
