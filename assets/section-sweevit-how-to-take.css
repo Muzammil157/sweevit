@@ -144,8 +144,8 @@
   }
 
   .sweevit-how-to-take__carousel {
-    width: calc(100% - 0.6rem);
-    margin-left: 0.6rem;
+    width: calc(100% - 0.4rem);
+    margin-left: 0.4rem;
     overflow: hidden;
   }
 
@@ -169,8 +169,8 @@
     min-width: 100%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    padding: 2.4rem;
-    border-radius: 0.8rem;
+    padding: 2.4rem 0;
+    border-radius: 0;
     background-color: transparent;
     box-sizing: border-box;
   }
