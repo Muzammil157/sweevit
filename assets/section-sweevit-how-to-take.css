@@ -144,8 +144,8 @@
   }
 
   .sweevit-how-to-take__carousel {
-    width: calc(100% - (32px - var(--sweevit-page-gutter)));
-    margin-left: calc(32px - var(--sweevit-page-gutter));
+    width: calc(100% - 0.6rem);
+    margin-left: 0.6rem;
     overflow: hidden;
   }
 
