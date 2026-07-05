@@ -237,6 +237,7 @@
   margin-top: 4rem;
   padding: 3.2rem 0 4rem;
   border-top: 0.1rem solid rgba(26, 26, 26, 0.08);
+  background-color: var(--sweevit-pure-white);
 }
 
 .sweevit-hero__press-list {

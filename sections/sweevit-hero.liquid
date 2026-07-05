@@ -53,24 +53,15 @@
           {%- endif -%}
 
           {%- if section.settings.button_secondary_label != blank -%}
-            {%- if section.settings.button_secondary_link != blank -%}
-              <a
-                href="{{ section.settings.button_secondary_link }}"
-                class="sweevit-hero__btn sweevit-hero__btn--secondary"
-              >
-                {{ section.settings.button_secondary_label | escape }}
-                <span class="sweevit-hero__btn-arrow" aria-hidden="true">
-                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
-                </span>
-              </a>
-            {%- else -%}
-              <span class="sweevit-hero__btn sweevit-hero__btn--secondary" role="text">
-                {{ section.settings.button_secondary_label | escape }}
-                <span class="sweevit-hero__btn-arrow" aria-hidden="true">
-                  {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
-                </span>
+            <a
+              href="{{ section.settings.button_secondary_link | default: '#sweevit-benefits' }}"
+              class="sweevit-hero__btn sweevit-hero__btn--secondary"
+            >
+              {{ section.settings.button_secondary_label | escape }}
+              <span class="sweevit-hero__btn-arrow" aria-hidden="true">
+                {{- 'icon-arrow-right-soft.svg' | inline_asset_content -}}
               </span>
-            {%- endif -%}
+            </a>
           {%- endif -%}
         </div>
       </div>

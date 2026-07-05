@@ -6,7 +6,7 @@
 .sweevit-whats-inside__inner {
   max-width: var(--sweevit-page-width);
   margin: 0 auto;
-  padding: 6rem var(--sweevit-page-gutter) 8rem;
+  padding: 0 var(--sweevit-page-gutter) 8rem;
   box-sizing: border-box;
 }
 

@@ -25,6 +25,10 @@
   text-transform: uppercase;
   color: var(--sweevit-icon-gold, #D9A93A);
   margin: 0 0 var(--sweevit-faq-eyebrow-heading-gap);
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  background-color: transparent;
 }
 
 .sweevit-faq__heading {
