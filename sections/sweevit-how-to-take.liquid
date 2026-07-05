@@ -1,5 +1,7 @@
 {{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
 {{ 'section-sweevit-how-to-take.css' | asset_url | stylesheet_tag }}
+{{ 'sweevit-carousel.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-carousel.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   #SweevitHowToTake-{{ section.id }} {
@@ -27,28 +29,45 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="sweevit-how-to-take__grid">
-        {%- for block in section.blocks -%}
-          <article class="sweevit-how-to-take__step" {{ block.shopify_attributes }}>
-            {%- if block.settings.number != blank -%}
-              <p class="sweevit-how-to-take__number" aria-hidden="true">{{ block.settings.number | escape }}</p>
-            {%- else -%}
-              <p class="sweevit-how-to-take__number" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
-            {%- endif -%}
-
-            <span class="sweevit-how-to-take__bar" aria-hidden="true"></span>
-
-            <div class="sweevit-how-to-take__content">
-              {%- if block.settings.title != blank -%}
-                <h3 class="sweevit-how-to-take__title">{{ block.settings.title | escape }}</h3>
+      <div class="sweevit-how-to-take__carousel" data-sweevit-carousel>
+        <div class="sweevit-how-to-take__track" data-carousel-track>
+          {%- for block in section.blocks -%}
+            <article class="sweevit-how-to-take__step" data-carousel-slide {{ block.shopify_attributes }}>
+              {%- if block.settings.number != blank -%}
+                <p class="sweevit-how-to-take__number" aria-hidden="true">{{ block.settings.number | escape }}</p>
+              {%- else -%}
+                <p class="sweevit-how-to-take__number" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</p>
               {%- endif -%}
 
-              {%- if block.settings.description != blank -%}
-                <p class="sweevit-how-to-take__text">{{ block.settings.description | escape }}</p>
-              {%- endif -%}
-            </div>
-          </article>
-        {%- endfor -%}
+              <span class="sweevit-how-to-take__bar" aria-hidden="true"></span>
+
+              <div class="sweevit-how-to-take__content">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="sweevit-how-to-take__title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.description != blank -%}
+                  <p class="sweevit-how-to-take__text">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.blocks.size > 1 -%}
+          <div class="sweevit-carousel__dots" data-carousel-dots role="tablist" aria-label="Steps">
+            {%- for block in section.blocks -%}
+              <button
+                type="button"
+                class="sweevit-carousel__dot{% if forloop.first %} is-active{% endif %}"
+                data-carousel-dot
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-label="Step {{ forloop.index }}"
+              ></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
