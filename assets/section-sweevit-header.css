@@ -338,7 +338,12 @@
   height: 0.2rem;
   display: flex;
   gap: 0.2rem;
-  transition: transform 0.35s cubic-bezier(0.68, -0.4, 0.27, 1.4), opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: 
+    top 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    bottom 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    gap 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.35s cubic-bezier(0.68, -0.4, 0.27, 1.4),
+    opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .sweevit-hamburger-icon__line--top {
