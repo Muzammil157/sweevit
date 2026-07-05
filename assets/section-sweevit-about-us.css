@@ -6,7 +6,7 @@
 .sweevit-about-us__inner {
   max-width: var(--sweevit-page-width);
   margin: 0 auto;
-  padding: 8rem var(--sweevit-page-gutter);
+  padding: 0 var(--sweevit-page-gutter);
   box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 4.8rem;
-  align-items: center;
+  align-items: start;
 }
 
 @media screen and (min-width: 990px) {
@@ -29,9 +29,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 18px;
   min-width: 0;
   max-width: 56rem;
+  padding-top: 20px;
 }
 
 .sweevit-about-us__eyebrow {
@@ -120,34 +121,19 @@
   border-radius: 50%;
   opacity: 1;
   background: radial-gradient(100% 100% at 0% 0%, rgba(242, 230, 191, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
   z-index: 0;
 }
 
 .sweevit-about-us__media-frame {
   position: absolute;
-  top: 60px;
-  left: 130px;
+  top: 40px;
+  left: 80px;
   z-index: 1;
   width: 260px;
   height: 360px;
   border-radius: 24px;
-  border: 1px solid rgba(209, 209, 209, 0.698);
   overflow: hidden;
   opacity: 1;
-  box-sizing: border-box;
-}
-
-.sweevit-about-us__media-frame--placeholder {
-  background: linear-gradient(
-    44.59deg,
-    #F2F5FA 14.89%,
-    #E0EBFA 29.08%,
-    #F5F0E0 43.26%,
-    #EBF5FA 53.9%,
-    #E0E6F7 68.09%,
-    #F2F5FA 85.82%
-  );
 }
 
 .sweevit-about-us__image {
@@ -159,11 +145,6 @@
 }
 
 @media screen and (max-width: 749px) {
-  .sweevit-about-us__inner {
-    padding-top: 5.6rem;
-    padding-bottom: 5.6rem;
-  }
-
   .sweevit-about-us__media-stage {
     height: auto;
     aspect-ratio: 520 / 480;
