@@ -117,9 +117,6 @@
   left: 50px;
   width: 420px;
   height: 420px;
-  max-width: calc(100% - 5rem);
-  max-height: calc(100% - 2rem);
-  aspect-ratio: 1;
   border-radius: 50%;
   opacity: 1;
   background: radial-gradient(100% 100% at 0% 0%, rgba(242, 230, 191, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
@@ -134,8 +131,6 @@
   z-index: 1;
   width: 260px;
   height: 360px;
-  max-width: calc(100% - 13rem);
-  max-height: calc(100% - 6rem);
   border-radius: 24px;
   border: 1px solid rgba(209, 209, 209, 0.698);
   overflow: hidden;
@@ -170,21 +165,9 @@
   }
 
   .sweevit-about-us__media-stage {
-    height: 36rem;
-  }
-
-  .sweevit-about-us__media-glow {
-    top: 1.2rem;
-    left: 2rem;
-    width: min(420px, 72%);
-    height: min(420px, 72%);
-  }
-
-  .sweevit-about-us__media-frame {
-    top: 4.8rem;
-    left: 50%;
-    transform: translateX(-35%);
-    width: min(260px, 56vw);
-    height: min(360px, 78vw);
+    height: auto;
+    aspect-ratio: 520 / 480;
+    transform: scale(min(1, calc((100vw - 8rem) / 520)));
+    transform-origin: center center;
   }
 }
