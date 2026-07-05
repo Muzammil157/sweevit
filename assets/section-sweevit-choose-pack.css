@@ -43,6 +43,14 @@
   overflow-wrap: break-word;
 }
 
+.sweevit-pack__heading-line {
+  display: inline;
+}
+
+.sweevit-pack__heading-line:not(:last-child)::after {
+  content: ' ';
+}
+
 @media screen and (min-width: 990px) {
   .sweevit-pack__heading {
     font-size: 5.2rem;
@@ -377,13 +385,17 @@
     line-height: 32px;
     letter-spacing: -0.005em;
     text-align: center;
-    max-width: 17ch;
+    max-width: none;
     margin-left: auto;
     margin-right: auto;
   }
 
   .sweevit-pack__heading-line {
     display: block;
+  }
+
+  .sweevit-pack__heading-line:not(:last-child)::after {
+    content: none;
   }
 
   .sweevit-pack__carousel {

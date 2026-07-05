@@ -42,8 +42,16 @@
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
+        {%- assign pack_heading_words = section.settings.heading | split: ' ' -%}
+        {%- assign pack_heading_line_one = pack_heading_words | slice: 0, 3 | join: ' ' -%}
+        {%- assign pack_heading_line_two = pack_heading_words | slice: 3, 10 | join: ' ' -%}
         <h2 class="sweevit-pack__heading">
-          <span class="sweevit-pack__heading-line">{{ section.settings.heading | escape }}</span>
+          {%- if pack_heading_line_one != blank -%}
+            <span class="sweevit-pack__heading-line">{{ pack_heading_line_one | escape }}</span>
+          {%- endif -%}
+          {%- if pack_heading_line_two != blank -%}
+            <span class="sweevit-pack__heading-line">{{ pack_heading_line_two | escape }}</span>
+          {%- endif -%}
         </h2>
       {%- endif -%}
     </div>
