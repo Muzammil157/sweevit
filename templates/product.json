@@ -408,6 +408,45 @@
         "padding_horizontal": 78
       }
     },
+    "pdp_gallery": {
+      "type": "sweevit-gallery",
+      "blocks": {
+        "gallery_1": { "type": "image", "settings": {} },
+        "gallery_2": { "type": "image", "settings": {} },
+        "gallery_3": { "type": "image", "settings": {} },
+        "gallery_4": { "type": "image", "settings": {} },
+        "gallery_5": { "type": "image", "settings": {} },
+        "gallery_6": { "type": "image", "settings": {} },
+        "gallery_7": { "type": "image", "settings": {} },
+        "gallery_8": { "type": "image", "settings": {} },
+        "gallery_9": { "type": "image", "settings": {} },
+        "gallery_10": { "type": "image", "settings": {} },
+        "gallery_11": { "type": "image", "settings": {} },
+        "gallery_12": { "type": "image", "settings": {} }
+      },
+      "block_order": [
+        "gallery_1",
+        "gallery_2",
+        "gallery_3",
+        "gallery_4",
+        "gallery_5",
+        "gallery_6",
+        "gallery_7",
+        "gallery_8",
+        "gallery_9",
+        "gallery_10",
+        "gallery_11",
+        "gallery_12"
+      ],
+      "settings": {
+        "image_count": 12,
+        "accessibility_label": "Sweevit lifestyle gallery",
+        "image_gap": 10,
+        "content_inset": 24,
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    },
     "pdp_faq": {
       "type": "sweevit-faq",
       "blocks": {
@@ -472,6 +511,7 @@
     "pdp_comparison",
     "pdp_choose_pack",
     "pdp_testimonials",
+    "pdp_gallery",
     "pdp_faq"
   ]
 }

@@ -79,7 +79,6 @@ function initComparisonScrollbars() {
 
       if (maxScroll <= 0 || trackWidth <= 0) {
         track.classList.add('is-hidden');
-        thumb.style.width = '100%';
         thumb.style.transform = 'translateX(0)';
         return;
       }
