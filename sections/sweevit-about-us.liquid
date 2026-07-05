@@ -55,13 +55,12 @@
               }}
             {%- else -%}
               <img
-                src="{{ 'about-us-placeholder.png' | asset_url }}"
-                alt=""
+                src="{{ 'sweetvit-hero.png' | asset_url }}"
+                alt="{{ section.settings.heading | default: shop.name | escape }}"
                 class="sweevit-about-us__image"
                 width="260"
                 height="360"
                 loading="lazy"
-                aria-hidden="true"
               >
             {%- endif -%}
           </div>
@@ -107,7 +106,7 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image",
-      "info": "Recommended size: 260 x 360px. Uses about-us-placeholder.png from assets when empty."
+      "info": "Recommended size: 260 x 360px. Uses the same default hero image (sweetvit-hero.png) when empty."
     },
     {
       "type": "header",
