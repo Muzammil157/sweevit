@@ -446,6 +446,12 @@
   margin: 0 auto;
   padding: 38px var(--sweevit-page-gutter) 36px;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.sweevit-contact__visit .sweevit-contact__section-label,
+.sweevit-contact__visit .sweevit-contact__address {
+  text-align: center;
 }
 
 .sweevit-contact__address {
