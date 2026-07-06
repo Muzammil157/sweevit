@@ -72,6 +72,8 @@
         "message_label": "Message",
         "message_placeholder": "Tell us more...",
         "button_label": "Send message",
+        "success_message": "Thankyou for reaching out! Somone from Sweevit Team will Contact you Soon!",
+        "error_message": "Oops! looks like there is an issue while submitting your form",
         "reach_label": "Other ways to reach us",
         "visit_label": "Visit us",
         "address": "123 Wellness Ave, Suite 789 — XYZ Country",
@@ -127,6 +129,7 @@
         "review_count": "237",
         "review_label": "Reviews",
         "use_custom_gradient": false,
+        "background_gradient": "linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%)",
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_horizontal": 78
