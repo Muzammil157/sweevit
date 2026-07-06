@@ -340,11 +340,11 @@
 }
 
 .sweevit-contact__card-detail {
-  font-family: var(--sweevit-font);
+  font-family: 'Inter';
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
-  color: #1A1A1A;
+  color: #444444;
   margin: 0;
 }
 
