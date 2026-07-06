@@ -72,10 +72,14 @@
         "message_label": "Message",
         "message_placeholder": "Tell us more...",
         "button_label": "Send message",
+        "success_message": "",
+        "error_message": "",
         "reach_label": "Other ways to reach us",
         "visit_label": "Visit us",
         "address": "123 Wellness Ave, Suite 789 — XYZ Country",
-        "map_location": "Dubai, United Arab Emirates",
+        "map_location": "Newyork, USA",
+        "map_latitude": "",
+        "map_longitude": "",
         "map_alt": "Sweevit office location",
         "map_placeholder": "map view"
       }
@@ -128,6 +132,7 @@
         "review_count": "237",
         "review_label": "Reviews",
         "use_custom_gradient": false,
+        "background_gradient": "linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%)",
         "padding_top": 80,
         "padding_bottom": 80,
         "padding_horizontal": 78
