@@ -405,6 +405,8 @@
     font-weight: 700;
   }
 }
+
+@keyframes sweevit-hero-press-marquee {
   from {
     transform: translateX(0);
   }

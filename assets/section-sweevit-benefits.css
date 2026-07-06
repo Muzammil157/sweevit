@@ -323,6 +323,25 @@
   opacity: 0.8;
 }
 
+@media screen and (min-width: 750px) {
+  .sweevit-benefits__eyebrow {
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #D9A93A;
+    margin: 0 0 13px;
+  }
+
+  .sweevit-benefits__heading {
+    color: #1A1A1A;
+    text-transform: none;
+  }
+
+  .sweevit-benefits--centered .sweevit-benefits__eyebrow {
+    color: #D9A93A;
+    margin: 0 0 13px;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .sweevit-benefits__inner {
     padding-top: 0;
