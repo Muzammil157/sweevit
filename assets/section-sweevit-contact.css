@@ -168,7 +168,7 @@
 @media screen and (min-width: 990px) {
   .sweevit-contact__main-inner {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 6rem;
+    gap: 12rem;
     padding-top: 48px;
     padding-bottom: 48px;
     align-items: start;
@@ -178,6 +178,10 @@
   .sweevit-contact__reach-col {
     padding-top: 0;
     padding-bottom: 0;
+  }
+
+  .sweevit-contact__reach-col {
+    padding-left: 3.2rem;
   }
 }
 
