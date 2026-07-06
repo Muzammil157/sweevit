@@ -156,6 +156,10 @@
   padding-bottom: 0;
 }
 
+.sweevit-benefits--ritual .sweevit-benefits__eyebrow {
+  margin: 0 0 1.6rem;
+}
+
 .sweevit-benefits--ritual .sweevit-benefits__header {
   margin-bottom: 4.8rem;
 }
@@ -345,13 +349,22 @@
 
   .sweevit-benefits--ritual.sweevit-benefits--centered .sweevit-benefits__eyebrow {
     text-align: left;
-    color: #d9a93a;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.03em;
+    color: #D9A93A;
+    margin: 0 0 13px;
   }
 
   .sweevit-benefits--ritual.sweevit-benefits--centered .sweevit-benefits__heading {
     text-align: left;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.005em;
+    color: #1A1A1A;
     text-transform: none;
-    letter-spacing: -0.01em;
   }
 
   .sweevit-benefits--ritual.sweevit-benefits--centered .sweevit-benefits__subheading {
@@ -375,10 +388,20 @@
   }
 
   .sweevit-benefits__eyebrow {
-    letter-spacing: 0.2rem;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.03em;
+    color: #D9A93A;
+    margin: 0 0 13px;
+    text-transform: uppercase;
   }
 
   .sweevit-benefits__heading {
-    letter-spacing: -0.1rem;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.005em;
+    color: #1A1A1A;
   }
 }

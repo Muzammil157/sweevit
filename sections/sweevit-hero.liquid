@@ -121,7 +121,14 @@
                     loading: 'lazy'
                 }}
               {%- elsif block.settings.logo_text != blank -%}
-                <span class="sweevit-hero__press-text">{{ block.settings.logo_text | escape }}</span>
+                {%- liquid
+                  assign press_text_class = 'sweevit-hero__press-text'
+                  assign logo_upper = block.settings.logo_text | upcase
+                  if logo_upper == 'VOGUE'
+                    assign press_text_class = press_text_class | append: ' sweevit-hero__press-text--vogue'
+                  endif
+                -%}
+                <span class="{{ press_text_class }}">{{ block.settings.logo_text | escape }}</span>
               {%- endif -%}
             </li>
           {%- endfor -%}

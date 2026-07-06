@@ -328,10 +328,40 @@
   }
 
   .sweevit-hero__press-list {
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 0.4rem;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: visible;
+    gap: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .sweevit-hero__press {
+    width: 100%;
+    max-width: 393px;
+    height: 63px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px 0 23px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    display: flex;
+    align-items: center;
+  }
+
+  .sweevit-hero__press-text {
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #999999;
+    text-transform: none;
+  }
+
+  .sweevit-hero__press-text--vogue {
+    font-weight: 700;
   }
 }
