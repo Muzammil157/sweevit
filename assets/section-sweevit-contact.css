@@ -44,18 +44,19 @@
 .sweevit-contact__eyebrow--mobile {
   display: inline-flex;
   align-items: center;
-  margin: 0 0 0 2px;
-  padding: 4px 10px;
+  margin: 0;
+  padding: 0;
   font-family: var(--sweevit-font);
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.3rem;
   text-transform: uppercase;
-  color: var(--sweevit-pure-white);
-  background-color: #D9A93A;
-  border-radius: 2px;
+  color: #D9A93A;
+  background: none;
+  background-color: transparent;
+  border-radius: 0;
 }
 
 .sweevit-contact__heading {
@@ -340,7 +341,7 @@
 }
 
 .sweevit-contact__card-detail {
-  font-family: 'Inter';
+  font-family: var(--sweevit-font);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
