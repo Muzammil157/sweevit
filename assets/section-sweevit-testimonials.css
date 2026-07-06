@@ -279,6 +279,10 @@
     gap: 1.5rem;
   }
 
+  .sweevit-testimonials__card-body {
+    gap: 32px;
+  }
+
   .sweevit-testimonials__card-footer {
     border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
     padding-top: 1.5rem;
