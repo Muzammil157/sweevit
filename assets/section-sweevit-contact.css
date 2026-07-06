@@ -495,9 +495,9 @@
   .sweevit-contact__visit-inner {
     position: relative;
     text-align: center;
-    min-height: 25rem;
+    min-height: calc(110px + 140px + 54px);
     padding-top: 4.8rem;
-    padding-bottom: 4.8rem;
+    padding-bottom: 54px;
   }
 
   .sweevit-contact__visit .sweevit-contact__section-label {
