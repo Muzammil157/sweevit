@@ -57,9 +57,12 @@
       },
       "block_order": [
         "press_1",
+        "press_2",
         "press_3",
+        "press_4",
         "press_5",
-        "press_4"
+        "press_6",
+        "press_7"
       ],
       "settings": {
         "eyebrow": "Focus. Energy. Wellness.",
