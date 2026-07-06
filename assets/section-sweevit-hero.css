@@ -332,7 +332,13 @@
   }
 
   .sweevit-hero__press-text {
+    font-family: var(--sweevit-font);
+    font-size: 18px;
     font-weight: 700;
+    font-style: normal;
+    line-height: 100%;
+    letter-spacing: 1px;
+    color: #A6A6A6;
   }
 }
 
