@@ -1,25 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "contact_main": {
+      "type": "sweevit-contact",
+      "blocks": {
+        "reach_email": {
+          "type": "reach_card",
+          "settings": {
+            "icon": "email",
+            "title": "Email Support",
+            "detail": "support@sweevit.com",
+            "description": "We respond within 24 hours"
+          }
+        },
+        "reach_chat": {
+          "type": "reach_card",
+          "settings": {
+            "icon": "chat",
+            "title": "Live Chat",
+            "detail": "Mon–Sun: 9AM – 5PM EST",
+            "description": "Available on our website"
+          }
+        },
+        "reach_shipping": {
+          "type": "reach_card",
+          "settings": {
+            "icon": "shipping",
+            "title": "Order & Shipping",
+            "detail": "shipping@sweevit.com",
+            "description": "Tracking, delivery, and return issues"
+          }
+        },
+        "reach_partnership": {
+          "type": "reach_card",
+          "settings": {
+            "icon": "partnership",
+            "title": "Wholesale & Press",
+            "detail": "partnerships@sweevit.com",
+            "description": "Join the movement"
+          }
+        }
+      },
+      "block_order": [
+        "reach_email",
+        "reach_chat",
+        "reach_shipping",
+        "reach_partnership"
+      ],
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Contact Us",
+        "eyebrow_desktop": "Get in touch",
+        "heading": "We're Here To Help You!",
+        "description": "Questions about your order, our products, or our guarantee? The team typically responds within 24 hours.",
+        "form_label": "Send a message",
+        "name_label": "Full name",
+        "name_placeholder": "Your name",
+        "email_label": "Email address",
+        "email_placeholder": "you@example.com",
+        "order_label": "Order number (optional)",
+        "order_placeholder": "e.g. #1234",
+        "subject_label": "Subject",
+        "subject_placeholder": "How can we help?",
+        "message_label": "Message",
+        "message_placeholder": "Tell us more...",
+        "button_label": "Send message",
+        "reach_label": "Other ways to reach us",
+        "visit_label": "Visit us",
+        "address": "123 Wellness Ave, Suite 789 — XYZ Country",
+        "map_alt": "Sweevit office location",
+        "map_placeholder": "Map Area"
       }
     },
-    "form": {
-      "type": "contact-form",
+    "contact_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I've tried countless supplements and vitamins, but these are the real deal. Every morning I feel energized, focused and ready to go!",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Customer",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_james": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
+            "author_name": "James K.",
+            "author_meta": "Verified Customer",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Customer",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_sarah",
+        "testimonial_james",
+        "testimonial_lena"
+      ],
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Our Happy Customers",
+        "heading": "Real People. Real Results.",
+        "center_header": false,
+        "show_rating": true,
+        "rating_value": "4.9 / 5",
+        "review_count": "237",
+        "review_label": "Reviews",
+        "use_custom_gradient": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "contact_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take daily?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a subscription option?",
+            "answer": "Yes — subscribe and save 20% on every order with free shipping, cancel anytime, and priority access to new products."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "contact_main",
+    "contact_testimonials",
+    "contact_faq"
   ]
 }
