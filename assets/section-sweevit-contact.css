@@ -486,12 +486,56 @@
 }
 
 @media screen and (min-width: 990px) {
+  .sweevit-contact__visit {
+    background-color: #F2F2F2;
+  }
+
   .sweevit-contact__visit-inner {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    position: relative;
+    text-align: center;
+    min-height: 25rem;
+    padding-top: 4.8rem;
+    padding-bottom: 4.8rem;
+  }
+
+  .sweevit-contact__visit .sweevit-contact__section-label {
+    font-family: var(--sweevit-font);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 3px;
+    color: #707070;
+    margin: 0 0 13px;
+    text-align: center;
+  }
+
+  .sweevit-contact__visit .sweevit-contact__address {
+    margin: 0;
+    text-align: center;
+  }
+
+  .sweevit-contact__visit .sweevit-contact__map {
+    position: absolute;
+    top: 110px;
+    left: 220px;
+    width: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   .sweevit-contact__map-placeholder {
-    min-height: 320px;
+    width: 1000px;
+    height: 140px;
+    min-height: 140px;
+    border-radius: 8px;
+    background-color: #E6E6E6;
+    opacity: 1;
+  }
+
+  .sweevit-contact__map-image {
+    width: 1000px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 }
