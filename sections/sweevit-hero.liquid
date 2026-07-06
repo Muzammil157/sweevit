@@ -106,33 +106,60 @@
 
     {%- if section.blocks.size > 0 -%}
       <div class="sweevit-hero__press">
-        <ul class="sweevit-hero__press-list" role="list">
-          {%- for block in section.blocks -%}
-            <li class="sweevit-hero__press-item" {{ block.shopify_attributes }}>
-              {%- if block.settings.logo_image != blank -%}
-                {%- assign press_alt = block.settings.logo_text | default: 'Press logo' | escape -%}
-                {{
-                  block.settings.logo_image
-                  | image_url: width: 280
-                  | image_tag:
-                    class: 'sweevit-hero__press-image',
-                    widths: '140, 200, 280',
-                    alt: press_alt,
-                    loading: 'lazy'
-                }}
-              {%- elsif block.settings.logo_text != blank -%}
-                {%- liquid
-                  assign press_text_class = 'sweevit-hero__press-text'
-                  assign logo_upper = block.settings.logo_text | upcase
-                  if logo_upper == 'VOGUE'
-                    assign press_text_class = press_text_class | append: ' sweevit-hero__press-text--vogue'
-                  endif
-                -%}
-                <span class="{{ press_text_class }}">{{ block.settings.logo_text | escape }}</span>
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
-        </ul>
+        <div class="sweevit-hero__press-marquee">
+          <ul class="sweevit-hero__press-list" role="list">
+            {%- for block in section.blocks -%}
+              <li class="sweevit-hero__press-item" {{ block.shopify_attributes }}>
+                {%- if block.settings.logo_image != blank -%}
+                  {%- assign press_alt = block.settings.logo_text | default: 'Press logo' | escape -%}
+                  {{
+                    block.settings.logo_image
+                    | image_url: width: 280
+                    | image_tag:
+                      class: 'sweevit-hero__press-image',
+                      widths: '140, 200, 280',
+                      alt: press_alt,
+                      loading: 'lazy'
+                  }}
+                {%- elsif block.settings.logo_text != blank -%}
+                  {%- liquid
+                    assign press_text_class = 'sweevit-hero__press-text'
+                    assign logo_upper = block.settings.logo_text | upcase
+                    if logo_upper == 'VOGUE'
+                      assign press_text_class = press_text_class | append: ' sweevit-hero__press-text--vogue'
+                    endif
+                  -%}
+                  <span class="{{ press_text_class }}">{{ block.settings.logo_text | escape }}</span>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+            {%- for block in section.blocks -%}
+              <li class="sweevit-hero__press-item sweevit-hero__press-item--duplicate" aria-hidden="true">
+                {%- if block.settings.logo_image != blank -%}
+                  {%- assign press_alt = block.settings.logo_text | default: 'Press logo' | escape -%}
+                  {{
+                    block.settings.logo_image
+                    | image_url: width: 280
+                    | image_tag:
+                      class: 'sweevit-hero__press-image',
+                      widths: '140, 200, 280',
+                      alt: press_alt,
+                      loading: 'lazy'
+                  }}
+                {%- elsif block.settings.logo_text != blank -%}
+                  {%- liquid
+                    assign press_text_class = 'sweevit-hero__press-text'
+                    assign logo_upper = block.settings.logo_text | upcase
+                    if logo_upper == 'VOGUE'
+                      assign press_text_class = press_text_class | append: ' sweevit-hero__press-text--vogue'
+                    endif
+                  -%}
+                  <span class="{{ press_text_class }}">{{ block.settings.logo_text | escape }}</span>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
       </div>
     {%- endif -%}
   </div>
