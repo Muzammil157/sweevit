@@ -304,6 +304,7 @@
   background-color: var(--sweevit-pure-white);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
+  border: 1px solid #E6E6E6;
 }
 
 .sweevit-contact__card-icon-wrap {
