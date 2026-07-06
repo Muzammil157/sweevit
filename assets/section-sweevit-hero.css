@@ -337,12 +337,12 @@
   }
 
   .sweevit-hero__press {
-    width: 100%;
-    max-width: 393px;
+    width: 100vw;
+    max-width: 100vw;
     height: 63px;
     margin-top: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     padding: 24px 0 23px;
     box-sizing: border-box;
     border-top: 1px solid rgba(26, 26, 26, 0.08);
