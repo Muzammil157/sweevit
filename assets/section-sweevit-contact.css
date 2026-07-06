@@ -483,8 +483,8 @@
 
 .sweevit-contact__map-embed {
   width: 100%;
-  height: 140px;
-  min-height: 140px;
+  height: 220px;
+  min-height: 220px;
   border-radius: 12px;
   overflow: hidden;
   background-color: #F0F0F0;
@@ -502,8 +502,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 140px;
-  min-height: 140px;
+  height: 220px;
+  min-height: 220px;
   background-color: #F0F0F0;
   border-radius: 12px;
 }
@@ -523,7 +523,7 @@
   .sweevit-contact__visit-inner {
     position: relative;
     text-align: center;
-    min-height: calc(110px + 140px + 54px);
+    min-height: calc(110px + 220px + 54px);
     padding-top: 4.8rem;
     padding-bottom: 54px;
   }
@@ -555,8 +555,8 @@
 
   .sweevit-contact__map-placeholder {
     width: 1000px;
-    height: 140px;
-    min-height: 140px;
+    height: 220px;
+    min-height: 220px;
     border-radius: 8px;
     background-color: #E6E6E6;
     opacity: 1;
@@ -564,15 +564,15 @@
 
   .sweevit-contact__map-image {
     width: 1000px;
-    height: 140px;
+    height: 220px;
     object-fit: cover;
     border-radius: 8px;
   }
 
   .sweevit-contact__map-embed {
     width: 1000px;
-    height: 140px;
-    min-height: 140px;
+    height: 220px;
+    min-height: 220px;
     border-radius: 8px;
     background-color: #E6E6E6;
   }
