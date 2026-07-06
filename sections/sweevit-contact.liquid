@@ -175,9 +175,16 @@
 
         {%- if map_query != blank -%}
           {%- assign map_title = section.settings.map_alt | default: map_query | escape -%}
-          <div class="sweevit-contact__map-embed">
+          <sweevit-contact-map
+            class="sweevit-contact__map-embed"
+            data-query="{{ map_query | escape }}"
+            {%- if section.settings.map_latitude != blank and section.settings.map_longitude != blank -%}
+              data-lat="{{ section.settings.map_latitude | escape }}"
+              data-lng="{{ section.settings.map_longitude | escape }}"
+            {%- endif -%}
+          >
             <iframe
-              src="https://www.google.com/maps?q={{ map_query | url_encode }}&amp;z=15&amp;output=embed"
+              data-map-iframe
               width="100%"
               height="100%"
               style="border:0;"
@@ -186,7 +193,7 @@
               referrerpolicy="no-referrer-when-downgrade"
               title="{{ map_title }}"
             ></iframe>
-          </div>
+          </sweevit-contact-map>
         {%- elsif section.settings.map_image != blank -%}
           {%- assign map_alt = section.settings.map_alt | default: 'Map location' | escape -%}
           {{
@@ -208,6 +215,8 @@
     </div>
   </div>
 </section>
+
+<script src="{{ 'sweevit-contact-map.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
@@ -359,8 +368,20 @@
     {
       "type": "text",
       "id": "map_location",
-      "label": "Map location (optional)",
-      "info": "Override the address for the map only. Enter a place name or address — Google Maps will display automatically. Leave blank to use the address above."
+      "label": "Map location",
+      "info": "Real place name or address for the map pin, e.g. Dubai Marina, Dubai, UAE. Leave blank to use the address above."
+    },
+    {
+      "type": "text",
+      "id": "map_latitude",
+      "label": "Map latitude (optional)",
+      "info": "Optional exact latitude for a precise pin. Overrides map location search."
+    },
+    {
+      "type": "text",
+      "id": "map_longitude",
+      "label": "Map longitude (optional)",
+      "info": "Optional exact longitude for a precise pin. Overrides map location search."
     },
     {
       "type": "image_picker",

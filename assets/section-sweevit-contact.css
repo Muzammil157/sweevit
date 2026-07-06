@@ -482,6 +482,7 @@
 }
 
 .sweevit-contact__map-embed {
+  display: block;
   width: 100%;
   height: 220px;
   min-height: 220px;
@@ -570,6 +571,7 @@
   }
 
   .sweevit-contact__map-embed {
+    display: block;
     width: 1000px;
     height: 220px;
     min-height: 220px;
