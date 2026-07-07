@@ -1,36 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "shop_main": {
+      "type": "sweevit-shop-collection",
+      "blocks": {
+        "tab_all": {
+          "type": "tab",
+          "settings": {
+            "label": "All",
+            "is_all_tab": true
+          }
+        },
+        "tab_focus": {
+          "type": "tab",
+          "settings": {
+            "label": "Focus"
+          }
+        },
+        "tab_energy": {
+          "type": "tab",
+          "settings": {
+            "label": "Energy"
+          }
+        },
+        "tab_wellness": {
+          "type": "tab",
+          "settings": {
+            "label": "Wellness"
+          }
+        },
+        "tab_sleep": {
+          "type": "tab",
+          "settings": {
+            "label": "Sleep"
+          }
+        },
+        "tab_bundles": {
+          "type": "tab",
+          "settings": {
+            "label": "Bundles"
+          }
+        }
+      },
+      "block_order": [
+        "tab_all",
+        "tab_focus",
+        "tab_energy",
+        "tab_wellness",
+        "tab_sleep",
+        "tab_bundles"
+      ],
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "breadcrumb_home": "Home",
+        "breadcrumb_shop": "Shop",
+        "heading": "Shop All",
+        "products_label": "products",
+        "banner_description": "Functional gummies for every part of your daily ritual",
+        "products_per_page": 12,
+        "button_label": "Add to cart",
+        "enable_sorting": true,
+        "sort_label": "Sort by:"
       }
     },
-    "product-grid": {
-      "type": "main-collection-product-grid",
+    "shop_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_james": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
+            "author_name": "James K.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_sarah",
+        "testimonial_james",
+        "testimonial_lena"
+      ],
       "settings": {
-        "products_per_page": 16,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "enable_filtering": true,
-        "filter_type": "horizontal",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "What People Are Saying",
+        "heading": "Real People. Real Results.",
+        "center_header": true,
+        "show_rating": true,
+        "rating_value": "4.9 / 5.0",
+        "review_count": "217",
+        "review_label": "Reviews",
+        "use_custom_gradient": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "shop_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Vitamin B12, Lion's Mane, Ashwagandha and Vitamin D3 — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take daily?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a subscription option?",
+            "answer": "Yes — subscribe and save 20% on every order with free shipping, cancel anytime, and priority access to new products."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
       }
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "shop_main",
+    "shop_testimonials",
+    "shop_faq"
   ]
 }

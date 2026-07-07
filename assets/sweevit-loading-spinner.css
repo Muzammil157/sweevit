@@ -25,21 +25,24 @@
 /* Base button setup - ensure relative positioning */
 .sweevit-product__atc,
 .sweevit-pdp__atc,
-.sweevit-pack__atc {
+.sweevit-pack__atc,
+.sweevit-shop-card__atc {
   position: relative !important;
 }
 
 /* Loading state - disable interaction */
 .sweevit-product__atc.loading,
 .sweevit-pdp__atc.loading,
-.sweevit-pack__atc.loading {
+.sweevit-pack__atc.loading,
+.sweevit-shop-card__atc.loading {
   pointer-events: none !important;
 }
 
 /* Hide button text when loading */
 .sweevit-product__atc.loading > span,
 .sweevit-pdp__atc.loading > span,
-.sweevit-pack__atc.loading > span {
+.sweevit-pack__atc.loading > span,
+.sweevit-shop-card__atc.loading > span {
   visibility: hidden !important;
   opacity: 0 !important;
 }
@@ -69,12 +72,15 @@
 button.sweevit-product__atc.loading .sweevit-loader,
 button.sweevit-pdp__atc.loading .sweevit-loader,
 button.sweevit-pack__atc.loading .sweevit-loader,
+button.sweevit-shop-card__atc.loading .sweevit-loader,
 .sweevit-product__atc.loading .sweevit-loader,
 .sweevit-pdp__atc.loading .sweevit-loader,
 .sweevit-pack__atc.loading .sweevit-loader,
+.sweevit-shop-card__atc.loading .sweevit-loader,
 .sweevit-product__atc.loading > .sweevit-loader,
 .sweevit-pdp__atc.loading > .sweevit-loader,
-.sweevit-pack__atc.loading > .sweevit-loader {
+.sweevit-pack__atc.loading > .sweevit-loader,
+.sweevit-shop-card__atc.loading > .sweevit-loader {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -84,7 +90,8 @@ button.sweevit-pack__atc.loading .sweevit-loader,
 button.loading .sweevit-loader.hidden,
 .sweevit-product__atc.loading .sweevit-loader.hidden,
 .sweevit-pdp__atc.loading .sweevit-loader.hidden,
-.sweevit-pack__atc.loading .sweevit-loader.hidden {
+.sweevit-pack__atc.loading .sweevit-loader.hidden,
+.sweevit-shop-card__atc.loading .sweevit-loader.hidden {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -119,6 +126,10 @@ button.loading .sweevit-loader.hidden,
 }
 
 /* Dark spinner for the popular card's white button */
+.sweevit-shop-card__atc .sweevit-spinner-path {
+  stroke: #1A1A1A !important;
+}
+
 .sweevit-pack__card--popular .sweevit-pack__atc .sweevit-spinner-path {
   stroke: #1A1A1A !important;
 }
