@@ -100,10 +100,22 @@
     "ingredients_promise": {
       "type": "sweevit-ingredients-promise",
       "blocks": {
-        "point_fillers": {
+        "point_colors": {
           "type": "point",
           "settings": {
-            "text": "No Fillers"
+            "text": "No artificial colors"
+          }
+        },
+        "point_flavors": {
+          "type": "point",
+          "settings": {
+            "text": "No artificial flavors"
+          }
+        },
+        "point_preservatives": {
+          "type": "point",
+          "settings": {
+            "text": "No artificial preservatives"
           }
         },
         "point_tested": {
@@ -118,31 +130,19 @@
             "text": "Non-GMO"
           }
         },
-        "point_flavors": {
-          "type": "point",
-          "settings": {
-            "text": "No Artificial Flavors"
-          }
-        },
-        "point_sugars": {
-          "type": "point",
-          "settings": {
-            "text": "No Added Sugars"
-          }
-        },
         "point_gluten": {
           "type": "point",
           "settings": {
-            "text": "Gluten Free"
+            "text": "Gluten-free"
           }
         }
       },
       "block_order": [
-        "point_fillers",
+        "point_colors",
+        "point_flavors",
+        "point_preservatives",
         "point_tested",
         "point_nongmo",
-        "point_flavors",
-        "point_sugars",
         "point_gluten"
       ],
       "settings": {
