@@ -1,0 +1,155 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-ingredients-promise.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitIngredientsPromise-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitIngredientsPromise-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitIngredientsPromise-{{ section.id }}"
+  class="sweevit-ingredients-promise"
+>
+  <div class="sweevit-ingredients-promise__inner">
+    <div class="sweevit-ingredients-promise__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-ingredients-promise__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="sweevit-ingredients-promise__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="sweevit-ingredients-promise__points" role="list">
+        {%- for block in section.blocks -%}
+          <li class="sweevit-ingredients-promise__point" {{ block.shopify_attributes }}>
+            <span class="sweevit-ingredients-promise__check" aria-hidden="true">
+              {{- 'icon-checkmark.svg' | inline_asset_content -}}
+            </span>
+            {%- if block.settings.text != blank -%}
+              <span class="sweevit-ingredients-promise__point-text">{{ block.settings.text | escape }}</span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Promise",
+  "tag": "section",
+  "class": "section-sweevit-ingredients-promise",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "OUR PROMISE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clean. Tested. Disclosed."
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Promise point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "No Fillers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Promise",
+      "blocks": [
+        {
+          "type": "point",
+          "settings": {
+            "text": "No Fillers"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "text": "Third-party lab tested"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "text": "Non-GMO"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "text": "No Artificial Flavors"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "text": "No Added Sugars"
+          }
+        },
+        {
+          "type": "point",
+          "settings": {
+            "text": "Gluten Free"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
