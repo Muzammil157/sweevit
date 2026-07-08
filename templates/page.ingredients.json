@@ -1,0 +1,263 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "ingredients_hero": {
+      "type": "sweevit-ingredients-hero",
+      "settings": {
+        "eyebrow": "TRANSPARENCY FIRST",
+        "heading_line_1": "Every ingredient.",
+        "heading_line_2": "Fully disclosed.",
+        "description": "The proprietary blend of natural fibers, plant-based acids, and your daily ritual, and vitamin-rich.",
+        "padding_top": 72,
+        "padding_bottom": 108
+      }
+    },
+    "ingredients_cards": {
+      "type": "sweevit-ingredients-cards",
+      "blocks": {
+        "ingredient_honey": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "energy",
+            "title": "Raw Honey",
+            "badge": "Energy",
+            "source": "Organic, unfiltered honey",
+            "description": "Natural energy source and prebiotic support for gut health and sustained vitality."
+          }
+        },
+        "ingredient_ashwagandha": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Ashwagandha Root Extract",
+            "badge": "Focus",
+            "source": "KSM-66® Ashwagandha",
+            "description": "Adaptogenic herb supporting stress reduction, mental clarity, and calm focus throughout the day."
+          }
+        },
+        "ingredient_b_complex": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Vitamin B Complex",
+            "badge": "Focus",
+            "source": "Methylated B vitamins",
+            "description": "Essential cofactors for sustained cellular energy metabolism and nervous system support."
+          }
+        },
+        "ingredient_lions_mane": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Lion's Mane Mushroom",
+            "badge": "Focus",
+            "source": "Organic fruiting body extract",
+            "description": "Mushroom extract supporting cognitive function, memory, and mental sharpness."
+          }
+        },
+        "ingredient_l_theanine": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "wellness",
+            "title": "L-Theanine",
+            "badge": "Wellness",
+            "source": "Suntheanine® L-Theanine",
+            "description": "Amino acid that promotes calm alertness without drowsiness — smooth, jitter-free focus."
+          }
+        },
+        "ingredient_zinc_magnesium": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "wellness",
+            "title": "Zinc & Magnesium",
+            "badge": "Wellness",
+            "source": "Chelated mineral blend",
+            "description": "Essential minerals supporting immune function, recovery, and overall daily wellness."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_honey",
+        "ingredient_ashwagandha",
+        "ingredient_b_complex",
+        "ingredient_lions_mane",
+        "ingredient_l_theanine",
+        "ingredient_zinc_magnesium"
+      ],
+      "settings": {
+        "padding_top": 44,
+        "padding_bottom": 44
+      }
+    },
+    "ingredients_promise": {
+      "type": "sweevit-ingredients-promise",
+      "blocks": {
+        "point_fillers": {
+          "type": "point",
+          "settings": {
+            "text": "No Fillers"
+          }
+        },
+        "point_tested": {
+          "type": "point",
+          "settings": {
+            "text": "Third-party lab tested"
+          }
+        },
+        "point_nongmo": {
+          "type": "point",
+          "settings": {
+            "text": "Non-GMO"
+          }
+        },
+        "point_flavors": {
+          "type": "point",
+          "settings": {
+            "text": "No Artificial Flavors"
+          }
+        },
+        "point_sugars": {
+          "type": "point",
+          "settings": {
+            "text": "No Added Sugars"
+          }
+        },
+        "point_gluten": {
+          "type": "point",
+          "settings": {
+            "text": "Gluten Free"
+          }
+        }
+      },
+      "block_order": [
+        "point_fillers",
+        "point_tested",
+        "point_nongmo",
+        "point_flavors",
+        "point_sugars",
+        "point_gluten"
+      ],
+      "settings": {
+        "eyebrow": "OUR PROMISE",
+        "heading": "Clean. Tested. Disclosed.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "ingredients_testimonials": {
+      "type": "sweevit-testimonials",
+      "blocks": {
+        "testimonial_jason": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
+            "author_name": "Jason M.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_sarah": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
+            "author_name": "Sarah M.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        },
+        "testimonial_lena": {
+          "type": "testimonial",
+          "settings": {
+            "star_count": 5,
+            "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
+            "author_name": "Lena R.",
+            "author_meta": "Verified Purchase",
+            "show_verified_dot": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_jason",
+        "testimonial_sarah",
+        "testimonial_lena"
+      ],
+      "settings": {
+        "eyebrow": "WHAT OUR CUSTOMERS SAY",
+        "heading": "Real People. Real Results.",
+        "center_header": true,
+        "show_rating": true,
+        "rating_value": "4.8 / 5.0",
+        "review_count": "2137",
+        "review_label": "Reviews",
+        "use_custom_gradient": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    },
+    "ingredients_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Raw Honey, Ashwagandha, Vitamin B Complex, Lion's Mane, L-Theanine, and Zinc & Magnesium — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take per day?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_horizontal": 78
+      }
+    }
+  },
+  "order": [
+    "ingredients_hero",
+    "ingredients_cards",
+    "ingredients_promise",
+    "ingredients_testimonials",
+    "ingredients_faq"
+  ]
+}

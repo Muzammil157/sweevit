@@ -1,0 +1,231 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-ingredients-cards.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitIngredientsCards-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitIngredientsCards-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitIngredientsCards-{{ section.id }}"
+  class="sweevit-ingredients-cards"
+>
+  <div class="sweevit-ingredients-cards__inner">
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-ingredients-cards__list">
+        {%- for block in section.blocks -%}
+          <article class="sweevit-ingredients-cards__card" {{ block.shopify_attributes }}>
+            <div class="sweevit-ingredients-cards__icon-wrap" aria-hidden="true">
+              {%- if block.settings.icon_image != blank -%}
+                {%- assign icon_alt = block.settings.title | default: 'Ingredient icon' | escape -%}
+                {{
+                  block.settings.icon_image
+                  | image_url: width: 80
+                  | image_tag: alt: icon_alt, loading: 'lazy'
+                }}
+              {%- else -%}
+                {%- case block.settings.icon -%}
+                  {%- when 'energy' -%}
+                    {{- 'energy.svg' | inline_asset_content -}}
+                  {%- when 'wellness' -%}
+                    {{- 'wellness.svg' | inline_asset_content -}}
+                  {%- else -%}
+                    {{- 'focus.svg' | inline_asset_content -}}
+                {%- endcase -%}
+              {%- endif -%}
+            </div>
+
+            <div class="sweevit-ingredients-cards__content">
+              {%- if block.settings.title != blank -%}
+                <h2 class="sweevit-ingredients-cards__title">{{ block.settings.title | escape }}</h2>
+              {%- endif -%}
+
+              {%- if block.settings.badge != blank -%}
+                <span class="sweevit-ingredients-cards__badge">{{ block.settings.badge | escape }}</span>
+              {%- endif -%}
+
+              {%- if block.settings.source != blank -%}
+                <p class="sweevit-ingredients-cards__source">
+                  <span class="sweevit-ingredients-cards__source-label">SOURCE:</span>
+                  {{ block.settings.source | escape }}
+                </p>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="sweevit-ingredients-cards__description">{{ block.settings.description | escape }}</p>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Cards",
+  "tag": "section",
+  "class": "section-sweevit-ingredients-cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 44
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "focus",
+              "label": "Focus"
+            },
+            {
+              "value": "energy",
+              "label": "Energy"
+            },
+            {
+              "value": "wellness",
+              "label": "Wellness"
+            }
+          ],
+          "default": "focus"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom icon",
+          "info": "Optional. Overrides the selected icon."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Raw Honey"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Energy"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source",
+          "default": "Organic, unfiltered honey"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Natural energy source and prebiotic support for gut health and sustained vitality."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Cards",
+      "blocks": [
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "energy",
+            "title": "Raw Honey",
+            "badge": "Energy",
+            "source": "Organic, unfiltered honey",
+            "description": "Natural energy source and prebiotic support for gut health and sustained vitality."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Ashwagandha Root Extract",
+            "badge": "Focus",
+            "source": "KSM-66® Ashwagandha",
+            "description": "Adaptogenic herb supporting stress reduction, mental clarity, and calm focus throughout the day."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Vitamin B Complex",
+            "badge": "Focus",
+            "source": "Methylated B vitamins",
+            "description": "Essential cofactors for sustained cellular energy metabolism and nervous system support."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "focus",
+            "title": "Lion's Mane Mushroom",
+            "badge": "Focus",
+            "source": "Organic fruiting body extract",
+            "description": "Mushroom extract supporting cognitive function, memory, and mental sharpness."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "wellness",
+            "title": "L-Theanine",
+            "badge": "Wellness",
+            "source": "Suntheanine® L-Theanine",
+            "description": "Amino acid that promotes calm alertness without drowsiness — smooth, jitter-free focus."
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "icon": "wellness",
+            "title": "Zinc & Magnesium",
+            "badge": "Wellness",
+            "source": "Chelated mineral blend",
+            "description": "Essential minerals supporting immune function, recovery, and overall daily wellness."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
