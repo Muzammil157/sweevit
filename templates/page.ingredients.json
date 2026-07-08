@@ -15,7 +15,7 @@
         "eyebrow": "TRANSPARENCY FIRST",
         "heading_line_1": "Every ingredient.",
         "heading_line_2": "Fully disclosed.",
-        "description": "The proprietary blend of natural fibers, plant-based acids, and your daily ritual, and vitamin-rich.",
+        "description": "Functional gummies designed to support focus, natural energy and daily wellbeing.",
         "padding_top": 72,
         "padding_bottom": 108
       }
@@ -26,60 +26,60 @@
         "ingredient_honey": {
           "type": "ingredient",
           "settings": {
-            "icon": "energy",
+            "icon_asset": "raw_honey",
             "title": "Raw Honey",
-            "badge": "Energy",
-            "source": "Organic, unfiltered honey",
+            "badge": "500mg",
+            "source": "Sourced from small-batch apiaries in the Punjab region.",
             "description": "Natural energy source and prebiotic support for gut health and sustained vitality."
           }
         },
         "ingredient_ashwagandha": {
           "type": "ingredient",
           "settings": {
-            "icon": "focus",
+            "icon_asset": "ashwagandha",
             "title": "Ashwagandha Root Extract",
-            "badge": "Focus",
-            "source": "KSM-66® Ashwagandha",
+            "badge": "300mg",
+            "source": "KSM-66® Ashwagandha root extract.",
             "description": "Adaptogenic herb supporting stress reduction, mental clarity, and calm focus throughout the day."
           }
         },
         "ingredient_b_complex": {
           "type": "ingredient",
           "settings": {
-            "icon": "focus",
+            "icon_asset": "vitamin_b",
             "title": "Vitamin B Complex",
-            "badge": "Focus",
-            "source": "Methylated B vitamins",
+            "badge": "100% DV",
+            "source": "Methylated B vitamins for optimal absorption.",
             "description": "Essential cofactors for sustained cellular energy metabolism and nervous system support."
           }
         },
         "ingredient_lions_mane": {
           "type": "ingredient",
           "settings": {
-            "icon": "focus",
+            "icon_asset": "lions_mane",
             "title": "Lion's Mane Mushroom",
-            "badge": "Focus",
-            "source": "Organic fruiting body extract",
+            "badge": "250mg",
+            "source": "Organic fruiting body extract.",
             "description": "Mushroom extract supporting cognitive function, memory, and mental sharpness."
           }
         },
         "ingredient_l_theanine": {
           "type": "ingredient",
           "settings": {
-            "icon": "wellness",
+            "icon_asset": "l_theanine",
             "title": "L-Theanine",
-            "badge": "Wellness",
-            "source": "Suntheanine® L-Theanine",
+            "badge": "100mg",
+            "source": "Suntheanine® L-Theanine.",
             "description": "Amino acid that promotes calm alertness without drowsiness — smooth, jitter-free focus."
           }
         },
         "ingredient_zinc_magnesium": {
           "type": "ingredient",
           "settings": {
-            "icon": "wellness",
+            "icon_asset": "zinc",
             "title": "Zinc & Magnesium",
-            "badge": "Wellness",
-            "source": "Chelated mineral blend",
+            "badge": "15mg / 50mg",
+            "source": "Chelated forms for optimal absorption.",
             "description": "Essential minerals supporting immune function, recovery, and overall daily wellness."
           }
         }

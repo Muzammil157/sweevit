@@ -88,3 +88,37 @@
   letter-spacing: 0;
   color: #D9D9D9;
 }
+
+@media screen and (max-width: 749px) {
+  .sweevit-ingredients-promise__header {
+    text-align: left;
+    margin-bottom: 2.4rem;
+  }
+
+  .sweevit-ingredients-promise__eyebrow {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    text-align: left;
+    color: #D9A93A;
+    margin: 0 0 1.2rem;
+  }
+
+  .sweevit-ingredients-promise__heading {
+    font-size: 2.6rem;
+    line-height: 3rem;
+    text-align: left;
+  }
+
+  .sweevit-ingredients-promise__points {
+    row-gap: 1.6rem;
+    column-gap: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .sweevit-ingredients-promise__point-text {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+}

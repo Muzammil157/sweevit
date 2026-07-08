@@ -1,0 +1,94 @@
+.sweevit-ingredients-hero {
+  font-family: var(--sweevit-font);
+  background: linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%);
+}
+
+.sweevit-ingredients-hero__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding: 0 var(--sweevit-page-gutter);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.sweevit-ingredients-hero__eyebrow {
+  font-family: var(--sweevit-font);
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #707070;
+  margin: 0 0 1.6rem;
+}
+
+.sweevit-ingredients-hero__heading {
+  font-family: var(--sweevit-font);
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 5.4rem;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: capitalize;
+  color: #1A1A1A;
+  margin: 0;
+}
+
+.sweevit-ingredients-hero__heading-line {
+  display: block;
+}
+
+.sweevit-ingredients-hero__description {
+  font-family: var(--sweevit-font);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #999999;
+  margin: 1.2rem auto 0;
+  max-width: 56rem;
+}
+
+@media screen and (max-width: 749px) {
+  .sweevit-ingredients-hero__inner {
+    text-align: left;
+  }
+
+  .sweevit-ingredients-hero__eyebrow {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    text-align: left;
+    color: #D9A93A;
+    margin: 0 0 1.2rem;
+  }
+
+  .sweevit-ingredients-hero__heading {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    letter-spacing: -0.005em;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .sweevit-ingredients-hero__heading-line {
+    display: inline;
+  }
+
+  .sweevit-ingredients-hero__heading-line:not(:last-child)::after {
+    content: ' ';
+  }
+
+  .sweevit-ingredients-hero__description {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    text-align: left;
+    margin: 1.2rem 0 0;
+    max-width: 34.5rem;
+  }
+}

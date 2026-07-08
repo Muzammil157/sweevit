@@ -25,23 +25,59 @@
         {%- for block in section.blocks -%}
           <article class="sweevit-ingredients-cards__card" {{ block.shopify_attributes }}>
             <div class="sweevit-ingredients-cards__icon-wrap" aria-hidden="true">
-              {%- if block.settings.icon_image != blank -%}
-                {%- assign icon_alt = block.settings.title | default: 'Ingredient icon' | escape -%}
-                {{
-                  block.settings.icon_image
-                  | image_url: width: 80
-                  | image_tag: alt: icon_alt, loading: 'lazy'
-                }}
-              {%- else -%}
-                {%- case block.settings.icon -%}
-                  {%- when 'energy' -%}
-                    {{- 'energy.svg' | inline_asset_content -}}
-                  {%- when 'wellness' -%}
-                    {{- 'wellness.svg' | inline_asset_content -}}
-                  {%- else -%}
-                    {{- 'focus.svg' | inline_asset_content -}}
-                {%- endcase -%}
-              {%- endif -%}
+              <div class="sweevit-ingredients-cards__icon-bg">
+                {%- if block.settings.icon_image != blank -%}
+                  {%- assign icon_alt = block.settings.title | default: 'Ingredient icon' | escape -%}
+                  {{
+                    block.settings.icon_image
+                    | image_url: width: 96
+                    | image_tag: alt: icon_alt, loading: 'lazy', class: 'sweevit-ingredients-cards__icon-image'
+                  }}
+                {%- else -%}
+                  {%- case block.settings.icon_asset -%}
+                    {%- when 'raw_honey' -%}
+                      <img
+                        src="{{ 'raw-honey.png' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                      >
+                    {%- when 'vitamin_b' -%}
+                      <img
+                        src="{{ 'vitman-b-complex.png' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                      >
+                    {%- when 'l_theanine' -%}
+                      <img
+                        src="{{ 'l-theanine.png' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                      >
+                    {%- when 'zinc' -%}
+                      <img
+                        src="{{ 'zinc.png' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="24"
+                        loading="lazy"
+                      >
+                    {%- when 'lions_mane' -%}
+                      {{- 'wellness.svg' | inline_asset_content -}}
+                    {%- else -%}
+                      {{- 'focus.svg' | inline_asset_content -}}
+                  {%- endcase -%}
+                {%- endif -%}
+              </div>
             </div>
 
             <div class="sweevit-ingredients-cards__content">
@@ -109,23 +145,35 @@
       "settings": [
         {
           "type": "select",
-          "id": "icon",
+          "id": "icon_asset",
           "label": "Icon",
           "options": [
             {
-              "value": "focus",
-              "label": "Focus"
+              "value": "raw_honey",
+              "label": "Raw Honey"
             },
             {
-              "value": "energy",
-              "label": "Energy"
+              "value": "ashwagandha",
+              "label": "Ashwagandha"
             },
             {
-              "value": "wellness",
-              "label": "Wellness"
+              "value": "vitamin_b",
+              "label": "Vitamin B Complex"
+            },
+            {
+              "value": "lions_mane",
+              "label": "Lion's Mane"
+            },
+            {
+              "value": "l_theanine",
+              "label": "L-Theanine"
+            },
+            {
+              "value": "zinc",
+              "label": "Zinc & Magnesium"
             }
           ],
-          "default": "focus"
+          "default": "raw_honey"
         },
         {
           "type": "image_picker",
@@ -143,13 +191,13 @@
           "type": "text",
           "id": "badge",
           "label": "Badge",
-          "default": "Energy"
+          "default": "500mg"
         },
         {
           "type": "text",
           "id": "source",
           "label": "Source",
-          "default": "Organic, unfiltered honey"
+          "default": "Sourced from small-batch apiaries in the Punjab region."
         },
         {
           "type": "textarea",
@@ -162,69 +210,7 @@
   ],
   "presets": [
     {
-      "name": "Ingredients Cards",
-      "blocks": [
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "energy",
-            "title": "Raw Honey",
-            "badge": "Energy",
-            "source": "Organic, unfiltered honey",
-            "description": "Natural energy source and prebiotic support for gut health and sustained vitality."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "focus",
-            "title": "Ashwagandha Root Extract",
-            "badge": "Focus",
-            "source": "KSM-66® Ashwagandha",
-            "description": "Adaptogenic herb supporting stress reduction, mental clarity, and calm focus throughout the day."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "focus",
-            "title": "Vitamin B Complex",
-            "badge": "Focus",
-            "source": "Methylated B vitamins",
-            "description": "Essential cofactors for sustained cellular energy metabolism and nervous system support."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "focus",
-            "title": "Lion's Mane Mushroom",
-            "badge": "Focus",
-            "source": "Organic fruiting body extract",
-            "description": "Mushroom extract supporting cognitive function, memory, and mental sharpness."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "wellness",
-            "title": "L-Theanine",
-            "badge": "Wellness",
-            "source": "Suntheanine® L-Theanine",
-            "description": "Amino acid that promotes calm alertness without drowsiness — smooth, jitter-free focus."
-          }
-        },
-        {
-          "type": "ingredient",
-          "settings": {
-            "icon": "wellness",
-            "title": "Zinc & Magnesium",
-            "badge": "Wellness",
-            "source": "Chelated mineral blend",
-            "description": "Essential minerals supporting immune function, recovery, and overall daily wellness."
-          }
-        }
-      ]
+      "name": "Ingredients Cards"
     }
   ]
 }
