@@ -16,6 +16,24 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign jm_count = shop.metafields.judgeme.all_reviews_count | plus: 0
+  assign jm_rating = shop.metafields.judgeme.all_reviews_rating | plus: 0
+  assign use_judgeme = false
+  if jm_count > 0
+    assign use_judgeme = true
+    assign heading_line_1 = jm_count | append: ' Reviews.'
+    assign rating_display = jm_rating | round: 1
+    assign rating_summary = rating_display | append: ' / 5.0 · ' | append: jm_count | append: ' Reviews'
+    assign verified_text = 'Based on ' | append: jm_count | append: ' verified reviews'
+  else
+    assign heading_line_1 = section.settings.heading_line_1
+    assign rating_display = section.settings.rating_value
+    assign rating_summary = section.settings.rating_summary
+    assign verified_text = section.settings.verified_text
+  endif
+-%}
+
 <section
   id="SweevitReviewsHero-{{ section.id }}"
   class="sweevit-reviews-hero"
@@ -26,10 +44,10 @@
         <p class="sweevit-reviews-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
 
-      {%- if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
+      {%- if heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
         <h1 class="sweevit-reviews-hero__heading">
-          {%- if section.settings.heading_line_1 != blank -%}
-            <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_1 | escape }}</span>
+          {%- if heading_line_1 != blank -%}
+            <span class="sweevit-reviews-hero__heading-line">{{ heading_line_1 | escape }}</span>
           {%- endif -%}
           {%- if section.settings.heading_line_2 != blank -%}
             <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_2 | escape }}</span>
@@ -40,23 +58,27 @@
 
     <div class="sweevit-reviews-hero__summary">
       <div class="sweevit-reviews-hero__rating-row">
-        {%- if section.settings.rating_value != blank -%}
-          <p class="sweevit-reviews-hero__rating-value">{{ section.settings.rating_value | escape }}</p>
+        {%- if rating_display != blank -%}
+          <p class="sweevit-reviews-hero__rating-value">{{ rating_display | escape }}</p>
         {%- endif -%}
 
         <div class="sweevit-reviews-hero__rating-meta">
           <div class="sweevit-reviews-hero__stars" aria-hidden="true">
-            {%- for i in (1..5) -%}
-              {{- 'icon-star-filled.svg' | inline_asset_content -}}
-            {%- endfor -%}
+            {%- if use_judgeme and jm_rating > 0 -%}
+              <span class="jdgm-widget jdgm-all-reviews-rating" data-score="{{ jm_rating | round: 2 }}"></span>
+            {%- else -%}
+              {%- for i in (1..5) -%}
+                {{- 'icon-star-filled.svg' | inline_asset_content -}}
+              {%- endfor -%}
+            {%- endif -%}
           </div>
 
-          {%- if section.settings.rating_summary != blank -%}
-            <p class="sweevit-reviews-hero__rating-summary">{{ section.settings.rating_summary | escape }}</p>
+          {%- if rating_summary != blank -%}
+            <p class="sweevit-reviews-hero__rating-summary">{{ rating_summary | escape }}</p>
           {%- endif -%}
 
-          {%- if section.settings.verified_text != blank -%}
-            <p class="sweevit-reviews-hero__verified-text">{{ section.settings.verified_text | escape }}</p>
+          {%- if verified_text != blank -%}
+            <p class="sweevit-reviews-hero__verified-text">{{ verified_text | escape }}</p>
           {%- endif -%}
         </div>
       </div>

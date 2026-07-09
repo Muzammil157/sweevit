@@ -172,6 +172,10 @@
         "padding_bottom": 64
       }
     },
+    "reviews_judgeme_free": {
+      "type": "sweevit-judgeme-reviews-free",
+      "settings": {}
+    },
     "reviews_gallery": {
       "type": "sweevit-gallery",
       "blocks": {
@@ -269,6 +273,7 @@
   },
   "order": [
     "reviews_hero",
+    "reviews_judgeme_free",
     "reviews_grid",
     "reviews_gallery",
     "reviews_faq"

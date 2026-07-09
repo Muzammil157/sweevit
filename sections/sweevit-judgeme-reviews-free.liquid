@@ -1,0 +1,81 @@
+{{ 'section-sweevit-reviews-page.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign jm_count = shop.metafields.judgeme.all_reviews_count | plus: 0
+  assign has_judgeme_reviews = false
+  if jm_count > 0
+    assign has_judgeme_reviews = true
+  endif
+-%}
+
+{%- if has_judgeme_reviews or shop.metafields.judgeme.featured_carousel != blank -%}
+  <section id="SweevitJudgemeFree-{{ section.id }}" class="sweevit-judgeme-free">
+    <div class="sweevit-judgeme-free__inner">
+      {%- if shop.metafields.judgeme.verified_badge != blank -%}
+        <div class="sweevit-judgeme-free__verified">
+          {{ shop.metafields.judgeme.verified_badge }}
+        </div>
+      {%- endif -%}
+
+      {%- if shop.metafields.judgeme.featured_carousel != blank -%}
+        <div class="sweevit-judgeme-free__carousel">
+          {{ shop.metafields.judgeme.featured_carousel }}
+        </div>
+      {%- endif -%}
+
+      {%- for product in collections.all.products -%}
+        {%- assign has_legacy = false -%}
+        {%- if product.metafields.judgeme.widget.size > 20 -%}
+          {%- assign has_legacy = true -%}
+        {%- endif -%}
+
+        {%- if product.metafields.judgeme.review_widget_data != blank or has_legacy -%}
+          <div class="sweevit-judgeme-free__product">
+            <!-- Start of Judge.me code -->
+            <div style="clear:both"></div>
+            <div
+              id="judgeme_product_reviews_{{ product.id }}"
+              class="jdgm-widget jdgm-review-widget"
+              data-product-title="{{ product.title | escape }}"
+              data-id="{{ product.id }}"
+              data-product-id="{{ product.id }}"
+              data-widget="review"
+              data-auto-install="false"
+              data-shop-reviews-count="{{ shop.metafields.judgeme.shop_reviews_count | default: 0 | escape }}"
+              data-entry-point="review_widget.js"
+              data-entry-key="review-widget/main.js"
+            >
+              {%- if has_legacy -%}
+                <div class="jdgm-legacy-widget-content" style="display: none;">
+                  {{ product.metafields.judgeme.widget }}
+                </div>
+              {%- endif -%}
+            </div>
+            {%- if product.metafields.judgeme.review_widget_data -%}
+              <script>
+                jdgm.data ||= {};
+                jdgm.data.reviewWidget ||= {};
+                jdgm.data.reviewWidget[{{ product.id }}] = {{ product.metafields.judgeme.review_widget_data }};
+              </script>
+            {%- endif -%}
+            <!-- End of Judge.me code -->
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Judge.me reviews (free)",
+  "tag": "section",
+  "class": "section-sweevit-judgeme-free",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Judge.me reviews (free)"
+    }
+  ]
+}
+{% endschema %}

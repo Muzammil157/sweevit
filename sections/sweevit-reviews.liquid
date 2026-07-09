@@ -22,6 +22,9 @@
   }
 {%- endstyle -%}
 
+{%- assign jm_count = shop.metafields.judgeme.all_reviews_count | plus: 0 -%}
+
+{%- if jm_count == 0 -%}
 <section
   id="SweevitReviews-{{ section.id }}"
   class="sweevit-reviews"
@@ -143,6 +146,7 @@
     {%- endif -%}
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {
