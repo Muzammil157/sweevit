@@ -48,7 +48,7 @@
         "breadcrumb_shop": "Shop",
         "eyebrow": "Functional Wellness Gummies",
         "tagline": "Focus, Energy & Wellness — One Daily Ritual.",
-        "show_rating": true,
+        "show_rating": false,
         "rating_value": "4.9",
         "review_count": "217",
         "review_label": "reviews",
