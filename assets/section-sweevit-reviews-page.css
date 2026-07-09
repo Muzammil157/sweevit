@@ -1,0 +1,23 @@
+@media screen and (min-width: 750px) {
+  .template-page-reviews .sweevit-gallery,
+  .template-page-reviews .sweevit-faq {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .template-page-reviews .sweevit-faq__header {
+    text-align: left;
+  }
+
+  .template-page-reviews .sweevit-faq__eyebrow {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12rem;
+    color: #D9A93A;
+  }
+
+  .template-page-reviews .sweevit-faq__heading {
+    text-align: left;
+  }
+}
