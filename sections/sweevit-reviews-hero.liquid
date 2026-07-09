@@ -63,7 +63,7 @@
 
       <div class="sweevit-reviews-hero__bars-card">
         <div class="sweevit-reviews-hero__bars" aria-label="Rating distribution">
-          {%- for i in (5..1) -%}
+          {%- for i in (1..5) reversed -%}
             {%- assign bar_key = 'bar_' | append: i | append: '_percent' -%}
             {%- assign bar_percent = section.settings[bar_key] | default: 0 -%}
             <div class="sweevit-reviews-hero__bar-row">
