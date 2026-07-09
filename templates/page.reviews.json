@@ -31,7 +31,7 @@
       "type": "sweevit-judgeme-reviews-free",
       "custom_css": [
         ".jm-star-rating__font-icon {color: #d9a93a !important;}",
-        "button.jm-button.jm-button--primary.jm-action-buttons__button {background-color: #D9A93A !important; border: none !important;}"
+        "button.jm-button.jm-button--primary.jm-action-buttons__button {background-color: #d9a93a !important; border: none !important;}"
       ],
       "settings": {}
     },
