@@ -394,6 +394,44 @@
     gap: 1.6rem;
   }
 
+  /* --- FIX: on mobile the card height becomes "auto", so margin-top: auto
+     on the footer collapses to 0 and the separator sits flush against the
+     quote. Force a real gap + slightly darker border so it matches the
+     reference design. --- */
+  .sweevit-reviews__card-content {
+    padding: 1.6rem 1.8rem 1.8rem;
+  }
+
+  .sweevit-reviews__card-body {
+    flex: none;
+  }
+
+  .sweevit-reviews__quote {
+    margin: 1.2rem 0 0;
+    line-height: 2rem;
+  }
+
+  .sweevit-reviews__card-footer {
+    margin-top: 1.8rem;
+    padding-top: 1.6rem;
+    border-top: 0.1rem solid rgba(26, 26, 26, 0.14);
+  }
+
+  .sweevit-reviews__author-name {
+    font-size: 1.3rem;
+  }
+
+  .sweevit-reviews__verified {
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+  }
+
+  .sweevit-reviews__verified-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-top: 0.3rem;
+  }
+
   .sweevit-reviews__load-more {
     width: 100%;
     max-width: none;
