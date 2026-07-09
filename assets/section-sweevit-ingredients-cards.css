@@ -60,10 +60,10 @@
 .sweevit-ingredients-cards__icon-bg svg,
 .sweevit-ingredients-cards__icon-image {
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 1.8rem;
-  max-height: 1.8rem;
+  width: 2.4rem;
+  height: 3.1rem;
+  max-width: 2.4rem;
+  max-height: 3.1rem;
   object-fit: contain;
 }
 
