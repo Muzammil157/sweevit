@@ -81,19 +81,6 @@
     </div>
     <!-- End of Judge.me code -->
 
-    <div class="sweevit-shop-card__rating" aria-label="{% if rating_value != blank %}{{ rating_value }} out of 5 stars{% else %}5 out of 5 stars{% endif %}">
-      <span class="sweevit-shop-card__stars" aria-hidden="true">
-        {%- for i in (1..5) -%}
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M6 1L7.545 4.13L11 4.635L8.5 7.07L9.09 10.5L6 8.885L2.91 10.5L3.5 7.07L1 4.635L4.455 4.13L6 1Z" fill="{% if i <= rating_floor %}#D9A93A{% else %}#E6E6E6{% endif %}"/>
-          </svg>
-        {%- endfor -%}
-      </span>
-      {%- if rating_count != blank -%}
-        <span class="sweevit-shop-card__review-count">({{ rating_count }})</span>
-      {%- endif -%}
-    </div>
-
     <p class="sweevit-shop-card__price">
       {{ card_variant.price | money }}
     </p>

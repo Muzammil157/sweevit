@@ -5,6 +5,37 @@
   }
 }
 
+.template-page-reviews .sweevit-judgeme-all-reviews__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding: 0 var(--sweevit-page-gutter);
+  box-sizing: border-box;
+}
+
+.template-page-reviews .jdgm-all-reviews-widget {
+  display: none;
+}
+
+.template-page-reviews .sweevit-reviews-hero__judgeme-header .jdgm-all-reviews-widget {
+  display: block;
+}
+
+.template-page-reviews .sweevit-reviews-hero__stars .jdgm-star {
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .template-page-reviews .sweevit-reviews-hero__stars .jdgm-star {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .template-page-reviews .sweevit-judgeme-all-reviews {
+    background-color: #F5F5F5;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .template-page-reviews .sweevit-faq__header {
     text-align: left;
