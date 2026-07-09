@@ -59,7 +59,7 @@
   }
 {%- endstyle -%}
 
-<section id="SweevitPdp-{{ section.id }}" class="sweevit-product sweevit-pdp">
+<section id="SweevitPdp-{{ section.id }}" class="sweevit-product sweevit-pdp{% if use_subscription_app %} sweevit-pdp--use-app-widget{% endif %}">
   <sweevit-product-showcase class="sweevit-product__inner sweevit-pdp__inner">
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="sweevit-pdp__breadcrumbs" aria-label="Breadcrumb">
@@ -229,7 +229,7 @@
               </span>
             </label>
 
-            {%- if show_subscribe -%}
+            {%- if show_subscribe and first_selling_plan != nil -%}
               <label
                 class="sweevit-product__option sweevit-pdp__option{% if default_option == 'subscribe' %} is-active{% endif %}"
                 data-purchase-option
@@ -292,7 +292,14 @@
                 class="product-variant-id"
                 {% if current_variant.available == false %}disabled{% endif %}
               >
-              <input type="hidden" value="" data-selling-plan-input>
+              <input
+                type="hidden"
+                {% if default_option == 'subscribe' and first_selling_plan != nil %}
+                  name="selling_plan"
+                  value="{{ first_selling_plan.id }}"
+                {% endif %}
+                data-selling-plan-input
+              >
 
               <div class="sweevit-product__purchase sweevit-pdp__purchase">
                 <div class="sweevit-product__quantity sweevit-pdp__quantity">

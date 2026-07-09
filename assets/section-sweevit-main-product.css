@@ -557,9 +557,9 @@
   }
 }
 
-/* Appstle auto-injects a second widget; theme purchase options handle subscriptions */
-.appstle_subscription_widget,
-[id^="appstle_subscription_widget"],
-.appstle-subscription-widget {
+/* Appstle auto-injects a duplicate widget when theme purchase options are enabled */
+.sweevit-pdp:not(.sweevit-pdp--use-app-widget) .appstle_subscription_widget,
+.sweevit-pdp:not(.sweevit-pdp--use-app-widget) [id^="appstle_subscription_widget"],
+.sweevit-pdp:not(.sweevit-pdp--use-app-widget) .appstle-subscription-widget {
   display: none !important;
 }
