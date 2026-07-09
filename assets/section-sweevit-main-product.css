@@ -556,3 +556,10 @@
     width: 52.2rem;
   }
 }
+
+/* Appstle auto-injects a second widget; theme purchase options handle subscriptions */
+.appstle_subscription_widget,
+[id^="appstle_subscription_widget"],
+.appstle-subscription-widget {
+  display: none !important;
+}
