@@ -40,6 +40,7 @@
   assign product_form_id = 'sweevit-pdp-form-' | append: section.id
   assign default_option = section.settings.default_purchase_option
   assign show_subscribe = section.settings.show_subscribe
+  assign use_subscription_app = section.settings.use_subscription_app_widget
   assign shop_url = routes.all_products_collection_url | default: '/collections/all'
 -%}
 
@@ -204,6 +205,7 @@
         {%- endif -%}
 
         <div class="sweevit-pdp__purchase-section">
+          {%- unless use_subscription_app -%}
           <p class="sweevit-pdp__purchase-label">{{ section.settings.purchase_options_label | escape }}</p>
 
           <div class="sweevit-product__options sweevit-pdp__options" role="radiogroup" aria-label="Purchase option">
@@ -340,6 +342,16 @@
               </div>
             {%- endform -%}
           </product-form>
+          </div>
+          {%- else -%}
+          <div class="sweevit-pdp__app-subscription">
+            {%- for block in section.blocks -%}
+              {%- if block.type == '@app' -%}
+                {% render block %}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          {%- endunless -%}
 
           <div class="sweevit-pdp__purchase-footer">
           <div class="sweevit-pdp__trust">
@@ -377,7 +389,6 @@
               {%- endfor -%}
             </div>
           {%- endif -%}
-          </div>
           </div>
         </div>
       </div>
@@ -473,6 +484,13 @@
     {
       "type": "header",
       "content": "Purchase options"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_subscription_app_widget",
+      "label": "Use subscription app widget",
+      "info": "Enable when using Appstle or another subscription app. Hides the theme purchase options and add to cart form.",
+      "default": false
     },
     {
       "type": "text",
@@ -612,6 +630,9 @@
     }
   ],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "type": "highlight",
       "name": "Benefit highlight",

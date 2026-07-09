@@ -55,6 +55,7 @@
         "repurchase_text": "98% would repurchase",
         "save_badge_label": "SAVE [percent]%",
         "purchase_options_label": "Purchase options",
+        "use_subscription_app_widget": true,
         "show_subscribe": true,
         "default_purchase_option": "subscribe",
         "one_time_label": "One-time purchase",
