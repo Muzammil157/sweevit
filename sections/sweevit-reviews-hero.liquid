@@ -1,0 +1,186 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-reviews-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #SweevitReviewsHero-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitReviewsHero-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitReviewsHero-{{ section.id }}"
+  class="sweevit-reviews-hero"
+>
+  <div class="sweevit-reviews-hero__inner">
+    <div class="sweevit-reviews-hero__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sweevit-reviews-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
+        <h1 class="sweevit-reviews-hero__heading">
+          {%- if section.settings.heading_line_1 != blank -%}
+            <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_1 | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading_line_2 != blank -%}
+            <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_2 | escape }}</span>
+          {%- endif -%}
+        </h1>
+      {%- endif -%}
+    </div>
+
+    <div class="sweevit-reviews-hero__summary">
+      <div class="sweevit-reviews-hero__rating-block">
+        {%- if section.settings.rating_value != blank -%}
+          <p class="sweevit-reviews-hero__rating-value">{{ section.settings.rating_value | escape }}</p>
+        {%- endif -%}
+
+        <div class="sweevit-reviews-hero__stars" aria-hidden="true">
+          {%- for i in (1..5) -%}
+            {{- 'icon-star-filled.svg' | inline_asset_content -}}
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.verified_text != blank -%}
+          <p class="sweevit-reviews-hero__verified-text">{{ section.settings.verified_text | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="sweevit-reviews-hero__bars" aria-label="Rating distribution">
+        {%- for i in (5..1) -%}
+          {%- assign bar_key = 'bar_' | append: i | append: '_percent' -%}
+          {%- assign bar_percent = section.settings[bar_key] | default: 0 -%}
+          <div class="sweevit-reviews-hero__bar-row">
+            <span class="sweevit-reviews-hero__bar-label">{{ i }}</span>
+            <span class="sweevit-reviews-hero__bar-track" aria-hidden="true">
+              <span class="sweevit-reviews-hero__bar-fill" style="width: {{ bar_percent }}%;"></span>
+            </span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews Hero",
+  "tag": "section",
+  "class": "section-sweevit-reviews-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "CUSTOMER REVIEWS"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "217 reviews."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "One ritual."
+    },
+    {
+      "type": "text",
+      "id": "rating_value",
+      "label": "Rating value",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "verified_text",
+      "label": "Verified reviews text",
+      "default": "Based on 217 verified reviews"
+    },
+    {
+      "type": "range",
+      "id": "bar_5_percent",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "5 star bar",
+      "default": 85
+    },
+    {
+      "type": "range",
+      "id": "bar_4_percent",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "4 star bar",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "bar_3_percent",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "3 star bar",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "bar_2_percent",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "2 star bar",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "bar_1_percent",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "1 star bar",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Hero"
+    }
+  ]
+}
+{% endschema %}

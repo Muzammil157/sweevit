@@ -1,0 +1,271 @@
+{{ 'sweevit-design-system.css' | asset_url | stylesheet_tag }}
+{{ 'section-sweevit-reviews.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sweevit-reviews.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  #SweevitReviews-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #SweevitReviews-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  id="SweevitReviews-{{ section.id }}"
+  class="sweevit-reviews"
+  data-sweevit-reviews
+  data-initial-visible="{{ section.settings.initial_visible_count }}"
+>
+  <div class="sweevit-reviews__toolbar">
+    <div class="sweevit-reviews__toolbar-inner">
+      <div class="sweevit-reviews__tabs" role="tablist" aria-label="Filter reviews">
+        <button type="button" class="sweevit-reviews__tab is-active" data-filter="all" role="tab" aria-selected="true">
+          All Reviews
+        </button>
+        <button type="button" class="sweevit-reviews__tab" data-filter="5" role="tab" aria-selected="false">
+          ★ 5
+        </button>
+        <button type="button" class="sweevit-reviews__tab" data-filter="4" role="tab" aria-selected="false">
+          ★ 4
+        </button>
+        <button type="button" class="sweevit-reviews__tab" data-filter="3" role="tab" aria-selected="false">
+          ★ 3
+        </button>
+        <button type="button" class="sweevit-reviews__tab" data-filter="media" role="tab" aria-selected="false">
+          With Photos/Video
+        </button>
+      </div>
+
+      <div class="sweevit-reviews__sort">
+        <label class="sweevit-reviews__sort-label" for="SweevitReviewsSort-{{ section.id }}">Sort by:</label>
+        <select id="SweevitReviewsSort-{{ section.id }}" class="sweevit-reviews__sort-select" data-reviews-sort>
+          <option value="recent">Most Recent</option>
+          <option value="oldest">Oldest</option>
+          <option value="highest">Highest Rated</option>
+          <option value="lowest">Lowest Rated</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="sweevit-reviews__inner">
+    {%- if section.blocks.size > 0 -%}
+      <div class="sweevit-reviews__grid" data-reviews-grid>
+        {%- for block in section.blocks -%}
+          {%- assign star_count = block.settings.star_count | default: 5 -%}
+          {%- assign is_video = false -%}
+          {%- if block.type == 'video_review' -%}
+            {%- assign is_video = true -%}
+          {%- endif -%}
+
+          <article
+            class="sweevit-reviews__card{% if is_video %} sweevit-reviews__card--video{% endif %}{% if forloop.index > section.settings.initial_visible_count %} is-hidden{% endif %}"
+            data-review-card
+            data-star-rating="{{ star_count }}"
+            data-has-media="{% if is_video %}true{% else %}false{% endif %}"
+            data-sort-index="{{ forloop.index }}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if is_video -%}
+              <div class="sweevit-reviews__media">
+                {%- if block.settings.video_thumbnail != blank -%}
+                  {{
+                    block.settings.video_thumbnail
+                    | image_url: width: 840
+                    | image_tag: loading: 'lazy', class: 'sweevit-reviews__media-image'
+                  }}
+                {%- endif -%}
+                <button type="button" class="sweevit-reviews__play" aria-label="Play review video">
+                  <span class="sweevit-reviews__play-circle" aria-hidden="true">
+                    {{- 'icon-play.svg' | inline_asset_content -}}
+                  </span>
+                </button>
+              </div>
+            {%- endif -%}
+
+            <div class="sweevit-reviews__card-content">
+              <div class="sweevit-reviews__card-meta">
+                <div class="sweevit-reviews__card-stars" aria-hidden="true">
+                  {%- for i in (1..star_count) -%}
+                    {{- 'icon-star-filled.svg' | inline_asset_content -}}
+                  {%- endfor -%}
+                </div>
+                {%- if block.settings.review_date != blank -%}
+                  <time class="sweevit-reviews__card-date">{{ block.settings.review_date | escape }}</time>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.quote != blank -%}
+                <p class="sweevit-reviews__quote">{{ block.settings.quote | escape }}</p>
+              {%- endif -%}
+
+              <div class="sweevit-reviews__card-footer">
+                {%- if block.settings.author_name != blank -%}
+                  <p class="sweevit-reviews__author-name">{{ block.settings.author_name | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.verified_label != blank -%}
+                  <p class="sweevit-reviews__verified">
+                    <span class="sweevit-reviews__verified-icon" aria-hidden="true">
+                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                    </span>
+                    {{ block.settings.verified_label | escape }}
+                  </p>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.blocks.size > section.settings.initial_visible_count -%}
+        <div class="sweevit-reviews__load-more-wrap">
+          <button type="button" class="sweevit-reviews__load-more" data-reviews-load-more>
+            {{ section.settings.load_more_label | escape }}
+          </button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews Grid",
+  "tag": "section",
+  "class": "section-sweevit-reviews",
+  "settings": [
+    {
+      "type": "range",
+      "id": "initial_visible_count",
+      "min": 3,
+      "max": 24,
+      "step": 3,
+      "label": "Initially visible reviews",
+      "default": 9
+    },
+    {
+      "type": "text",
+      "id": "load_more_label",
+      "label": "Load more button label",
+      "default": "LOAD MORE REVIEWS"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "star_count",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star count",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review text",
+          "default": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Sarah M."
+        },
+        {
+          "type": "text",
+          "id": "review_date",
+          "label": "Date label",
+          "default": "2 weeks ago"
+        },
+        {
+          "type": "text",
+          "id": "verified_label",
+          "label": "Verified label",
+          "default": "Verified Buyer"
+        }
+      ]
+    },
+    {
+      "type": "video_review",
+      "name": "Video review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "video_thumbnail",
+          "label": "Video thumbnail"
+        },
+        {
+          "type": "range",
+          "id": "star_count",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star count",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review text",
+          "default": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day."
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Sarah M."
+        },
+        {
+          "type": "text",
+          "id": "review_date",
+          "label": "Date label",
+          "default": "2 weeks ago"
+        },
+        {
+          "type": "text",
+          "id": "verified_label",
+          "label": "Verified label",
+          "default": "Verified Buyer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Grid"
+    }
+  ]
+}
+{% endschema %}

@@ -322,7 +322,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if template.name == 'page' and template.suffix == 'ingredients' %} template-page-ingredients{% endif %}">
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if template.name == 'page' and template.suffix == 'ingredients' %} template-page-ingredients{% endif %}{% if template.name == 'page' and template.suffix == 'reviews' %} template-page-reviews{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
