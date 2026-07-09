@@ -120,10 +120,8 @@
 
                 {%- if block.settings.verified_label != blank -%}
                   <p class="sweevit-reviews__verified">
-                    <span class="sweevit-reviews__verified-icon" aria-hidden="true">
-                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
-                    </span>
-                    {{ block.settings.verified_label | escape }}
+                    <span>{{ block.settings.verified_label | escape }}</span>
+                    <span class="sweevit-reviews__verified-dot" aria-hidden="true"></span>
                   </p>
                 {%- endif -%}
               </div>

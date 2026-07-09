@@ -13,15 +13,15 @@
       "type": "sweevit-reviews-hero",
       "settings": {
         "eyebrow": "CUSTOMER REVIEWS",
-        "heading_line_1": "217 reviews.",
-        "heading_line_2": "One ritual.",
+        "heading_line_1": "217 Reviews.",
+        "heading_line_2": "One Ritual.",
         "rating_value": "4.9",
         "verified_text": "Based on 217 verified reviews",
-        "bar_5_percent": 85,
-        "bar_4_percent": 10,
-        "bar_3_percent": 3,
+        "bar_5_percent": 88,
+        "bar_4_percent": 9,
+        "bar_3_percent": 2,
         "bar_2_percent": 1,
-        "bar_1_percent": 1,
+        "bar_1_percent": 0,
         "padding_top": 72,
         "padding_bottom": 48
       }
@@ -170,10 +170,97 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "reviews_gallery": {
+      "type": "sweevit-gallery",
+      "blocks": {
+        "gallery_1": {
+          "type": "image",
+          "settings": {}
+        },
+        "gallery_2": {
+          "type": "image",
+          "settings": {}
+        },
+        "gallery_3": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "gallery_1",
+        "gallery_2",
+        "gallery_3"
+      ],
+      "settings": {
+        "image_count": 3,
+        "accessibility_label": "Customer review gallery",
+        "image_gap": 10,
+        "content_inset": 78,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "reviews_faq": {
+      "type": "sweevit-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "question",
+          "settings": {
+            "question": "What are Sweevit gummies made of?",
+            "answer": "Sweevit gummies are made with premium functional ingredients including Raw Honey, Ashwagandha, Vitamin B Complex, Lion's Mane, L-Theanine, and Zinc & Magnesium — no artificial fillers or cheap additives."
+          }
+        },
+        "faq_2": {
+          "type": "question",
+          "settings": {
+            "question": "How many gummies should I take per day?",
+            "answer": "Take one gummy daily as part of your morning routine. Consistency is key for the best results."
+          }
+        },
+        "faq_3": {
+          "type": "question",
+          "settings": {
+            "question": "How are gummies better than capsules?",
+            "answer": "Gummies are easier to take, more enjoyable, and help you build a daily habit you'll actually stick to — no water or large pills required."
+          }
+        },
+        "faq_4": {
+          "type": "question",
+          "settings": {
+            "question": "When will I start seeing results?",
+            "answer": "Most customers notice a difference within 2–3 weeks of daily use. Results vary based on your body and lifestyle."
+          }
+        },
+        "faq_5": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a subscription option?",
+            "answer": "Yes — subscribe and save 20% on every order with free shipping, cancel anytime, and priority access to new products."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Common Questions.",
+        "open_first_item": false,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_horizontal": 78
+      }
     }
   },
   "order": [
     "reviews_hero",
-    "reviews_grid"
+    "reviews_grid",
+    "reviews_gallery",
+    "reviews_faq"
   ]
 }
