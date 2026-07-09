@@ -77,11 +77,11 @@
   }
 
   .sweevit-ingredients-hero__heading-line {
-    display: inline;
+    display: block;
   }
 
   .sweevit-ingredients-hero__heading-line:not(:last-child)::after {
-    content: ' ';
+    content: none;
   }
 
   .sweevit-ingredients-hero__description {
