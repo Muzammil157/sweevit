@@ -16,9 +16,10 @@
         "heading_line_1": "217 Reviews.",
         "heading_line_2": "One Ritual.",
         "rating_value": "4.9",
+        "rating_summary": "4.9 / 5.0 · 217 Reviews",
         "verified_text": "Based on 217 verified reviews",
-        "bar_5_percent": 88,
-        "bar_4_percent": 9,
+        "bar_5_percent": 92,
+        "bar_4_percent": 5,
         "bar_3_percent": 2,
         "bar_2_percent": 1,
         "bar_1_percent": 0,
@@ -36,7 +37,7 @@
             "quote": "I've tried countless supplements and nothing has stuck like this. One gummy every morning and I genuinely feel sharper and more focused all day.",
             "author_name": "Sarah M.",
             "review_date": "2 weeks ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_zain": {
@@ -46,7 +47,7 @@
             "quote": "The packaging is stunning and the product actually works. My energy is consistent throughout the day — no crash, no jitters. Just clean focus.",
             "author_name": "Zain K.",
             "review_date": "3 weeks ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_fatima": {
@@ -56,7 +57,7 @@
             "quote": "I was skeptical at first but three weeks in and I've noticed a real difference in my clarity and mood. It's become my favourite daily ritual.",
             "author_name": "Fatima S.",
             "review_date": "1 month ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_layla": {
@@ -66,7 +67,7 @@
             "quote": "Finally a supplement I actually look forward to taking. The taste is great and I feel the difference within the first week.",
             "author_name": "Layla R.",
             "review_date": "1 month ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_ayesha": {
@@ -76,7 +77,7 @@
             "quote": "My morning routine is complete now. One gummy with breakfast and I'm set for the day. Highly recommend to anyone on the fence.",
             "author_name": "Ayesha N.",
             "review_date": "5 weeks ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_mariam": {
@@ -86,7 +87,7 @@
             "quote": "Clean ingredients, transparent labelling, and it actually tastes good. This is what wellness should feel like.",
             "author_name": "Mariam Q.",
             "review_date": "6 weeks ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_james": {
@@ -96,7 +97,7 @@
             "quote": "Switched from capsules to Sweevit and haven't looked back. Easier to stay consistent and the results speak for themselves.",
             "author_name": "James K.",
             "review_date": "2 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_lena": {
@@ -106,7 +107,7 @@
             "quote": "Really enjoying the product so far. Noticed better focus during afternoon meetings. Will definitely reorder.",
             "author_name": "Lena R.",
             "review_date": "2 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_omar": {
@@ -116,7 +117,7 @@
             "quote": "Bought for my wife and she loves it. Now I take it too. Great gift and even better daily habit.",
             "author_name": "Omar H.",
             "review_date": "3 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_nadia": {
@@ -126,7 +127,7 @@
             "quote": "The holographic pouch is beautiful on my counter and the gummies are genuinely effective. Win-win.",
             "author_name": "Nadia T.",
             "review_date": "3 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_hassan": {
@@ -136,7 +137,7 @@
             "quote": "Third reorder in a row. Consistent quality every time and shipping is always fast.",
             "author_name": "Hassan A.",
             "review_date": "4 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         },
         "review_sofia": {
@@ -146,7 +147,7 @@
             "quote": "Love the simplicity — one gummy, done. My energy feels more stable than with coffee alone.",
             "author_name": "Sofia P.",
             "review_date": "4 months ago",
-            "verified_label": "Verified Buyer"
+            "verified_label": "Verified Purchase"
           }
         }
       },
@@ -174,31 +175,40 @@
     "reviews_gallery": {
       "type": "sweevit-gallery",
       "blocks": {
-        "gallery_1": {
-          "type": "image",
-          "settings": {}
-        },
-        "gallery_2": {
-          "type": "image",
-          "settings": {}
-        },
-        "gallery_3": {
-          "type": "image",
-          "settings": {}
-        }
+        "gallery_1": { "type": "image", "settings": {} },
+        "gallery_2": { "type": "image", "settings": {} },
+        "gallery_3": { "type": "image", "settings": {} },
+        "gallery_4": { "type": "image", "settings": {} },
+        "gallery_5": { "type": "image", "settings": {} },
+        "gallery_6": { "type": "image", "settings": {} },
+        "gallery_7": { "type": "image", "settings": {} },
+        "gallery_8": { "type": "image", "settings": {} },
+        "gallery_9": { "type": "image", "settings": {} },
+        "gallery_10": { "type": "image", "settings": {} },
+        "gallery_11": { "type": "image", "settings": {} },
+        "gallery_12": { "type": "image", "settings": {} }
       },
       "block_order": [
         "gallery_1",
         "gallery_2",
-        "gallery_3"
+        "gallery_3",
+        "gallery_4",
+        "gallery_5",
+        "gallery_6",
+        "gallery_7",
+        "gallery_8",
+        "gallery_9",
+        "gallery_10",
+        "gallery_11",
+        "gallery_12"
       ],
       "settings": {
-        "image_count": 3,
-        "accessibility_label": "Customer review gallery",
+        "image_count": 12,
+        "accessibility_label": "Sweevit lifestyle gallery",
         "image_gap": 10,
         "content_inset": 78,
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 64,
+        "padding_bottom": 80
       }
     },
     "reviews_faq": {

@@ -178,12 +178,10 @@
   text-align: right;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 750px) {
   .sweevit-reviews-hero__summary {
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 8rem;
+    gap: 2.4rem;
   }
 
   .sweevit-reviews-hero__rating-row {
@@ -192,6 +190,7 @@
 
   .sweevit-reviews-hero__rating-meta {
     align-items: center;
+    gap: 1.2rem;
   }
 
   .sweevit-reviews-hero__verified-text {
@@ -200,6 +199,14 @@
 
   .sweevit-reviews-hero__rating-summary {
     display: none;
+  }
+
+  .sweevit-reviews-hero__bars-card {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
   }
 }
 

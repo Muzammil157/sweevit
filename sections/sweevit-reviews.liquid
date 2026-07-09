@@ -98,32 +98,35 @@
             {%- endif -%}
 
             <div class="sweevit-reviews__card-content">
-              <div class="sweevit-reviews__card-meta">
-                <div class="sweevit-reviews__card-stars" aria-hidden="true">
-                  {%- for i in (1..star_count) -%}
-                    {{- 'icon-star-filled.svg' | inline_asset_content -}}
-                  {%- endfor -%}
+              <div class="sweevit-reviews__card-body">
+                <div class="sweevit-reviews__card-meta">
+                  <div class="sweevit-reviews__card-stars" aria-hidden="true">
+                    {%- for i in (1..star_count) -%}
+                      {{- 'icon-star-filled.svg' | inline_asset_content -}}
+                    {%- endfor -%}
+                  </div>
+                  {%- if block.settings.review_date != blank -%}
+                    <time class="sweevit-reviews__card-date">{{ block.settings.review_date | escape }}</time>
+                  {%- endif -%}
                 </div>
-                {%- if block.settings.review_date != blank -%}
-                  <time class="sweevit-reviews__card-date">{{ block.settings.review_date | escape }}</time>
+
+                {%- if block.settings.quote != blank -%}
+                  <p class="sweevit-reviews__quote">{{ block.settings.quote | escape }}</p>
                 {%- endif -%}
               </div>
 
-              {%- if block.settings.quote != blank -%}
-                <p class="sweevit-reviews__quote">{{ block.settings.quote | escape }}</p>
-              {%- endif -%}
-
               <div class="sweevit-reviews__card-footer">
-                {%- if block.settings.author_name != blank -%}
-                  <p class="sweevit-reviews__author-name">{{ block.settings.author_name | escape }}</p>
-                {%- endif -%}
+                <div class="sweevit-reviews__author">
+                  {%- if block.settings.author_name != blank -%}
+                    <p class="sweevit-reviews__author-name">{{ block.settings.author_name | escape }}</p>
+                  {%- endif -%}
 
-                {%- if block.settings.verified_label != blank -%}
-                  <p class="sweevit-reviews__verified">
-                    <span>{{ block.settings.verified_label | escape }}</span>
-                    <span class="sweevit-reviews__verified-dot" aria-hidden="true"></span>
-                  </p>
-                {%- endif -%}
+                  {%- if block.settings.verified_label != blank -%}
+                    <p class="sweevit-reviews__verified">{{ block.settings.verified_label | escape }}</p>
+                  {%- endif -%}
+                </div>
+
+                <span class="sweevit-reviews__verified-dot" aria-hidden="true"></span>
               </div>
             </div>
           </article>
