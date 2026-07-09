@@ -355,6 +355,13 @@
         "padding_horizontal": 78
       }
     },
+    "pdp_judgeme_reviews": {
+      "type": "sweevit-judgeme-reviews",
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "pdp_testimonials": {
       "type": "sweevit-testimonials",
       "blocks": {
@@ -510,6 +517,7 @@
     "pdp_ingredients",
     "pdp_comparison",
     "pdp_choose_pack",
+    "pdp_judgeme_reviews",
     "pdp_testimonials",
     "pdp_gallery",
     "pdp_faq"
