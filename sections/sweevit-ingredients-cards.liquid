@@ -72,9 +72,23 @@
                         loading="lazy"
                       >
                     {%- when 'lions_mane' -%}
-                      {{- 'focus.svg' | inline_asset_content -}}
+                      <img
+                        src="{{ 'focus.svg' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="31"
+                        loading="lazy"
+                      >
                     {%- when 'ashwagandha' -%}
-                      {{- 'wellness.svg' | inline_asset_content -}}
+                      <img
+                        src="{{ 'wellness.svg' | asset_url }}"
+                        alt=""
+                        class="sweevit-ingredients-cards__icon-image"
+                        width="24"
+                        height="31"
+                        loading="lazy"
+                      >
                     {%- else -%}
                       {{- 'focus.svg' | inline_asset_content -}}
                   {%- endcase -%}
