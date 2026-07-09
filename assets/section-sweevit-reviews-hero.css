@@ -181,7 +181,8 @@
 @media screen and (min-width: 750px) {
   .sweevit-reviews-hero__summary {
     align-items: center;
-    gap: 2.4rem;
+    /* tightened from 3.2rem so bars sit closer under "Based on 217 verified reviews" */
+    gap: 2rem;
   }
 
   .sweevit-reviews-hero__rating-row {
