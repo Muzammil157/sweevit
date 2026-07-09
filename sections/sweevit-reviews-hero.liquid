@@ -16,25 +16,6 @@
   }
 {%- endstyle -%}
 
-{%- liquid
-  assign jm_count = shop.metafields.judgeme.all_reviews_count | default: 0
-  assign jm_rating = shop.metafields.judgeme.all_reviews_rating | default: 0
-  assign rating_display = jm_rating | round: 1
-
-  if jm_count > 0
-    assign heading_line_1 = jm_count | append: ' Reviews.'
-    assign rating_summary = rating_display | append: ' / 5.0 · ' | append: jm_count | append: ' Reviews'
-    assign verified_text = 'Based on ' | append: jm_count | append: ' verified reviews'
-  else
-    assign heading_line_1 = section.settings.heading_line_1
-    assign rating_summary = section.settings.rating_summary
-    assign verified_text = section.settings.verified_text
-    if section.settings.rating_value != blank
-      assign rating_display = section.settings.rating_value
-    endif
-  endif
--%}
-
 <section
   id="SweevitReviewsHero-{{ section.id }}"
   class="sweevit-reviews-hero"
@@ -45,10 +26,10 @@
         <p class="sweevit-reviews-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
 
-      {%- if heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
+      {%- if section.settings.heading_line_1 != blank or section.settings.heading_line_2 != blank -%}
         <h1 class="sweevit-reviews-hero__heading">
-          {%- if heading_line_1 != blank -%}
-            <span class="sweevit-reviews-hero__heading-line">{{ heading_line_1 | escape }}</span>
+          {%- if section.settings.heading_line_1 != blank -%}
+            <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_1 | escape }}</span>
           {%- endif -%}
           {%- if section.settings.heading_line_2 != blank -%}
             <span class="sweevit-reviews-hero__heading-line">{{ section.settings.heading_line_2 | escape }}</span>
@@ -59,51 +40,41 @@
 
     <div class="sweevit-reviews-hero__summary">
       <div class="sweevit-reviews-hero__rating-row">
-        {%- if rating_display != blank -%}
-          <p class="sweevit-reviews-hero__rating-value">{{ rating_display | escape }}</p>
+        {%- if section.settings.rating_value != blank -%}
+          <p class="sweevit-reviews-hero__rating-value">{{ section.settings.rating_value | escape }}</p>
         {%- endif -%}
 
         <div class="sweevit-reviews-hero__rating-meta">
           <div class="sweevit-reviews-hero__stars" aria-hidden="true">
-            {%- if jm_rating > 0 -%}
-              <span class="jdgm-widget jdgm-all-reviews-rating" data-score="{{ jm_rating | round: 2 }}"></span>
-            {%- else -%}
-              {%- for i in (1..5) -%}
-                {{- 'icon-star-filled.svg' | inline_asset_content -}}
-              {%- endfor -%}
-            {%- endif -%}
+            {%- for i in (1..5) -%}
+              {{- 'icon-star-filled.svg' | inline_asset_content -}}
+            {%- endfor -%}
           </div>
 
-          {%- if rating_summary != blank -%}
-            <p class="sweevit-reviews-hero__rating-summary">{{ rating_summary | escape }}</p>
+          {%- if section.settings.rating_summary != blank -%}
+            <p class="sweevit-reviews-hero__rating-summary">{{ section.settings.rating_summary | escape }}</p>
           {%- endif -%}
 
-          {%- if verified_text != blank -%}
-            <p class="sweevit-reviews-hero__verified-text">{{ verified_text | escape }}</p>
+          {%- if section.settings.verified_text != blank -%}
+            <p class="sweevit-reviews-hero__verified-text">{{ section.settings.verified_text | escape }}</p>
           {%- endif -%}
         </div>
       </div>
 
       <div class="sweevit-reviews-hero__bars-card">
-        {%- if shop.metafields.judgeme.all_reviews_header != blank -%}
-          <div class="sweevit-reviews-hero__judgeme-header">
-            {{ shop.metafields.judgeme.all_reviews_header }}
-          </div>
-        {%- else -%}
-          <div class="sweevit-reviews-hero__bars" aria-label="Rating distribution">
-            {%- for i in (1..5) reversed -%}
-              {%- assign bar_key = 'bar_' | append: i | append: '_percent' -%}
-              {%- assign bar_percent = section.settings[bar_key] | default: 0 -%}
-              <div class="sweevit-reviews-hero__bar-row">
-                <span class="sweevit-reviews-hero__bar-label">{{ i }}★</span>
-                <span class="sweevit-reviews-hero__bar-track" aria-hidden="true">
-                  <span class="sweevit-reviews-hero__bar-fill" style="width: {{ bar_percent }}%;"></span>
-                </span>
-                <span class="sweevit-reviews-hero__bar-percent">{{ bar_percent }}%</span>
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
+        <div class="sweevit-reviews-hero__bars" aria-label="Rating distribution">
+          {%- for i in (1..5) reversed -%}
+            {%- assign bar_key = 'bar_' | append: i | append: '_percent' -%}
+            {%- assign bar_percent = section.settings[bar_key] | default: 0 -%}
+            <div class="sweevit-reviews-hero__bar-row">
+              <span class="sweevit-reviews-hero__bar-label">{{ i }}★</span>
+              <span class="sweevit-reviews-hero__bar-track" aria-hidden="true">
+                <span class="sweevit-reviews-hero__bar-fill" style="width: {{ bar_percent }}%;"></span>
+              </span>
+              <span class="sweevit-reviews-hero__bar-percent">{{ bar_percent }}%</span>
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
