@@ -5,7 +5,38 @@
   }
 }
 
+.template-page-reviews .sweevit-judgeme-free__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding: 0 var(--sweevit-page-gutter) 6.4rem;
+  box-sizing: border-box;
+}
+
+.template-page-reviews .sweevit-judgeme-free__verified {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.4rem;
+}
+
+.template-page-reviews .sweevit-judgeme-free__product + .sweevit-judgeme-free__product {
+  margin-top: 4.8rem;
+}
+
+.template-page-reviews .sweevit-reviews-hero__stars .jdgm-star {
+  font-size: 1.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .template-page-reviews .sweevit-reviews-hero__stars .jdgm-star {
+    font-size: 2.2rem;
+  }
+}
+
 @media screen and (max-width: 749px) {
+  .template-page-reviews .sweevit-judgeme-free {
+    background-color: #F5F5F5;
+  }
+
   .template-page-reviews .sweevit-faq__header {
     text-align: left;
   }

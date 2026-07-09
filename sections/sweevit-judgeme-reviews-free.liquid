@@ -8,18 +8,12 @@
   endif
 -%}
 
-{%- if has_judgeme_reviews or shop.metafields.judgeme.featured_carousel != blank -%}
+{%- if has_judgeme_reviews -%}
   <section id="SweevitJudgemeFree-{{ section.id }}" class="sweevit-judgeme-free">
     <div class="sweevit-judgeme-free__inner">
       {%- if shop.metafields.judgeme.verified_badge != blank -%}
         <div class="sweevit-judgeme-free__verified">
           {{ shop.metafields.judgeme.verified_badge }}
-        </div>
-      {%- endif -%}
-
-      {%- if shop.metafields.judgeme.featured_carousel != blank -%}
-        <div class="sweevit-judgeme-free__carousel">
-          {{ shop.metafields.judgeme.featured_carousel }}
         </div>
       {%- endif -%}
 
