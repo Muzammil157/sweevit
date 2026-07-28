@@ -64,6 +64,7 @@
 .sweevit-pdp__options .sweevit-pdp__option.is-active:has(input[value='subscribe']) {
   border-width: 0.1rem;
   border-color: transparent;
+  border-radius: 0.4rem;
   padding: 1.4rem 1.6rem;
   background: var(--sweevit-subscribe-bg);
 }
@@ -71,6 +72,7 @@
 .sweevit-pdp__options .sweevit-pdp__option:has(input[value='onetime']).is-active {
   background: #f7f7f5;
   border-color: rgba(26, 26, 26, 0.12);
+  border-radius: 0.4rem;
 }
 
 .sweevit-pdp__atc {
