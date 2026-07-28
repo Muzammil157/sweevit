@@ -29,88 +29,23 @@
     },
     "reviews_judgeme_free": {
       "type": "sweevit-judgeme-reviews-free",
-      "custom_css": [
-        ".jm-star-rating__font-icon {color: #d9a93a !important;}",
-        ".jdgm-write-review-modal__nav-btn.jdgm-write-review-modal__nav-btn.jdgm-write-review-modal__nav-btn-next {background-color: #D9A93A !important;}",
-        "button.jm-button.jm-button--primary.jm-action-buttons__button {background-color: #d9a93a; border: none !important;}"
-      ],
       "settings": {}
     },
     "reviews_gallery": {
       "type": "sweevit-gallery",
       "blocks": {
-        "gallery_1": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_2": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_3": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_4": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_5": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_6": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_7": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_8": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_9": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_10": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_11": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        },
-        "gallery_12": {
-          "type": "image",
-          "settings": {
-            "alt": ""
-          }
-        }
+        "gallery_1": { "type": "image", "settings": {} },
+        "gallery_2": { "type": "image", "settings": {} },
+        "gallery_3": { "type": "image", "settings": {} },
+        "gallery_4": { "type": "image", "settings": {} },
+        "gallery_5": { "type": "image", "settings": {} },
+        "gallery_6": { "type": "image", "settings": {} },
+        "gallery_7": { "type": "image", "settings": {} },
+        "gallery_8": { "type": "image", "settings": {} },
+        "gallery_9": { "type": "image", "settings": {} },
+        "gallery_10": { "type": "image", "settings": {} },
+        "gallery_11": { "type": "image", "settings": {} },
+        "gallery_12": { "type": "image", "settings": {} }
       },
       "block_order": [
         "gallery_1",

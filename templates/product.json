@@ -48,14 +48,13 @@
         "breadcrumb_shop": "Shop",
         "eyebrow": "Functional Wellness Gummies",
         "tagline": "Focus, Energy & Wellness — One Daily Ritual.",
-        "show_rating": false,
+        "show_rating": true,
         "rating_value": "4.9",
         "review_count": "217",
         "review_label": "reviews",
         "repurchase_text": "98% would repurchase",
         "save_badge_label": "SAVE [percent]%",
         "purchase_options_label": "Purchase options",
-        "use_subscription_app_widget": false,
         "show_subscribe": true,
         "default_purchase_option": "subscribe",
         "one_time_label": "One-time purchase",
@@ -356,13 +355,6 @@
         "padding_horizontal": 78
       }
     },
-    "pdp_judgeme_reviews": {
-      "type": "sweevit-judgeme-reviews",
-      "settings": {
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
     "pdp_testimonials": {
       "type": "sweevit-testimonials",
       "blocks": {
@@ -518,7 +510,6 @@
     "pdp_ingredients",
     "pdp_comparison",
     "pdp_choose_pack",
-    "pdp_judgeme_reviews",
     "pdp_testimonials",
     "pdp_gallery",
     "pdp_faq"
