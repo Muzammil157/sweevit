@@ -16,7 +16,7 @@
     #c5e7ff 68.37%,
     #f9e0b9 98.02%
   );
-  --sweevit-buy-now-gradient: linear-gradient(180deg, #efcb6b 0%, #d4a84a 55%, #c79426 100%);
+  --sweevit-buy-now-gradient: linear-gradient(90deg, #efcb6b 0%, #c79426 100%);
 }
 
 .sweevit-product--showcase .sweevit-product__inner {
