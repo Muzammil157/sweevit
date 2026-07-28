@@ -185,7 +185,7 @@
           "settings": {
             "icon": "energy",
             "title": "Energy",
-            "description": "Natural energy without the crash"
+            "description": "Natural energy, zero crash"
           }
         },
         "highlight_wellness": {
@@ -193,7 +193,7 @@
           "settings": {
             "icon": "wellness",
             "title": "Wellness",
-            "description": "Support your body & mind daily"
+            "description": "Daily body & mind support"
           }
         }
       },
@@ -203,25 +203,34 @@
         "highlight_wellness"
       ],
       "settings": {
+        "eyebrow": "Functional Wellness Gummies",
         "heading": "Sweevit Functional Gummies",
-        "subheading": "Focus, Energy & Wellness",
         "show_rating": true,
         "rating_value": "4.9",
         "review_count": "217",
         "review_label": "reviews",
-        "show_subscribe": true,
-        "default_purchase_option": "subscribe",
-        "one_time_label": "One-time purchase",
-        "subscribe_label": "Subscribe & Save 20%",
-        "one_time_price_fallback": "$39.00",
-        "subscribe_price_fallback": "$31.20",
+        "repurchase_text": "98% would repurchase",
+        "variants_label": "Bundle & Save",
+        "save_badge_label": "SAVE [percent]%",
         "perk_1": "Free shipping",
         "perk_2": "Cancel anytime",
         "perk_3": "Priority access",
+        "show_subscribe": true,
+        "default_purchase_option": "subscribe",
+        "one_time_label": "One time purchase",
+        "subscribe_label": "Subscribe & Save 10%",
+        "subscribe_perk": "Delivered Monthly",
+        "one_time_price_fallback": "$39.00",
+        "subscribe_price_fallback": "$31.20",
         "button_label": "Add to cart",
-        "secure_checkout_text": "Secure checkout",
+        "show_dynamic_checkout": true,
+        "cert_1": "Non-GMO",
+        "cert_2": "Gluten-Free",
+        "cert_3": "Vegan",
+        "cert_4": "Lab Tested",
+        "show_info_blocks": false,
         "enable_custom_image": false,
-        "background_color": "#F7F7F5",
+        "background_color": "#FFFFFF",
         "padding_top": 80,
         "padding_bottom": 80
       }
