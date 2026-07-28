@@ -83,16 +83,23 @@
             {%- if section.settings.brand_logo != blank -%}
               {{
                 section.settings.brand_logo
-                | image_url: width: 240
+                | image_url: width: 320
                 | image_tag:
                   class: 'sweevit-about-story__card-logo-image',
                   loading: 'lazy',
-                  widths: '120, 240',
-                  sizes: '120px',
+                  widths: '160, 320',
+                  sizes: '160px',
                   alt: shop.name
               }}
             {%- else -%}
-              <span class="sweevit-about-story__card-logo-text">{{ section.settings.brand_name | default: 'sweevit' | escape }}</span>
+              <img
+                src="{{ 'about_logo.png' | asset_url }}"
+                class="sweevit-about-story__card-logo-image"
+                width="160"
+                height="40"
+                loading="lazy"
+                alt="{{ section.settings.brand_name | default: 'sweevit' | escape }}"
+              >
             {%- endif -%}
           </div>
 
@@ -172,10 +179,14 @@
                 }}
               {%- endif -%}
               <span class="sweevit-about-story__play" aria-hidden="true">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="64" height="64" rx="14" fill="#FF0033"/>
-                  <path d="M26 20.5V43.5L44 32L26 20.5Z" fill="white"/>
-                </svg>
+                <img
+                  src="{{ 'yt.png' | asset_url }}"
+                  class="sweevit-about-story__play-icon"
+                  width="64"
+                  height="64"
+                  alt=""
+                  loading="lazy"
+                >
               </span>
               {%- if section.settings.video_url == blank -%}
                 <span class="visually-hidden">Video placeholder — add a video URL in the theme editor</span>
