@@ -345,9 +345,10 @@ sweevit-product-showcase {
   position: relative;
   display: block;
   width: 100%;
+  max-width: 64rem;
   padding: 1.4rem 1.6rem;
   border: 0.1rem solid rgba(26, 26, 26, 0.12);
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   background: #f7f7f5;
   cursor: pointer;
   text-align: left;
@@ -357,6 +358,7 @@ sweevit-product-showcase {
 
 .sweevit-product__variant.is-active {
   border-color: transparent;
+  border-radius: 0.4rem;
   background: var(--sweevit-variant-gradient);
   box-shadow: inset 0 0 0 0.1rem rgba(26, 26, 26, 0.06);
 }
@@ -408,7 +410,7 @@ sweevit-product-showcase {
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  border-radius: 10rem;
+  border-radius: 0.4rem;
   background: #1a1a1a;
   font-family: var(--sweevit-font);
   font-size: 1.1rem;
@@ -422,6 +424,7 @@ sweevit-product-showcase {
 
 .sweevit-product__variant.is-active .sweevit-product__variant-badge {
   background: #ffffff3d;
+  border-radius: 0.4rem;
   color: var(--sweevit-dark-charcoal);
 }
 
