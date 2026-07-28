@@ -420,7 +420,8 @@ sweevit-product-showcase {
 }
 
 .sweevit-product__variant.is-active .sweevit-product__variant-badge {
-  background: #5b4a7a;
+  background: #ffffff3d;
+  color: var(--sweevit-dark-charcoal);
 }
 
 .sweevit-product__variant-perks {
@@ -478,6 +479,14 @@ sweevit-product-showcase {
 .sweevit-product__option.is-active:has(input[value='subscribe']) {
   border-color: transparent;
   background: var(--sweevit-subscribe-bg);
+}
+
+.sweevit-product__option.is-active:has(input[value='subscribe']) .sweevit-product__option-radio {
+  border-color: #6b5b8a;
+}
+
+.sweevit-product__option.is-active:has(input[value='subscribe']) .sweevit-product__option-radio::after {
+  background: #6b5b8a;
 }
 
 .sweevit-product__option.is-active:has(input[value='onetime']) {
@@ -682,20 +691,52 @@ sweevit-product-showcase {
   display: none;
 }
 
+/* Trust row (shared) */
+.sweevit-product__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem 2.4rem;
+  margin-top: 1.6rem;
+}
+
+.sweevit-product__trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sweevit-font);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 100%;
+  color: rgba(26, 26, 26, 0.45);
+  white-space: nowrap;
+}
+
+.sweevit-product__trust-item svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  flex-shrink: 0;
+  color: var(--sweevit-icon-gold, #d9a93a);
+}
+
 /* Info paragraphs */
 .sweevit-product__info {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
-  margin-top: 3.2rem;
-  padding-top: 2.4rem;
-  border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
+  gap: 0;
+  margin-top: 2.4rem;
+  padding-top: 0;
+  border-top: none;
 }
 
 .sweevit-product__info-block {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  padding: 2rem 0;
+  border-top: 0.1rem solid rgba(26, 26, 26, 0.1);
 }
 
 .sweevit-product__info-heading {
@@ -705,8 +746,8 @@ sweevit-product-showcase {
   line-height: 100%;
   color: var(--sweevit-dark-charcoal);
   margin: 0;
-  padding-bottom: 1.2rem;
-  border-bottom: 0.1rem solid rgba(26, 26, 26, 0.1);
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .sweevit-product__info-text {
@@ -715,6 +756,7 @@ sweevit-product-showcase {
   font-weight: 400;
   line-height: 1.55;
   color: rgba(26, 26, 26, 0.55);
+  max-width: 64rem;
 }
 
 .sweevit-product__info-text p {
