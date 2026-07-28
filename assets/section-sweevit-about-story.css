@@ -117,11 +117,12 @@
 .sweevit-about-story__card-logo {
   display: flex;
   align-items: center;
+  min-height: 3.2rem;
 }
 
 .sweevit-about-story__card-logo-image {
   display: block;
-  height: 3.2rem;
+  height: 3.6rem;
   width: auto;
   max-width: 18rem;
   object-fit: contain;
