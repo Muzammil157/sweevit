@@ -549,7 +549,7 @@ sweevit-product-showcase {
 .sweevit-product__option-copy {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
   min-width: 0;
 }
 
@@ -842,8 +842,11 @@ sweevit-product-showcase {
     justify-content: flex-start;
   }
 
-  .sweevit-product__variant-perks {
-    padding-left: 0;
+  .sweevit-product__variant {
+    height: auto;
+    min-height: 7.4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .sweevit-product__certs {
