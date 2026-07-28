@@ -5,10 +5,18 @@ class SweevitProductShowcase extends HTMLElement {
     this.minusBtn = this.querySelector('[data-quantity-minus]');
     this.plusBtn = this.querySelector('[data-quantity-plus]');
     this.options = this.querySelectorAll('[data-purchase-option]');
+    this.variantOptions = this.querySelectorAll('[data-variant-option]');
+    this.variantIdInput = this.querySelector('.product-variant-id');
     this.sellingPlanInput = this.querySelector('[data-selling-plan-input]');
     this.atcPrice = this.querySelector('[data-atc-price]');
+    this.displayPrice = this.querySelector('[data-display-price]');
+    this.subscribePrice = this.querySelector('[data-subscribe-price]');
+    this.mainImage = this.querySelector(
+      '.sweevit-pdp__main-image, [data-pdp-main-image], [data-showcase-main-image], .sweevit-product__image'
+    );
 
     this.bindQuantity();
+    this.bindVariants();
     this.bindPurchaseOptions();
     this.bindGallery();
   }
@@ -47,6 +55,101 @@ class SweevitProductShowcase extends HTMLElement {
     syncButtons();
   }
 
+  getActivePurchaseOption() {
+    return (
+      Array.from(this.options).find((option) => option.classList.contains('is-active')) ||
+      this.options[0]
+    );
+  }
+
+  getActiveVariant() {
+    return (
+      Array.from(this.variantOptions).find((option) => option.classList.contains('is-active')) ||
+      this.variantOptions[0]
+    );
+  }
+
+  syncPrices() {
+    const variant = this.getActiveVariant();
+    const purchase = this.getActivePurchaseOption();
+    if (!purchase) return;
+
+    const isSubscribe = purchase.querySelector('input[type="radio"]')?.value === 'subscribe';
+    const onetimePrice = variant?.dataset.variantPrice || '';
+    const subscribePrice = variant?.dataset.variantSubscribePrice || '';
+
+    if (this.displayPrice && onetimePrice) {
+      this.displayPrice.textContent = onetimePrice;
+    }
+
+    if (this.subscribePrice && subscribePrice) {
+      this.subscribePrice.textContent = subscribePrice;
+    }
+
+    if (this.atcPrice) {
+      this.atcPrice.textContent = (isSubscribe ? subscribePrice : onetimePrice) || this.atcPrice.textContent;
+    }
+  }
+
+  syncSellingPlan() {
+    if (!this.sellingPlanInput) return;
+
+    const purchase = this.getActivePurchaseOption();
+    const variant = this.getActiveVariant();
+    const isSubscribe = purchase?.querySelector('input[type="radio"]')?.value === 'subscribe';
+    const planId = (variant?.dataset.sellingPlanId || purchase?.dataset.sellingPlanId || '').trim();
+
+    if (isSubscribe && planId) {
+      this.sellingPlanInput.name = 'selling_plan';
+      this.sellingPlanInput.value = planId;
+      if (purchase) purchase.dataset.sellingPlanId = planId;
+    } else {
+      this.sellingPlanInput.removeAttribute('name');
+      this.sellingPlanInput.value = '';
+    }
+  }
+
+  bindVariants() {
+    if (!this.variantOptions.length) return;
+
+    const setActive = (option) => {
+      this.variantOptions.forEach((item) => {
+        const isActive = item === option;
+        item.classList.toggle('is-active', isActive);
+        const input = item.querySelector('input[type="radio"]');
+        if (input) input.checked = isActive;
+      });
+
+      if (this.variantIdInput && option.dataset.variantId) {
+        this.variantIdInput.value = option.dataset.variantId;
+        this.variantIdInput.disabled = false;
+      }
+
+      if (option.dataset.variantImage && this.mainImage) {
+        this.mainImage.src = option.dataset.variantImage;
+        if (option.dataset.variantImageSrcset) {
+          this.mainImage.srcset = option.dataset.variantImageSrcset;
+        }
+      }
+
+      this.syncSellingPlan();
+      this.syncPrices();
+    };
+
+    this.variantOptions.forEach((option) => {
+      option.addEventListener('click', () => setActive(option));
+      option.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          setActive(option);
+        }
+      });
+    });
+
+    const defaultVariant = this.getActiveVariant();
+    if (defaultVariant) setActive(defaultVariant);
+  }
+
   bindPurchaseOptions() {
     if (!this.options.length) return;
 
@@ -58,24 +161,8 @@ class SweevitProductShowcase extends HTMLElement {
         if (input) input.checked = isActive;
       });
 
-      if (this.sellingPlanInput) {
-        const planId = option.dataset.sellingPlanId || '';
-        if (planId) {
-          this.sellingPlanInput.name = 'selling_plan';
-          this.sellingPlanInput.value = planId;
-        } else {
-          this.sellingPlanInput.removeAttribute('name');
-          this.sellingPlanInput.value = '';
-        }
-      }
-
-      this.updateAtcPrice(option);
-    };
-
-    this.updateAtcPrice = (option) => {
-      if (!this.atcPrice) return;
-      const priceEl = option.querySelector('.sweevit-product__option-price');
-      if (priceEl) this.atcPrice.textContent = priceEl.textContent.trim();
+      this.syncSellingPlan();
+      this.syncPrices();
     };
 
     this.options.forEach((option) => {
@@ -88,13 +175,14 @@ class SweevitProductShowcase extends HTMLElement {
       });
     });
 
-    const defaultOption =
-      Array.from(this.options).find((option) => option.classList.contains('is-active')) || this.options[0];
-    setActive(defaultOption);
+    const defaultOption = this.getActivePurchaseOption();
+    if (defaultOption) setActive(defaultOption);
   }
 
   bindGallery() {
-    const mainImage = this.querySelector('.sweevit-pdp__main-image, [data-pdp-main-image]');
+    const mainImage =
+      this.querySelector('.sweevit-pdp__main-image, [data-pdp-main-image], [data-showcase-main-image]') ||
+      this.mainImage;
     const thumbnails = this.querySelectorAll('[data-pdp-thumbnail]');
     if (!mainImage || !thumbnails.length) return;
 
