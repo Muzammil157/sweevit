@@ -782,6 +782,11 @@ sweevit-product-showcase {
     padding-bottom: 4rem;
   }
 
+  .sweevit-product--showcase .sweevit-product__inner {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .sweevit-product__media-frame {
     min-height: 24rem;
   }
@@ -791,11 +796,26 @@ sweevit-product-showcase {
     margin-top: 2rem;
   }
 
+  .sweevit-product__price-rating {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sweevit-product__rating {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
   .sweevit-product__variant-perks {
     padding-left: 0;
   }
 
   .sweevit-product__certs {
     gap: 1.2rem 1.6rem;
+  }
+
+  .sweevit-product__trust {
+    flex-direction: column;
+    align-items: center;
   }
 }
