@@ -1,0 +1,317 @@
+.sweevit-about-story {
+  font-family: var(--sweevit-font);
+  background: var(
+    --sweevit-about-story-bg,
+    linear-gradient(135deg, #e8e8f5 0%, #f5f2fa 28.57%, #ebf5fc 50%, #f2ede6 71.43%)
+  );
+  overflow: hidden;
+}
+
+.sweevit-about-story__inner {
+  max-width: var(--sweevit-page-width);
+  margin: 0 auto;
+  padding-left: var(--sweevit-page-gutter);
+  padding-right: var(--sweevit-page-gutter);
+  box-sizing: border-box;
+}
+
+.sweevit-about-story__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-story__grid {
+    grid-template-columns: minmax(0, 62.6rem) minmax(0, 52.6rem);
+    justify-content: space-between;
+    gap: 6.4rem;
+    align-items: center;
+  }
+}
+
+.sweevit-about-story__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 62.6rem;
+}
+
+.sweevit-about-story__eyebrow {
+  font-family: var(--sweevit-font), Inter, sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 100%;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.45);
+  margin: 0 0 1.3rem;
+}
+
+.sweevit-about-story__heading {
+  font-family: var(--sweevit-font), Inter, sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-transform: capitalize;
+  color: var(--sweevit-dark-charcoal);
+  margin: 0;
+  max-width: 62.6rem;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-story__heading {
+    font-size: 5.2rem;
+    line-height: 6.2rem;
+  }
+}
+
+.sweevit-about-story__rating {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 5rem;
+}
+
+.sweevit-about-story__stars {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--sweevit-icon-gold, #d9a93a);
+}
+
+.sweevit-about-story__stars svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: currentColor;
+}
+
+.sweevit-about-story__rating-text {
+  font-family: var(--sweevit-font), Inter, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 100%;
+  color: rgba(26, 26, 26, 0.55);
+}
+
+.sweevit-about-story__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+  width: 100%;
+  max-width: 62.6rem;
+  min-height: 38.4rem;
+  margin-top: 3.2rem;
+  padding: 3.2rem 3.2rem 3.2rem 3.6rem;
+  background: #ffffff;
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 2.4rem 0 #0000000f;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sweevit-about-story__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0.1rem;
+  background: #d9a93a;
+  border-radius: 1.2rem 0 0 1.2rem;
+  pointer-events: none;
+}
+
+.sweevit-about-story__card-logo {
+  display: flex;
+  align-items: center;
+}
+
+.sweevit-about-story__card-logo-image {
+  display: block;
+  height: 2.4rem;
+  width: auto;
+  max-width: 14rem;
+  object-fit: contain;
+}
+
+.sweevit-about-story__card-logo-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  color: #c9a24a;
+}
+
+.sweevit-about-story__card-text {
+  font-family: var(--sweevit-font), Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--sweevit-dark-charcoal);
+}
+
+.sweevit-about-story__card-text p {
+  margin: 0;
+}
+
+.sweevit-about-story__card-text p + p {
+  margin-top: 1.4rem;
+}
+
+.sweevit-about-story__press {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  max-width: 62.6rem;
+  min-height: 2.7rem;
+  margin: 3.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  gap: 2.4rem 7.9rem;
+}
+
+.sweevit-about-story__press-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.sweevit-about-story__press-image {
+  display: block;
+  height: 2rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.sweevit-about-story__press-text {
+  font-family: var(--sweevit-font), Inter, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(26, 26, 26, 0.35);
+  white-space: nowrap;
+}
+
+.sweevit-about-story__press-text--vogue {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sweevit-about-story__media {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-story__media {
+    justify-content: flex-end;
+  }
+}
+
+.sweevit-about-story__video {
+  position: relative;
+  width: 100%;
+  max-width: 52.6rem;
+  aspect-ratio: 526 / 708;
+  height: auto;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 0.4rem 2.4rem 0 #0000000f;
+}
+
+@media screen and (min-width: 990px) {
+  .sweevit-about-story__video {
+    width: 52.6rem;
+    height: 70.8rem;
+    aspect-ratio: auto;
+  }
+}
+
+.sweevit-about-story__placeholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+.sweevit-about-story__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sweevit-about-story__play {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.sweevit-about-story__play svg {
+  display: block;
+  width: 6.4rem;
+  height: 6.4rem;
+}
+
+.sweevit-about-story__iframe,
+.sweevit-about-story__file {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  background: #000;
+}
+
+@media screen and (max-width: 749px) {
+  .sweevit-about-story__heading {
+    font-size: 3.2rem;
+    line-height: 1.2;
+  }
+
+  .sweevit-about-story__rating {
+    margin-top: 3.2rem;
+  }
+
+  .sweevit-about-story__card {
+    min-height: 0;
+    padding: 2.4rem;
+    gap: 2.4rem;
+  }
+
+  .sweevit-about-story__press {
+    margin-top: 2.4rem;
+    gap: 1.6rem 3.2rem;
+  }
+
+  .sweevit-about-story__video {
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+}
