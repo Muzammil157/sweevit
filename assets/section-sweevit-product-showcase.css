@@ -321,7 +321,8 @@ sweevit-product-showcase {
 
 /* Variants — Bundle & Save */
 .sweevit-product__variants-section {
-  margin-top: 2.4rem;
+  margin-top: 2rem;
+  padding-top: 0;
 }
 
 .sweevit-product__variants-label {

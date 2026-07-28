@@ -428,6 +428,27 @@
           </div>
         {%- endif -%}
 
+        <div class="sweevit-product__trust">
+          {%- if section.settings.secure_checkout_text != blank -%}
+            <span class="sweevit-product__trust-item">
+              {{- 'icon-lock.svg' | inline_asset_content -}}
+              {{ section.settings.secure_checkout_text | escape }}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.guarantee_text != blank -%}
+            <span class="sweevit-product__trust-item">
+              {{- 'icon-return.svg' | inline_asset_content -}}
+              {{ section.settings.guarantee_text | escape }}
+            </span>
+          {%- endif -%}
+          {%- if section.settings.shipping_text != blank -%}
+            <span class="sweevit-product__trust-item">
+              {{- 'icon-truck.svg' | inline_asset_content -}}
+              {{ section.settings.shipping_text | escape }}
+            </span>
+          {%- endif -%}
+        </div>
+
         {%- if section.settings.show_info_blocks -%}
           <div class="sweevit-product__info">
             {%- if section.settings.effect_heading != blank or section.settings.effect_text != blank -%}
