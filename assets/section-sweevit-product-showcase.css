@@ -3,14 +3,25 @@
   background-color: var(--sweevit-product-bg, #ffffff);
   overflow: hidden;
   --sweevit-variant-gradient: linear-gradient(
-    90deg,
-    #e8e4f5 0%,
-    #e8eef8 28%,
-    #f5ede6 62%,
-    #f8f0d8 100%
+    90.92deg,
+    #c2c2f4 0%,
+    #e0cdff 40%,
+    #c5e7ff 70%,
+    #f9e0b9 100%
   );
-  --sweevit-subscribe-bg: linear-gradient(90deg, #ede8f5 0%, #e8e4f5 100%);
+  --sweevit-subscribe-bg: linear-gradient(
+    270.82deg,
+    #c2c2f4 -0.82%,
+    #e0cdff 38.72%,
+    #c5e7ff 68.37%,
+    #f9e0b9 98.02%
+  );
   --sweevit-buy-now-gradient: linear-gradient(180deg, #efcb6b 0%, #d4a84a 55%, #c79426 100%);
+}
+
+.sweevit-product--showcase .sweevit-product__inner {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 sweevit-product-showcase {
@@ -179,14 +190,15 @@ sweevit-product-showcase {
   overflow-wrap: anywhere;
 }
 
-/* Benefit highlights */
+/* Benefit highlights — icon above label, 3 columns */
 .sweevit-product__highlights {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 2rem;
   margin-top: 2.4rem;
-  padding: 0;
+  padding: 0 0 2.4rem;
   border: none;
+  border-bottom: 0.1rem solid rgba(26, 26, 26, 0.1);
 }
 
 @media screen and (min-width: 750px) {
@@ -199,8 +211,9 @@ sweevit-product-showcase {
 
 .sweevit-product__highlight {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.8rem;
   flex: 1;
   min-width: 0;
 }
@@ -210,8 +223,8 @@ sweevit-product-showcase {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   color: var(--sweevit-icon-gold, #d9a93a);
 }
 
@@ -219,8 +232,8 @@ sweevit-product-showcase {
   display: block;
   width: 100%;
   height: 100%;
-  max-width: 1.8rem;
-  max-height: 1.8rem;
+  max-width: 2.2rem;
+  max-height: 2.2rem;
 }
 
 .sweevit-product__highlight-body {
@@ -235,7 +248,7 @@ sweevit-product-showcase {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--sweevit-dark-charcoal);
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.6rem;
 }
 
 .sweevit-product__highlight-text {
@@ -247,13 +260,17 @@ sweevit-product-showcase {
   margin: 0;
 }
 
-/* Price + rating */
+/* Price + rating — price left, reviews right */
 .sweevit-product__price-rating {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.2rem 2rem;
-  margin-top: 2.4rem;
+  justify-content: space-between;
+  gap: 1.2rem 2.4rem;
+  width: 100%;
+  margin-top: 0;
+  padding: 2rem 0;
+  border-bottom: 0.1rem solid rgba(26, 26, 26, 0.1);
 }
 
 .sweevit-product__sale-price {
@@ -263,13 +280,17 @@ sweevit-product-showcase {
   line-height: 100%;
   letter-spacing: -0.01em;
   color: var(--sweevit-dark-charcoal);
+  flex-shrink: 0;
 }
 
 .sweevit-product__rating {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 0.8rem;
   margin-top: 0;
+  margin-left: auto;
 }
 
 .sweevit-product__stars {
@@ -294,7 +315,8 @@ sweevit-product-showcase {
 
 .sweevit-product__repurchase {
   margin-left: 0.4rem;
-  color: rgba(26, 26, 26, 0.55);
+  font-weight: 700;
+  color: var(--sweevit-dark-charcoal);
 }
 
 /* Variants — Bundle & Save */
@@ -453,13 +475,12 @@ sweevit-product-showcase {
   box-sizing: border-box;
 }
 
-.sweevit-product__option.is-active {
+.sweevit-product__option.is-active:has(input[value='subscribe']) {
   border-color: transparent;
   background: var(--sweevit-subscribe-bg);
 }
 
-.sweevit-product__option[data-purchase-option]:has(input[value='onetime']).is-active,
-.sweevit-product__option:has(input[value='onetime']).is-active {
+.sweevit-product__option.is-active:has(input[value='onetime']) {
   background: #f7f7f5;
   border-color: rgba(26, 26, 26, 0.12);
 }
