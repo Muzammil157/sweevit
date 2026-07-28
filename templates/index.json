@@ -242,6 +242,55 @@
         "padding_bottom": 66
       }
     },
+    "sweevit_about_story": {
+      "type": "sweevit-about-story",
+      "blocks": {
+        "press_forbes": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Forbes"
+          }
+        },
+        "press_wh": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Women's Health"
+          }
+        },
+        "press_vogue": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "VOGUE"
+          }
+        },
+        "press_esquire": {
+          "type": "press_logo",
+          "settings": {
+            "logo_text": "Esquire"
+          }
+        }
+      },
+      "block_order": [
+        "press_forbes",
+        "press_wh",
+        "press_vogue",
+        "press_esquire"
+      ],
+      "settings": {
+        "eyebrow": "ABOUT US",
+        "heading": "We Believe Wellness Should Feel Effortless.",
+        "show_rating": true,
+        "rating_value": "4.9 / 5.0",
+        "review_count": "217",
+        "review_label": "Reviews",
+        "brand_name": "sweevit",
+        "card_text": "<p>Sweevit started with a simple belief: wellness should feel like a ritual, not a chore. We wanted something that fits into real life — mornings, conversations, quiet moments of focus — without the noise of complicated routines.</p><p>Our mission is to bring ancient wisdom into modern living. Inspired by Himalayan mad honey and crafted for everyday clarity, energy, and balance.</p><p>Because feeling good shouldn't mean choosing between health and enjoyment. With Sweevit, you get both — naturally.</p>",
+        "video_url": "",
+        "background_gradient": "linear-gradient(135deg, #E8E8F5 0%, #F5F2FA 28.57%, #EBF5FC 50%, #F2EDE6 71.43%)",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "sweevit_whats_inside": {
       "type": "sweevit-whats-inside",
       "blocks": {
@@ -493,6 +542,7 @@
     "sweevit_benefits",
     "sweevit_difference",
     "sweevit_product_showcase",
+    "sweevit_about_story",
     "sweevit_whats_inside",
     "sweevit_choose_pack",
     "sweevit_testimonials",
